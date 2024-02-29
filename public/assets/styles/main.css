@@ -2,15 +2,74 @@ body{
     background: var(--Base, #F7F5E6);
 }
 
+/* Estilos modificados para la etiqueta Nav y clases usadas en ella */
 nav{
-    /* Estructura */
-    height: 8vh;
-    /* Estilo */
     background-color: #F7F5E6;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
 }
 
+.container-fluid{
+    padding: 0 1.5rem;
+}
+
+.navbar-expand-md {
+    padding: 0 0 4px 0;
+}
+
+.dropdown-toggle::after{
+    border: 0;
+}
+
+.personalizar-icono-usuario{
+    font-size: 2rem;
+    padding: 0;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos modificados para la etiqueta Main y clases usadas en ella */
 main{
-    height: 92vh;
-    background-color: aqua;
+    height: 90vh;
+}
+
+h1{
+    color: #000;
+    font-family: Poppins;
+    font-size: 2.5em;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 48.4px; /* 94.902% */
+    letter-spacing: -1.02px;
+    padding-right: 2rem;
+    margin: 0;
+
+}
+
+.boton_busqueda{
+    display: flex;
+    justify-content: space-between;
+    height: 3.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.prueba_boton_boton{
+    padding: 0 20px 0 0;
+    border: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background-color: white;
+}
+
+.prueba_boton_input{
+    width: 100%;
+    padding: 0 0 0 20px;
+    border: none;
+    border-radius: 0.5rem 0 0 0.5rem ;
+    outline: none;
+}
+
+.titulo_btnbusqueda-main{
+    display: flex;
+    padding-top: 1rem;
+    align-items: center;
 }
