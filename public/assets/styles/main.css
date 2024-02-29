@@ -29,13 +29,17 @@ nav{
 
 /* Estilos modificados para la etiqueta Main y clases usadas en ella */
 main{
-    height: 90vh;
+    height: 80vh;
+}
+
+.container_main{
+    padding: 0;
 }
 
 h1{
     color: #000;
     font-family: Poppins;
-    font-size: 2.5em;
+    font-size: 2.5rem;
     font-style: normal;
     font-weight: 600;
     line-height: 48.4px; /* 94.902% */
@@ -68,8 +72,28 @@ h1{
     outline: none;
 }
 
-.titulo_btnbusqueda-main{
+.titulo_btnbusqueda_main{
     display: flex;
     padding-top: 1rem;
     align-items: center;
 }
+
+hr{
+    stroke-width: 2px;
+    height: 2px;
+    border: none;
+    background-color: gray;
+}
+
+.container_contenido{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 81vh;
+}
+
+.container_contenido > h2{
+    font-family: inter;
+}
+
+/* ----------------------------------------------------------------------- */
