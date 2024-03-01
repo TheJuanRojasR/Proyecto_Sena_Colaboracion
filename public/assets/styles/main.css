@@ -94,6 +94,8 @@ hr{
     font-family: inter;
 }
 
+/*Estilos para vista de Inventario */
+
 #container_inventarios{
 display: flex;
 }
@@ -120,6 +122,74 @@ display: flex;
     line-height: 1.5rem;
     background-color: #333A56;
     color: white;
+    transition: none;
+}
+
+
+.btn_formulario_inventario:hover{
+    background-color: #333A56;
+    color: white;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Inventario/InventarioCrear */
+
+.container_inventario_crear{
+    position: relative;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    margin: 0;
+    box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.container_inventario_crear > h3{
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--black, #171740);
+}
+
+.container_inventario_crear > p{
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: var(--dark-grey, #242464);
+}
+
+.btn_inventario_crear{
+    height: 3.6rem;
+    margin-top: 3rem;
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    background-color: #333A56;
+    color: white;
+}
+
+
+.btn_inventario_crear:hover{
+    background-color: #333A56;
+    color: white;
+}
+
+.btn-group > .dropdown-menu{
+    background-color: #333A56;
+    color: white;
+    font-family: Inter;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.125rem;
+}
+
+li > p {
+    margin: 0;
 }
 
 

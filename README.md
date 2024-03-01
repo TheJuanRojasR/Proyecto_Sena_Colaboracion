@@ -20,4 +20,6 @@
 
 - La barra de navegacion tiene que ser de clase .container-fluid de Bootstrap para que se adapte a todo el ancho de la pantalla todo el tiempo.
 - El main debera de tener la clase .container de Bootstrap debido a que tiene un ancho maximo y no va llenar toda la pantalla.
+- El evento de click para los formularios y los botones toca modificarlos en el js. Mientras los dejamos como estan
 
+> Importante : revivisar todos los estilos y mirar cuales puedo modificar para optimizar y quede mas entendible. 
