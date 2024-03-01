@@ -89,10 +89,35 @@
             </div>
         </div>
         <hr>
-        <div class="container container_contenido">
-            <h2>No tienes Inventarios <a href="">haz clic aquí para crear uno</a></h2>
+
+        <div class="container" id="container_inventarios">
+            <div class="container col-lg-4 container_formularios_inventario ">
+                <div>
+                    <form class="form-floating items-formularios">
+                        <input type="email" class="form-control" id="floatingInputValue" placeholder="nombre-almacen" value="SENA Quirigua">
+                        <label for="floatingInputValue">Nombre Inventario</label>
+                    </form>
+        
+                    <form class="form-floating items-formularios">
+                        <input type="email" class="form-control" id="floatingInputValue" placeholder="direccion-almacen" value="Cra. 93 #80c-72">
+                        <label for="floatingInputValue">Dirección Inventario</label>
+                    </form>
+        
+                    <form class="form-floating items-formularios">
+                        <input type="email" class="form-control" id="floatingInputValue" placeholder="descripcion-almacen" value="Contiene computadores">
+                        <label for="floatingInputValue">Descripción Inventario</label>
+                    </form>
+                </div>
+    
+                <div class="d-grid gap-2">
+                    <button class="btn btn_formulario_inventario" type="button">Crear Inventario</button>
+                </div>
+            </div>
         </div>
+        
     </main>
+
+
 
     <!-- Plantillas -->
 
