@@ -181,6 +181,11 @@ display: flex;
 
 .btn-group > .dropdown-menu{
     background-color: #333A56;
+}
+
+li > button > p {
+    margin: 0;
+    padding-left: 11px;
     color: white;
     font-family: Inter;
     font-size: 0.8125rem;
@@ -188,9 +193,7 @@ display: flex;
     line-height: 1.125rem;
 }
 
-li > p {
-    margin: 0;
-}
-
 
 /* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Entradas y Salidas */

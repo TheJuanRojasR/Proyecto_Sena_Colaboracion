@@ -22,4 +22,4 @@
 - El main debera de tener la clase .container de Bootstrap debido a que tiene un ancho maximo y no va llenar toda la pantalla.
 - El evento de click para los formularios y los botones toca modificarlos en el js. Mientras los dejamos como estan
 
-> Importante : revivisar todos los estilos y mirar cuales puedo modificar para optimizar y quede mas entendible. 
+> Importante : revivisar todos los estilos y mirar cuales puedo modificar para optimizar y quede mas entendible. Agregar el boton de Crear inventario en las plantillas de inventario.  

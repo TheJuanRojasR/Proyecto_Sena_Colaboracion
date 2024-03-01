@@ -85,45 +85,27 @@
     <main class="container-fluid container_main"">
         <div class="container">
             <div class="titulo_btnbusqueda_main" >
-                <h1>INVENTARIO</h1>
+                <h1>ENTRADAS/SALIDAS</h1>
+
+                <div>
+                    <form action="#" method="get" class="search-form">
+                        <div class="boton_busqueda">
+                            <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto">
+                            <button class="prueba_boton_boton" type="button" >
+                                <img src="/public/assets/images/logo_lupa.svg" alt="">
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <button class="btn btn-primary">
+                    Crear Entrada
+                </button>
+
             </div>
         </div>
         <hr>
 
-        <div class="container flex-wrap justify-content-around" id="container_inventarios">
-            <div class="container col-lg-3 container_inventario_crear flex-wrap">
-
-                <div class="d-flex justify-content-between">
-                    <h3>Nombre de Inventario</h3>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                          <img src="/public/assets/images/menu_horizontal.svg" alt="">
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li class="d-flex align-items-center">
-                                <button class="btn boton-menu">
-                                    <img src="/public/assets/images/lapiz_editar.svg" alt="">
-                                </button>
-                                <p>Editar</p>
-                            </li>
-                            <li class="d-flex align-items-center">
-                                <button class="btn boton-menu">
-                                    <img src="/public/assets/images/eliminar.svg" alt="">
-                                </button>
-                                <p>Eliminar</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <p>Dirección: XXXXX</p>
-                <p>Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat.vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat</p>
-                <div class="d-grid gap-2">
-                    <button class="btn btn_inventario_crear" type="button">Ingresar</button>
-                </div>
-            </div>
-
-            
     </main>
 
 
@@ -185,6 +167,49 @@
     
                 <div class="d-grid gap-2">
                     <button class="btn btn_formulario_inventario" type="button">Crear Inventario</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="Inventario/Inventario con opcion de Eliminar o Editar">
+        <div class="container">
+            <div class="titulo_btnbusqueda_main" >
+                <h1>INVENTARIO</h1>
+            </div>
+        </div>
+        <hr>
+
+        <div class="container flex-wrap justify-content-around" id="container_inventarios">
+            <div class="container col-lg-3 container_inventario_crear flex-wrap">
+
+                <div class="d-flex justify-content-between">
+                    <h3>Nombre de Inventario</h3>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                          <img src="/public/assets/images/menu_horizontal.svg" alt="">
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="d-grid gap-2">
+                                <button class="btn boton-menu d-flex align-items-center">
+                                    <img src="/public/assets/images/lapiz_editar.svg" alt="">
+                                    <p>Editar</p>
+                                </button>
+                            </li>
+                            <li class="d-grid gap-2">
+                                <button class="btn boton-menu d-flex align-items-center">
+                                    <img src="/public/assets/images/eliminar.svg" alt="">
+                                    <p>Eliminar</p>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p>Dirección: XXXXX</p>
+                <p>Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat.vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat</p>
+                <div class="d-grid gap-2">
+                    <button class="btn btn_inventario_crear" type="button">Ingresar</button>
                 </div>
             </div>
         </div>
