@@ -82,10 +82,11 @@
         </div>
     </nav>
 
-    <main class="container-fluid container_main"">
+    <main class="container-fluid container_main">
         <div class="container">
-            <div class="titulo_btnbusqueda_main" >
-                <h1>ENTRADAS/SALIDAS</h1>
+            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>ENTRADAS/SALIDAS</h1>
 
                 <div>
                     <form action="#" method="get" class="search-form">
@@ -97,15 +98,61 @@
                         </div>
                     </form>
                 </div>
-
-                <button class="btn btn-primary">
+                </div>
+                <button class="btn btn-contenido">
                     Crear Entrada
                 </button>
-
             </div>
         </div>
         <hr>
 
+        <div class="container"> 
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="">
+                        </button>
+                        Referencia
+                    </th>
+                    <th scope="col">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="">
+                        </button>
+                        Fecha y Hora
+                    </th>
+                    <th scope="col">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="">
+                        </button>
+                        Producto
+                    </th>
+                    <th scope="col">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="">
+                        </button>
+                        Cantidad
+                    </th>
+                    <th scope="col">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="">
+                        </button>
+                        Origen
+                    </th>
+                    <th scope="col">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="">
+                        </button>
+                        Destino
+                    </th>
+                    <th scope="col">
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+
+        </div>
     </main>
 
 

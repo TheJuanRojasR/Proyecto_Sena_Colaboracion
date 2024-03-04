@@ -197,3 +197,35 @@ li > button > p {
 /* ----------------------------------------------------------------------- */
 
 /* Estilos para vista de Entradas y Salidas */
+
+.btn-contenido{
+    height: 56px;
+    color: white;
+    border-radius: 8px;
+    background: var(--Brand-primary, #333A56);
+
+    /* Estilos para el texto */
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; /* 133.333% */
+}
+
+.btn-contenido:hover{
+    background-color: #333A56;
+    color: white;
+}
+
+.btn-tabla-icono{
+    padding: 0;
+}
+
+th{
+    color: var(--black, #171740);
+font-family: Inter;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 700;
+line-height: 1.125rem; /* 128.571% */
+}
