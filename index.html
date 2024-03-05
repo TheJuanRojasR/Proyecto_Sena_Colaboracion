@@ -82,8 +82,18 @@
             <div class="titulo_pagina">
                 <p class="title_small">Inventraio</p>
             </div>
-            <div>
-                <p class="message">NO TIENES INVENTARIOS</p>
+            <div class="contenedor_informacion">
+                <div class="dropdown">
+                    <button class="d-flex align-items-center btn btn-secondary dropdown-toggle boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="color_lateral" id="lateral_oscuro"></div>
+                      Inventario 1
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><p>Direccion</p></li>
+                      <li><p>Descripcion</p></li>
+                      <li><a class="dropdown-item" href="#">Editar Inventario</a></li>
+                    </ul>
+                  </div>
             </div>
             <div class="menu_un_btn">
                 <div class="btn_main d-flex justify-content-center">
@@ -132,7 +142,6 @@
             </ul>
         </div>
     </nav>
-
 
 <!-- TEMPLATES PANTALLAS -->
 
@@ -275,6 +284,7 @@
         </div>
     </div>
 </template>
+
 
 <!-- Pantalla Perfiles vacia -->
 <template id="no_perfiles">
