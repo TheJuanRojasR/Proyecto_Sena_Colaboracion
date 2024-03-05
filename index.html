@@ -78,27 +78,19 @@
 
 <!-- Contenido de la pagina -->
     <main>
-        <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
+        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
             <div class="titulo_pagina">
-                <p class="title_small">Crear Producto</p>
+                <p class="title_small">Inventraio</p>
             </div>
-            <div class="titulo_creacion">
-                <h1>Crear Producto</h1>
+            <div>
+                <p class="message">NO TIENES INVENTARIOS</p>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form_producto" >
-                <input type="text" class="form-control" id="nombre_inventario" placeholder="Nombre Producto">
-                <input type="text" class="form-control" id="Referencia Producto" placeholder="Referencia Producto">
-                <input type="text" class="form-control" id="Categoria Producto" placeholder="Categoria Producto">
-                <input type="text" class="form-control" id="Ubicacion" placeholder="Ubicacion">
-                <input type="text" class="form-control" id="Cantidad" placeholder="Cantidad">
-                <input type="text" class="form-control" id="Stock minimo" placeholder="Stock minimo">
-                <input type="text" class="form-control" id="Costo" placeholder="Costo">
-                <input type="text" class="form-control" id="Precio" placeholder="Precio">
-            </div>
-            <div class="container d-flex justify-content-end contenedor_boton">
-                <button class="btn boton_oscuro_corto" type="button">
-                    Crear Entrada
-                </button>
+            <div class="menu_un_btn">
+                <div class="btn_main d-flex justify-content-center">
+                    <button class="btn crear" type="button">
+                        <img src="/Assets/img/plus.svg" alt="" class="img_big">
+                    </button>
+                </div>
             </div>
         </div>
     </main>
@@ -164,8 +156,11 @@
 </template>
 
 <!-- Pantalla Crear Inventario -->
-<template>
+<template id="crear_inventario">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
+        <div class="contenedor_flecha_back">
+            <img src="/Assets/img/arrow-arrow-left-lg.svg" alt="">
+        </div>
         <div class="titulo_pagina">
             <p class="title_small">Crear Inventraio</p>
         </div>
@@ -185,7 +180,13 @@
                 <img src="/Assets/img/inventario-communication-chat.svg" alt="" class="img_small">
                 <input type="text" placeholder="Descripcion" id="input_oscuro">
             </div>
-        </div>    
+        </div>
+        <div class="container d-flex justify-content-end contenedor_boton">
+            <button class="btn boton_oscuro_corto" type="button">
+                Crear
+            </button>
+        </div>
+    </div>   
 </template>
 
 <!-- Pantalla Movimientos vacia -->
@@ -257,7 +258,10 @@
         <div class="container d-flex flex-column align-items-center contenedor_form_producto" >
             <input type="text" class="form-control" id="nombre_inventario" placeholder="Nombre Producto">
             <input type="text" class="form-control" id="Referencia Producto" placeholder="Referencia Producto">
-            <input type="text" class="form-control" id="Categoria Producto" placeholder="Categoria Producto">
+            <select type="text" class="select_oscuro" id="Categoria Producto">
+                <option selected class="opciones">Categoria Producto</option>
+                <option class="opciones">Categoria 1</option>
+            </select>
             <input type="text" class="form-control" id="Ubicacion" placeholder="Ubicacion">
             <input type="text" class="form-control" id="Cantidad" placeholder="Cantidad">
             <input type="text" class="form-control" id="Stock minimo" placeholder="Stock minimo">
