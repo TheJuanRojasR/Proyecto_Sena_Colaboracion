@@ -244,3 +244,27 @@ li > button > p {
 #btnGuardar-tabla img {
     filter: invert(100%);
 }
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Operaciones/Entradas y Salidas con opciones*/
+
+.td-body-tabla{
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 18px; /* 138.462% */   
+}
+
+/* Cambiar nombre de clases para estos estilos */
+
+a.page-link{
+    background-color: transparent;
+    border: none;
+}
+
+a.page-link:hover{
+    background-color: transparent;
+    border: none;
+}
