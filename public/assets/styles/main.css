@@ -44,7 +44,6 @@ h1{
     letter-spacing: -1.02px;
     padding-right: 2rem;
     margin: 0;
- 
 }
 
 .boton_busqueda{
@@ -219,13 +218,29 @@ li > button > p {
 
 .btn-tabla-icono{
     padding: 0;
+    color: var(--black, #171740);
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.125rem; /* 128.571% */
 }
 
-th{
-    color: var(--black, #171740);
-font-family: Inter;
-font-size: 0.875rem;
-font-style: normal;
-font-weight: 700;
-line-height: 1.125rem; /* 128.571% */
+/* Para poder colocar el color en el encabezado de la tabla*/
+.table>:not(caption)>*>*{
+    background: var(--Base, #F7F5E6);
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Operaciones/Crear Entradas y Salidas*/
+
+#btnGuardar-tabla{
+    padding: 0.45rem 0.45rem;
+    background-color: #333A56;
+    color: white;
+}
+
+#btnGuardar-tabla img {
+    filter: invert(100%);
 }
