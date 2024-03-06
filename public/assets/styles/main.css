@@ -259,11 +259,15 @@ li > button > p {
     line-height: 18px; /* 138.462% */   
 }
 
-.td-body-tabla > p{
+.td-body-tabla_opciones{
     margin: 0;
     padding-left: 32px;
 }
 
+.td-body-tabla_categoria{
+    margin: 0;
+    padding-left: 32px;
+}
 /* Cambiar nombre de clases para estos estilos */
 
 a.page-link{
@@ -280,3 +284,11 @@ a.page-link:hover{
 /* ----------------------------------------------------------------------- */
 
 /* Estilos para vista de Stock/Crear Producto*/
+
+
+/*Por corregir*/
+
+#th_input_nombreCategoria{
+    width: 40%;
+    margin-left: 30px;
+}
