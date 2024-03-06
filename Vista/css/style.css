@@ -80,7 +80,7 @@ h1{
     margin: 0px 0px;
 }
 
-.contenedor_form_inventario,.contenedor_form_producto,.contenedor_boton,.contenedor_informacion{
+.contenedor_form_inventario,.contenedor_form_producto,.contenedor_boton{
     max-width: 323px;
     padding: 0px 25px;
 }
@@ -108,12 +108,37 @@ h1{
     font-size: 16px;
 }
 
+.contenedor_informacion{
+    min-width: 323px;
+    padding: 0px 25px;
+}
+
+.dropdown{
+    width: 100%;
+    margin-bottom: 5px;
+}
+
 .boton_informacion_dropdown{
     background-color: transparent;
-    color:#6979F8;
+    color:#666666;
+    width: 100%;
     padding: 0px;
     border: 1px solid rgba(228, 228, 232, 0.60);
     border-radius: 4px;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.boton_informacion_dropdown:hover{
+    background-color: transparent;
+    color: #666666;
+}
+
+.boton_informacion_dropdown::after{
+    content: url(/Assets/img/inventario-chevron-down.svg);
+    margin-left: auto;
 }
 
 .color_lateral{
@@ -124,7 +149,31 @@ h1{
 
 #lateral_oscuro{
     background: #333A56;
-    
+    margin-right: 5px;
+}
+
+.informacion_dropdown_contenido{
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid rgba(228, 228, 232, 0.60);
+}
+
+.texto_dropdown{
+    color: #666;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    padding-left: 24px;
+}
+
+.accion_dropdown{
+    color: #5D5DC5;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    margin: 0px auto;
 }
 
 .form-control{
