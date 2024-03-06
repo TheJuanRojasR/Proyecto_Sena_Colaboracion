@@ -227,6 +227,7 @@ li > button > p {
 }
 
 /* Para poder colocar el color en el encabezado de la tabla*/
+
 .table>:not(caption)>*>*{
     background: var(--Base, #F7F5E6);
 }
@@ -250,11 +251,17 @@ li > button > p {
 /* Estilos para vista de Operaciones/Entradas y Salidas con opciones*/
 
 .td-body-tabla{
+    margin: 0;
     font-family: Inter;
     font-size: 13px;
     font-style: normal;
     font-weight: 300;
     line-height: 18px; /* 138.462% */   
+}
+
+.td-body-tabla > p{
+    margin: 0;
+    padding-left: 32px;
 }
 
 /* Cambiar nombre de clases para estos estilos */
@@ -268,3 +275,8 @@ a.page-link:hover{
     background-color: transparent;
     border: none;
 }
+
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Stock/Crear Producto*/
