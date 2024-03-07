@@ -82,103 +82,31 @@
             </button>
         </div>
     </nav>
+    
+    <div class="container">
+        <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <h1>STOCK</h1>
+
+                <div>
+                    <form action="#" method="get" class="search-form">
+                        <div class="boton_busqueda">
+                            <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
+                            <button class="prueba_boton_boton" type="button">
+                                <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <hr />
 
     <main class="container-fluid container_main">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>Abastecimiento</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <hr />
-
-        <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Producto</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Referencia</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Categoría</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Ubicacion</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Stock Min</span>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <th scope="row" class="td-body-tabla"><p class="td-body-tabla_opciones" >Lapiz</p></th>
-                        <td class="td-body-tabla"><p class="td-body-tabla_opciones" >Ref 0001</p></td>
-                        <td class="td-body-tabla"><p class="td-body-tabla_opciones" >Papeleria</p></td>
-                        <td class="td-body-tabla"><p class="td-body-tabla_opciones" >Destino A</p></td>
-                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">0</p></td>
-                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">10</p></td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <img src="/public/assets/images/logo_flecha_izq.svg" alt="" />
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <img src="/public/assets/images/logo_flecha_der.svg" alt="" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
+        
     </main>
 
     <!-- Plantillas -->
@@ -755,109 +683,87 @@
     <!-- incompleto -->
     <template id="Stock/Produtos creados"> 
         <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>STOCK</h1>
+        <table class="table table_resposive">
+            <thead>
+                <tr>
 
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                    <th scope="col"></th>
+                    <th scope="col" class="">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                        </button>
+                        <span class="ml-2 btn-tabla-icono">Producto</span>
+                    </th>
+                    <th scope="col" class="">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                        </button>
+                        <span class="ml-2 btn-tabla-icono">Referencia</span>
+                    </th>
+                    <th scope="col">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                        </button>
+                        <span class="ml-2 btn-tabla-icono">Categoria</span>
+                    </th>
+                    <th scope="col">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                        </button>
+                        <span class="ml-2 btn-tabla-icono">Ubicacion</span>
+                    </th>
+                    <th scope="col">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                        </button>
+                        <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                    </th>
+                    <th scope="col">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                        </button>
+                        <span class="ml-2 btn-tabla-icono">EMN</span>
+                    </th>
+                    <th scope="col">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                        </button>
+                        <span class="ml-2 btn-tabla-icono">Costo</span>
+                    </th>
+                    <th scope="col">
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                        </button>
+                        <span class="ml-2 btn-tabla-icono">Precio</span>
+                    </th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
 
-                </div>
-
-            </div>
-        </div>
-        <hr />
-
-        <div class="container">
-            <table class="table table_resposive">
-                <thead>
-                    <tr>
-    
-                        <th scope="col"></th>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 prueba_span">Producto</span>
-                        </th>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 prueba_span">Referencia</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 prueba_span">Categoria</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 prueba_span">Ubicacion</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 prueba_span">Cantidad</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 prueba_span">EMN  </span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 prueba_span">Costo</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 prueba_span">Precio</span>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="form-check td-body-tabla">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                            </div>
-                        </td>
-                        <th scope="row" class="td-body-tabla"><p>Ref 0001</p></th>
-                        <td class="td-body-tabla prueba_span"><p>05/03/2024</p></td>
-                        <td class="td-body-tabla prueba_span"><p>Lapiz</p></td>
-                        <td class="td-body-tabla prueba_span"><p>10</p></td>
-                        <td class="td-body-tabla prueba_span"><p>Destino A</p></td>
-                        <td class="td-body-tabla prueba_span"><p>Destino B</p></td>
-                        <td class="td-body-tabla prueba_span"><p>Destino B</p></td>
-                        <td class="td-body-tabla prueba_span"><p>Destino B</p></td>
-                        <td>
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/logo_ingresar_detalles.svg" alt="" />
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+            <tbody>
+                <tr>
+                    <td>
+                        <div class="form-check td-body-tabla">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </div>
+                    </td>
+                    <th scope="row" class="td-body-tabla"><p>Ref 0001</p></th>
+                    <td class="td-body-tabla"><p>05/03/2024</p></td>
+                    <td class="td-body-tabla"><p>Lapiz</p></td>
+                    <td class="td-body-tabla"><p>10</p></td>
+                    <td class="td-body-tabla"><p>Destino A</p></td>
+                    <td class="td-body-tabla"><p>Destino B</p></td>
+                    <td class="td-body-tabla"><p>Destino B</p></td>
+                    <td class="td-body-tabla"><p>Destino B</p></td>
+                    <td>
+                        <button class="btn btn-tabla-icono">
+                            <img src="/public/assets/images/logo_ingresar_detalles.svg" alt="" />
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     </template>
 
     <template id="Stock/Categoria">
@@ -1106,6 +1012,124 @@
             </table>
 
             <button class="btn btn-contenido position-absolute bottom-0 end-0">Eliminar</button>
+        </div>
+    </template>
+
+    <template id="Stock/Abastecimiento">
+        <div class="container">
+            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>Abastecimiento</h1>
+
+                    <div>
+                        <form action="#" method="get" class="search-form">
+                            <div class="boton_busqueda">
+                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
+                                <button class="prueba_boton_boton" type="button">
+                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Categoría</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Ubicacion</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Stock Min</span>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="p-0" id="abastecimiento_columna_aviso_error"></td>
+                        <th scope="row" class="td-body-tabla"><p class="td-body-tabla_opciones">Lapiz</p></th>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">Ref 0001</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">Papeleria</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">Destino A</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones texto_error">0</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones texto_error">10</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-0" id="abastecimiento_columna_aviso_advertencia"></td>
+                        <th scope="row" class="td-body-tabla"><p class="td-body-tabla_opciones">Lapiz</p></th>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">Ref 0001</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">Papeleria</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">Destino A</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones texto_advertencia">10</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones texto_advertencia">10</p></td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-0" id="abastecimiento_columna_aviso_advertencia"></td>
+                        <th scope="row" class="td-body-tabla"><p class="td-body-tabla_opciones">Lapiz</p></th>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">Ref 0001</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">Papeleria</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">Destino A</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones texto_advertencia">10</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones texto_advertencia">10</p></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="/public/assets/images/logo_flecha_izq.svg" alt="" />
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="/public/assets/images/logo_flecha_der.svg" alt="" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
     </template>
 

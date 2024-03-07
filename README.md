@@ -23,3 +23,11 @@
 - El evento de click para los formularios y los botones toca modificarlos en el js. Mientras los dejamos como estan
 
 > Importante : revivisar todos los estilos y mirar cuales puedo modificar para optimizar y quede mas entendible. Agregar el boton de Crear inventario en las plantillas de inventario.  
+
+
+### Clase 07/03/24
+
+- Consultar que son Docbloks standards en js.
+- Consultar que codigo nos sirve para mostrar otra pag.
+- Toca tener un script aparte para manejar el js enfocado a la vista
+- En un formulario el name tiene que ser el mismo nombre de las columnas de las tablas de base de datos.

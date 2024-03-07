@@ -328,6 +328,36 @@ a.page-link:hover {
 
 /* ----------------------------------------------------------------------- */
 
+/* Estilos para vista de Stock/Abastecimiento*/
+
 #container_categoria {
     min-height: 100%;
+}
+
+#abastecimiento_columna_aviso_error{
+    width: 10px;
+    background-color: var(--Error, #F04C4C);
+    border-radius: 5px 0 0  5px ;
+}
+
+#abastecimiento_columna_aviso_advertencia{
+    width: 10px;
+    background-color: var(--Advertencia, #FF9900);
+    border-radius: 5px 0 0  5px ;
+}
+
+.texto_advertencia{
+    color: var(--Advertencia, #FF9900);
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+}
+
+.texto_error{
+    color: var(--Error, #F04C4C);
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
 }
