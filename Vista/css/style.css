@@ -20,6 +20,27 @@ nav,main{
     border: none;
 }
 
+.offcanvas.offcanvas-end{
+    width: 88%;
+    border-radius: 10px 0px 0px 10px;
+    background-color: #333A56;
+}
+
+.offcanvas-header{
+    padding: 15px 4px;
+}
+
+#term_condi,#politicas_priv,#ajustes_usu,#ayuda,#cerrar_ses{
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(228, 228, 228, 0.20);
+    margin: 12px 0px; 
+    color: #FFF;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+}
+
 /* MAIN */
 
 main{
@@ -39,7 +60,7 @@ main{
     left: 15px;
 }
 
-.titulo_pagina{
+.contenedor_titulo_small{
     margin-top: 24px;
     margin-bottom: 10px;
 }
@@ -111,6 +132,7 @@ h1{
 .contenedor_informacion{
     min-width: 323px;
     padding: 0px 25px;
+    margin-bottom: auto;
 }
 
 .dropdown{
@@ -123,7 +145,7 @@ h1{
     color:#666666;
     width: 100%;
     padding: 0px;
-    border: 1px solid rgba(228, 228, 232, 0.60);
+    border: 1px solid rgba(126, 126, 129, 0.6);
     border-radius: 4px;
     font-family: Inter;
     font-size: 13px;
@@ -131,9 +153,8 @@ h1{
     font-weight: 300;
 }
 
-.boton_informacion_dropdown:hover{
-    background-color: transparent;
-    color: #666666;
+.boton_informacion_dropdown:active{
+    color: #6979F8;
 }
 
 .boton_informacion_dropdown::after{
@@ -155,7 +176,7 @@ h1{
 .informacion_dropdown_contenido{
     width: 100%;
     background-color: transparent;
-    border: 1px solid rgba(228, 228, 232, 0.60);
+    border: 1px solid rgba(126, 126, 129, 0.6);
 }
 
 .texto_dropdown{

@@ -36,41 +36,31 @@
             </button>
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <button type="button" class="btn">
+                        <img src="/Assets/img/interface-search-magnifying-glass.svg" alt="">
+                    </button>                    
+                    <button type="button" class="btn">
+                        <img src="/Assets/img/menu-close-lg.svg" alt="">
+                    </button>
                 </div>
                 <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="dropdown-item" href="#">Action</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                </li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex mt-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <div class="contenido_offcanvas">
+                        <div id="term_condi">
+                            Terminos y Condiciones
+                        </div>
+                        <div id="politicas_priv">
+                            Politicas de Privacidad
+                        </div>
+                        <div id="ajustes_usu">
+                            Ajustes de usuario
+                        </div>
+                        <div id="ayuda">
+                            Ayuda
+                        </div>
+                        <div id="cerrar_ses">
+                            Cerrar Sesion
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -79,12 +69,12 @@
 <!-- Contenido de la pagina -->
     <main>
         <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <div class="titulo_pagina">
+            <div class="contenedor_titulo_small">
                 <p class="title_small">Inventraio</p>
             </div>
             <div class="contenedor_informacion d-flex flex-column justify-content-center">
                 <div class="d-flex dropdown">
-                    <button class="d-flex justify-content-between align-items-center btn btn-secondary boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="color_lateral" id="lateral_oscuro"></div>
                         Inventario 1
                     </button>
@@ -95,9 +85,9 @@
                     </ul>
                 </div>
                 <div class="d-flex dropdown">
-                    <button class="d-flex justify-content-between align-items-center btn btn-secondary boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button class="d-flex justify-content-between align-items-center btn-secondary boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="color_lateral" id="lateral_oscuro"></div>
-                        Inventario 1
+                        Inventario 2
                     </button>
                     <ul class="dropdown-menu informacion_dropdown_contenido">
                       <li><p class="texto_dropdown">Direccion</p></li>
@@ -159,7 +149,7 @@
 <!-- Pantalla Inventarios vacia -->
 <template id="no_inventarios">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-        <div class="titulo_pagina">
+        <div class="contenedor_titulo_small">
             <p class="title_small">Inventraio</p>
         </div>
         <div>
@@ -181,7 +171,7 @@
         <div class="contenedor_flecha_back">
             <img src="/Assets/img/arrow-arrow-left-lg.svg" alt="">
         </div>
-        <div class="titulo_pagina">
+        <div class="contenedor_titulo_small">
             <p class="title_small">Crear Inventraio</p>
         </div>
         <div class="titulo_creacion">
@@ -212,12 +202,12 @@
 <!-- Pantalla de Inventarios -->
 <template id="inventarios">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-        <div class="titulo_pagina">
+        <div class="contenedor_titulo_small">
             <p class="title_small">Inventraio</p>
         </div>
         <div class="contenedor_informacion d-flex flex-column justify-content-center">
             <div class="d-flex dropdown">
-                <button class="d-flex justify-content-between align-items-center btn btn-secondary boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="color_lateral" id="lateral_oscuro"></div>
                     Inventario 1
                 </button>
@@ -228,9 +218,9 @@
                 </ul>
             </div>
             <div class="d-flex dropdown">
-                <button class="d-flex justify-content-between align-items-center btn btn-secondary boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <button class="d-flex justify-content-between align-items-center btn-secondary boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <div class="color_lateral" id="lateral_oscuro"></div>
-                    Inventario 1
+                    Inventario 2
                 </button>
                 <ul class="dropdown-menu informacion_dropdown_contenido">
                   <li><p class="texto_dropdown">Direccion</p></li>
@@ -252,7 +242,7 @@
 <!-- Pantalla Movimientos vacia -->
 <template id="no_movimientos">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-        <div class="titulo_pagina">
+        <div class="contenedor_titulo_small">
             <p class="title_small">Entradas y Salidas</p>
         </div>
         <div>
@@ -278,8 +268,8 @@
 
 <!-- Pantalla Stock vacia -->
 <template id="no_stock">
-    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
-        <div>
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
+        <div class="contenedor_titulo_small">
             <p class="title_small">Stock</p>
         </div>
         <div>
@@ -309,7 +299,7 @@
 <!-- Pantalla Crear producto -->
 <template id="crear_producto">
     <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
-        <div class="titulo_pagina">
+        <div class="contenedor_titulo_small">
             <p class="title_small">Crear Producto</p>
         </div>
         <div class="titulo_creacion">
@@ -336,11 +326,10 @@
     </div>
 </template>
 
-
 <!-- Pantalla Perfiles vacia -->
 <template id="no_perfiles">
-    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
-        <div>
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
+        <div class="contenedor_titulo_small">
             <p class="title_small">Perfiles</p>
         </div>
         <div>
@@ -356,8 +345,8 @@
 
 <!-- Pantalla Categorias vacia -->
 <template id="no_categorias">
-    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
-        <div>
+    <div class="container-fluid d-flex flex-column justify-content-between align-items-center contenedor_main">
+        <div class="contenedor_titulo_small">
             <p class="title_small">Categorias</p>
         </div>
         <div>
