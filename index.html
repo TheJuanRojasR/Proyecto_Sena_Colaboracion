@@ -85,22 +85,23 @@
 
     <main class="container-fluid container_main">
         <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>Categoría</h1>
+            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>Abastecimiento</h1>
 
-                <div>
-                    <form action="#" method="get" class="search-form">
-                        <div class="boton_busqueda">
-                            <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                            <button class="prueba_boton_boton" type="button">
-                                <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                            </button>
-                        </div>
-                    </form>
+                    <div>
+                        <form action="#" method="get" class="search-form">
+                            <div class="boton_busqueda">
+                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
+                                <button class="prueba_boton_boton" type="button">
+                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-
         <hr />
 
         <div class="container">
@@ -111,7 +112,37 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 prueba_span">Categoria</span>
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Categoría</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Ubicacion</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Stock Min</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
@@ -119,22 +150,35 @@
 
                 <tbody>
                     <tr>
-                        <th scope="row" class="d-flex align-items-center">
-                            <div class="form-check td-body-tabla">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <p>Categoria XXX</p>
-                            </div>
-                        </th>
-                        <td class="text-end">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/logo_ingresar_detalles.svg" alt="" />
-                            </button>
-                        </td>
+                        <th scope="row" class="td-body-tabla"><p class="td-body-tabla_opciones" >Lapiz</p></th>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones" >Ref 0001</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones" >Papeleria</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones" >Destino A</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">0</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">10</p></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>
+
+            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="/public/assets/images/logo_flecha_izq.svg" alt="" />
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="/public/assets/images/logo_flecha_der.svg" alt="" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
-        
     </main>
 
     <!-- Plantillas -->
@@ -612,37 +656,37 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2">Referencia</span>
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
                         </th>
                         <th scope="col">
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2">Fecha y Hora</span>
+                            <span class="ml-2 btn-tabla-icono">Fecha y Hora</span>
                         </th>
                         <th scope="col">
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2">Producto</span>
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
                         </th>
                         <th scope="col">
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2">Cantidad</span>
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
                         </th>
                         <th scope="col">
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2">Origen</span>
+                            <span class="ml-2 btn-tabla-icono">Origen</span>
                         </th>
                         <th scope="col">
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2">Destino</span>
+                            <span class="ml-2 btn-tabla-icono">Destino</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
@@ -650,12 +694,12 @@
 
                 <tbody>
                     <tr>
-                        <th scope="row" class="td-body-tabla td-body-tabla_opciones"><p>Ref 0001</p></th>
-                        <td class="td-body-tabla td-body-tabla_opciones"><p>05/03/2024</p></td>
-                        <td class="td-body-tabla td-body-tabla_opciones"><p>Lapiz</p></td>
-                        <td class="td-body-tabla td-body-tabla_opciones"><p>10</p></td>
-                        <td class="td-body-tabla td-body-tabla_opciones"><p>Destino A</p></td>
-                        <td class="td-body-tabla td-body-tabla_opciones"><p>Destino B</p></td>
+                        <th scope="row" class="td-body-tabla"><p class="td-body-tabla_opciones" >Ref 0001</p></th>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones" >05/03/2024</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones" >Lapiz</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones" >10</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">Destino A</p></td>
+                        <td class="td-body-tabla"><p class="td-body-tabla_opciones">Destino B</p></td>
                         <td></td>
                     </tr>
                 </tbody>
@@ -893,22 +937,179 @@
         </div>
     </template>
 
+    <template id="Stock/Categoria con opciones">
+        <div class="container">
+            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>Categoría</h1>
+
+                    <div>
+                        <form action="#" method="get" class="search-form">
+                            <div class="boton_busqueda">
+                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
+                                <button class="prueba_boton_boton" type="button">
+                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <button class="btn btn-contenido">Crear Categoría</button>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 prueba_span">Categoria</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla" id="div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p id="p_div_input_p_tabla">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla" id="div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p id="p_div_input_p_tabla">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla" id="div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p id="p_div_input_p_tabla">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <template id="Stock/Categoria Elminar">
+        <div class="container">
+            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>Categoría</h1>
+
+                    <div>
+                        <form action="#" method="get" class="search-form">
+                            <div class="boton_busqueda">
+                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
+                                <button class="prueba_boton_boton" type="button">
+                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="container position-relative" id="container_categoria">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 prueba_span">Categoria</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla" id="div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p id="p_div_input_p_tabla">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla" id="div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p id="p_div_input_p_tabla">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla" id="div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p id="p_div_input_p_tabla">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="btn btn-contenido position-absolute bottom-0 end-0">Eliminar</button>
+        </div>
+    </template>
+
 </body>
 
 </html>
 
-<!-- <tbody>
-    <tr>
-        <th scope="row" class="d-flex align-items-center">
-            <div class="form-check td-body-tabla ">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            </div>
-            <input type="text" id="th_input_nombreCategoria" class="form-control" aria-label="Text input with dropdown button" placeholder="Ingreso nombre de Categoria" />
-        </th>
-        <td class="text-end">
-            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
-                <img src="/public/assets/images/guardar.svg" alt="" />
-            </button>
-        </td>
-    </tr>
-</tbody> -->
