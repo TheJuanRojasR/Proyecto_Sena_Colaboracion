@@ -1,5 +1,9 @@
 /* GENERAL */
 
+body{
+    background-color: #F7F5E6;
+}
+
 nav,main{
     background-color: #F7F5E6;
 }
@@ -62,7 +66,6 @@ main{
 
 .contenedor_titulo_small{
     margin-top: 24px;
-    margin-bottom: 10px;
 }
 
 .title_small{
@@ -78,7 +81,7 @@ main{
 
 .titulo_creacion{
     min-width: 323px;
-    margin-bottom: 10px;
+    margin: 20px 0px;
 }
 
 h1{

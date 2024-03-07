@@ -27,81 +27,35 @@
 <body class="d-flex flex-column justify-content-between">
 <!-- Barra superior -->
     <nav class="navbar fixed-top nav_sup">
-        <div class="container-fluid" id="contenedor_nav_sup">
-            <a class="navbar-brand contenedor_logo" href="#">
+        <div class="container-fluid flex-nowrap" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
+            <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
                 <img src="/Assets/img/logo-layout.png" alt="Variety Vault">
             </a>
-            <button class="navbar-toggler" id="contenedor_menu_desplegable" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <img src="/Assets/img/menu-menu-alt-02.svg" alt="">
-            </button>
-            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <button type="button" class="btn">
-                        <img src="/Assets/img/interface-search-magnifying-glass.svg" alt="">
-                    </button>                    
-                    <button type="button" class="btn">
-                        <img src="/Assets/img/menu-close-lg.svg" alt="">
-                    </button>
-                </div>
-                <div class="offcanvas-body">
-                    <div class="contenido_offcanvas">
-                        <div id="term_condi">
-                            Terminos y Condiciones
-                        </div>
-                        <div id="politicas_priv">
-                            Politicas de Privacidad
-                        </div>
-                        <div id="ajustes_usu">
-                            Ajustes de usuario
-                        </div>
-                        <div id="ayuda">
-                            Ayuda
-                        </div>
-                        <div id="cerrar_ses">
-                            Cerrar Sesion
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </nav>
 
 <!-- Contenido de la pagina -->
-    <main>
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <div class="contenedor_titulo_small">
-                <p class="title_small">Inventraio</p>
+    <main id="contenedor_principal">
+        <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
+            <div class="titulo_creacion">
+                <h1>Registrarse</h1>
             </div>
-            <div class="contenedor_informacion d-flex flex-column justify-content-center">
-                <div class="d-flex dropdown">
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div>
-                        Inventario 1
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                      <li><p class="texto_dropdown">Direccion</p></li>
-                      <li><p class="texto_dropdown">Descripcion</p></li>
-                      <li  class="accion_dropdown text-center"><a href="#">Editar Inventario</a></li>
-                    </ul>
-                </div>
-                <div class="d-flex dropdown">
-                    <button class="d-flex justify-content-between align-items-center btn-secondary boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div>
-                        Inventario 2
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                      <li><p class="texto_dropdown">Direccion</p></li>
-                      <li><p class="texto_dropdown">Descripcion</p></li>
-                      <li  class="accion_dropdown text-center"><a href="#">Editar Inventario</a></li>
-                    </ul>
-                </div>
+            <div class="container d-flex flex-column align-items-center contenedor_form_producto" >
+                <input type="text" class="form-control" id="nombre_inventario" placeholder="Nombre completo">
+                <select type="text" class="select_oscuro" id="Categoria Producto">
+                    <option selected class="opciones">Tipo Documento</option>
+                    <option class="opciones">Documento 1</option>
+                    <option class="opciones">Documento 2</option>
+                </select>
+                <input type="text" class="form-control" id="Referencia Producto" placeholder="Numero Documento">
+                <input type="text" class="form-control" id="Ubicacion" placeholder="Correo Electronico">
+                <input type="text" class="form-control" id="Cantidad" placeholder="Contraseña">
+                <input type="text" class="form-control" id="Stock minimo" placeholder="Repetir Contraseña">
             </div>
-            <div class="menu_un_btn">
-                <div class="btn_main d-flex justify-content-center">
-                    <button class="btn crear" type="button">
-                        <img src="/Assets/img/plus.svg" alt="" class="img_big">
-                    </button>
-                </div>
+            <div class="container d-flex justify-content-end contenedor_boton">
+                <button class="btn boton_oscuro_corto" type="button">
+                    Crear Entrada
+                </button>
             </div>
         </div>
     </main>
@@ -144,7 +98,107 @@
         </div>
     </nav>
 
+
+
+<!-- TEMPLATES NAVEGADOR SUP -->
+
+<!-- Navegador Superior con sin menu -->
+<template id="nav_sup_sin_menu">
+    <div class="container-fluid flex-nowrap" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
+        <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
+            <img src="/Assets/img/logo-layout.png" alt="Variety Vault">
+        </a>
+    </div>
+</template>
+
+<!-- Navegador Superior con menu Hamburguesa -->
+<template id="nav_sup_menu_hamburguesa">
+    <div class="container-fluid" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
+        <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
+            <img src="/Assets/img/logo-layout.png" alt="Variety Vault">
+        </a>
+        <button class="navbar-toggler" id="contenedor_menu_desplegable" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"> <!-- Boton de menu desplegable -->
+            <img src="/Assets/img/menu-menu-alt-02.svg" alt="">
+        </button> 
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"> <!-- Contenido menu desplegable -->
+            <div class="offcanvas-header"> <!-- Header del menu desplegable -->
+                <button type="button" class="btn"> <!-- Boton de busqueda -->
+                    <img src="/Assets/img/interface-search-magnifying-glass.svg" alt="">
+                </button>   
+                <button type="button" class="btn"> <!-- Boton de cierre -->
+                    <img src="/Assets/img/menu-close-lg.svg" alt="">
+                </button>
+            </div>
+            <div class="offcanvas-body"> <!-- Cuerpo del menu desplegable -->
+                <div class="contenido_offcanvas">
+                    <div id="term_condi">
+                        Terminos y Condiciones
+                    </div>
+                    <div id="politicas_priv">
+                        Politicas de Privacidad
+                    </div>
+                    <div id="ajustes_usu">
+                        Ajustes de usuario
+                    </div>
+                    <div id="ayuda">
+                        Ayuda
+                    </div>
+                    <div id="cerrar_ses">
+                        Cerrar Sesion
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<!-- TEMPLATES NAVEGADOR INF -->
+
+<!-- Navegador Inferior sin botones -->
+
+<!-- Navegador Inferior con botones-->
+<template id="nav_inf_con_btns">
+    <div class="container-fluid justify-content-center">
+        <ul class="navbar-nav flex-row justify-content-around flex-wrap" id="lista_nav_inf"> <!-- Lista de Navegacion -->
+            <li class="nav-item" id="home">
+                <button class="btn" type="button">
+                    <img src="/Assets/img/home.svg" alt="">
+                </button>
+                <p class="text_nav_inf">Inventario</p>
+            </li>
+            <li class="nav-item" id="movimientos">
+                <button class="btn" type="button">
+                    <img src="Assets/img/arrow-arrow-left-right.svg" alt="">
+                </button>
+                <p class="text_nav_inf">Movimientos</p>
+            </li>
+            <li class="nav-item" id="stock">
+                <button class="btn" type="button">
+                    <img src="/Assets/img/file-archive.svg" alt="">
+                </button>
+                <p class="text_nav_inf">Stock</p>
+            </li>
+            <li class="nav-item" id="estadisticas">
+                <button class="btn" type="button">
+                    <img src="/Assets/img/file-file-document.svg" alt="">
+                </button>
+                <p class="text_nav_inf">Estadisticas</p>
+            </li>
+            <li class="nav-item" id="perfiles">
+                <button class="btn" type="button">
+                    <img src="/Assets/img/user.svg" alt="">
+                </button>
+                <p class="text_nav_inf">Perfiles</p>
+            </li>
+        </ul>
+    </div>
+</template>
+
 <!-- TEMPLATES PANTALLAS -->
+
+<!-- Pantalla Registrarse -->
+<template id="registro_usuario">
+</template>
 
 <!-- Pantalla Inventarios vacia -->
 <template id="no_inventarios">
@@ -157,8 +211,8 @@
         </div>
         <div class="menu_un_btn">
             <div class="btn_main d-flex justify-content-center">
-                <button class="btn crear" type="button">
-                    <img src="/Assets/img/plus.svg" alt="" class="img_big">
+                <button class="btn crear" type="button" onclick="mostrar_form_crear_inv()">
+                    <img src="./Assets/img/plus.svg" alt="" class="img_big">
                 </button>
             </div>
         </div>
@@ -169,7 +223,7 @@
 <template id="crear_inventario">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
         <div class="contenedor_flecha_back">
-            <img src="/Assets/img/arrow-arrow-left-lg.svg" alt="">
+            <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
         </div>
         <div class="contenedor_titulo_small">
             <p class="title_small">Crear Inventraio</p>
@@ -179,7 +233,7 @@
         </div>
         <div class="contenedor_form_inventario">
             <div class="d-flex flex-row align-items-center nombre_inventario">
-                <img src="/Assets/img/inventario-file-archive-claro.svg" alt="" class="img_small">
+                <img src="./Assets/img/inventario-file-archive-claro.svg" alt="" class="img_small">
                 <input type="text" placeholder="Nombre Inventario" id="input_oscuro">
             </div>
             <div class="d-flex flex-row align-items-center direccion">
@@ -203,7 +257,7 @@
 <template id="inventarios">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
         <div class="contenedor_titulo_small">
-            <p class="title_small">Inventraio</p>
+            <p class="title_small">Inventario</p>
         </div>
         <div class="contenedor_informacion d-flex flex-column justify-content-center">
             <div class="d-flex dropdown">
@@ -344,7 +398,7 @@
 </template>
 
 <!-- Pantalla Categorias vacia -->
-<template id="no_categorias">
+    <template id="no_categorias">
     <div class="container-fluid d-flex flex-column justify-content-between align-items-center contenedor_main">
         <div class="contenedor_titulo_small">
             <p class="title_small">Categorias</p>
@@ -413,6 +467,10 @@
             </div>
         </div>
     </template>
+
+<!-- Enlaces a JS -->
+<script src="./Vista/js/vista.js"></script>
+<script src="./Controlador/controlador.js"></script>
 
 </body>
 </html>
