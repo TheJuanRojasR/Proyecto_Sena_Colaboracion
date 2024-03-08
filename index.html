@@ -26,7 +26,7 @@
 
 <body class="d-flex flex-column justify-content-between">
 <!-- Barra superior -->
-    <nav class="navbar fixed-top nav_sup">
+    <nav class="navbar fixed-top nav_sup" id="navegador_sup">
         <div class="container-fluid flex-nowrap" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
             <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
                 <img src="/Assets/img/logo-layout.png" alt="Variety Vault">
@@ -36,73 +36,52 @@
 
 <!-- Contenido de la pagina -->
     <main id="contenedor_principal">
-        <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
-            <div class="titulo_creacion">
-                <h1>Registrarse</h1>
+        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
+            <div class="contenedor_titulo_small">
+                <p class="title_small">Inventario</p>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form_producto" >
-                <input type="text" class="form-control" id="nombre_inventario" placeholder="Nombre completo">
-                <select type="text" class="select_oscuro" id="Categoria Producto">
-                    <option selected class="opciones">Tipo Documento</option>
-                    <option class="opciones">Documento 1</option>
-                    <option class="opciones">Documento 2</option>
-                </select>
-                <input type="text" class="form-control" id="Referencia Producto" placeholder="Numero Documento">
-                <input type="text" class="form-control" id="Ubicacion" placeholder="Correo Electronico">
-                <input type="text" class="form-control" id="Cantidad" placeholder="Contraseña">
-                <input type="text" class="form-control" id="Stock minimo" placeholder="Repetir Contraseña">
+            <div class="contenedor_informacion d-flex flex-column justify-content-center">
+                <div class="d-flex dropdown">
+                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="color_lateral" id="lateral_oscuro"></div>
+                        Inventario 1
+                    </button>
+                    <ul class="dropdown-menu informacion_dropdown_contenido">
+                      <li><p class="texto_dropdown">Direccion</p></li>
+                      <li><p class="texto_dropdown">Descripcion</p></li>
+                      <li  class="accion_dropdown text-center"><a href="#">Editar Inventario</a></li>
+                    </ul>
+                </div>
+                <div class="d-flex dropdown">
+                    <button class="d-flex justify-content-between align-items-center btn-secondary boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="color_lateral" id="lateral_oscuro"></div>
+                        Inventario 2
+                    </button>
+                    <ul class="dropdown-menu informacion_dropdown_contenido">
+                      <li><p class="texto_dropdown">Direccion</p></li>
+                      <li><p class="texto_dropdown">Descripcion</p></li>
+                      <li  class="accion_dropdown text-center"><a href="#">Editar Inventario</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="container d-flex justify-content-end contenedor_boton">
-                <button class="btn boton_oscuro_corto" type="button">
-                    Crear Entrada
-                </button>
+            <div class="menu_un_btn">
+                <div class="btn_main d-flex justify-content-center">
+                    <button class="btn crear" type="button">
+                        <img src="/Assets/img/plus.svg" alt="" class="img_big">
+                    </button>
+                </div>
             </div>
         </div>
     </main>
 
 <!-- Navegador Inferior -->
-    <nav class="navbar fixed-bottom nav_inf">
-        <div class="container-fluid justify-content-center">
-            <ul class="navbar-nav flex-row justify-content-around flex-wrap" id="lista_nav_inf"> <!-- Lista de Navegacion -->
-                <li class="nav-item" id="home">
-                    <button class="btn" type="button">
-                        <img src="/Assets/img/home.svg" alt="">
-                    </button>
-                    <p class="text_nav_inf">Inventario</p>
-                </li>
-                <li class="nav-item" id="movimientos">
-                    <button class="btn" type="button">
-                        <img src="Assets/img/arrow-arrow-left-right.svg" alt="">
-                    </button>
-                    <p class="text_nav_inf">Movimientos</p>
-                </li>
-                <li class="nav-item" id="stock">
-                    <button class="btn" type="button">
-                        <img src="/Assets/img/file-archive.svg" alt="">
-                    </button>
-                    <p class="text_nav_inf">Stock</p>
-                </li>
-                <li class="nav-item" id="estadisticas">
-                    <button class="btn" type="button">
-                        <img src="/Assets/img/file-file-document.svg" alt="">
-                    </button>
-                    <p class="text_nav_inf">Estadisticas</p>
-                </li>
-                <li class="nav-item" id="perfiles">
-                    <button class="btn" type="button">
-                        <img src="/Assets/img/user.svg" alt="">
-                    </button>
-                    <p class="text_nav_inf">Perfiles</p>
-                </li>
-            </ul>
-        </div>
+    <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
     </nav>
 
 
+<!-- TEMPLATES BARRAS SUP E INF -->
 
-<!-- TEMPLATES NAVEGADOR SUP -->
-
-<!-- Navegador Superior con sin menu -->
+<!-- Navegador Superior sin menu -->
 <template id="nav_sup_sin_menu">
     <div class="container-fluid flex-nowrap" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
         <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
@@ -112,7 +91,7 @@
 </template>
 
 <!-- Navegador Superior con menu Hamburguesa -->
-<template id="nav_sup_menu_hamburguesa">
+<template id="nav_sup_menu_ham">
     <div class="container-fluid" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
         <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
             <img src="/Assets/img/logo-layout.png" alt="Variety Vault">
@@ -152,9 +131,23 @@
     </div>
 </template>
 
-<!-- TEMPLATES NAVEGADOR INF -->
+<!-- Navegador Inferior registro -->
+<template id="nav_inf_reg">
+    <div class="container-fluid justify-content-center">
+        <p class="pregunta_nav_inf" id="pregunta_nav_inf_negro">¿Ya tienes una cuenta? 
+            <a href="">Inicia Sesion</a>
+        </p>
+    </div>
+</template>
 
-<!-- Navegador Inferior sin botones -->
+<!-- Navegador Inferior login -->
+<template id="nav_inf_login">
+    <div class="container-fluid justify-content-center">
+        <p class="pregunta_nav_inf" id="pregunta_nav_inf_negro">¿No tienes una cuenta? 
+            <a href="">Registrate</a>
+        </p>
+    </div>
+</template>
 
 <!-- Navegador Inferior con botones-->
 <template id="nav_inf_con_btns">
@@ -196,12 +189,77 @@
 
 <!-- TEMPLATES PANTALLAS -->
 
+<!-- Pantalla de Inicio -->
+<template id="pagina_inicio">
+    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
+        <div class="container d-flex flex-column justify-content-end contenedor_boton">
+            <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_form_login()">
+                Iniciar Sesion
+            </button>
+            <button class="btn boton_claro_largo" type="button" onclick="mostrar_form_registro_usuario()">
+                Registrarse
+            </button>
+        </div>
+    </div>
+</template>
+
 <!-- Pantalla Registrarse -->
 <template id="registro_usuario">
+    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
+        <div class="contenedor_flecha_back">
+            <button class="btn">
+                <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+            </button>
+        </div>
+        <div class="titulo_registro">
+            <h1>Registrarse</h1>
+        </div>
+        <div class="container d-flex flex-column align-items-center contenedor_form_registrarse" >
+            <input type="text" class="form-control" id="nombre_inventario" placeholder="Nombre completo">
+            <select type="text" class="select_oscuro" id="Categoria Producto">
+                <option selected class="opciones">Tipo Documento</option>
+                <option class="opciones">Documento 1</option>
+                <option class="opciones">Documento 2</option>
+            </select>
+            <input type="text" class="form-control" id="Referencia Producto" placeholder="Numero Documento">
+            <input type="text" class="form-control" id="Ubicacion" placeholder="Correo Electronico">
+            <input type="text" class="form-control" id="Cantidad" placeholder="Contraseña">
+            <input type="text" class="form-control" id="Stock minimo" placeholder="Repetir Contraseña">
+        </div>
+        <div class="container d-flex justify-content-end contenedor_boton">
+            <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv_vacia()">
+                Registar
+            </button>
+        </div>
+    </div>
+</template>
+
+<!-- Pantalla Log In -->
+<template id="log_in">
+    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
+        <div class="contenedor_flecha_back">
+            <button class="btn">
+                <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+            </button>
+        </div>
+        <div class="d-flex flex-column align-items-start contenedor_titulo_login">
+            <h1>Ingresar</h1>
+            <p id="subtitulo_login">Por favor ingrese para poder continuar</p>
+        </div>
+        <div class="container d-flex flex-column align-items-center contenedor_form_login" >
+            <input type="text" class="form-control" id="nombre_inventario" placeholder="Correo Electronico">
+            <input type="text" class="form-control" id="nombre_inventario" placeholder="Contraseña">
+        </div>
+        <div class="container d-flex justify-content-end contenedor_boton">
+            <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv_vacia()">
+                Ingresar
+            </button>
+        </div>
+    </div>
 </template>
 
 <!-- Pantalla Inventarios vacia -->
-<template id="no_inventarios">
+<template id="inventarios_vacia">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
         <div class="contenedor_titulo_small">
             <p class="title_small">Inventraio</p>
@@ -223,7 +281,9 @@
 <template id="crear_inventario">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
         <div class="contenedor_flecha_back">
-            <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+            <button class="btn">
+                <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+            </button>
         </div>
         <div class="contenedor_titulo_small">
             <p class="title_small">Crear Inventraio</p>
@@ -246,7 +306,7 @@
             </div>
         </div>
         <div class="container d-flex justify-content-end contenedor_boton">
-            <button class="btn boton_oscuro_corto" type="button">
+            <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inventarios()">
                 Crear
             </button>
         </div>
@@ -353,6 +413,11 @@
 <!-- Pantalla Crear producto -->
 <template id="crear_producto">
     <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
+        <div class="contenedor_flecha_back">
+            <button class="btn">
+                <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+            </button>
+        </div>
         <div class="contenedor_titulo_small">
             <p class="title_small">Crear Producto</p>
         </div>
@@ -377,7 +442,7 @@
                 Crear Entrada
             </button>
         </div>
-    </div>
+    </div> 
 </template>
 
 <!-- Pantalla Perfiles vacia -->
@@ -400,6 +465,11 @@
 <!-- Pantalla Categorias vacia -->
     <template id="no_categorias">
     <div class="container-fluid d-flex flex-column justify-content-between align-items-center contenedor_main">
+        <div class="contenedor_flecha_back">
+            <button class="btn">
+                <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+            </button>
+        </div>
         <div class="contenedor_titulo_small">
             <p class="title_small">Categorias</p>
         </div>
