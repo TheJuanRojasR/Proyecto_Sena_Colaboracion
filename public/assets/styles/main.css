@@ -74,6 +74,7 @@ h1{
     display: flex;
     padding-top: 1rem;
     align-items: center;
+    margin-left: -2rem;
 }
 
 hr{
@@ -259,7 +260,8 @@ line-height: 1.125rem; /* 128.571% */
     font-weight: 600;
     line-height: 37.5px; 
     letter-spacing: -1.02px;
-    margin-left: 4%;
+    margin-left: -70%;
+    margin-bottom: 7%;
 }
 h5{
     margin-bottom: 2.5%;
@@ -267,7 +269,43 @@ h5{
 #N1{
     margin-top: 9%;
 }
+#ol1{
+    color: #000;
+    text-align: justify;
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
+    margin-top: 24px;
+}
+#ol2{
+    margin-top: 37px;
+    color: #000;
+    text-align: justify;
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem;
+}
 
+#espacios{
+    margin-bottom: 2%;
+}
 
-
-
+.input-box{
+    width: 20.4375rem;
+    height: 3.75rem;
+    flex-shrink: 0;
+    margin-left: -25%;
+    
+}
+#menu{
+    width: 20.4375rem;
+    height: 3.75rem;
+    flex-shrink: 0; 
+}
+li{
+    list-style-type: none;
+}
