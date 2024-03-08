@@ -231,6 +231,12 @@ li>button>p {
     .btn-tabla-icono {
         font-size: 0.7em;
     }
+    .form-control {
+        font-size: 0.8em;
+    }
+    #btnGuardar-tabla {
+        padding: 0.25rem 0.25rem;
+    }
 }
 
 /* Para poder colocar el color en el encabezado de la tabla*/
@@ -361,3 +367,4 @@ a.page-link:hover {
     font-weight: 700;
     line-height: 18px;
 }
+

@@ -51,6 +51,7 @@
                             Operaciones
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Entradas/Salidas</a></li>
                             <li><a class="dropdown-item" href="#">Entradas</a></li>
                             <li><a class="dropdown-item" href="#">Salidas</a></li>
                         </ul>
@@ -83,30 +84,112 @@
         </div>
     </nav>
     
-    <div class="container">
-        <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-            <div class="d-flex align-items-center">
-                <h1>STOCK</h1>
-
-                <div>
-                    <form action="#" method="get" class="search-form">
-                        <div class="boton_busqueda">
-                            <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                            <button class="prueba_boton_boton" type="button">
-                                <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-    <hr />
-
     <main class="container-fluid container_main">
-        
+        <div class="container">
+            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>ENTRADAS</h1>
+
+                    <div>
+                        <form action="#" method="get" class="search-form">
+                            <div class="boton_busqueda">
+                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
+                                <button class="prueba_boton_boton" type="button">
+                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Referencia</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Fecha y Hora</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Producto</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Origen</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Destino</span>
+                            </button>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="">
+                        <td>
+                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <img src="/public/assets/images/logo_suma.svg" alt="" />
+                            </button>
+                        </td>
+                        <th scope="row">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </th>
+                        <td>
+                            <input type="date" class="form-control disabled"
+                                aria-label="Text input with dropdown button" placeholder="" disabled />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <img src="/public/assets/images/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
 
     <!-- Plantillas -->
@@ -295,6 +378,7 @@
         </div>
     </template>
 
+    <!-- Crear mas filas en operaciones -->
     <template id="Operaciones/Crear filas productos">
         <tbody>
             <tr>
@@ -336,6 +420,7 @@
         </tbody>
     </template>
 
+    <!-- Corregir -->
     <template id="Operaciones/Crear filas productos Entradas">
         <div class="container">
             <div class="titulo_btnbusqueda_main d-flex justify-content-between">
@@ -445,6 +530,7 @@
         </div>
     </template>
 
+    <!-- Corregir -->
     <template id="Operaciones/Crear filas productos Salidas">
         <div class="container">
             <div class="titulo_btnbusqueda_main d-flex justify-content-between">
@@ -554,6 +640,7 @@
         </div>
     </template>
 
+
     <template id="Operaciones/Entradas y Salidas con opciones">
         <div class="container">
             <div class="titulo_btnbusqueda_main d-flex justify-content-between">
@@ -571,7 +658,6 @@
                         </form>
                     </div>
                 </div>
-                <button class="btn btn-contenido">Crear Entrada</button>
             </div>
         </div>
         <hr />
