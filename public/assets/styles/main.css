@@ -197,6 +197,12 @@ li>button>p {
 
 /* Estilos para vista de Entradas y Salidas */
 
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
 .btn-contenido {
     height: 56px;
     color: white;
@@ -227,17 +233,7 @@ li>button>p {
     line-height: 1.125rem;
 }
 
-@media screen and (max-width: 1000px) {
-    .btn-tabla-icono {
-        font-size: 0.7em;
-    }
-    .form-control {
-        font-size: 0.8em;
-    }
-    #btnGuardar-tabla {
-        padding: 0.25rem 0.25rem;
-    }
-}
+
 
 /* Para poder colocar el color en el encabezado de la tabla*/
 
@@ -259,22 +255,25 @@ li>button>p {
     filter: invert(100%);
 }
 
+
 /* ----------------------------------------------------------------------- */
 
 /* Estilos para vista de Operaciones/Entradas y Salidas con opciones*/
 
 .td-body-tabla {
+    
     margin: 0;
     font-family: Inter;
     font-size: 13px;
     font-style: normal;
     font-weight: 300;
-    line-height: 18px;
+    line-height: 36px;
 }
 
 .td-body-tabla_opciones {
     margin: 0;
     padding-left: 32px;
+    vertical-align: middle;
 }
 
 .td-body-tabla_categoria {
@@ -367,4 +366,40 @@ a.page-link:hover {
     font-weight: 700;
     line-height: 18px;
 }
+
+/* ----------------------------------------------------------------------- */
+
+/* Medias las dejo de ultimas para que cargen bien el style */
+
+/* media que va en  Entradas y Salidas*/
+@media screen and (max-width: 1200px) {
+    .btn-tabla-icono {
+        font-size: 0.8em;
+    }
+}
+
+
+@media screen and (max-width: 991px) {
+    .btn-tabla-icono {
+        font-size: 0.78em;
+    }
+    .form-control {
+        font-size: 0.8em;
+    }
+    #btnGuardar-tabla {
+        padding: 0.3rem;
+    }
+    #btnGuardar-tabla img {
+        width: 18px;
+        height: 18px;
+    }
+    .table-responsible{
+        overflow-x: auto;
+    }
+    .td-body-tabla {
+        line-height: 28px; /* Valor ajustado para pantallas menores o iguales a 991px */
+    }
+}
+
+
 
