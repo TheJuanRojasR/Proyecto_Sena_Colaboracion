@@ -31,3 +31,8 @@
 - Consultar que codigo nos sirve para mostrar otra pag.
 - Toca tener un script aparte para manejar el js enfocado a la vista
 - En un formulario el name tiene que ser el mismo nombre de las columnas de las tablas de base de datos.
+
+
+
+### Faltantes. 
+- Tengo que centrar el boton de editar en la vista del Stock.

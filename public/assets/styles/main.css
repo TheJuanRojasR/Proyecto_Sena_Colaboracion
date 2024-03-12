@@ -317,12 +317,13 @@ a.page-link:hover {
     filter: invert(100%);
     font-family: Inter;
     font-size: 0.875rem;
-    font-style: normal;
     font-weight: 700;
     line-height: 1.125rem;
 }
 
 #div_input_p_tabla {
+    position: relative;
+    display: flex;
     margin-left: 7.5px;
     align-items: center;
 }
@@ -366,6 +367,7 @@ a.page-link:hover {
     font-weight: 700;
     line-height: 18px;
 }
+
 
 /* ----------------------------------------------------------------------- */
 
