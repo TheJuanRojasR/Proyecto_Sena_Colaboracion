@@ -223,6 +223,17 @@ li>button>p {
     color: white;
 }
 
+.btn-contenido_invertido{
+    color: #171740;
+    background: var(--lightestGrey, #FAFAFF);
+    margin-left: 1rem;
+}
+
+.btn-contenido_invertido:hover {
+    color: #171740;
+    background: var(--lightestGrey, #FAFAFF);
+}
+
 .btn-tabla-icono {
     padding: 0;
     color: var(--black, #171740);
@@ -310,6 +321,11 @@ a.page-link:hover {
 
 /* ----------------------------------------------------------------------- */
 
+/* Estilos para vista de Stock/Produtos Eliminar*/
+
+
+/* ----------------------------------------------------------------------- */
+
 /* Estilos para vista de Stock/Categoria con opciones*/
 
 .btn_editar_categoria {
@@ -368,6 +384,18 @@ a.page-link:hover {
     line-height: 18px;
 }
 
+/* ----------------------------------------------------------------------- */
+
+#imagen_ej_ddp{
+    height: auto;
+    max-width: 100%;
+}
+
+.contenedor-imagen {
+    max-width: 100%;
+    height: auto;
+    padding-left: 5rem;
+  }
 
 /* ----------------------------------------------------------------------- */
 
@@ -377,6 +405,16 @@ a.page-link:hover {
 @media screen and (max-width: 1200px) {
     .btn-tabla-icono {
         font-size: 0.8em;
+    }
+    .btn-contenido_invertido{
+        margin-left: 0;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+    .btn-contenido{
+        margin-left: 0;
+        width: 100%;
+        margin-top: 0.5rem;
     }
 }
 
@@ -400,6 +438,9 @@ a.page-link:hover {
     }
     .td-body-tabla {
         line-height: 28px; /* Valor ajustado para pantallas menores o iguales a 991px */
+    }
+    .btn-contenido_invertido{
+        margin-left: 0;
     }
 }
 
