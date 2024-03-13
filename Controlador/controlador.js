@@ -6,7 +6,7 @@ let vista = new Vista();
 
 
 // window.onload = function(){
-//     vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+    // vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
 // }
 
 function regresar_pantalla(){

@@ -43,25 +43,36 @@
                 </button>
             </div>
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Inventario</p>
+                <p class="title_small">Crear Perfil</p>
             </div>
-            <div class="contenedor_informacion d-flex flex-column justify-content-center"> <!-- Contenido para menu dropdown -->
-                <div class="d-flex flex-column dropdown">
-                    <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="titulo_creacion">
+                <h1>Crear Perfil</h1>
+            </div>
+            <div class="contenedor_informacion d-flex flex-column justify-content-center"> <!-- Contenido para menus dropdown -->
+                <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="color_lateral" id="lateral_oscuro"></div>
-                        Inventario 1
+                        Referencia xxxxxx
                     </button>
-                    <div class="contenedor_campos_edicion">
-                        <input type="text" name="" class="input_claro" id="input_editar_inventario" placeholder="Nuevo Nombre de Inventario">
-                        <input type="text" name="" class="input_claro" id="input_editar_inventario" placeholder="Nueva Direccion">
-                        <input type="text" name="" class="input_claro" id="input_editar_inventario" placeholder="Nueva Descripcion">
-                    </div>
+                    <ul class="dropdown-menu informacion_dropdown_contenido">
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="fecha_hora">Fecha y Hora</p></li>
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="origen">Origen</p></li>
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="destino">Destino</p></li>
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="cantidad">Cantidad</p></li>
+                    </ul>
                 </div>
-            </div>
-            <div class="container d-flex justify-content-end contenedor_boton">
-                <button class="btn boton_oscuro_corto" type="button">
-                    Guardar
-                </button>
+                <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="color_lateral" id="lateral_oscuro"></div>
+                        Referencia xxxxxx
+                    </button>
+                    <ul class="dropdown-menu informacion_dropdown_contenido">
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="fecha_hora">Fecha y Hora</p></li>
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="origen">Origen</p></li>
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="destino">Destino</p></li>
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="cantidad">Cantidad</p></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </main>
@@ -812,6 +823,117 @@
     </div>
 </template>
 
+<!-- Pantalla Almacenamiento -->
+<template id="almacenamiento">
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main">
+        <div class="contenedor_flecha_back">
+            <button class="btn" onclick="regresar_pantalla()">
+                <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+            </button>
+        </div>
+        <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+            <p class="title_small">Almacenamiento</p>
+        </div>
+        <div class="contenedor_informacion d-flex flex-column justify-content-center"> <!-- Contenido para menu dropdown -->
+            <div class="d-flex flex-column dropdown">
+                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="color_lateral" id="lateral_rojo"></div>
+                    Producto 1
+                </button>
+                <ul class="dropdown-menu informacion_dropdown_contenido">
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="producto">Producto</p></li>
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="stock_minimo">Stock minimo 20</p></li>
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="cantidad_disponible">Cantidad disponible 0</p></li>
+                </ul>
+            </div>
+            <div class="d-flex flex-column dropdown">
+                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="color_lateral" id="lateral_amarillo"></div>
+                    Producto 2
+                </button>
+                <ul class="dropdown-menu informacion_dropdown_contenido">
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="producto">Producto</p></li>
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="stock_minimo">Stock minimo 20</p></li>
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="cantidad_disponible">Cantidad disponible 20</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+
+<!-- Pantalla Editar Producto -->
+<template id="editar_producto">
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main">
+        <div class="contenedor_flecha_back">
+            <button class="btn" onclick="regresar_pantalla()">
+                <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+            </button>
+        </div>
+        <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+            <p class="title_small">Detalles del Producto</p>
+        </div>
+        <div class="titulo_creacion">
+            <h1>Editar Producto</h1>
+        </div>
+        <div class="container d-flex flex-column align-items-center contenedor_form_editar_producto" >
+            <input type="text" class="form-control" id="nombre_inventario" placeholder="Nombre Producto">
+            <select type="text" class="select_oscuro" id="Categoria Producto">
+                <option selected class="opciones">Categoria Producto</option>
+                <option class="opciones">Categoria 1</option>
+            </select>
+            <input type="text" class="form-control" id="Ubicacion" placeholder="Ubicacion">
+            <input type="text" class="form-control" id="Stock minimo" placeholder="Stock minimo">
+            <input type="text" class="form-control" id="Costo" placeholder="Costo">
+            <input type="text" class="form-control" id="Precio" placeholder="Precio">
+        </div>
+        <div class="container d-flex justify-content-end contenedor_boton">
+            <button class="btn boton_oscuro_corto" type="button">
+                Guardar
+            </button>
+        </div>
+    </div>
+</template>
+
+<!-- Pantalla Movimientos del Producto -->
+<template id="movimientos_del_producto">
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main">
+        <div class="contenedor_flecha_back">
+            <button class="btn" onclick="regresar_pantalla()">
+                <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+            </button>
+        </div>
+        <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+            <p class="title_small">Movimientos del Producto</p>
+        </div>
+        <div class="contenedor_informacion d-flex flex-column justify-content-center"> <!-- Contenido para menus dropdown -->
+            <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="color_lateral" id="lateral_oscuro"></div>
+                    Referencia xxxxxx
+                </button>
+                <ul class="dropdown-menu informacion_dropdown_contenido">
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="fecha_hora">Fecha y Hora</p></li>
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="origen">Origen</p></li>
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="destino">Destino</p></li>
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="cantidad">Cantidad</p></li>
+                </ul>
+            </div>
+            <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="color_lateral" id="lateral_oscuro"></div>
+                    Referencia xxxxxx
+                </button>
+                <ul class="dropdown-menu informacion_dropdown_contenido">
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="fecha_hora">Fecha y Hora</p></li>
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="origen">Origen</p></li>
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="destino">Destino</p></li>
+                    <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="cantidad">Cantidad</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>
+
 <!-- Pantalla Perfiles vacia -->
 <template id="no_perfiles">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main">
@@ -828,6 +950,8 @@
         </div>
     </div>
 </template>
+
+<!-- Pantalla Crear Perfil -->
 
 <!-- TEMPLATES BOTONES -->
 
