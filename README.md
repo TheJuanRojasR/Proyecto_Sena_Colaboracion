@@ -35,4 +35,6 @@
 
 
 ### Faltantes. 
-- Tengo que centrar el boton de editar en la vista del Stock.
+- Tengo que centrar el boton de editar en la vista del Stock. hecho
+- Cambiar el alto de las opciones en el select. 
+- En estadisticas dejo un div del 100% para despues colocar el grafico en ese div.

@@ -25,6 +25,14 @@ nav {
     padding: 0;
 }
 
+.alto_maximo{
+    height: 100%;
+}
+
+.ancho_maximo{
+    width: 100%;
+}
+
 /* ----------------------------------------------------------------------- */
 
 /* Estilos modificados para la etiqueta Main y clases usadas en ella */
@@ -44,6 +52,16 @@ h1 {
     letter-spacing: -1.02px;
     padding-right: 2rem;
     margin: 0;
+}
+
+h2{
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
 }
 
 .boton_busqueda {
@@ -203,7 +221,7 @@ li>button>p {
     white-space: nowrap;
 }
 
-.btn-contenido {
+.btn-contenido, .btn-eliminar {
     height: 56px;
     color: white;
     border-radius: 8px;
@@ -218,7 +236,7 @@ li>button>p {
     /* 133.333% */
 }
 
-.btn-contenido:hover {
+.btn-contenido:hover, .btn-eliminar:hover {
     background-color: #333A56;
     color: white;
 }
@@ -386,6 +404,8 @@ a.page-link:hover {
 
 /* ----------------------------------------------------------------------- */
 
+/* Estilos para vista de Stock/Productos creados/Detalles del Producto*/
+
 #imagen_ej_ddp{
     height: auto;
     max-width: 100%;
@@ -398,6 +418,27 @@ a.page-link:hover {
   }
 
 /* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Estadisticas*/
+
+.form-select_modificado, #input_modificado{
+    width: 325px;
+    height: 48px;
+
+    color: #666;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 18px; 
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Estadisticas/Estadistica 1*/
+
+#h2_estadistica_01{
+    margin: 3.5rem 0;
+}
 
 /* Medias las dejo de ultimas para que cargen bien el style */
 
