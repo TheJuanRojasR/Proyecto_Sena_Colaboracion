@@ -33,390 +33,368 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md ">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa">
-            </a>
+    <div class="container-fluid almacen_principal">
+        <nav class="navbar navbar-expand-md ">
+            <div class="container-fluid justify-content-between">
+                <a class="navbar-brand" href="#">
+                    <img src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa">
+                </a>
+                <div id="contenedor-botones" class="d-flex justify-content-between">
+                    <button class="btn" type="button" id="boton1">Ingresar</button>
+                    <button class="btn" type="button" id="boton2">Registar</button>
+                </div>
+            </div>
+        </nav>
+        
+        <main class="container-fluid d-flex container_main justify-content-center">
+            <div class="container-medio">
+                <img id="imagem_centro" src="/public/assets/images/Marca.png" alt="Logo Empresa">
+            </div>
+        </main>
+        <footer class="container-inferior d-flex flex-row">
+            <div class="container" id="container_1">
+                <img src="/public/assets/images/logo_empresa_blanco.svg" alt="Logo Empresa">
+            </div>
+            <div class="container">
+                <ol>
+                    <li id="lista_1">Enlaces de Navegación</li>
+                    <li id="lista_2">Inicio</li>
+                    <li id="lista_2">Nosotros</li>
+                    <li id="lista_2">Contacto</li>
+                </ol>
+            </div>
+            <div class="container">
+                <ol>
+                    <li id="lista_1">Enlaces a Políticas</li>
+                    <li id="lista_2">Política Privada</li>
+                    <li id="lista_2">Términos y Condiciones</li>
+                    <li id="lista_2">Cookies</li>
+                </ol>
+            </div>
+            <div class="container">
+                <ol>
+                    <li id="lista_1">© 2024 Variety Vault</li>
+                </ol>
+            </div>
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+    </div>    
+</body>
 
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                    </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Operaciones
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Entradas</a></li>
-                            <li><a class="dropdown-item" href="#">Salidas</a></li>
-                        </ul>
-                    </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Stock
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Stock</a></li>
-                            <li><a class="dropdown-item" href="#">Abastecimiento</a></li>
-                        </ul>
-                    </li>
+<!-- Plantillas -->
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Estadisticas</a>
-                    </li>
+<template id="Inicio">
+    <div class="container-medio">
+        <img id="imagem_centro" src="/public/assets/images/Logo_Marca.svg" alt="Logo Empresa">
+    </div>
+    </main>
+    <footer class="container-inferior d-flex flex-row">
+        <div class="container" id="container_1">
+            <img src="/public/assets/images/logo_empresa_blanco.svg" alt="Logo Empresa">
+        </div>
+        <div class="container">
+            <ol>
+                <li id="lista_1">Enlaces de Navegación</li>
+                <li id="lista_2">Inicio</li>
+                <li id="lista_2">Nosotros</li>
+                <li id="lista_2">Contacto</li>
+            </ol>
+        </div>
+        <div class="container">
+            <ol>
+                <li id="lista_1">Enlaces a Políticas</li>
+                <li id="lista_2">Política Privada</li>
+                <li id="lista_2">Términos y Condiciones</li>
+                <li id="lista_2">Cookies</li>
+            </ol>
+        </div>
+        <div class="container">
+            <ol>
+                <li id="lista_1">© 2024 Variety Vault</li>
+            </ol>
+        </div>
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</template>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Perfiles</a>
-                    </li>
-                </ul>
+<template id="Inventario">
+    <div class="container">
+        <div class="titulo_btnbusqueda_main">
+            <h1>INVENTARIO</h1>
+
+            <div>
+                <form action="#" method="get" class="search-form">
+                    <div class="boton_busqueda">
+                        <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto">
+                        <button class="prueba_boton_boton" type="button">
+                            <img src="/public/assets/images/logo_lupa.svg" alt="">
+                        </button>
+                    </div>
+                </form>
             </div>
 
-            <button type="button" class="btn nav-item personalizar-icono-usuario">
-                <i class="bi bi-person nav-link active" aria-hidden="true"></i>
-            </button>
-
         </div>
-    </nav>
+    </div>
 
-    <main class="container-fluid container_main">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main">
+    <hr>
+
+    <div class="container container_contenido">
+        <h2>No tienes Inventarios <a href="">haz clic aquí para crear uno</a></h2>
+    </div>
+</template>
+
+<template id="Inventario/InventarioCrear">
+    <div class="container">
+        <div class="titulo_btnbusqueda_main">
+            <h1>INVENTARIO</h1>
+        </div>
+    </div>
+    <hr>
+
+    <div class="container" id="container_inventarios">
+        <div class="container col-lg-4 container_formularios_inventario ">
+            <div>
+                <form class="form-floating items-formularios">
+                    <input type="email" class="form-control" id="floatingInputValue" placeholder="nombre-almacen"
+                        value="SENA Quirigua">
+                    <label for="floatingInputValue">Nombre Inventario</label>
+                </form>
+
+                <form class="form-floating items-formularios">
+                    <input type="email" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                        value="Cra. 93 #80c-72">
+                    <label for="floatingInputValue">Dirección Inventario</label>
+                </form>
+
+                <form class="form-floating items-formularios">
+                    <input type="email" class="form-control" id="floatingInputValue" placeholder="descripcion-almacen"
+                        value="Contiene computadores">
+                    <label for="floatingInputValue">Descripción Inventario</label>
+                </form>
+            </div>
+
+            <div class="d-grid gap-2">
+                <button class="btn btn_formulario_inventario" type="button">Crear Inventario</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="Inventario/Inventario con opcion de Eliminar o Editar">
+    <div class="container">
+        <div class="titulo_btnbusqueda_main">
+            <h1>INVENTARIO</h1>
+        </div>
+    </div>
+    <hr>
+
+    <div class="container flex-wrap justify-content-around" id="container_inventarios">
+        <div class="container col-lg-3 container_inventario_crear flex-wrap">
+
+            <div class="d-flex justify-content-between">
+                <h3>Nombre de Inventario</h3>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/public/assets/images/menu_horizontal.svg" alt="">
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="d-grid gap-2">
+                            <button class="btn boton-menu d-flex align-items-center">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="">
+                                <p>Editar</p>
+                            </button>
+                        </li>
+                        <li class="d-grid gap-2">
+                            <button class="btn boton-menu d-flex align-items-center">
+                                <img src="/public/assets/images/eliminar.svg" alt="">
+                                <p>Eliminar</p>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <p>Dirección: XXXXX</p>
+            <p>Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac,
+                laoreet erat.vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat</p>
+            <div class="d-grid gap-2">
+                <button class="btn btn_inventario_crear" type="button">Ingresar</button>
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="Terminos/condiciones">
+    <div class="container">
+        <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <h1>Términos y Condiciones</h1>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="container d-flex justify-content-center">
+        <p id="ejemplo_id_css">Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam eget
+            praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit sodales. Viverra vitae lectus
+            neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis suspendisse. Consequat tellus
+            vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla tincidunt laoreet semper. Nec augue
+            massa libero est.<br>
+            At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi adipiscing
+            integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut tempus. Eget duis lectus
+            ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit et egestas consectetur. Blandit
+            ut risus blandit pharetra tortor sagittis interdum. Id phasellus urna arcu accumsan et faucibus. Purus
+            arcu ultrices diam donec. Nunc tincidunt est volutpat egestas amet in. Pellentesque eleifend tellus mi
+            ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.<br>
+            Nulla nisl neque elit viverra mauris. Imperdiet neque magna id vestibulum eu id nisi. In vestibulum
+            pellentesque sed ultrices ultrices et. Donec imperdiet diam arcu vulputate nulla pellentesque
+            consectetur dignissim. Adipiscing diam lectus fermentum urna eu mi cras ornare. Justo ipsum bibendum
+            feugiat sagittis mollis dapibus id. Mattis vel ultricies augue orci. Est amet viverra hac ultrices id
+            cursus semper amet tristique. Bibendum elit viverra ullamcorper sagittis nibh penatibus. Enim vivamus
+            tincidunt in id mattis ornare est nunc. Enim eget viverra non aliquet nisl sem lectus nisl.
+            Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor suspendisse viverra
+            pellentesque. Urna interdum augue mi est commodo in est etiam nunc. Pulvinar scelerisque quis odio lorem
+            blandit id id auctor mi. Nulla ullamcorper nisi ac amet. Consequat sed a dui mauris. Ut et convallis
+            tortor convallis blandit eget tempor eget. Tellus arcu odio id ut egestas sit sed non. Et varius
+            dictumst facilisi malesuada felis.<br>
+            Pulvinar massa eu non mi blandit venenatis tellus ornare ligula. Tristique ultrices orci feugiat platea
+            nibh turpis id turpis augue. Ut quisque ut placerat et. Sociis dolor semper ut maecenas. Dui bibendum id
+            massa varius vitae at urna odio. Pulvinar interdum ipsum quisque morbi sodales nibh quam. Volutpat ipsum
+            elementum volutpat hac cras et sit at sem. Mauris ultrices auctor ullamcorper lectus diam viverra
+            scelerisque. Quis felis id nulla id viverra sodales sem congue integer.<br>
+            Sed molestie consequat elementum id tellus tortor condimentum imperdiet. Magna dictumst molestie at
+            gravida mauris. Blandit dui eget faucibus in augue. Eget in feugiat egestas orci. Ac porttitor sapien
+            orci amet purus est sit. Molestie id aliquam odio elit feugiat amet. Commodo duis est mi faucibus odio
+            euismod lectus maecenas vitae. Ac nisl nisl ultrices risus turpis fames lacinia massa consectetur. Sed
+            tellus condimentum nunc ornare orci viverra interdum.<br>
+            In ut dignissim pretium lacus senectus bibendum vestibulum ultrices. Pulvinar amet luctus cras in. Lorem
+            eu arcu vitae a lectus sagittis. Scelerisque morbi diam pretium morbi consectetur posuere. Velit turpis
+            pretium risus eu.</p>
+    </div>
+</template>
+
+<template id="politica/privacidad">
+    <div class="container">
+        <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <h1>Política y Privacidad</h1>
+            </div>
+        </div>
+    </div>
+    <hr>
+
+    <div class="container d-flex justify-content-center">
+        <p id="ejemplo_id_css">Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam eget
+            praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit sodales. Viverra vitae lectus
+            neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis suspendisse. Consequat tellus
+            vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla tincidunt laoreet semper. Nec augue
+            massa libero est.<br>
+            At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi adipiscing
+            integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut tempus. Eget duis lectus
+            ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit et egestas consectetur. Blandit
+            ut risus blandit pharetra tortor sagittis interdum. Id phasellus urna arcu accumsan et faucibus. Purus
+            arcu ultrices diam donec. Nunc tincidunt est volutpat egestas amet in. Pellentesque eleifend tellus mi
+            ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.<br>
+            Nulla nisl neque elit viverra mauris. Imperdiet neque magna id vestibulum eu id nisi. In vestibulum
+            pellentesque sed ultrices ultrices et. Donec imperdiet diam arcu vulputate nulla pellentesque
+            consectetur dignissim. Adipiscing diam lectus fermentum urna eu mi cras ornare. Justo ipsum bibendum
+            feugiat sagittis mollis dapibus id. Mattis vel ultricies augue orci. Est amet viverra hac ultrices id
+            cursus semper amet tristique. Bibendum elit viverra ullamcorper sagittis nibh penatibus. Enim vivamus
+            tincidunt in id mattis ornare est nunc. Enim eget viverra non aliquet nisl sem lectus nisl.
+            Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor suspendisse viverra
+            pellentesque. Urna interdum augue mi est commodo in est etiam nunc. Pulvinar scelerisque quis odio lorem
+            blandit id id auctor mi. Nulla ullamcorper nisi ac amet. Consequat sed a dui mauris. Ut et convallis
+            tortor convallis blandit eget tempor eget. Tellus arcu odio id ut egestas sit sed non. Et varius
+            dictumst facilisi malesuada felis.<br>
+            Pulvinar massa eu non mi blandit venenatis tellus ornare ligula. Tristique ultrices orci feugiat platea
+            nibh turpis id turpis augue. Ut quisque ut placerat et. Sociis dolor semper ut maecenas. Dui bibendum id
+            massa varius vitae at urna odio. Pulvinar interdum ipsum quisque morbi sodales nibh quam. Volutpat ipsum
+            elementum volutpat hac cras et sit at sem. Mauris ultrices auctor ullamcorper lectus diam viverra
+            scelerisque. Quis felis id nulla id viverra sodales sem congue integer.<br>
+            Sed molestie consequat elementum id tellus tortor condimentum imperdiet. Magna dictumst molestie at
+            gravida mauris. Blandit dui eget faucibus in augue. Eget in feugiat egestas orci. Ac porttitor sapien
+            orci amet purus est sit. Molestie id aliquam odio elit feugiat amet. Commodo duis est mi faucibus odio
+            euismod lectus maecenas vitae. Ac nisl nisl ultrices risus turpis fames lacinia massa consectetur. Sed
+            tellus condimentum nunc ornare orci viverra interdum.<br>
+            In ut dignissim pretium lacus senectus bibendum vestibulum ultrices. Pulvinar amet luctus cras in. Lorem
+            eu arcu vitae a lectus sagittis. Scelerisque morbi diam pretium morbi consectetur posuere. Velit turpis
+            pretium risus eu.</p>
+    </div>
+</template>
+
+<template id="Ajustes/Usuario">
+    <div class="container">
+        <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+            <div class="d-flex align-items-center">
                 <h1>Ajustes del Usuario</h1>
             </div>
         </div>
-        <hr>
+    </div>
+    <hr>
 
-        <div class="container">
-            <div class="container d-flex justify-content-center flex-column">
-                <div class="container d-flex justify-content-center">
-                    <ul id="menu">
-                        <li>
-                            <h5 class="nombres">Nombre de Usuario</h5>
-                        </li>
-                        <li>
-                            <h5 class="nombres">Tipo de Documento</h5>
-                        </li>
-                        <li>
-                            <h5 class="nombres">Contraseña</h5>
-                        </li>
-                        <li>
-                            <h5 class="nombres">Correo Electrónico</h5>
-                        </li>
-                        <li>
-                            <h5 class="nombres">Numero de Documento</h5>
-                        </li>
-                    </ul>
+    <div class="container d-flex justify-content-center flex-column">
+        <h5 class="nombres" id="N1">Nombre de Usuario</h5>
+        <h5 class="nombres">Tipo de Documento</h5>
+        <h5 class="nombres">Numero de Documento</h5>
+        <h5 class="nombres">Correo Electrónico</h5>
+        <h5 class="nombres">Contraseña</h5>
+    </div>
+</template>
 
-                    <div class="wrapper">
-                        <form action="">
-                            <div>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Usuario">
-                                </div>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Tipo de documento">
-                                </div>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Documento">
-                                </div>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Correo Electrónico">
-                                </div>
-                                <div class="input-box">
-                                    <input type="text" placeholder="Contraseña">
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
+<template id="Ayuda">
+    <div class="container">
+        <div class="titulo_btnbusqueda_main">
+            <h1>Ayuda</h1>
         </div>
-    </main>
+    </div>
+    <hr>
 
-
-
-    <!-- Plantillas -->
-
-    <template id="Inventario">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>INVENTARIO</h1>
-
-                <div>
-                    <form action="#" method="get" class="search-form">
-                        <div class="boton_busqueda">
-                            <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto">
-                            <button class="prueba_boton_boton" type="button">
-                                <img src="/public/assets/images/logo_lupa.svg" alt="">
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
-        </div>
-
-        <hr>
-
-        <div class="container container_contenido">
-            <h2>No tienes Inventarios <a href="">haz clic aquí para crear uno</a></h2>
-        </div>
-    </template>
-
-    <template id="Inventario/InventarioCrear">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>INVENTARIO</h1>
-            </div>
-        </div>
-        <hr>
-
-        <div class="container" id="container_inventarios">
-            <div class="container col-lg-4 container_formularios_inventario ">
-                <div>
-                    <form class="form-floating items-formularios">
-                        <input type="email" class="form-control" id="floatingInputValue" placeholder="nombre-almacen"
-                            value="SENA Quirigua">
-                        <label for="floatingInputValue">Nombre Inventario</label>
-                    </form>
-
-                    <form class="form-floating items-formularios">
-                        <input type="email" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
-                            value="Cra. 93 #80c-72">
-                        <label for="floatingInputValue">Dirección Inventario</label>
-                    </form>
-
-                    <form class="form-floating items-formularios">
-                        <input type="email" class="form-control" id="floatingInputValue"
-                            placeholder="descripcion-almacen" value="Contiene computadores">
-                        <label for="floatingInputValue">Descripción Inventario</label>
-                    </form>
-                </div>
-
-                <div class="d-grid gap-2">
-                    <button class="btn btn_formulario_inventario" type="button">Crear Inventario</button>
-                </div>
-            </div>
-        </div>
-    </template>
-
-    <template id="Inventario/Inventario con opcion de Eliminar o Editar">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>INVENTARIO</h1>
-            </div>
-        </div>
-        <hr>
-
-        <div class="container flex-wrap justify-content-around" id="container_inventarios">
-            <div class="container col-lg-3 container_inventario_crear flex-wrap">
-
-                <div class="d-flex justify-content-between">
-                    <h3>Nombre de Inventario</h3>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <img src="/public/assets/images/menu_horizontal.svg" alt="">
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li class="d-grid gap-2">
-                                <button class="btn boton-menu d-flex align-items-center">
-                                    <img src="/public/assets/images/lapiz_editar.svg" alt="">
-                                    <p>Editar</p>
-                                </button>
-                            </li>
-                            <li class="d-grid gap-2">
-                                <button class="btn boton-menu d-flex align-items-center">
-                                    <img src="/public/assets/images/eliminar.svg" alt="">
-                                    <p>Eliminar</p>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <p>Dirección: XXXXX</p>
-                <p>Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh malesuada, volutpat metus ac,
-                    laoreet erat.vestibulum orci. In ac nibh malesuada, volutpat metus ac, laoreet erat</p>
-                <div class="d-grid gap-2">
-                    <button class="btn btn_inventario_crear" type="button">Ingresar</button>
-                </div>
-            </div>
-        </div>
-    </template>
-
-    <template id="Terminos/condiciones">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>Términos y Condiciones</h1>
-                </div>
-            </div>
-        </div>
-        <hr>
-
-        <div class="container d-flex justify-content-center">
-            <p id="ejemplo_id_css">Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam eget
-                praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit sodales. Viverra vitae lectus
-                neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis suspendisse. Consequat tellus
-                vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla tincidunt laoreet semper. Nec augue
-                massa libero est.<br>
-                At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi adipiscing
-                integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut tempus. Eget duis lectus
-                ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit et egestas consectetur. Blandit
-                ut risus blandit pharetra tortor sagittis interdum. Id phasellus urna arcu accumsan et faucibus. Purus
-                arcu ultrices diam donec. Nunc tincidunt est volutpat egestas amet in. Pellentesque eleifend tellus mi
-                ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.<br>
-                Nulla nisl neque elit viverra mauris. Imperdiet neque magna id vestibulum eu id nisi. In vestibulum
-                pellentesque sed ultrices ultrices et. Donec imperdiet diam arcu vulputate nulla pellentesque
-                consectetur dignissim. Adipiscing diam lectus fermentum urna eu mi cras ornare. Justo ipsum bibendum
-                feugiat sagittis mollis dapibus id. Mattis vel ultricies augue orci. Est amet viverra hac ultrices id
-                cursus semper amet tristique. Bibendum elit viverra ullamcorper sagittis nibh penatibus. Enim vivamus
-                tincidunt in id mattis ornare est nunc. Enim eget viverra non aliquet nisl sem lectus nisl.
-                Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor suspendisse viverra
-                pellentesque. Urna interdum augue mi est commodo in est etiam nunc. Pulvinar scelerisque quis odio lorem
-                blandit id id auctor mi. Nulla ullamcorper nisi ac amet. Consequat sed a dui mauris. Ut et convallis
-                tortor convallis blandit eget tempor eget. Tellus arcu odio id ut egestas sit sed non. Et varius
-                dictumst facilisi malesuada felis.<br>
-                Pulvinar massa eu non mi blandit venenatis tellus ornare ligula. Tristique ultrices orci feugiat platea
-                nibh turpis id turpis augue. Ut quisque ut placerat et. Sociis dolor semper ut maecenas. Dui bibendum id
-                massa varius vitae at urna odio. Pulvinar interdum ipsum quisque morbi sodales nibh quam. Volutpat ipsum
-                elementum volutpat hac cras et sit at sem. Mauris ultrices auctor ullamcorper lectus diam viverra
-                scelerisque. Quis felis id nulla id viverra sodales sem congue integer.<br>
-                Sed molestie consequat elementum id tellus tortor condimentum imperdiet. Magna dictumst molestie at
-                gravida mauris. Blandit dui eget faucibus in augue. Eget in feugiat egestas orci. Ac porttitor sapien
-                orci amet purus est sit. Molestie id aliquam odio elit feugiat amet. Commodo duis est mi faucibus odio
-                euismod lectus maecenas vitae. Ac nisl nisl ultrices risus turpis fames lacinia massa consectetur. Sed
-                tellus condimentum nunc ornare orci viverra interdum.<br>
-                In ut dignissim pretium lacus senectus bibendum vestibulum ultrices. Pulvinar amet luctus cras in. Lorem
-                eu arcu vitae a lectus sagittis. Scelerisque morbi diam pretium morbi consectetur posuere. Velit turpis
-                pretium risus eu.</p>
-        </div>
-    </template>
-
-    <template id="politica/privacidad">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>Política y Privacidad</h1>
-                </div>
-            </div>
-        </div>
-        <hr>
-
-        <div class="container d-flex justify-content-center">
-            <p id="ejemplo_id_css">Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam eget
-                praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit sodales. Viverra vitae lectus
-                neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis suspendisse. Consequat tellus
-                vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla tincidunt laoreet semper. Nec augue
-                massa libero est.<br>
-                At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi adipiscing
-                integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut tempus. Eget duis lectus
-                ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit et egestas consectetur. Blandit
-                ut risus blandit pharetra tortor sagittis interdum. Id phasellus urna arcu accumsan et faucibus. Purus
-                arcu ultrices diam donec. Nunc tincidunt est volutpat egestas amet in. Pellentesque eleifend tellus mi
-                ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.<br>
-                Nulla nisl neque elit viverra mauris. Imperdiet neque magna id vestibulum eu id nisi. In vestibulum
-                pellentesque sed ultrices ultrices et. Donec imperdiet diam arcu vulputate nulla pellentesque
-                consectetur dignissim. Adipiscing diam lectus fermentum urna eu mi cras ornare. Justo ipsum bibendum
-                feugiat sagittis mollis dapibus id. Mattis vel ultricies augue orci. Est amet viverra hac ultrices id
-                cursus semper amet tristique. Bibendum elit viverra ullamcorper sagittis nibh penatibus. Enim vivamus
-                tincidunt in id mattis ornare est nunc. Enim eget viverra non aliquet nisl sem lectus nisl.
-                Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor suspendisse viverra
-                pellentesque. Urna interdum augue mi est commodo in est etiam nunc. Pulvinar scelerisque quis odio lorem
-                blandit id id auctor mi. Nulla ullamcorper nisi ac amet. Consequat sed a dui mauris. Ut et convallis
-                tortor convallis blandit eget tempor eget. Tellus arcu odio id ut egestas sit sed non. Et varius
-                dictumst facilisi malesuada felis.<br>
-                Pulvinar massa eu non mi blandit venenatis tellus ornare ligula. Tristique ultrices orci feugiat platea
-                nibh turpis id turpis augue. Ut quisque ut placerat et. Sociis dolor semper ut maecenas. Dui bibendum id
-                massa varius vitae at urna odio. Pulvinar interdum ipsum quisque morbi sodales nibh quam. Volutpat ipsum
-                elementum volutpat hac cras et sit at sem. Mauris ultrices auctor ullamcorper lectus diam viverra
-                scelerisque. Quis felis id nulla id viverra sodales sem congue integer.<br>
-                Sed molestie consequat elementum id tellus tortor condimentum imperdiet. Magna dictumst molestie at
-                gravida mauris. Blandit dui eget faucibus in augue. Eget in feugiat egestas orci. Ac porttitor sapien
-                orci amet purus est sit. Molestie id aliquam odio elit feugiat amet. Commodo duis est mi faucibus odio
-                euismod lectus maecenas vitae. Ac nisl nisl ultrices risus turpis fames lacinia massa consectetur. Sed
-                tellus condimentum nunc ornare orci viverra interdum.<br>
-                In ut dignissim pretium lacus senectus bibendum vestibulum ultrices. Pulvinar amet luctus cras in. Lorem
-                eu arcu vitae a lectus sagittis. Scelerisque morbi diam pretium morbi consectetur posuere. Velit turpis
-                pretium risus eu.</p>
-        </div>
-    </template>
-
-    <template id="Ajustes/Usuario">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>Ajustes del Usuario</h1>
-                </div>
-            </div>
-        </div>
-        <hr>
-
+    <div class="container">
         <div class="container d-flex justify-content-center flex-column">
-            <h5 class="nombres" id="N1">Nombre de Usuario</h5>
-            <h5 class="nombres">Tipo de Documento</h5>
-            <h5 class="nombres">Numero de Documento</h5>
-            <h5 class="nombres">Correo Electrónico</h5>
-            <h5 class="nombres">Contraseña</h5>
-        </div>
-    </template>
+            <p id="ol2">Como utilizar la aplicación.</p>
+            <ol id="ol1">
+                <li>Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam eget praesent hac
+                    vel. Egestas neque vivamus nisi sit mauris massa suscipit sodales. Viverra vitae lectus neque
+                    suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis suspendisse. Consequat
+                    tellus vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla tincidunt laoreet
+                    semper. Nec augue massa libero est.</li>
+                <li>At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi
+                    adipiscing integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut
+                    tempus. Eget duis lectus ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit
+                    et egestas consectetur. Blandit ut risus blandit pharetra tortor sagittis interdum. Id phasellus
+                    urna arcu accumsan et faucibus. Purus arcu ultrices diam donec. Nunc tincidunt est volutpat
+                    egestas amet in. Pellentesque eleifend tellus mi ornare nec interdum eu congue netus. Gravida
+                    vulputate aenean quam molestie urna viverra ipsum.
+                </li>
+                <li>Nulla nisl neque elit viverra mauris. Imperdiet neque magna id vestibulum eu id nisi. In
+                    vestibulum pellentesque sed ultrices ultrices et. Donec imperdiet diam arcu vulputate nulla
+                    pellentesque consectetur dignissim. Adipiscing diam lectus fermentum urna eu mi cras ornare.
+                    Justo ipsum bibendum feugiat sagittis mollis dapibus id. Mattis vel ultricies augue orci. Est
+                    amet viverra hac ultrices id cursus semper amet tristique. Bibendum elit viverra ullamcorper
+                    sagittis nibh penatibus. Enim vivamus tincidunt in id mattis ornare est nunc. Enim eget viverra
+                    non aliquet nisl sem lectus nisl.</li>
+                <li>Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor suspendisse viverra
+                    pellentesque. Urna interdum augue mi est commodo in est etiam nunc. Pulvinar scelerisque quis
+                    odio lorem blandit id id auctor mi. Nulla ullamcorper nisi ac amet. Consequat sed a dui mauris.
+                    Ut et convallis tortor convallis blandit eget tempor eget. Tellus arcu odio id ut egestas sit
+                    sed non. Et varius dictumst facilisi malesuada felis.</li>
+                <li>Pulvinar massa eu non mi blandit venenatis tellus ornare ligula. Tristique ultrices orci feugiat
+                    platea nibh turpis id turpis augue. Ut quisque ut placerat et. Sociis dolor semper ut maecenas.
+                    Dui bibendum id massa varius vitae at urna odio. Pulvinar interdum ipsum quisque morbi sodales
+                    nibh quam. Volutpat ipsum elementum volutpat hac cras et sit at sem. Mauris ultrices auctor
+                    ullamcorper lectus diam viverra scelerisque. Quis felis id nulla id viverra sodales sem congue
+                    integer.</li>
 
-    <template id="Ayuda">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>Ayuda</h1>
-            </div>
+            </ol>
         </div>
-        <hr>
-
-        <div class="container">
-            <div class="container d-flex justify-content-center flex-column">
-                <p id="ol2">Como utilizar la aplicación.</p>
-                <ol id="ol1">
-                    <li>Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam eget praesent hac
-                        vel. Egestas neque vivamus nisi sit mauris massa suscipit sodales. Viverra vitae lectus neque
-                        suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis suspendisse. Consequat
-                        tellus vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla tincidunt laoreet
-                        semper. Nec augue massa libero est.</li>
-                    <li>At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi
-                        adipiscing integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut
-                        tempus. Eget duis lectus ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit
-                        et egestas consectetur. Blandit ut risus blandit pharetra tortor sagittis interdum. Id phasellus
-                        urna arcu accumsan et faucibus. Purus arcu ultrices diam donec. Nunc tincidunt est volutpat
-                        egestas amet in. Pellentesque eleifend tellus mi ornare nec interdum eu congue netus. Gravida
-                        vulputate aenean quam molestie urna viverra ipsum.
-                    </li>
-                    <li>Nulla nisl neque elit viverra mauris. Imperdiet neque magna id vestibulum eu id nisi. In
-                        vestibulum pellentesque sed ultrices ultrices et. Donec imperdiet diam arcu vulputate nulla
-                        pellentesque consectetur dignissim. Adipiscing diam lectus fermentum urna eu mi cras ornare.
-                        Justo ipsum bibendum feugiat sagittis mollis dapibus id. Mattis vel ultricies augue orci. Est
-                        amet viverra hac ultrices id cursus semper amet tristique. Bibendum elit viverra ullamcorper
-                        sagittis nibh penatibus. Enim vivamus tincidunt in id mattis ornare est nunc. Enim eget viverra
-                        non aliquet nisl sem lectus nisl.</li>
-                    <li>Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor suspendisse viverra
-                        pellentesque. Urna interdum augue mi est commodo in est etiam nunc. Pulvinar scelerisque quis
-                        odio lorem blandit id id auctor mi. Nulla ullamcorper nisi ac amet. Consequat sed a dui mauris.
-                        Ut et convallis tortor convallis blandit eget tempor eget. Tellus arcu odio id ut egestas sit
-                        sed non. Et varius dictumst facilisi malesuada felis.</li>
-                    <li>Pulvinar massa eu non mi blandit venenatis tellus ornare ligula. Tristique ultrices orci feugiat
-                        platea nibh turpis id turpis augue. Ut quisque ut placerat et. Sociis dolor semper ut maecenas.
-                        Dui bibendum id massa varius vitae at urna odio. Pulvinar interdum ipsum quisque morbi sodales
-                        nibh quam. Volutpat ipsum elementum volutpat hac cras et sit at sem. Mauris ultrices auctor
-                        ullamcorper lectus diam viverra scelerisque. Quis felis id nulla id viverra sodales sem congue
-                        integer.</li>
-
-                </ol>
-            </div>
-        </div>
-    </template>
+    </div>
+</template>
 
 
 </body>
