@@ -85,31 +85,20 @@
     </div>
     <div id="contenedor_fomulario">
         <form action="" id="formulario">
-            <h1 id="titulo">Registrarse</h1>
+            <img id="imag" src="/public/assets/images/Imagen_Ingreso.png" alt="Logo_empresa">
+            <h1 id="titulo">Ingreso</h1>
             <div class="mb-3">
-                <input id="cubo" type="email" class="form-control" id="email" placeholder="Nombre Completo">
+                <input id="cubo" type="input" class="form-control" id="correo_electronico" placeholder="Correo Electrónico">
             </div>
             <div class="mb-3">
-                <input id="cubo" type="input" class="form-control" id="nombre" placeholder="Tipo de Documento">
-            </div>
+                <input id="cubo" type="email" class="form-control" id="contraseña" placeholder="Contraseña">
+            </div>  
+            <label><input id="espacios" type="checkbox">  He leído y acepto</label> 
             <div class="mb-3">
-                <input id="cubo" type="email" class="form-control" id="tel" placeholder="Número de Documento
-                ">
+                <button id="caja" type="button" class=" btn btn-danger fs-5 mb-3">Ingresar</button>
             </div>
-            <div class="mb-3">
-                <input id="cubo" type="email" class="form-control" id="tel" placeholder="Correo Electrónico">
-            </div>
-            <div class="mb-3">
-                <input id="cubo" type="email" class="form-control" id="tel" placeholder="Contraseña">
-            </div>
-            <div class="mb-3">
-                <input id="cubo" type="email" class="form-control" id="tel" placeholder="Repetir Contraseña">
-            </div>
-            <div class="mb-3">
-                <button id="caja" type="button" class=" btn btn-danger fs-5 mb-3">Registar</button>
-            </div>
+            <h5 id="letras1">¿Ya eres miembro?  </h5>
         </form>
-    <!-- <div class="container-fluid d-flex justify-content-center align-items-center formula"> -->
     </div>
 </body>
 
@@ -151,6 +140,73 @@
             <p></p>
         </div>
     </footer>
+</template>
+
+<template id="Registarse">
+    <main class="container-fluid d-flex container_main justify-content-center">
+        <div class="container-medio">
+            <img id="imagem_centro" src="/public/assets/images/Marca.png" alt="Logo Empresa">
+        </div>
+    </main>
+    <footer class="container-inferior d-flex flex-row">
+        <div class="container" id="container_1">
+            <img src="/public/assets/images/logo_empresa_blanco.svg" alt="Logo Empresa">
+        </div>
+        <div class="container">
+            <ol>
+                <li id="lista_1">Enlaces de Navegación</li>
+                <li id="lista_2">Inicio</li>
+                <li id="lista_2">Nosotros</li>
+                <li id="lista_2">Contacto</li>
+            </ol>
+        </div>
+        <div class="container">
+            <ol>
+                <li id="lista_1">Enlaces a Políticas</li>
+                <li id="lista_2">Política Privada</li>
+                <li id="lista_2">Términos y Condiciones</li>
+                <li id="lista_2">Cookies</li>
+            </ol>
+        </div>
+        <div class="container">
+            <ol>
+                <li id="lista_1">© 2024 Variety Vault</li>
+            </ol>
+        </div>
+        <div class="container">
+            <p></p>
+        </div>
+    </footer>
+</div>
+<div id="contenedor_fomulario">
+    <form action="" id="formulario">
+        <h1 id="titulo">Registrarse</h1>
+        <div class="mb-3">
+            <input id="cubo" type="email" class="form-control" id="email" placeholder="Nombre Completo">
+        </div>
+        <div class="mb-3">
+            <input id="cubo" type="input" class="form-control" id="tipo_documento" placeholder="Tipo de Documento">
+        </div>
+        <div class="mb-3">
+            <input id="cubo" type="input" class="form-control" id="numero_documento" placeholder="Número de Documento
+            ">
+        </div>
+        <div class="mb-3">
+            <input id="cubo" type="input" class="form-control" id="correo_electronico" placeholder="Correo Electrónico">
+        </div>
+        <div class="mb-3">
+            <input id="cubo" type="email" class="form-control" id="contraseña" placeholder="Contraseña">
+        </div>
+        <div class="mb-3">
+            <input id="cubo" type="email" class="form-control" id="repetir_contraseña" placeholder="Repetir Contraseña">
+        </div>
+        <label><input id="espacios" type="checkbox">  He leído y acepto</label> 
+        <div class="mb-3">
+            <button id="caja" type="button" class=" btn btn-danger fs-5 mb-3">Registar</button>
+        </div>
+        <h5 id="letras1">¿Ya eres miembro?  </h5>
+    </form>
+</div>
 </template>
 
 <template id="Inventario">
