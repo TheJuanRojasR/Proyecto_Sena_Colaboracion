@@ -27,12 +27,22 @@ nav,main{
 
 .offcanvas.offcanvas-end{
     width: 88%;
+    padding-bottom: 72.31px;
     border-radius: 10px 0px 0px 10px;
     background-color: #333A56;
 }
 
 .offcanvas-header{
     padding: 15px 4px;
+}
+
+#titulo_menu_desplegable{
+    color:#FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
 }
 
 #term_condi,#politicas_priv,#ajustes_usu,#ayuda,#cerrar_ses{
@@ -154,7 +164,8 @@ h1{
 
 .contenedor_form_registrarse,.contenedor_form_login,.contenedor_form_inventario,.contenedor_form_producto,
 .contenedor_boton,.contenedor_form_entrada,.contenedor_form_categoria,.contenedor_form_editar_producto,
-.contenedor_form_crear_perfil,.contenedor_seleccion_informe{
+.contenedor_form_crear_perfil,.contenedor_seleccion_informe,.contenedor_seleccion_filtros_informe,.contenedor_term_cond,
+.contenedor_form_ajustes,.contenedor_form_editar_ajustes,.contenedor_instrucciones_ayuda{
     max-width: 323px;
     padding: 0px 25px;
 }
@@ -261,6 +272,7 @@ h1{
     height: 50px;
     padding-left: 12px;
     border-radius: 4px;
+    margin-bottom: 10px;
     border: 1px solid #D5D8DE;
     background-color: #FFF;
 }
@@ -367,6 +379,7 @@ h1{
     padding: .375rem .75rem;
     border-radius: 8px;
     border: none;
+    margin-bottom: 14px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     background-color: #FAFAFF;
     color: #171740;
@@ -374,10 +387,6 @@ h1{
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-}
-
-#referencia_roducto,#mov_producto,#cantidad,#precio{
-    margin-bottom: 7px;
 }
 
 .boton_add_producto_movimientos{
@@ -458,6 +467,60 @@ h1{
     font-style: normal;
     font-weight: 400;    
     font-size: 15px;
+}
+
+.contenedor_seleccion_filtros_informe,.contenedor_buscador{
+    margin-bottom: auto;
+}
+
+.input_claro_dos{
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    padding-left: 10px;
+    border: none;
+    margin-bottom: 14px;
+    background-color: #FAFAFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.input_claro_dos::placeholder{
+    color: #171740;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.contenedor_term_cond{
+    text-align: justify;
+}
+
+.contenedor_form_ajustes,.contenedor_form_editar_ajustes{
+    margin-bottom: auto;
+}
+
+.input_transparente{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: 1px solid #DCDCE0;
+    margin-bottom: 10px;
+    background-color: #F7F5E6;
+}
+
+.contenedor_instrucciones_ayuda{
+    color: #000;
+    text-align: justify;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+#lista_instrucciones{
+padding-left: 20px;
 }
 
 /* MENU CIRCULAR */
