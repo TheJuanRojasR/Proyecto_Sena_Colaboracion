@@ -33,18 +33,19 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-md">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
             </a>
-
+    
             <div class="collapse navbar-collapse">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                     </li>
-
+    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -56,7 +57,7 @@
                             <li><a class="dropdown-item" href="#">Salidas</a></li>
                         </ul>
                     </li>
-
+    
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -67,22 +68,92 @@
                             <li><a class="dropdown-item" href="#">Abastecimiento</a></li>
                         </ul>
                     </li>
-
+    
                     <li class="nav-item">
                         <a class="nav-link" href="#">Estadisticas</a>
                     </li>
-
+    
                     <li class="nav-item">
                         <a class="nav-link" href="#">Perfiles</a>
                     </li>
                 </ul>
+    
+                <button class="btn btn-outline-secondary ms-2" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img src="./public/assets/images/logo_usuario.svg" alt="">
+                </button>
             </div>
-
-            <button type="button" class="btn nav-item personalizar-icono-usuario">
-                <i class="bi bi-person nav-link active" aria-hidden="true"></i>
-            </button>
         </div>
     </nav>
+    
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="contenido_offcanvas">
+                <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
+                    <p>Menu</p>
+                </div>
+                <div id="icono_usuario"> <!-- Icono del usuario -->
+                    <img src="./Assets/img/user-user-circle.svg" alt="">
+                </div>
+                <!-- Opciones del menu desplegable -->
+                <div id="term_condi">
+                    <a href="" class="text-decoration-none">Terminos y Condiciones</a>
+                </div>
+                <div id="politicas_priv">
+                    <a href="" class="text-decoration-none">Politicas de Privacidad</a>
+                </div>
+                <div id="ajustes_usu">
+                    <a href="" class="text-decoration-none">Ajustes de usuario</a>
+                </div>
+                <div id="ayuda">
+                    <a href="" class="text-decoration-none">Ayuda</a>
+                </div>
+                <div id="cerrar_ses">
+                    <a href="" class="text-decoration-none">Cerrar Sesion</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end overflow-y-scroll" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"> <!-- Contenido menu desplegable -->
+        <div class="offcanvas-header"> <!-- Header del menu desplegable -->
+            <button type="button" class="btn"> <!-- Boton de busqueda -->
+                <img src="./Assets/img/interface-search-magnifying-glass.svg" alt="">
+            </button>   
+            <button type="button" class="btn"> <!-- Boton de cierre -->
+                <img src="./Assets/img/menu-close-lg.svg" alt="">
+            </button>
+        </div>
+        <div class="offcanvas-body"> <!-- Cuerpo del menu desplegable -->
+            <div class="contenido_offcanvas">
+                <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
+                    <p>Menu</p>
+                </div>
+                <div id="icono_usuario"> <!-- Icono del usuario -->
+                    <img src="./Assets/img/user-user-circle.svg" alt="">
+                </div>
+                <!-- Opciones del menu desplegable -->
+                <div id="term_condi">
+                    Terminos y Condiciones
+                </div>
+                <div id="politicas_priv">
+                    Politicas de Privacidad
+                </div>
+                <div id="ajustes_usu">
+                    Ajustes de usuario
+                </div>
+                <div id="ayuda">
+                    Ayuda
+                </div>
+                <div id="cerrar_ses">
+                    Cerrar Sesion
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main class="container-fluid container_main">
         <div class="container">
@@ -95,50 +166,7 @@
 
         <hr />
 
-        <div class="container container_min_height d-flex justify-content-center">
-            <section id="registro_perfil" class="d-flex flex-column">
-                <h1 class="items-formularios_mnodificado text-center">Crear Perfil</h1>
-                <form class="form-floating items-formularios_mnodificado">
-                    <input type="text" class="form-control form-select_modificado" id="floatingInputValue"
-                        placeholder="" value="Pepito Perez" />
-                    <label for="floatingInputValue">Nombre Completo</label>
-                </form>
 
-                <select class="form-select form-select_modificado items-formularios_mnodificado"
-                    aria-label="Default select example">
-                    <option selected>Tipo de Documento</option>
-                    <option value="1">Cedula de Ciudadania</option>
-                    <option value="2">Cedula de Extrangeria</option>
-                    <option value="3">Rut</option>
-                </select>
-
-                <form class="form-floating items-formularios_mnodificado">
-                    <input type="number" class="form-control form-select_modificado" id="floatingInputValue"
-                        placeholder="" value="123456789" />
-                    <label for="floatingInputValue">Número de Documento</label>
-                </form>
-
-                <form class="form-floating items-formularios_mnodificado">
-                    <input type="email" class="form-control form-select_modificado" id="floatingInputValue"
-                        placeholder="" value="PepitoPerez@gmail.com" />
-                    <label for="floatingInputValue">Correo Electronico</label>
-                </form>
-
-                <form class="form-floating items-formularios_mnodificado">
-                    <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
-                        placeholder="" value="Pepito Perez" />
-                    <label for="floatingInputValue">Contraseña</label>
-                </form>
-
-                <form class="form-floating items-formularios_mnodificado">
-                    <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
-                        placeholder="" value="Pepito Perez" />
-                    <label for="floatingInputValue">Repetir Contraseña</label>
-                </form>
-
-                <button class="btn btn-eliminar ">Crear</button>
-            </section>
-        </div>
     </main>
 
     <!-- Plantillas -->
