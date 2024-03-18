@@ -47,7 +47,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <main class="container-fluid d-flex container_main justify-content-center">
             <div class="container-medio">
                 <img id="imagem_centro" src="/public/assets/images/Marca.png" alt="Logo Empresa">
@@ -84,20 +84,21 @@
         </footer>
     </div>
     <div id="contenedor_fomulario">
-        <form action="" id="formulario">
+        <form action="" id="formulario_login">
             <img id="imag" src="/public/assets/images/Imagen_Ingreso.png" alt="Logo_empresa">
             <h1 id="titulo">Ingreso</h1>
             <div class="mb-3">
-                <input id="cubo" type="input" class="form-control" id="correo_electronico" placeholder="Correo Electrónico">
+                <input id="cubo" type="input" class="form-control" id="correo_electronico"
+                    placeholder="Correo Electrónico">
             </div>
             <div class="mb-3">
                 <input id="cubo" type="email" class="form-control" id="contraseña" placeholder="Contraseña">
-            </div>  
-            <label><input id="espacios" type="checkbox">  He leído y acepto</label> 
+            </div>
+            <label><input id="espacios" type="checkbox"> He leído y acepto</label>
             <div class="mb-3">
                 <button id="caja" type="button" class=" btn btn-danger fs-5 mb-3">Ingresar</button>
             </div>
-            <h5 id="letras1">¿Ya eres miembro?  </h5>
+            <p id="letras1">¿Ya eres miembro?<a href=""> Terminos y condiciones</a></p>
         </form>
     </div>
 </body>
@@ -143,70 +144,154 @@
 </template>
 
 <template id="Registarse">
-    <main class="container-fluid d-flex container_main justify-content-center">
-        <div class="container-medio">
-            <img id="imagem_centro" src="/public/assets/images/Marca.png" alt="Logo Empresa">
-        </div>
-    </main>
-    <footer class="container-inferior d-flex flex-row">
-        <div class="container" id="container_1">
-            <img src="/public/assets/images/logo_empresa_blanco.svg" alt="Logo Empresa">
-        </div>
-        <div class="container">
-            <ol>
-                <li id="lista_1">Enlaces de Navegación</li>
-                <li id="lista_2">Inicio</li>
-                <li id="lista_2">Nosotros</li>
-                <li id="lista_2">Contacto</li>
-            </ol>
-        </div>
-        <div class="container">
-            <ol>
-                <li id="lista_1">Enlaces a Políticas</li>
-                <li id="lista_2">Política Privada</li>
-                <li id="lista_2">Términos y Condiciones</li>
-                <li id="lista_2">Cookies</li>
-            </ol>
-        </div>
-        <div class="container">
-            <ol>
-                <li id="lista_1">© 2024 Variety Vault</li>
-            </ol>
-        </div>
-        <div class="container">
-            <p></p>
-        </div>
-    </footer>
-</div>
-<div id="contenedor_fomulario">
-    <form action="" id="formulario">
-        <h1 id="titulo">Registrarse</h1>
-        <div class="mb-3">
-            <input id="cubo" type="email" class="form-control" id="email" placeholder="Nombre Completo">
-        </div>
-        <div class="mb-3">
-            <input id="cubo" type="input" class="form-control" id="tipo_documento" placeholder="Tipo de Documento">
-        </div>
-        <div class="mb-3">
-            <input id="cubo" type="input" class="form-control" id="numero_documento" placeholder="Número de Documento
+    <div id="formulas" class="container-fluid almacen_principal">
+        <nav class="navbar navbar-expand-md ">
+            <div class="container-fluid justify-content-between">
+                <a class="navbar-brand" href="#">
+                    <img src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa">
+                </a>
+                <div id="contenedor-botones" class="d-flex justify-content-between">
+                    <button class="btn" type="button" id="boton1">Ingresar</button>
+                    <button class="btn" type="button" id="boton2">Registar</button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container-fluid d-flex container_main justify-content-center">
+            <div class="container-medio">
+                <img id="imagem_centro" src="/public/assets/images/Marca.png" alt="Logo Empresa">
+            </div>
+        </main>
+        <footer class="container-inferior d-flex flex-row">
+            <div class="container" id="container_1">
+                <img src="/public/assets/images/logo_empresa_blanco.svg" alt="Logo Empresa">
+            </div>
+            <div class="container">
+                <ol>
+                    <li id="lista_1">Enlaces de Navegación</li>
+                    <li id="lista_2">Inicio</li>
+                    <li id="lista_2">Nosotros</li>
+                    <li id="lista_2">Contacto</li>
+                </ol>
+            </div>
+            <div class="container">
+                <ol>
+                    <li id="lista_1">Enlaces a Políticas</li>
+                    <li id="lista_2">Política Privada</li>
+                    <li id="lista_2">Términos y Condiciones</li>
+                    <li id="lista_2">Cookies</li>
+                </ol>
+            </div>
+            <div class="container">
+                <ol>
+                    <li id="lista_1">© 2024 Variety Vault</li>
+                </ol>
+            </div>
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+    </div>
+    <div id="contenedor_fomulario">
+        <form action="" id="formulario_registro">
+            <h1 id="Regist" class="">Registrarse</h1>
+            <div class="mb-3">
+                <input id="cubo" type="email" class="form-control" id="email" placeholder="Nombre Completo">
+            </div>
+            <div class="mb-3">
+                <input id="cubo" type="input" class="form-control" id="tipo_documento" placeholder="Tipo de Documento">
+            </div>
+            <div class="mb-3">
+                <input id="cubo" type="input" class="form-control" id="numero_documento" placeholder="Número de Documento
             ">
-        </div>
-        <div class="mb-3">
-            <input id="cubo" type="input" class="form-control" id="correo_electronico" placeholder="Correo Electrónico">
-        </div>
-        <div class="mb-3">
-            <input id="cubo" type="email" class="form-control" id="contraseña" placeholder="Contraseña">
-        </div>
-        <div class="mb-3">
-            <input id="cubo" type="email" class="form-control" id="repetir_contraseña" placeholder="Repetir Contraseña">
-        </div>
-        <label><input id="espacios" type="checkbox">  He leído y acepto</label> 
-        <div class="mb-3">
-            <button id="caja" type="button" class=" btn btn-danger fs-5 mb-3">Registar</button>
-        </div>
-        <h5 id="letras1">¿Ya eres miembro?  </h5>
-    </form>
-</div>
+            </div>
+            <div class="mb-3">
+                <input id="cubo" type="input" class="form-control" id="correo_electronico"
+                    placeholder="Correo Electrónico">
+            </div>
+            <div class="mb-3">
+                <input id="cubo" type="email" class="form-control" id="contraseña" placeholder="Contraseña">
+            </div>
+            <div class="mb-3">
+                <input id="cubo" type="email" class="form-control" id="repetir_contraseña"
+                    placeholder="Repetir Contraseña">
+            </div>
+            <div class="mb-3">
+                <label><input id="" type="checkbox"> He leído y acepto<a href="#"> Terminos y condiciones</a></label>
+                <button id="caja" type="button" class=" btn btn-danger fs-5 mb-3">Registar</button>
+                <p id="letras1">¿Ya eres miembro?<a href="#"> Inicia tu sesión</a></p>
+            </div>
+        </form>
+    </div>
+</template>
+
+<template id="Inicio Se...">
+    <div id="formulas" class="container-fluid almacen_principal">
+        <nav class="navbar navbar-expand-md ">
+            <div class="container-fluid justify-content-between">
+                <a class="navbar-brand" href="#">
+                    <img src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa">
+                </a>
+                <div id="contenedor-botones" class="d-flex justify-content-between">
+                    <button class="btn" type="button" id="boton1">Ingresar</button>
+                    <button class="btn" type="button" id="boton2">Registar</button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container-fluid d-flex container_main justify-content-center">
+            <div class="container-medio">
+                <img id="imagem_centro" src="/public/assets/images/Marca.png" alt="Logo Empresa">
+            </div>
+        </main>
+        <footer class="container-inferior d-flex flex-row">
+            <div class="container" id="container_1">
+                <img src="/public/assets/images/logo_empresa_blanco.svg" alt="Logo Empresa">
+            </div>
+            <div class="container">
+                <ol>
+                    <li id="lista_1">Enlaces de Navegación</li>
+                    <li id="lista_2">Inicio</li>
+                    <li id="lista_2">Nosotros</li>
+                    <li id="lista_2">Contacto</li>
+                </ol>
+            </div>
+            <div class="container">
+                <ol>
+                    <li id="lista_1">Enlaces a Políticas</li>
+                    <li id="lista_2">Política Privada</li>
+                    <li id="lista_2">Términos y Condiciones</li>
+                    <li id="lista_2">Cookies</li>
+                </ol>
+            </div>
+            <div class="container">
+                <ol>
+                    <li id="lista_1">© 2024 Variety Vault</li>
+                </ol>
+            </div>
+            <div class="container">
+                <p></p>
+            </div>
+        </footer>
+    </div>
+    <div id="contenedor_fomulario">
+        <form action="" id="formulario">
+            <img id="imag" src="/public/assets/images/Imagen_Ingreso.png" alt="Logo_empresa">
+            <h1 id="titulo">Ingreso</h1>
+            <div class="mb-3">
+                <input id="cubo" type="input" class="form-control" id="correo_electronico"
+                    placeholder="Correo Electrónico">
+            </div>
+            <div class="mb-3">
+                <input id="cubo" type="email" class="form-control" id="contraseña" placeholder="Contraseña">
+            </div>
+            <label><input id="espacios" type="checkbox"> He leído y acepto</label>
+            <div class="mb-3">
+                <button id="caja" type="button" class=" btn btn-danger fs-5 mb-3">Ingresar</button>
+            </div>
+            <p id="letras1">¿Ya eres miembro?<a href=""> Terminos y condiciones</a></p>
+        </form>
+    </div>
 </template>
 
 <template id="Inventario">

@@ -161,9 +161,21 @@ nav {
     backdrop-filter: blur(4px);
 }
 
-#formulario {
+#formulario_login {
     width: 533px;
     height: 740px;
+    border-radius: 19px;
+    backdrop-filter: blur(1px);
+    background: #333A56;
+    position: absolute;
+    top: 8%;
+    left: 39%;
+    padding: 98px;
+    z-index: 8;
+}
+#formulario_registro {
+    width: 533px;
+    height: 822px;
     border-radius: 19px;
     backdrop-filter: blur(1px);
     background: #333A56;
@@ -182,15 +194,6 @@ nav {
     color: rgb(245, 245, 245) !important;
 }
 
-#cubo{
-    border-radius: 8px;
-    border: 1px solid #415176;
-    background: #1F2535;
-    width: 340px;
-    height: 56px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    
-}
 #caja{
     border-radius: 8px;
     border: 1px solid #415176;
@@ -217,9 +220,47 @@ label{
     color: #FFF;
 }
 
+/* ----------------------------------------------------------------------- */
+h1,#Regist{
+    color: #FFF;
+    font-family: Inter;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 39.6px; 
+    letter-spacing: -0.8px;
+    margin-left: 20%;
+    margin-bottom: 11%;
+}
 
-    /* ----------------------------------------------------------------------- */
-    /* Estilos modificados para la etiqueta Main y clases usadas en ella */
+input #caja{
+    margin-top: 0%;
+}
+#cubo{
+    border-radius: 8px;
+    border: 1px solid #415176;
+    background: #1F2535;
+    width: 340px;
+    height: 56px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    
+}
+
+#cubo:hover{
+    color: #FFF;
+}
+
+
+
+
+
+
+
+
+
+
+/* ----------------------------------------------------------------------- */
+/* Estilos modificados para la etiqueta Main y clases usadas en ella */
     main {
         height: 80vh;
     }
