@@ -5,12 +5,31 @@
 let vista = new Vista();
 
 
-// window.onload = function(){
-//     vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
-// }
+window.onload = function(){
+    vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+    vista.mostrar_plantilla("nav_sup_sin_menu","navegador_sup")
+}
 
 function regresar_pantalla(){
     vista.regresar_pantalla();
+}
+
+// Funciones para cambiar plantillas desde la barra de navegacion Inferior
+
+function mostrar_movimientos_vacia(){
+    vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
+}
+
+function mostrar_stock_vacia(){
+    vista.mostrar_plantilla("stock_vacia", "contenedor_principal", 1);
+}
+
+function mostrar_seleccionar_informe(){
+    vista.mostrar_plantilla("seleccionar_informe", "contenedor_principal", 1);
+}
+
+function mostrar_perfiles_vacia(){
+    vista.mostrar_plantilla("perfiles_vacia", "contenedor_principal", 1);
 }
 
 // Funciones para cambiar plantillas desde la pantalla Inicio
@@ -30,7 +49,6 @@ function mostrar_form_login(){
 function mostrar_inv_vacia(){
     vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
     vista.mostrar_plantilla("nav_sup_menu_ham","navegador_sup")
-    vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf")
 }
 
 // Funciones para cambiar plantillas desde la pantalla de Inventario
@@ -67,6 +85,15 @@ function mostar_form_crear_producto(){
     vista.mostrar_plantilla("crear_producto", "contenedor_principal", 1);
 }
 
+function mostrar_stock(){
+    vista.mostrar_plantilla("stock_con_inf", "contenedor_principal", 1);
+    vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf")
+}
+
+function mostrar_categorias_vacia(){
+    vista.mostrar_plantilla("categorias_vacia", "contenedor_principal", 1);
+}
+
 function mostrar_categorias(){
     vista.mostrar_plantilla("categorias", "contenedor_principal", 1);
 }
@@ -93,4 +120,18 @@ function mostrar_editar_categoria(){
 
 function mostrar_form_crear_categoria(){
     vista.mostrar_plantilla("crear_categoria", "contenedor_principal", 1);
+}
+
+// Funciones para cambiar plantillas desde la pantalla de Perfiles
+
+function mostrar_form_crear_perfil(){
+    vista.mostrar_plantilla("crear_perfil", "contenedor_principal", 1);
+}
+
+function mostrar_perfiles(){
+    vista.mostrar_plantilla("perfiles_con_inf", "contenedor_principal", 1);
+}
+
+function mostrar_editar_perfiles(){
+    vista.mostrar_plantilla("editar_perfiles", "contenedor_principal", 1);
 }
