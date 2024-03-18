@@ -89,66 +89,55 @@
             <div class="titulo_btnbusqueda_main d-flex justify-content-between">
                 <div class="d-flex align-items-center">
                     <h1>Perfiles</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
 
         <hr />
 
-        <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 prueba_span">Nombre Perfil</span>
-                        </th>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 prueba_span">Rol</span>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
+        <div class="container container_min_height d-flex justify-content-center">
+            <section id="registro_perfil" class="d-flex flex-column">
+                <h1 class="items-formularios_mnodificado text-center">Crear Perfil</h1>
+                <form class="form-floating items-formularios_mnodificado">
+                    <input type="text" class="form-control form-select_modificado" id="floatingInputValue"
+                        placeholder="" value="Pepito Perez" />
+                    <label for="floatingInputValue">Nombre Completo</label>
+                </form>
 
-                <tbody>
+                <select class="form-select form-select_modificado items-formularios_mnodificado"
+                    aria-label="Default select example">
+                    <option selected>Tipo de Documento</option>
+                    <option value="1">Cedula de Ciudadania</option>
+                    <option value="2">Cedula de Extrangeria</option>
+                    <option value="3">Rut</option>
+                </select>
 
-                    <tr>
-                        <th scope="row" class="td-body-tabla">
-                            <input id="input_modificado" class="form-control form-select_modificado" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Nuevo nombre de Perfil" />
-                        </th>
-                        <th scope="row" class="td-body-tabla">
-                            <select class="form-select form-select_modificado" aria-label="Default select example">
-                                <option selected>Escoger Tipo de Rol</option>
-                                <option value="1">Rol 01</option>
-                                <option value="2">Rol 02</option>
-                                <option value="3">Rol 03</option>
-                            </select>
-                        </th>
-                        <td class="text-end align-middle">
-                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
-                                <img src="/public/assets/images/guardar.svg" alt="" />
-                            </button>
-                        </td>
-                    </tr>
+                <form class="form-floating items-formularios_mnodificado">
+                    <input type="number" class="form-control form-select_modificado" id="floatingInputValue"
+                        placeholder="" value="123456789" />
+                    <label for="floatingInputValue">Número de Documento</label>
+                </form>
 
-                </tbody>
-            </table>
+                <form class="form-floating items-formularios_mnodificado">
+                    <input type="email" class="form-control form-select_modificado" id="floatingInputValue"
+                        placeholder="" value="PepitoPerez@gmail.com" />
+                    <label for="floatingInputValue">Correo Electronico</label>
+                </form>
+
+                <form class="form-floating items-formularios_mnodificado">
+                    <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
+                        placeholder="" value="Pepito Perez" />
+                    <label for="floatingInputValue">Contraseña</label>
+                </form>
+
+                <form class="form-floating items-formularios_mnodificado">
+                    <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
+                        placeholder="" value="Pepito Perez" />
+                    <label for="floatingInputValue">Repetir Contraseña</label>
+                </form>
+
+                <button class="btn btn-eliminar ">Crear</button>
+            </section>
         </div>
     </main>
 
@@ -946,7 +935,7 @@
 
         <hr />
 
-        <div class="container table-responsive position-relative" id="container_categoria">
+        <div class="container container_min_height table-responsive position-relative">
             <table class="table">
                 <thead>
                     <tr>
@@ -1189,7 +1178,7 @@
 
         <hr />
 
-        <div class="container position-relative" id="container_categoria">
+        <div class="container container_min_height position-relative">
             <table class="table">
                 <thead>
                     <tr>
@@ -1703,23 +1692,23 @@
             <h2 id="h2_estadistica_01" class="text-center">Movimientos del Producto</h2>
 
             <div class="d-flex justify-content-between">
-                <div class="d-flex gap-3" >
+                <div class="d-flex gap-3">
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option selected>Despliegue el menú</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                            <option selected>Despliegue el menú</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
                         </select>
                         <label for="floatingSelect">Seleccionar Producto</label>
                     </div>
-    
+
                     <form class="form-floating items-formularios">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Desde</label>
                     </form>
-    
+
                     <form class="form-floating items-formularios">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
@@ -1750,23 +1739,23 @@
             <h2 id="h2_estadistica_01" class="text-center">Movimientos del Producto</h2>
 
             <div class="d-flex justify-content-between">
-                <div class="d-flex gap-3" >
+                <div class="d-flex gap-3">
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option selected>Despliegue el menú</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                            <option selected>Despliegue el menú</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
                         </select>
                         <label for="floatingSelect">Seleccionar Producto</label>
                     </div>
-    
+
                     <form class="form-floating items-formularios">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Desde</label>
                     </form>
-    
+
                     <form class="form-floating items-formularios">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
@@ -1803,23 +1792,23 @@
             <h2 id="h2_estadistica_01" class="text-center">Movimientos Almacén</h2>
 
             <div class="d-flex justify-content-between">
-                <div class="d-flex gap-3" >
+                <div class="d-flex gap-3">
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option selected>Despliegue el menú</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                            <option selected>Despliegue el menú</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
                         </select>
                         <label for="floatingSelect">Seleccionar Almacén</label>
                     </div>
-    
+
                     <form class="form-floating items-formularios">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Desde</label>
                     </form>
-    
+
                     <form class="form-floating items-formularios">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
@@ -1850,23 +1839,23 @@
             <h2 id="h2_estadistica_01" class="text-center">Movimientos Almacén</h2>
 
             <div class="d-flex justify-content-between">
-                <div class="d-flex gap-3" >
+                <div class="d-flex gap-3">
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option selected>Despliegue el menú</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                            <option selected>Despliegue el menú</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
                         </select>
                         <label for="floatingSelect">Seleccionar Almacén</label>
                     </div>
-    
+
                     <form class="form-floating items-formularios">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Desde</label>
                     </form>
-    
+
                     <form class="form-floating items-formularios">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
@@ -1901,23 +1890,23 @@
             <h2 id="h2_estadistica_01" class="text-center">Movimientos en Almacenes</h2>
 
             <div class="d-flex justify-content-between">
-                <div class="d-flex gap-3" >
+                <div class="d-flex gap-3">
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option selected>Despliegue el menú</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                            <option selected>Despliegue el menú</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
                         </select>
                         <label for="floatingSelect">Seleccionar Almacén</label>
                     </div>
-    
+
                     <form class="form-floating items-formularios">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Desde</label>
                     </form>
-    
+
                     <form class="form-floating items-formularios">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
@@ -1948,23 +1937,23 @@
             <h2 id="h2_estadistica_01" class="text-center">Movimientos en Almacenes</h2>
 
             <div class="d-flex justify-content-between">
-                <div class="d-flex gap-3" >
+                <div class="d-flex gap-3">
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                          <option selected>Despliegue el menú</option>
-                          <option value="1">One</option>
-                          <option value="2">Two</option>
-                          <option value="3">Three</option>
+                            <option selected>Despliegue el menú</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
                         </select>
                         <label for="floatingSelect">Seleccionar Almacén</label>
                     </div>
-    
+
                     <form class="form-floating items-formularios">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Desde</label>
                     </form>
-    
+
                     <form class="form-floating items-formularios">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
@@ -2121,7 +2110,9 @@
 
                     <tr>
                         <th scope="row" class="td-body-tabla">
-                            <input id="input_modificado" class="form-control form-select_modificado" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Nuevo nombre de Perfil" />
+                            <input id="input_modificado" class="form-control form-select_modificado" type="text"
+                                class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="Nuevo nombre de Perfil" />
                         </th>
                         <th scope="row" class="td-body-tabla">
                             <select class="form-select form-select_modificado" aria-label="Default select example">
@@ -2140,6 +2131,67 @@
 
                 </tbody>
             </table>
+        </div>
+    </template>
+
+    <template id="Perfiles/Borrar Perfiles">
+        <div class="container">
+            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>Perfiles</h1>
+
+                    <div>
+                        <form action="#" method="get" class="search-form">
+                            <div class="boton_busqueda">
+                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
+                                <button class="prueba_boton_boton" type="button">
+                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="container container_min_height position-relative">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 prueba_span">Nombre Perfil</span>
+                        </th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 prueba_span">Rol</span>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla" id="div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p id="p_div_input_p_tabla">Pepito Perez</p>
+                            </div>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Administrador</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <button class="btn btn-contenido position-absolute bottom-0 end-0">Eliminar</button>
         </div>
     </template>
 
