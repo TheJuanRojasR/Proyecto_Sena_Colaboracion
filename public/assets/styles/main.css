@@ -8,6 +8,28 @@ nav {
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
 }
 
+footer{
+    background-color: #1F2535;
+    display: flex;
+    width: 100%;
+    min-height: 248px;
+    padding: 5rem 10rem;
+    align-items: flex-start;
+    gap: 5rem;
+}
+
+.logo_footer{
+    filter: invert(100%);
+}
+
+.color_blanco{
+    color: #FAFAFF;
+}
+
+.elemento_flooter{
+    height: 100%;
+}
+
 .container-fluid {
     padding: 0 1.5rem;
 }
@@ -42,6 +64,7 @@ main {
 
 .container_main {
     padding: 0;
+    min-height: 91vh;
 }
 
 h1 {
@@ -64,7 +87,7 @@ h2 {
     line-height: 32px;
 }
 
-p {
+.parrafo_menu {
     color: #000;
     font-family: Inter;
     font-size: 1rem;
@@ -239,6 +262,7 @@ li>button>p {
     color: white;
     border-radius: 8px;
     background: var(--Brand-primary, #333A56);
+    margin-top: 0.5rem;
 
     /* Estilos para el texto */
     font-family: Inter;
@@ -247,6 +271,23 @@ li>button>p {
     font-weight: 600;
     line-height: 24px;
     /* 133.333% */
+}
+
+.btn-contenido_ingresar{
+    height: 56px;
+    color: black;
+    border-radius: 8px;
+    background: transparent;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+    /* Estilos para el texto */
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 133.333% */
+
 }
 
 .btn-contenido:hover,
@@ -347,8 +388,8 @@ a.page-link:hover {
 }
 
 .form-check-input:checked {
-    background-color: #171740;
-    border-color: #171740;
+    background-color: #333A56;
+    border-color: #333A56;
 }
 
 /* ----------------------------------------------------------------------- */
