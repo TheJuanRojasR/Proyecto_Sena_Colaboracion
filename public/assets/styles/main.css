@@ -64,6 +64,14 @@ h2 {
     line-height: 32px;
 }
 
+p {
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+}
+
 .boton_busqueda {
     display: flex;
     justify-content: space-between;
@@ -468,9 +476,11 @@ a.page-link:hover {
 /* Estilos para vista de Barra lateral*/
 
 
+.color_inherit {
+    color: inherit;
+}
 
 .offcanvas.offcanvas-end {
-    width: 88%;
     padding-bottom: 72.31px;
     border-radius: 10px 0px 0px 10px;
     background-color: #333A56;
@@ -504,6 +514,27 @@ a.page-link:hover {
     font-weight: 300;
 }
 
+.offcanvas-header .btn-close {
+    margin-left: 22rem;
+}
+
+.contenido_offcanvas {
+    height: 100%;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Menu/Terminos y Condiciones*/
+
+.element-with-padding{
+    padding: 0 5rem;
+}
+
+.text-justify{
+    text-align: justify;
+}
+
+
 /* Medias las dejo de ultimas para que cargen bien el style */
 /* media que va en  Entradas y Salidas*/
 @media screen and (max-width: 1200px) {
@@ -523,7 +554,6 @@ a.page-link:hover {
         margin-top: 0.5rem;
     }
 }
-
 
 @media screen and (max-width: 991px) {
     .btn-tabla-icono {
@@ -555,4 +585,8 @@ a.page-link:hover {
     .btn-contenido_invertido {
         margin-left: 0;
     }
+    .element-with-padding{
+        padding: 0 3rem;
+    }
+    
 }
