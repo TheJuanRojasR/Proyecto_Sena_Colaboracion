@@ -14,24 +14,6 @@ function regresar_pantalla(){
     vista.regresar_pantalla();
 }
 
-// Funciones para cambiar plantillas desde la barra de navegacion Inferior
-
-function mostrar_movimientos_vacia(){
-    vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
-}
-
-function mostrar_stock_vacia(){
-    vista.mostrar_plantilla("stock_vacia", "contenedor_principal", 1);
-}
-
-function mostrar_seleccionar_informe(){
-    vista.mostrar_plantilla("seleccionar_informe", "contenedor_principal", 1);
-}
-
-function mostrar_perfiles_vacia(){
-    vista.mostrar_plantilla("perfiles_vacia", "contenedor_principal", 1);
-}
-
 // Funciones para cambiar plantillas desde la pantalla Inicio
 
 function mostrar_form_registro_usuario(){
@@ -44,11 +26,31 @@ function mostrar_form_login(){
     vista.mostrar_plantilla("nav_inf_login","navegador_inf")
 }
 
+// Funciones para cambiar plantillas desde la barra de navegacion Inferior
+
+function mostrar_movimientos_vacia(){
+    vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
+}
+
+function mostrar_stock_vacia(){
+    vista.mostrar_plantilla("stock_vacia", "contenedor_principal", 1);
+    vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf");
+}
+
+function mostrar_seleccionar_informe(){
+    vista.mostrar_plantilla("seleccionar_informe", "contenedor_principal", 1);
+}
+
+function mostrar_perfiles_vacia(){
+    vista.mostrar_plantilla("perfiles_vacia", "contenedor_principal", 1);
+}
+
 // Funcion para cambiar plantillas desde la pantalla de Registro de Usuario y Log In
 
 function mostrar_inv_vacia(){
     vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
-    vista.mostrar_plantilla("nav_sup_menu_ham","navegador_sup")
+    vista.mostrar_plantilla("nav_sup_menu_ham","navegador_sup");
+    vista.quitar_padding_main();
 }
 
 // Funciones para cambiar plantillas desde la pantalla de Inventario

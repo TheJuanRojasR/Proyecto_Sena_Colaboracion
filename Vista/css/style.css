@@ -222,6 +222,34 @@ h1{
     margin-left: auto;
 }
 
+.form-check{
+    margin: 0px;
+}
+
+.form-check-input:checked{
+    background-color: #333A56;
+    border: #333A56;
+}
+
+.boton_informacion_dropdown_corto{
+    margin-left: 12px;
+    background-color: transparent;
+    color:#666666;
+    width: 100%;
+    padding: 0px;
+    border: 1px solid rgba(126, 126, 129, 0.6);
+    border-radius: 4px;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.boton_informacion_dropdown_corto::after{
+    content: url(/Assets/img/inventario-chevron-down.svg);
+    margin-left: auto;
+}
+
 .color_lateral{
     width: 19px;
     height: 49px;

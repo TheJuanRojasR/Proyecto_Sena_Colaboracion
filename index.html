@@ -74,7 +74,7 @@
     </nav>
 
 <!-- Contenido de la pagina -->
-    <main id="contenedor_principal" class="overflow-y-scroll">
+    <main id="contenedor_principal" class="overflow-y-scroll"> 
         <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main">
             <div class="contenedor_titulo_small">
                 <p class="title_small">Inventraio</p>
@@ -94,7 +94,7 @@
 
 <!-- Navegador Inferior -->
     <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
-
+        
     </nav>
 
 
@@ -355,7 +355,7 @@
                     <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="direccion">Direccion</p></li>
                     <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="descripcion">Descripcion</p></li>
                     <li  class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#" onclick="mostrar_editar_inv()">Editar Inventario</a></li>
-                    <li  class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#" onclick="mostrar_stock()">Ver Inventario</a></li>
+                    <li  class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#" onclick="mostrar_stock_vacia()">Ver Inventario</a></li>
                 </ul>
             </div>
         </div>
@@ -394,45 +394,38 @@
             </div>
         </div>
         <div class="container d-flex justify-content-end contenedor_boton">
-            <button class="btn boton_oscuro_corto" type="button">
+            <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inventarios()">
                 Guardar
             </button>
         </div>
     </div>
 </template>
 
-<!-- Pantalla Eliminar Inventarios (por terminar)-->
-<template id="eliminar_inventarios">
+<!-- Pantalla Eliminar Inventarios-->
+<template id="eliminar_inventario">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main">
-        <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+        <div class="contenedor_titulo_small">
             <p class="title_small">Inventario</p>
         </div>
-        <div class="contenedor_informacion d-flex flex-column justify-content-center"> <!-- Contenido para menu dropdown -->
-            <div class="d-flex dropdown">
-                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" disabled>
-                    <div class="color_lateral" id="lateral_oscuro"></div>
-                    Inventario 1
-                </button>
-                <ul class="dropdown-menu informacion_dropdown_contenido">
-                    <li><input type="text" name="" class="input_editar_inventario" id="" placeholder="Nuevo Nombre de Inventario"></li>
-                    <li><input type="text" name="" class="input_editar_inventario" id="" placeholder="Nueva Direccion"></li>
-                    <li><input type="text" name="" class="input_editar_inventario" id="" placeholder="Nueva Descripcion"></li>
-                </ul>
-            </div>
-            <div class="d-flex dropdown">
-                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" disabled>
-                    <div class="color_lateral" id="lateral_oscuro"></div>
-                    Inventario 2
-                </button>
-                <ul class="dropdown-menu informacion_dropdown_contenido">
-                  <li><input type="text" name="" class="input_editar_inventario" id="" placeholder="Nuevo Nombre de Inventario"></li>
-                  <li><input type="text" name="" class="input_editar_inventario" id="" placeholder="Nueva Direccion"></li>
-                  <li><input type="text" name="" class="input_editar_inventario" id="" placeholder="Nueva Descripcion"></li>
-                </ul>
+        <div class="contenedor_informacion d-flex flex-column justify-content-center">
+            <div class="d-flex flex-column dropdown">
+                <div class="d-flex align-items-center form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="color_lateral" id="lateral_oscuro"></div>
+                        Inventario 1
+                    </button>
+                    <ul class="dropdown-menu informacion_dropdown_contenido">
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="direccion">Direccion</p></li>
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="descripcion">Descripcion</p></li>
+                        <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#" onclick="mostrar_editar_inv()">Editar Inventario</a></li>
+                        <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#" onclick="mostrar_stock_vacia()">Ver Inventario</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor de botones pequeños-->
-            <button class="btn boton_oscuro_corto" type="button">
+        <div class="container d-flex justify-content-end contenedor_boton">
+            <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inventarios()">
                 Eliminar
             </button>
         </div>
@@ -681,6 +674,37 @@
     </div>
 </template>
 
+<!-- Pantalla Eliminar Producto -->
+<template id="eliminar_producto">
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> 
+        <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+            <p class="title_small">Stock</p>
+        </div>
+        <div class="contenedor_informacion d-flex flex-column justify-content-center"> <!-- Contenido para menu dropdown -->
+            <div class="d-flex align-items-center form-check"> <!-- Contenedor para crear checkbox y seleccionar lo que se va a eliminar -->
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                    <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
+                        Producto 1
+                    </button>
+                    <ul class="dropdown-menu informacion_dropdown_contenido"> <!-- Lista de infomacion desplegable en el boton -->
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="referencia_producto">Referencia Producto</p></li>
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="categoria">Categoria</p></li>
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="cantidad_disponible">Cantidad Disponible</p></li>
+                        <li  class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#">Detalles del Producto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container d-flex justify-content-end contenedor_boton">
+            <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_stock()">
+                Eliminar
+            </button>
+        </div>
+    </div>
+</template>
+
 <!-- Pantalla Categorias vacia -->
 <template id="categorias_vacia">
     <div class="container-fluid d-flex flex-column justify-content-between align-items-center overflow-y-scroll contenedor_main">
@@ -785,6 +809,39 @@
         <div class="container d-flex justify-content-end contenedor_boton">
             <button class="btn boton_oscuro_corto" type="button">
                 Guardar
+            </button>
+        </div>
+    </div>
+</template>
+
+<!-- Pantalla Eliminar Categoria -->
+<template id="eliminar_categoria">
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> 
+        <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+            <button class="btn">
+                <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+            </button>
+        </div>
+        <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+            <p class="title_small">Categorias</p>
+        </div>
+        <div class="contenedor_informacion d-flex flex-column justify-content-center"> <!-- Contenido para menu dropdown -->
+            <div class="d-flex align-items-center form-check"> <!-- Contenedor para crear checkbox y seleccionar lo que se va a eliminar -->
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                    <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="color_lateral" id="lateral_oscuro"></div>
+                        Categoria 1
+                    </button>
+                    <ul class="dropdown-menu informacion_dropdown_contenido">
+                        <li  class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#" onclick="mostrar_editar_categoria()">Editar Categoria</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container d-flex justify-content-end contenedor_boton">
+            <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_categorias()">
+                Eliminar
             </button>
         </div>
     </div>
@@ -1167,6 +1224,36 @@
         <div class="container d-flex justify-content-end contenedor_boton">
             <button class="btn boton_oscuro_corto" type="button">
                 Guardar
+            </button>
+        </div>
+    </div>
+</template>
+
+<!-- Pantalla Eliminar Perfiles -->
+<template id="eliminar_perfiles">
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main">
+        <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+            <p class="title_small">Perfiles</p>
+        </div>
+        <div class="contenedor_informacion d-flex flex-column justify-content-center"> <!-- Contenido para menus dropdown -->
+            <div class="d-flex align-items-center form-check"> <!-- Contenedor para crear checkbox y seleccionar lo que se va a eliminar -->
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                    <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="color_lateral" id="lateral_oscuro"></div>
+                        Perfil 1
+                    </button>
+                    <ul class="dropdown-menu informacion_dropdown_contenido">
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="nombre_usuario">Nombre Usuario</p></li>
+                        <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" id="rol">Rol</p></li>
+                        <li  class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#" onclick="mostrar_editar_perfiles()">Editar Perfil</a></li>
+                    </ul>
+                </div>
+            </div>                   
+        </div>
+        <div class="container d-flex justify-content-end contenedor_boton">
+            <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_stock()">
+                Eliminar
             </button>
         </div>
     </div>
