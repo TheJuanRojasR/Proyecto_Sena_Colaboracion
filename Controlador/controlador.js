@@ -34,7 +34,9 @@ function mostrar_movimientos_vacia(){
 
 function mostrar_stock_vacia(){
     vista.mostrar_plantilla("stock_vacia", "contenedor_principal", 1);
+    vista.mostrar_plantilla("btn_tres", "contendor_de_botones")
     vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf");
+    vista.quitar_poner_padding_main("stock_vacia");
 }
 
 function mostrar_seleccionar_informe(){
@@ -50,7 +52,7 @@ function mostrar_perfiles_vacia(){
 function mostrar_inv_vacia(){
     vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
     vista.mostrar_plantilla("nav_sup_menu_ham","navegador_sup");
-    vista.quitar_padding_main();
+    vista.quitar_poner_padding_main("inventarios_vacia");
 }
 
 // Funciones para cambiar plantillas desde la pantalla de Inventario
