@@ -1,2 +1,40 @@
-# Proyecto_Sena_Colaboracion
-Se crea este repositorio para practicar la colaboraciones y Git  flow (Modelo de ramificacion y flujo de trabajo)
+# BOOTSTRAP
+
+- Breakpoint: Son puntos de quiebre donde la clase va cambiar segun la clase que le coloquemos. Tenemos que mirar en que breakpoints nuestras pantallas pueden cambiar y asi poderlos colocar.
+
+```
+<!-- Bootstrap -->
+
+<div class="container text-center">
+    <div class="row">
+        <div class="col-sm-4 col-lg-6">
+        </div>
+        <div class="col-sm-8 col-lg-6">
+        </div>
+    </div>
+</div>
+```
+> Podemos ver en el ejemplo que cuando esten en un tama;o lg van a ocupar 6 columnas pero cuando pasen a tener un tama;o de sm van a ocupar 4 y 6 columnas cada una para completar las 12.
+
+# PROTOTIPO INDEX
+
+- La barra de navegacion tiene que ser de clase .container-fluid de Bootstrap para que se adapte a todo el ancho de la pantalla todo el tiempo.
+- El main debera de tener la clase .container de Bootstrap debido a que tiene un ancho maximo y no va llenar toda la pantalla.
+- El evento de click para los formularios y los botones toca modificarlos en el js. Mientras los dejamos como estan
+
+> Importante : revivisar todos los estilos y mirar cuales puedo modificar para optimizar y quede mas entendible. Agregar el boton de Crear inventario en las plantillas de inventario.  
+
+
+### Clase 07/03/24
+
+- Consultar que son Docbloks standards en js.
+- Consultar que codigo nos sirve para mostrar otra pag.
+- Toca tener un script aparte para manejar el js enfocado a la vista
+- En un formulario el name tiene que ser el mismo nombre de las columnas de las tablas de base de datos.
+
+
+
+### Faltantes. 
+- Tengo que centrar el boton de editar en la vista del Stock. hecho
+- Cambiar el alto de las opciones en el select. 
+- En estadisticas dejo un div del 100% para despues colocar el grafico en ese div.

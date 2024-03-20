@@ -1,0 +1,710 @@
+body {
+    background: var(--Base, #F7F5E6);
+}
+
+/* Estilos modificados para la etiqueta Nav y clases usadas en ella */
+nav {
+    background-color: #F7F5E6;
+    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+footer{
+    background-color: #1F2535;
+    display: flex;
+    width: 100%;
+    min-height: 248px;
+    padding: 5rem 10rem;
+    align-items: flex-start;
+    gap: 5rem;
+}
+
+.logo_footer{
+    filter: invert(100%);
+}
+
+.color_blanco{
+    color: #FAFAFF;
+}
+
+.elemento_flooter{
+    height: 100%;
+}
+
+.container-fluid {
+    padding: 0 1.5rem;
+}
+
+.navbar-expand-md {
+    padding: 0 0 4px 0;
+}
+
+.dropdown-toggle::after {
+    border: 0;
+}
+
+.personalizar-icono-usuario {
+    font-size: 2rem;
+    padding: 0;
+}
+
+.alto_maximo {
+    height: 100%;
+}
+
+.ancho_maximo {
+    width: 100%;
+}
+
+/* ----------------------------------------------------------------------- */
+
+
+/* Estilos modificados para la etiqueta Main y clases usadas en ella */
+main {
+    height: 80vh;
+}
+
+.container_main {
+    padding: 0;
+    min-height: 91vh;
+}
+
+h1 {
+    color: #000;
+    font-family: Poppins;
+    font-weight: 600;
+    line-height: 48.4px;
+    letter-spacing: -1.02px;
+    padding-right: 2rem;
+    margin: 0;
+}
+
+h2 {
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+}
+
+.parrafo_menu {
+    color: #000;
+    font-family: Inter;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.boton_busqueda {
+    display: flex;
+    justify-content: space-between;
+    height: 3.5rem;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+.prueba_boton_boton {
+    padding: 0 20px 0 0;
+    border: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background-color: white;
+}
+
+.prueba_boton_input {
+    width: 100%;
+    padding: 0 0 0 20px;
+    border: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+    outline: none;
+}
+
+.titulo_btnbusqueda_main {
+    display: flex;
+    padding-top: 1rem;
+    align-items: center;
+}
+
+hr {
+    stroke-width: 2px;
+    height: 2px;
+    border: none;
+    background-color: gray;
+}
+
+.container_contenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 81vh;
+}
+
+.container_contenido>h2 {
+    font-family: inter;
+}
+
+/*Estilos para vista de Inventario */
+
+#container_inventarios {
+    display: flex;
+}
+
+.container_formularios_inventario {
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    margin: 0;
+    box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
+}
+
+.items-formularios {
+    padding-bottom: 0.5rem;
+}
+
+.items-formularios_modificado {
+    margin-bottom: 0.5rem;
+}
+
+.btn_formulario_inventario {
+    height: 3.6rem;
+    margin-top: 3rem;
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.5rem;
+    background-color: #333A56;
+    color: white;
+    transition: none;
+}
+
+
+.btn_formulario_inventario:hover {
+    background-color: #333A56;
+    color: white;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de registrarse */
+
+/* Estilos comunes */
+.registro__input,
+.registro__select,
+.registro__button,
+.registro__option {
+    color: var(--light-grey, #e0e0ff);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    height: 56px;
+    border-radius: 8px;
+    border: 1px solid #415176;
+    background: var(--Brand-primary-oscuro, #1f2535);
+}
+
+/* Estilos específicos para el contenedor principal de registro */
+.registro {
+    width: 533px;
+    height: 657px;
+    border-radius: 10px;
+    background: #333a56;
+    padding: 44px 90px;
+}
+
+/* Estilos para el título del formulario de registro */
+.registro__titulo {
+    color: #fff;
+    font-family: Inter;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.0;
+    letter-spacing: -0.8px;
+    padding: 0;
+}
+
+/* Estilos para el placeholder de los inputs dentro del formulario de registro */
+.registro__input::placeholder {
+    color: var(--light-grey, #e0e0ff);
+}
+
+/* Estilos para los botones dentro del formulario de registro */
+.registro__button {
+    width: 144px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+/* Estilos para el texto dentro del formulario de registro */
+.registro__text {
+    color: var(--Colores_Neutrales-Gris_Claro, #f2f2f2);
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16.8px;
+}
+
+/* Estilos para los inputs y selects cuando están enfocados o al pasar el mouse sobre ellos */
+.registro input.form-control:focus,
+.registro select.form-select:focus,
+.registro select.form-select:hover {
+    /* Copia y pega los estilos para mantenerlos durante el enfoque o el hover */
+    /* Esto asegura que los estilos se mantengan consistentes */
+    color: var(--light-grey, #e0e0ff);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    height: 56px;
+    border-radius: 8px;
+    border: 1px solid #415176;
+    background: var(--Brand-primary-oscuro, #1f2535);
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Inventario/InventarioCrear */
+
+.container_inventario_crear {
+    position: relative;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    margin: 0;
+    box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+
+.container_inventario_crear>h3 {
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: var(--black, #171740);
+}
+
+.container_inventario_crear>p {
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: var(--dark-grey, #242464);
+}
+
+.btn_inventario_crear {
+    height: 3.6rem;
+    margin-top: 3rem;
+    font-family: Inter;
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5rem;
+    background-color: #333A56;
+    color: white;
+}
+
+
+.btn_inventario_crear:hover {
+    background-color: #333A56;
+    color: white;
+}
+
+.btn-group>.dropdown-menu {
+    background-color: #333A56;
+}
+
+li>button>p {
+    margin: 0;
+    padding-left: 11px;
+    color: white;
+    font-family: Inter;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.125rem;
+}
+
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Entradas y Salidas */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    white-space: nowrap;
+}
+
+.btn-contenido,
+.btn-eliminar {
+    height: 56px;
+    color: white;
+    border-radius: 8px;
+    background: var(--Brand-primary, #333A56);
+    margin-top: 0.5rem;
+
+    /* Estilos para el texto */
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 133.333% */
+}
+
+.btn-contenido_ingresar{
+    height: 56px;
+    color: black;
+    border-radius: 8px;
+    background: transparent;
+    margin-top: 0.5rem;
+    margin-right: 1rem;
+    /* Estilos para el texto */
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    /* 133.333% */
+
+}
+
+.btn-contenido:hover,
+.btn-eliminar:hover {
+    background-color: #333A56;
+    color: white;
+}
+
+.btn-contenido_invertido {
+    color: #171740;
+    background: var(--lightestGrey, #FAFAFF);
+    margin-left: 1rem;
+}
+
+.btn-contenido_invertido:hover {
+    color: #171740;
+    background: var(--lightestGrey, #FAFAFF);
+}
+
+.btn-tabla-icono {
+    padding: 0;
+    color: var(--black, #171740);
+    font-family: Inter;
+    font-size: 0.875em;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.125rem;
+}
+
+
+
+/* Para poder colocar el color en el encabezado de la tabla*/
+
+.table>:not(caption)>*>* {
+    background: var(--Base, #F7F5E6);
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Operaciones/Crear Entradas y Salidas*/
+
+#btnGuardar-tabla {
+    padding: 0.45rem 0.45rem;
+    background-color: #333A56;
+    color: white;
+}
+
+#btnGuardar-tabla img {
+    filter: invert(100%);
+}
+
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Operaciones/Entradas y Salidas con opciones*/
+
+.td-body-tabla {
+
+    margin: 0;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 36px;
+}
+
+.td-body-tabla_opciones {
+    margin: 0;
+    padding-left: 32px;
+    vertical-align: middle;
+}
+
+.td-body-tabla_categoria {
+    margin: 0;
+    padding-left: 32px;
+}
+
+/* Cambiar nombre de clases para estos estilos */
+
+a.page-link {
+    background-color: transparent;
+    border: none;
+}
+
+a.page-link:hover {
+    background-color: transparent;
+    border: none;
+}
+
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Stock/Crear Producto*/
+
+#th_input_nombreCategoria {
+    margin-left: 30px;
+    width: 50%;
+}
+
+.form-check-input:checked {
+    background-color: #333A56;
+    border-color: #333A56;
+}
+
+/* ----------------------------------------------------------------------- */
+
+
+/* Estilos para vista de Stock/Categoria con opciones*/
+
+.btn_editar_categoria {
+    padding: 0;
+    filter: invert(100%);
+    font-family: Inter;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.125rem;
+}
+
+.div_input_p_tabla {
+    position: relative;
+    display: flex;
+    margin-left: 7.5px;
+    align-items: center;
+}
+
+.p_div_input_p_tabla {
+    margin: 0 0 0 12px;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Stock/Abastecimiento*/
+
+.container_min_height {
+    min-height: 100%;
+}
+
+#abastecimiento_columna_aviso_error {
+    width: 10px;
+    background-color: var(--Error, #F04C4C);
+    border-radius: 5px 0 0 5px;
+}
+
+#abastecimiento_columna_aviso_advertencia {
+    width: 10px;
+    background-color: var(--Advertencia, #FF9900);
+    border-radius: 5px 0 0 5px;
+}
+
+.texto_advertencia {
+    color: var(--Advertencia, #FF9900);
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+}
+
+.texto_error {
+    color: var(--Error, #F04C4C);
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18px;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Stock/Productos creados/Detalles del Producto*/
+
+#imagen_ej_ddp {
+    height: auto;
+    max-width: 100%;
+}
+
+.contenedor-imagen {
+    max-width: 100%;
+    height: auto;
+    padding-left: 5rem;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Estadisticas*/
+
+.form-select_modificado,
+#input_modificado {
+    width: 325px;
+    height: 48px;
+
+    color: #666;
+    font-family: Inter;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 18px;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Estadisticas/Estadistica 1*/
+
+#h2_estadistica_01 {
+    margin: 3.5rem 0;
+}
+
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Perfiles/Crear Perfil */
+
+#registro_perfil {
+    width: 374px;
+    height: 535px;
+    background-color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 16px;
+    margin: 0;
+    box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
+}
+
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Barra lateral*/
+
+
+.color_inherit {
+    color: inherit;
+}
+
+.offcanvas.offcanvas-end {
+    padding-bottom: 72.31px;
+    border-radius: 10px 0px 0px 10px;
+    background-color: #333A56;
+}
+
+.offcanvas-header {
+    padding: 15px 4px;
+}
+
+#titulo_menu_desplegable {
+    color: #FFF;
+    text-align: center;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+#term_condi,
+#politicas_priv,
+#ajustes_usu,
+#ayuda,
+#cerrar_ses {
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(228, 228, 228, 0.20);
+    margin: 12px 0px;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.offcanvas-header .btn-close {
+    margin-left: 22rem;
+}
+
+.contenido_offcanvas {
+    height: 100%;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Menu/Terminos y Condiciones*/
+
+.element-with-padding{
+    padding: 0 5rem;
+}
+
+
+.text-justify{
+    text-align: justify;
+}
+
+
+/* Medias las dejo de ultimas para que cargen bien el style */
+/* media que va en  Entradas y Salidas*/
+@media screen and (max-width: 1200px) {
+    .btn-tabla-icono {
+        font-size: 0.8em;
+    }
+
+    .btn-contenido_invertido {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .btn-contenido {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .btn-tabla-icono {
+        font-size: 0.78em;
+    }
+
+    .form-control {
+        font-size: 0.8em;
+    }
+
+    #btnGuardar-tabla {
+        padding: 0.3rem;
+    }
+
+    #btnGuardar-tabla img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .table-responsible {
+        overflow-x: auto;
+    }
+
+    .td-body-tabla {
+        line-height: 28px;
+        /* Valor ajustado para pantallas menores o iguales a 991px */
+    }
+
+    .btn-contenido_invertido {
+        margin-left: 0;
+    }
+    .element-with-padding{
+        padding: 0 3rem;
+    }
+    
+}
