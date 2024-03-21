@@ -65,7 +65,7 @@ main {
 
 .container_main {
     padding: 0;
-    min-height: 91vh;
+    min-height: 80vh;
 }
 
 h1 {
@@ -205,12 +205,16 @@ hr {
 }
 
 /* Estilos específicos para el contenedor principal de registro */
-.registro {
+.registro, .ingreso {
     width: 533px;
     height: 657px;
     border-radius: 10px;
     background: #333a56;
     padding: 44px 90px;
+}
+
+.ingreso {
+    padding: 0px;
 }
 
 /* Estilos para el título del formulario de registro */
@@ -246,10 +250,15 @@ hr {
     line-height: 16.8px;
 }
 
+.registro--padding {
+    padding: 0px 90px;
+}
+
 /* Estilos para los inputs y selects cuando están enfocados o al pasar el mouse sobre ellos */
 .registro input.form-control:focus,
 .registro select.form-select:focus,
-.registro select.form-select:hover {
+.registro select.form-select:hover,
+.ingreso input.form-control:focus {
     /* Copia y pega los estilos para mantenerlos durante el enfoque o el hover */
     /* Esto asegura que los estilos se mantengan consistentes */
     color: var(--light-grey, #e0e0ff);
@@ -652,6 +661,79 @@ a.page-link:hover {
     text-align: justify;
 }
 
+/* ----------------------------------------------------------------------- */
+
+/* Estilos para vista de Modales*/
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s .9s;
+    --transform: translateY(-100vh);
+    --transition: transform .8s;
+}
+
+.modal--show{
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .6s;
+    --transform: translateY(0);
+    --transition: transform .8s .8s;
+}
+
+.modal__container{
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90%;
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 3em 2.5em;
+    display: grid;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+    transform: var(--transform);
+    transition:var(--transition);
+}
+
+.modal__title{
+    font-size: 2.5rem;
+}
+
+.modal__paragraph{
+    margin-bottom: 10px;
+}
+
+.modal__img{
+    width: 90%;
+    max-width: 300px;
+}
+
+.modal__close{
+    text-decoration: none;
+    color: #fff;
+    background-color: #F26250;
+    padding: 1em 3em;
+    border: 1px solid ;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    transition: background-color .3s;
+}
+
+.modal__close:hover{
+    color: #F26250;
+    background-color: #fff;
+}
+
 
 /* Medias las dejo de ultimas para que cargen bien el style */
 /* media que va en  Entradas y Salidas*/
@@ -708,3 +790,4 @@ a.page-link:hover {
     }
     
 }
+

@@ -43,55 +43,25 @@
                 <button class="btn btn-contenido_ingresar">Ingresar</button>
                 </button>
                 </button>
-                <button class="btn btn-contenido" onclick="mostrarModal()">Registrar</button>
+                <button class="btn btn-contenido" >Registrar</button>
                 </button>
             </div>
         </div>
     </nav>
 
     <main class="container-fluid container_main">
-        <section class="registro text-center">
-            <h1 class="registro__titulo mb-4">Registrarse</h1>
         
-            <form class="mb-1">
-                <input type="text" class="form-control registro__input" placeholder="Nombre Completo" value="">
-            </form>
-        
-            <select class="form-select registro__select mb-1" aria-label="Default select example">
-                <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
-                <option class="registro__option" value="1">Cedula de Ciudadania</option>
-                <option class="registro__option" value="2">Cedula de Extrangeria</option>
-                <option class="registro__option" value="3">Rut</option>
-            </select>
-        
-            <form class="registro__input mb-1">
-                <input type="number" class="form-control registro__input" placeholder="Numero de Documento" value="">
-            </form>
-        
-            <form class="registro__input mb-1">
-                <input type="email" class="form-control registro__input" placeholder="Correo Electronico" value="">
-            </form>
-        
-            <form class="registro__input mb-1">
-                <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
-            </form>
-        
-            <form class="registro__input mb-3">
-                <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña" value="">
-            </form>
-        
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" id="terminosCondicionesCheckbox" value="">
-                <label class="form-check-label registro__text" for="terminosCondicionesCheckbox">
-                    He leído y acepto los <a href="#">Términos y Condiciones</a>
-                </label>
-            </div>
-        
-            <button class="btn btn-primary registro__button mb-3">Registrar</button>
-        
-            <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
-        </section>
     </main>
+
+    <section class="modal modal--show">
+        <div class="modal__container">
+            <img src="images/modal.svg" class="modal__img">
+            <h2 class="modal__title">¡Bienvenido al sitio!</h2>
+            <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
+            <a href="#" class="modal__close">Cerrar Modal</a>
+        </div>
+    </section>
+    
 
     <footer class="d-flex justify-content-center">
         <div>
@@ -129,7 +99,7 @@
             <select class="form-select registro__select mb-1" aria-label="Default select example">
                 <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
                 <option class="registro__option" value="1">Cedula de Ciudadania</option>
-                <option class="registro__option" value="2">Cedula de Extrangeria</option>
+                <option class="registro__option" value="2">Cedula de Extranjeria</option>
                 <option class="registro__option" value="3">Rut</option>
             </select>
         
@@ -159,6 +129,31 @@
             <button class="btn btn-primary registro__button mb-3">Registrar</button>
         
             <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
+        </section>
+    </template>
+        
+    <template id="Ingreso">
+        <section class="ingreso text-center">
+            <figure>
+                <img src="./public/assets/images//Imagen_Ingreso.png" alt="">
+            </figure>
+            <h1 class="registro__titulo mb-4">Ingreso</h1>
+            <div class="registro--padding">
+                <form class="registro__input mb-1">
+                    <input type="email" class="form-control registro__input" placeholder="Correo Electronico" value="">
+                </form>
+                <form class="registro__input mb-2">
+                    <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
+                </form>
+                <div class="form-check mb-3 d-flex align-items-end justify-content-evenly">
+                    <input class="form-check-input" type="checkbox" value="">
+                    <label class="form-check-label registro__text">
+                        Recordar mi usuario 
+                    </label>
+                    <a href="#" class="registro__text">¿Olvidó su contraseña?</a>
+                </div>
+            </div>
+            <button class="btn btn-primary registro__button mb-3">Ingresar</button>
         </section>
     </template>
 
@@ -396,7 +391,7 @@
                         </form>
                     </div>
                 </div>
-                <button class="btn btn-contenido">Crear Entrada</button>
+                <button class="btn btn-eliminar">Crear Entrada</button>
             </div>
         </div>
         <hr />
@@ -949,7 +944,7 @@
                         </form>
                     </div>
                 </div>
-                <button class="btn btn-contenido">Crear Producto</button>
+                <button class="btn btn-eliminar">Crear Producto</button>
             </div>
         </div>
 
@@ -1208,7 +1203,7 @@
                         </form>
                     </div>
                 </div>
-                <button class="btn btn-contenido">Crear Categoría</button>
+                <button class="btn btn-eliminar">Crear Categoría</button>
             </div>
         </div>
 
@@ -1359,7 +1354,7 @@
                 </tbody>
             </table>
 
-            <button class="btn btn-contenido position-absolute bottom-0 end-0">Eliminar</button>
+            <button class="btn btn-eliminar position-absolute bottom-0 end-0">Eliminar</button>
         </div>
     </template>
 
@@ -2140,7 +2135,7 @@
                     aria-label="Default select example">
                     <option selected>Tipo de Documento</option>
                     <option value="1">Cedula de Ciudadania</option>
-                    <option value="2">Cedula de Extrangeria</option>
+                    <option value="2">Cedula de Extranjeria</option>
                     <option value="3">Rut</option>
                 </select>
 
@@ -2190,7 +2185,7 @@
                         </form>
                     </div>
                 </div>
-                <button class="btn btn-contenido">Crear Perfil</button>
+                <button class="btn btn-eliminar">Crear Perfil</button>
             </div>
         </div>
 
@@ -2367,7 +2362,7 @@
 
                 </tbody>
             </table>
-            <button class="btn btn-contenido position-absolute bottom-0 end-0">Eliminar</button>
+            <button class="btn btn-eliminar position-absolute bottom-0 end-0">Eliminar</button>
         </div>
     </template>
 
@@ -2550,7 +2545,107 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-contenido position-absolute bottom-0 end-0">Editar</button>
+            <button class="btn btn-eliminar position-absolute bottom-0 end-0">Editar</button>
+    </template>
+
+    <template id="Menu/Ajustes de usuario Editar">
+        <div class="container">
+            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>Ajustes del Usuario</h1>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container container_min_height position-relative">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                        </th>
+                        <th scope="col" class="">
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Nombre de Usuario</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <form class="form-floating">
+                                <input type="text" class="form-control form-select_modificado"
+                                    placeholder="" value="Ej: Pepito Perez" />
+                                <label for="floatingInputValue">Nuevo nombre de Usuario</label>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Tipo de Documento</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <select class="form-select form-select_modificado items-formularios_modificado"
+                            aria-label="Default select example">
+                                <option selected>Tipo de Documento</option>
+                                <option value="1">Cedula de Ciudadania</option>
+                                <option value="2">Cedula de Extranjeria</option>
+                                <option value="3">Rut</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Numero de Documento</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <form class="form-floating">
+                                <input type="number" class="form-control form-select_modificado"
+                                    placeholder="" value="123456789" />
+                                <label for="floatingInputValue">Numero de Documento</label>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Correo Electronico</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <form class="form-floating">
+                                <input type="email" class="form-control form-select_modificado"
+                                    placeholder="" value="PepitoPerez@gmail.com" />
+                                <label for="floatingInputValue">Correo Electronico</label>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Contraseña</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <form class="form-floating">
+                                <input type="password" class="form-control form-select_modificado"
+                                    placeholder="" value="123456789" />
+                                <label for="floatingInputValue">Nueva Contraseña</label>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Repetir Contraseña</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <form class="form-floating">
+                                <input type="password" class="form-control form-select_modificado"
+                                    placeholder="" value="123456789" />
+                                <label for="floatingInputValue">Repetir Nueva Contraseña</label>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-eliminar position-absolute bottom-0 end-0">Guardar</button>
     </template>
 
     <template id="Menu/Ayuda">
