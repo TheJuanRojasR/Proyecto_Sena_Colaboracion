@@ -5,6 +5,16 @@ class Vista {
   }
 
   /**
+   * 
+   * @param {*} contenedor 
+   */
+
+  limpiar_contenedor(contenedor, template_modificar) {
+    let cont = document.getElementById(contenedor);
+    cont.innerHTML = "";
+  }
+
+  /**
    * Metodo para desplegar una plantilla en un contenedor y guardar el nombre de la plantilla en la pila de pantallas
    * @param {*} plantilla: id de la plantilla a desplegar 
    * @param {*} contenedor: id del contenedor donde se desplegara la plantilla
@@ -43,19 +53,5 @@ class Vista {
       cont.appendChild(clone);
     }
   }
-
-  /**
-   * 
-   * @param {*} template_actual: nombre de la plantilla a modificar
-   */
-
-  quitar_poner_padding_main(template_modificar){
-    let main = document.getElementById("contenedor_principal");
-    let plantilla = template_modificar;
-    if(plantilla == "inventarios_vacia" || plantilla == "inventarios"){
-      main.style.padding= "57px 0px 0px 0px";
-    } else{
-      main.style.padding= "57px 0px 72.31px 0px";
-    }
-  }
 }
+

@@ -23,7 +23,7 @@ function mostrar_form_registro_usuario(){
 
 function mostrar_form_login(){
     vista.mostrar_plantilla("log_in", "contenedor_principal", 1);
-    vista.mostrar_plantilla("nav_inf_login","navegador_inf")
+    vista.mostrar_plantilla("nav_inf_login","navegador_inf");
 }
 
 // Funciones para cambiar plantillas desde la barra de navegacion Inferior
@@ -50,15 +50,16 @@ function mostrar_perfiles_vacia(){
 // Funcion para cambiar plantillas desde la pantalla de Registro de Usuario y Log In
 
 function mostrar_inv_vacia(){
-    vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
     vista.mostrar_plantilla("nav_sup_menu_ham","navegador_sup");
-    vista.quitar_poner_padding_main("inventarios_vacia");
+    vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
+    vista.limpiar_contenedor("navegador_inf");
 }
 
 // Funciones para cambiar plantillas desde la pantalla de Inventario
 
 function mostrar_inventarios(){
     vista.mostrar_plantilla("inventarios", "contenedor_principal", 1);
+    vista.limpiar_contenedor("navegador_inf");
 }
 
 function mostrar_form_crear_inv(){
