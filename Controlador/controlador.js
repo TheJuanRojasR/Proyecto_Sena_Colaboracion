@@ -5,10 +5,10 @@
 let vista = new Vista();
 
 
-window.onload = function(){
-    vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
-    vista.mostrar_plantilla("nav_sup_sin_menu","navegador_sup")
-}
+// window.onload = function(){
+//     vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+//     vista.mostrar_plantilla("nav_sup_sin_menu","navegador_sup")
+// }
 
 function regresar_pantalla(){
     vista.regresar_pantalla();

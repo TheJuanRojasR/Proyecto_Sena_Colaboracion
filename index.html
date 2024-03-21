@@ -75,19 +75,40 @@
 
 <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="overflow-y-scroll"> 
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main">
-            <div class="contenedor_titulo_small">
-                <p class="title_small">Inventraio</p>
+        <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+            <div class="contenedor_flecha_back"> <!-- Contendor de la flecha de retroceso -->
+                <button class="btn" onclick="regresar_pantalla()">
+                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                </button>
             </div>
-            <div>
-                <p class="message">NO TIENES INVENTARIOS</p>
+            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                <p class="title_small">Detalles del Producto</p>
             </div>
-            <div class="menu_un_btn">
-                <div class="btn_main d-flex justify-content-center">
-                    <button class="btn crear" type="button" onclick="mostrar_form_crear_inv()">
-                        <img src="./Assets/img/plus.svg" alt="" class="img_big">
-                    </button>
-                </div>
+            <div class="conedor_nombre_producto_titulo"> <!-- Contenedor Nombre del producto como Titulo -->
+                <h1 id="nombre_producto_titulo">
+                    Nombre del Producto
+                </h1>
+            </div>
+            <div class="container d-flex" id="contenedor_detalles_producto"> <!-- Contenedor para la lista de detalles del producto -->
+                <ul id="lista_detalles_producto">
+                    <li>Referencia</li>
+                    <li>Ubicacion</li>
+                    <li>Cantidad</li>
+                    <li>Stock Minimo</li>
+                    <li>Costo</li>
+                    <li>Precio de Venta</li>
+                </ul>
+            </div>
+            <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_producto"> <!-- Contenedor de botones para ver movimientos y editar el producto -->
+                <button class="btn boton_largo_oscuro" type="button">
+                    Ver Movimientos
+                </button>
+                <button class="btn boton_largo_claro" type="button">
+                    Editar Producto
+                </button>
+            </div>
+            <div class="container d-flex align-items-center justify-content-center"> <!-- Contenedor de la imagen del producto -->
+                <img src="./Assets/img/image-1.png" alt="" id="imagen_producto">
             </div>
         </div>
     </main>
