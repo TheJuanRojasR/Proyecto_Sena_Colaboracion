@@ -18,9 +18,9 @@ footer{
     gap: 5rem;
 }
 
-.logo_footer{
+/* .logo_footer{
     filter: invert(100%);
-}
+} */
 
 .color_blanco{
     color: #FAFAFF;
@@ -205,16 +205,24 @@ hr {
 }
 
 /* Estilos específicos para el contenedor principal de registro */
-.registro, .ingreso {
+.registro,
+.ingreso {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+}
+
+.registro__container, .ingreso__container {
+    position: relative;
+    margin: auto;
     width: 533px;
     height: 657px;
     border-radius: 10px;
     background: #333a56;
     padding: 44px 90px;
-}
-
-.ingreso {
-    padding: 0px;
 }
 
 /* Estilos para el título del formulario de registro */
@@ -241,6 +249,16 @@ hr {
     line-height: 24px;
 }
 
+.registro__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+}
+
 /* Estilos para el texto dentro del formulario de registro */
 .registro__text {
     color: var(--Colores_Neutrales-Gris_Claro, #f2f2f2);
@@ -250,8 +268,12 @@ hr {
     line-height: 16.8px;
 }
 
-.registro--padding {
-    padding: 0px 90px;
+.ingreso {
+    padding: 0px;
+}
+
+.ingreso__img {
+
 }
 
 /* Estilos para los inputs y selects cuando están enfocados o al pasar el mouse sobre ellos */
@@ -271,6 +293,7 @@ hr {
     border: 1px solid #415176;
     background: var(--Brand-primary-oscuro, #1f2535);
 }
+
 
 /* ----------------------------------------------------------------------- */
 
@@ -762,6 +785,10 @@ a.page-link:hover {
 
     .form-control {
         font-size: 0.8em;
+    }
+
+    .form-select{
+        font-size: 0.7em;
     }
 
     #btnGuardar-tabla {

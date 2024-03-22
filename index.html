@@ -50,19 +50,32 @@
     </nav>
 
     <main class="container-fluid container_main">
-        
+        <section class="ingreso">
+            <div class="ingreso__container text-center">
+                <figure class="ingreso__img">
+                    <img src="./public/assets/images//Imagen_Ingreso.png" alt="">
+                </figure>
+                <h1 class="registro__titulo mb-4">Ingreso</h1>
+                <div>
+                    <form class="registro__input mb-1">
+                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico" value="">
+                    </form>
+                    <form class="registro__input mb-2">
+                        <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
+                    </form>
+                    <div class="form-check mb-3 d-flex align-items-end justify-content-evenly">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label registro__text">
+                            Recordar mi usuario 
+                        </label>
+                        <a href="#" class="registro__text">¿Olvidó su contraseña?</a>
+                    </div>
+                </div>
+                <button class="btn btn-primary registro__button mb-3">Ingresar</button>
+            </div>
+        </section>
     </main>
-
-    <!-- <section class="modal modal--show">
-        <div class="modal__container">
-            <img src="images/modal.svg" class="modal__img">
-            <h2 class="modal__title">¡Bienvenido al sitio!</h2>
-            <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
-            <a href="#" class="modal__close">Cerrar Modal</a>
-        </div>
-    </section> -->
     
-
     <footer class="d-flex justify-content-center">
         <div>
             <a href="#">
@@ -89,71 +102,79 @@
     <!-- Plantillas -->
 
     <template id="Registro">
-        <section class="registro text-center">
-            <h1 class="registro__titulo mb-4">Registrarse</h1>
+        <section class="registro">
+            <div class="registro registro__container text-center">
+                <button class="btn registro__close">
+                    <img src="./public/assets/images/logo_cerrar_x.svg" alt="">
+                </button>
+
+                <h1 class="registro__titulo mb-4">Registrarse</h1>
         
-            <form class="mb-1">
-                <input type="text" class="form-control registro__input" placeholder="Nombre Completo" value="">
-            </form>
-        
-            <select class="form-select registro__select mb-1" aria-label="Default select example">
-                <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
-                <option class="registro__option" value="1">Cedula de Ciudadania</option>
-                <option class="registro__option" value="2">Cedula de Extranjeria</option>
-                <option class="registro__option" value="3">Rut</option>
-            </select>
-        
-            <form class="registro__input mb-1">
-                <input type="number" class="form-control registro__input" placeholder="Numero de Documento" value="">
-            </form>
-        
-            <form class="registro__input mb-1">
-                <input type="email" class="form-control registro__input" placeholder="Correo Electronico" value="">
-            </form>
-        
-            <form class="registro__input mb-1">
-                <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
-            </form>
-        
-            <form class="registro__input mb-3">
-                <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña" value="">
-            </form>
-        
-            <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" id="terminosCondicionesCheckbox" value="">
-                <label class="form-check-label registro__text" for="terminosCondicionesCheckbox">
-                    He leído y acepto los <a href="#">Términos y Condiciones</a>
-                </label>
+                <form class="registro__input mb-1"">
+                    <input type="text" class="form-control registro__input" placeholder="Nombre Completo" value="">
+                </form>
+            
+                <select class="form-select registro__select mb-1" aria-label="Default select example">
+                    <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
+                    <option class="registro__option" value="1">Cedula de Ciudadania</option>
+                    <option class="registro__option" value="2">Cedula de Extranjeria</option>
+                    <option class="registro__option" value="3">Rut</option>
+                </select>
+            
+                <form class="registro__input mb-1">
+                    <input type="number" class="form-control registro__input" placeholder="Numero de Documento" value="">
+                </form>
+            
+                <form class="registro__input mb-1">
+                    <input type="email" class="form-control registro__input" placeholder="Correo Electronico" value="">
+                </form>
+            
+                <form class="registro__input mb-1">
+                    <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
+                </form>
+            
+                <form class="registro__input mb-3">
+                    <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña" value="">
+                </form>
+            
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="terminosCondicionesCheckbox" value="">
+                    <label class="form-check-label registro__text" for="terminosCondicionesCheckbox">
+                        He leído y acepto los <a href="#">Términos y Condiciones</a>
+                    </label>
+                </div>
+            
+                <button class="btn btn-primary registro__button mb-3">Registrar</button>
+            
+                <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
             </div>
-        
-            <button class="btn btn-primary registro__button mb-3">Registrar</button>
-        
-            <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
         </section>
     </template>
         
     <template id="Ingreso">
-        <section class="ingreso text-center">
-            <figure>
-                <img src="./public/assets/images//Imagen_Ingreso.png" alt="">
-            </figure>
-            <h1 class="registro__titulo mb-4">Ingreso</h1>
-            <div class="registro--padding">
-                <form class="registro__input mb-1">
-                    <input type="email" class="form-control registro__input" placeholder="Correo Electronico" value="">
-                </form>
-                <form class="registro__input mb-2">
-                    <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
-                </form>
-                <div class="form-check mb-3 d-flex align-items-end justify-content-evenly">
-                    <input class="form-check-input" type="checkbox" value="">
-                    <label class="form-check-label registro__text">
-                        Recordar mi usuario 
-                    </label>
-                    <a href="#" class="registro__text">¿Olvidó su contraseña?</a>
+        <section class="ingreso">
+            <div class="ingreso__container text-center">
+                <figure>
+                    <img src="./public/assets/images//Imagen_Ingreso.png" alt="">
+                </figure>
+                <h1 class="registro__titulo mb-4">Ingreso</h1>
+                <div class="registro--padding">
+                    <form class="registro__input mb-1">
+                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico" value="">
+                    </form>
+                    <form class="registro__input mb-2">
+                        <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
+                    </form>
+                    <div class="form-check mb-3 d-flex align-items-end justify-content-evenly">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label registro__text">
+                            Recordar mi usuario 
+                        </label>
+                        <a href="#" class="registro__text">¿Olvidó su contraseña?</a>
+                    </div>
                 </div>
+                <button class="btn btn-primary registro__button mb-3">Ingresar</button>
             </div>
-            <button class="btn btn-primary registro__button mb-3">Ingresar</button>
         </section>
     </template>
 
@@ -2720,3 +2741,12 @@
 </body>
 
 </html>
+
+<!-- <section class="modal modal--show">
+        <div class="modal__container">
+            <img src="images/modal.svg" class="modal__img">
+            <h2 class="modal__title">¡Bienvenido al sitio!</h2>
+            <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
+            <a href="#" class="modal__close">Cerrar Modal</a>
+        </div>
+</section> -->
