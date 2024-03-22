@@ -50,31 +50,19 @@
     </nav>
 
     <main class="container-fluid container_main">
-        <section class="ingreso">
-            <div class="ingreso__container text-center">
-                <figure class="ingreso__img">
-                    <img src="./public/assets/images//Imagen_Ingreso.png" alt="">
-                </figure>
-                <h1 class="registro__titulo mb-4">Ingreso</h1>
-                <div>
-                    <form class="registro__input mb-1">
-                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico" value="">
-                    </form>
-                    <form class="registro__input mb-2">
-                        <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
-                    </form>
-                    <div class="form-check mb-3 d-flex align-items-end justify-content-evenly">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label registro__text">
-                            Recordar mi usuario 
-                        </label>
-                        <a href="#" class="registro__text">¿Olvidó su contraseña?</a>
-                    </div>
-                </div>
-                <button class="btn btn-primary registro__button mb-3">Ingresar</button>
-            </div>
-        </section>
+        
     </main>
+
+    <section class="modal modal--show">
+        <div class="modal__container">
+            <button class="btn modal__close">
+                <img src="/public/assets/images/logo_cerrar_x.svg" alt="">
+            </button>
+            <h2 class="modal__title">¡Bienvenido al sitio!</h2>
+            <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
+            <a href="#" class="modal__button">Aceptar</a>
+        </div>
+    </section>  
     
     <footer class="d-flex justify-content-center">
         <div>
@@ -99,11 +87,13 @@
         </div>
     </footer>
 
+
+    <!-- /* ----------------------------------------------------------------------- */ -->
     <!-- Plantillas -->
 
     <template id="Registro">
         <section class="registro">
-            <div class="registro registro__container text-center">
+            <div class="registro__container text-center">
                 <button class="btn registro__close">
                     <img src="./public/assets/images/logo_cerrar_x.svg" alt="">
                 </button>
@@ -155,10 +145,10 @@
         <section class="ingreso">
             <div class="ingreso__container text-center">
                 <figure>
-                    <img src="./public/assets/images//Imagen_Ingreso.png" alt="">
+                    <img class="ingreso__img" src="./public/assets/images//Imagen_Ingreso.png" alt="">
                 </figure>
                 <h1 class="registro__titulo mb-4">Ingreso</h1>
-                <div class="registro--padding">
+                <div class="registro__padding">
                     <form class="registro__input mb-1">
                         <input type="email" class="form-control registro__input" placeholder="Correo Electronico" value="">
                     </form>
@@ -2742,11 +2732,3 @@
 
 </html>
 
-<!-- <section class="modal modal--show">
-        <div class="modal__container">
-            <img src="images/modal.svg" class="modal__img">
-            <h2 class="modal__title">¡Bienvenido al sitio!</h2>
-            <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
-            <a href="#" class="modal__close">Cerrar Modal</a>
-        </div>
-</section> -->

@@ -215,14 +215,24 @@ hr {
     background-color: #111111bd;
 }
 
-.registro__container, .ingreso__container {
-    position: relative;
-    margin: auto;
+.registro__container,
+.ingreso__container {
+    position: fixed;
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta para centrar */
     width: 533px;
-    height: 657px;
+    max-width: 90%; /* Para que se ajuste al ancho máximo de la pantalla */
+    height: auto; /* Se ajustará automáticamente según el contenido */
+    max-height: 90%; /* Evita que el contenido sea más alto que la pantalla */
     border-radius: 10px;
     background: #333a56;
     padding: 44px 90px;
+}
+
+.ingreso__container {
+    padding: 0;
+    max-height: 100%;
 }
 
 /* Estilos para el título del formulario de registro */
@@ -233,7 +243,7 @@ hr {
     font-weight: 400;
     line-height: 1.0;
     letter-spacing: -0.8px;
-    padding: 0;
+    margin-bottom: 20px;
 }
 
 /* Estilos para el placeholder de los inputs dentro del formulario de registro */
@@ -268,12 +278,19 @@ hr {
     line-height: 16.8px;
 }
 
+/* Estilos específicos para la vista de ingreso */
 .ingreso {
     padding: 0px;
 }
 
-.ingreso__img {
+.registro__padding {
+    padding: 0 90px;
+}
 
+.ingreso__img {
+    width: 100%;
+    max-height: 50%; /* Ajusta la altura máxima de la imagen según sea necesario */
+    object-fit: cover;
 }
 
 /* Estilos para los inputs y selects cuando están enfocados o al pasar el mouse sobre ellos */
@@ -293,6 +310,7 @@ hr {
     border: 1px solid #415176;
     background: var(--Brand-primary-oscuro, #1f2535);
 }
+
 
 
 /* ----------------------------------------------------------------------- */
@@ -694,7 +712,6 @@ a.page-link:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #111111bd;
     display: flex;
     opacity: 0;
     pointer-events: none;
@@ -712,6 +729,10 @@ a.page-link:hover {
 }
 
 .modal__container{
+    position: fixed;
+    top: 10%; /* Ajusta este valor según la posición vertical deseada */
+    left: 50%;
+    transform: translateX(-50%); /* Centra horizontalmente */
     margin: auto;
     width: 90%;
     max-width: 600px;
@@ -723,8 +744,7 @@ a.page-link:hover {
     gap: 1em;
     place-items: center;
     grid-auto-columns: 100%;
-    transform: var(--transform);
-    transition:var(--transition);
+    transition: var(--transition);
 }
 
 .modal__title{
@@ -740,10 +760,10 @@ a.page-link:hover {
     max-width: 300px;
 }
 
-.modal__close{
+.modal__button{
     text-decoration: none;
     color: #fff;
-    background-color: #F26250;
+    background-color: #0074D9;
     padding: 1em 3em;
     border: 1px solid ;
     border-radius: 6px;
@@ -752,11 +772,18 @@ a.page-link:hover {
     transition: background-color .3s;
 }
 
-.modal__close:hover{
-    color: #F26250;
+.modal__button:hover{
+    color: #0074D9;
     background-color: #fff;
 }
 
+.modal__close{
+    position: fixed;
+    top: 4%;
+    right: 2%;
+}
+
+/* ----------------------------------------------------------------------- */
 
 /* Medias las dejo de ultimas para que cargen bien el style */
 /* media que va en  Entradas y Salidas*/
@@ -817,4 +844,5 @@ a.page-link:hover {
     }
     
 }
+
 
