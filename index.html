@@ -53,17 +53,6 @@
         
     </main>
 
-    <section class="modal modal--show">
-        <div class="modal__container">
-            <button class="btn modal__close">
-                <img src="/public/assets/images/logo_cerrar_x.svg" alt="">
-            </button>
-            <h2 class="modal__title">¡Bienvenido al sitio!</h2>
-            <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
-            <a href="#" class="modal__button">Aceptar</a>
-        </div>
-    </section>  
-    
     <footer class="d-flex justify-content-center">
         <div>
             <a href="#">
@@ -87,9 +76,64 @@
         </div>
     </footer>
 
-
     <!-- /* ----------------------------------------------------------------------- */ -->
     <!-- Plantillas -->
+
+    <template id="modal de infomarcion">
+        <section class="modal modal-info modal--show">
+            <div class="modal__container">
+                <button class="btn modal__close">
+                    <img src="/public/assets/images/logo_cerrar_x.svg" alt="">
+                </button>
+                <h2 class="modal__title">Modal de informacion</h2>
+                <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
+                <a href="#" class="modal__button">Aceptar</a>
+            </div>
+        </section> 
+    </template>
+
+    <template id="modal de confimacion">
+        <section class="modal modal--confirm modal--show">
+            <div class="modal__container">
+                <button class="btn modal__close">
+                    <img src="/public/assets/images/logo_cerrar_x.svg" alt="">
+                </button>
+                <img src="./public/assets/images/logo_modal_confirmacion.svg" alt="" class="modal__img">
+                <h2 class="modal__title">Modal de confirmación</h2>
+                <p class="modal__paragraph">¿Estás seguro de realizar esta acción?</p>
+                <div class="modal__buttons">
+                    <button class="modal__button">Aceptar</button>
+                    <button class="modal__button">Cancelar</button>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="modal de exito">
+        <section class="modal modal--success modal--show">
+            <div class="modal__container">
+                <button class="btn modal__close">
+                    <img src="/public/assets/images/logo_cerrar_x.svg" alt="">
+                </button>
+                <img src="./public/assets/images/logo_modal_exito.svg" alt="" class="modal__img">
+                <h2 class="modal__title">Modal de éxito</h2>
+                <p class="modal__paragraph">¡La acción se ha realizado con éxito!</p>
+            </div>
+        </section>
+    </template>
+
+    <template id="modal de error">
+        <section class="modal modal--error modal--show">
+            <div class="modal__container">
+                <button class="btn modal__close">
+                    <img src="/public/assets/images/logo_cerrar_x.svg" alt="">
+                </button>
+                <img src="./public/assets/images/logo_modal_error.svg" alt="" class="modal__img">
+                <h2 class="modal__title">Error</h2>
+                <p class="modal__paragraph">Se ha producido un error. Por favor, inténtelo de nuevo.</p>
+            </div>
+        </section>
+    </template>
 
     <template id="Registro">
         <section class="registro">
