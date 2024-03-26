@@ -38,3 +38,4 @@
 - Tengo que centrar el boton de editar en la vista del Stock. hecho
 - Cambiar el alto de las opciones en el select. 
 - En estadisticas dejo un div del 100% para despues colocar el grafico en ese div.
+- Recordar en hacer obligatorios que diligencie todos los datos en el registro el usuario.

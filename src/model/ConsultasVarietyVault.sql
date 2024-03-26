@@ -313,39 +313,6 @@ VALUES
     (29, 29, 1),
     (30, 30, 3);
 
--- Insertar 30 almacenes_productos
-INSERT INTO Almacenes_Productos (id_almacen, id_producto, cantidad_producto_almacen)
-VALUES
-    (1, 1, 10),
-    (2, 2, 15),
-    (3, 3, 20),
-    (1, 4, 5),
-    (2, 5, 12),
-    (3, 6, 8),
-    (1, 7, 18),
-    (2, 8, 25),
-    (3, 9, 3),
-    (1, 10, 7),
-    (2, 11, 10),
-    (3, 12, 15),
-    (1, 13, 20),
-    (2, 14, 5),
-    (3, 15, 12),
-    (1, 16, 8),
-    (2, 17, 18),
-    (3, 18, 25),
-    (1, 19, 3),
-    (2, 20, 7),
-    (3, 21, 10),
-    (1, 22, 15),
-    (2, 23, 20),
-    (3, 24, 5),
-    (1, 25, 12),
-    (2, 26, 8),
-    (3, 27, 18),
-    (1, 28, 25),
-    (2, 29, 3),
-    (3, 30, 7);
 
 -- Insertar valores en la tabla Almacenes_Productos para todos los almacenes
 INSERT INTO Almacenes_Productos (id_almacen, id_producto, cantidad_producto_almacen)
@@ -363,21 +330,31 @@ GROUP BY
     Entradas.id_almacen, Productos_entradas.id_producto;
 
 
-
-
 -- ______________________________________________________________________________________________________________________
 
 --Entidad Usuarios
 
     --Vista Registro de usuario/perfil
+
+        -- AGREGUE
+        -- Consulta para el registro de un nuevo usuario para saber si ya esta registrado haciendo click al boton registrar.
+        SELECT COUNT(*) AS datos_existentes FROM usuarios
+        WHERE correo_electronico = ? OR numero_documento = ?;
+        -- Si datos_existentes es igual a 0, entonces se puede registrar el usuario. 
+
+        -- MODIFIQUE
         --Consulta para el registro de un nuevo usuario haciendo click al boton registrar
-        INSERT INTO Usuarios (nombre_completo, tipo_documento, numero_nocumento, correo_electronico, contraseña, rol)
-            VALUES ('Laura Valentina Ortiz Rodriguez', 'CC', 1001327828, 'laura_vortizr@soy.sena.edu.co', 'Contrasena1234','Administrador');
+        INSERT INTO Usuarios (nombre_completo, tipo_documento, numero_documento, correo_electronico, contraseña, rol)
+        VALUES (?, ?, ?, ?, ?, ?);
+
 
     --Vista Igreso o Logeo de usuario
+
+        -- MODIFIQUE
         --Consulta para el ingreso/logeo del usuario haciendo click al boton ingreso
-        SELECT * FROM usuarios
-            WHERE correo_electronico = 'correo_electronico_digitado' AND contraseña = 'contrasena_digitada';
+        SELECT  correo_electronico, contraseña  FROM usuarios
+        WHERE correo_electronico = ? AND contraseña = ?;
+
     --Vista Perfiles
 
         --Consulta para crear un perfil
@@ -522,6 +499,7 @@ GROUP BY
     WHERE id_producto = ? AND id_almacen = ?
 
 --Vista de stock
+
     --Consulta para crear una categoria
     INSERT INTO categorias(nombre_categoria) VALUES
     (?)
