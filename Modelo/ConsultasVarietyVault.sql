@@ -12,7 +12,7 @@ CREATE TABLE Permisos(
 CREATE TABLE Roles(
     id_rol INT AUTO_INCREMENT PRIMARY KEY, -- PK
     nombre_rol VARCHAR(20) NOT NULL,
-    id_permiso INT NOT NULL
+    id_permiso INT NOT NULL,
     FOREIGN KEY (id_permiso) references Permisos(id_permiso)
 );
 
@@ -23,7 +23,8 @@ CREATE TABLE Usuarios (
     tipo_documento VARCHAR(5) NOT NULL,
     numero_documento INT NOT NULL UNIQUE,
     correo_electronico VARCHAR(50) NOT NULL,
-    contraseña VARCHAR(10) NOT NULL
+    contraseña VARCHAR(10) NOT NULL,    
+    FOREIGN KEY (id_rol) REFERENCES Roles(id_rol)
 );
 
 CREATE TABLE Almacenes(
@@ -42,14 +43,16 @@ CREATE TABLE Entradas(
     id_entrada INT AUTO_INCREMENT PRIMARY KEY,
     fecha_hora DATE NOT NULL,
     origen_entrada VARCHAR(20) NOT NULL,
-    destino_entrada VARCHAR(20) NOT NULL
+    destino_entrada VARCHAR(20) NOT NULL,
+    FOREIGN KEY (id_almacen) REFERENCES Almacenes(id_almacen)
 );
 
 CREATE TABLE Salidas(
     id_salida INT AUTO_INCREMENT PRIMARY KEY,
     fecha_hora DATE NOT NULL,
     origen_salida VARCHAR(20) NOT NULL,
-    destino_salida VARCHAR(20) NOT NULL
+    destino_salida VARCHAR(20) NOT NULL,
+    FOREIGN KEY (id_almacen) REFERENCES Almacenes(id_almacen)
 );
 
 CREATE TABLE Productos(
@@ -60,13 +63,15 @@ CREATE TABLE Productos(
     promedio_costo INT NOT NULL,
     precio_venta INT NOT NULL,
     imagen VARCHAR(250),
-    codigo_categoria INT NOT NULL
+    codigo_categoria INT NOT NULL,
+    FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria)
 );
 
 CREATE TABLE Almacenes_Usuarios(
     id_almacen INT NOT NULL,
     id_usuario INT NOT NULL,
-    PRIMARY KEY (id_almacen, id_usuario)
+    FOREIGN KEY (id_almacen) REFERENCES Almacenes(id_almacen),
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
 );
 
 CREATE TABLE Productos_Entradas(
@@ -74,21 +79,24 @@ CREATE TABLE Productos_Entradas(
     id_entrada INT NOT NULL,
     cantidad_entrada INT NOT NULL,
     precio_compra INT NOT NULL,
-    PRIMARY KEY (id_producto, id_entrada) -- PK
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto),
+    FOREIGN KEY (id_entrada) REFERENCES Entradas(id_entrada)
 );
 
 CREATE TABLE Productos_Salidas(
     id_producto INT NOT NULL,
     id_salida INT NOT NULL,
     cantidad_salida INT NOT NULL,
-    PRIMARY KEY (id_producto, id_salida) -- PK
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto),
+    FOREIGN KEY (id_salida) REFERENCES Salidas(id_salida)
 );
 
 CREATE TABLE Almacenes_Productos(
     id_almacen INT NOT NULL,
     id_producto INT NOT NULL,
     cantidad_producto_almacen INT NOT NULL,
-    PRIMARY KEY (id_almacen, id_producto) -- PK
+    FOREIGN KEY (id_almacen) REFERENCES Almacenes(id_almacen),
+    FOREIGN KEY (id_producto) REFERENCES Productos(id_producto)
 );
 
 -- ______________________________________________________________________________________________________________________
