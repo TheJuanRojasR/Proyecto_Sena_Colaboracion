@@ -44,6 +44,7 @@ CREATE TABLE Entradas(
     fecha_hora DATE NOT NULL,
     origen_entrada VARCHAR(20) NOT NULL,
     destino_entrada VARCHAR(20) NOT NULL,
+    id_almacen INT NOT NULL,
     FOREIGN KEY (id_almacen) REFERENCES Almacenes(id_almacen)
 );
 
@@ -52,18 +53,19 @@ CREATE TABLE Salidas(
     fecha_hora DATE NOT NULL,
     origen_salida VARCHAR(20) NOT NULL,
     destino_salida VARCHAR(20) NOT NULL,
+    id_almacen INT NOT NULL,
     FOREIGN KEY (id_almacen) REFERENCES Almacenes(id_almacen)
 );
 
 CREATE TABLE Productos(
     id_producto INT AUTO_INCREMENT PRIMARY KEY, -- PK
-    referencia_producto INT NOT NULL UNIQUE,
+    referencia_producto VARCHAR (10) NOT NULL UNIQUE,
     nombre_producto VARCHAR(100),    
     stock_minimo INT NOT NULL,
     promedio_costo INT NOT NULL,
     precio_venta INT NOT NULL,
     imagen VARCHAR(250),
-    codigo_categoria INT NOT NULL,
+    id_categoria INT NOT NULL,
     FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria)
 );
 
@@ -371,17 +373,23 @@ CREATE TABLE Almacenes_Productos(
 
     --Vista Registro de usuario/perfil
         --Consulta para el registro de un nuevo usuario haciendo click al boton registrar
-        INSERT INTO Usuarios (nombre_completo, tipo_documento, numero_nocumento, correo_electronico, contraseña, rol)
-            VALUES ('Laura Valentina Ortiz Rodriguez', 'CC', 1001327828, 'laura_vortizr@soy.sena.edu.co', 'Contrasena1234','Administrador');
+        SELECT COUNT(*) AS datos_existentes FROM usuarios 
+        WHERE correo_electronico = ? OR numero_documento = ?;
+
+        INSERT INTO Usuarios (nombre_completo, tipo_documento, numero_documento, correo_electronico, contraseña, rol)
+            VALUES ('?', '?', ?, '?', '?','?');
 
     --Vista Igreso o Logeo de usuario
         --Consulta para el ingreso/logeo del usuario haciendo click al boton ingreso
         SELECT * FROM usuarios
-            WHERE correo_electronico = 'correo_electronico_digitado' AND contraseña = 'contrasena_digitada';
+        WHERE correo_electronico = '?' AND contraseña = '?';
        
     --Vista Perfiles
 
         --Consulta para crear un perfil
+        SELECT COUNT(*) AS datos_existentes FROM usuarios
+        WHERE correo_electronico = ? OR numero_documento = ?;
+
         INSERT INTO usuarios (nombre_usuario, id_rol, tipo_documento, numero_documento, correo_electronico, contraseña) VALUES
         (?,?,?,?,?,?)
 
@@ -400,7 +408,7 @@ CREATE TABLE Almacenes_Productos(
     
     --Vista Ajustes del Usuario
         --Consulta para mostrar datos del usuario
-        SELECT nombre_completo, tipo_documento, numero_documento, correo_electronico, contraseña FROM usuarios
+        SELECT nombre_usuario, tipo_documento, numero_documento, correo_electronico, contraseña FROM usuarios
         WHERE id_usuario = ?
 
         --Consulta para editar usuario
@@ -416,8 +424,8 @@ CREATE TABLE Almacenes_Productos(
 
     --Vista Mis Inventarios vacio
         --Consulta para crear un nuevo inventario
-        INSERT INTO Almacenes (codigo_almacen, nombre_almacen, direccion_almacen)
-        VALUES (1, Inventario1, 'Cra. 93 #80c – 72')
+        INSERT INTO Almacenes (nombre_almacen, direccion_almacen, descripcion_almacen)
+        VALUES (?, ?, ?)
 
     --Vista Mis Inventarios
         --Consulta para mostrar los inventarios
@@ -440,6 +448,10 @@ CREATE TABLE Almacenes_Productos(
 
     --Vista Stock
         --Consulta para crea un producto nuevo
+        SELECT COUNT(*) AS datos_existentes FROM almacenes_productos
+        JOIN productos ON almacenes_productos.id_producto = productos.id_producto 
+        WHERE nombre_producto OR referencia_producto = ?;
+
         INSERT INTO productos(referencia_producto, nombre_producto, stock_minimo, promedio_costo, precio_venta, imagen, id_categoria) VALUES
         (?,?,?,?,?,?,?)
 
@@ -456,6 +468,7 @@ CREATE TABLE Almacenes_Productos(
         SELECT nombre_producto, referencia_producto, nombre_almacen AS 'Ubicacion', cantidad_producto AS 'Cantidad', stock_minimo, promedio_costo AS 'Costo', precio_venta 'Precio', imagen FROM Productos 
         JOIN Almacenes_Productos ON Productos.id_producto = Almacenes_Productos.id_producto
         JOIN Almacenes ON Almacenes_Productos.id_almacen = Almacenes.id_almacen
+        WHERE id_producto = ?
 
         --Consulta actualizacion datos del producto al editarlo y guardar cambios
         UPDATE Productos
@@ -470,10 +483,13 @@ CREATE TABLE Almacenes_Productos(
         SELECT  id_entrada AS 'Referencia', fecha_hora, origen_entrada, destino_entrada FROM Entradas
         UNION
         SELECT id_salida AS 'Referencia', fecha_hora, origen_salida, destino_salida FROM Salidas
+        WHERE id_producto = ?
 
-    --Vista Stock Minimo
+    --Vista Abastecimiento
        --Consulta para mostrar stock minimo al dar click en stock minimo
-        SELECT referencia_producto, nombre_producto FROM productos
+        SELECT nombre_producto, referencia_producto, stock_minimo cantidad_producto_almacen FROM productos
+        JOIN almacenes_productos ON productos.id_producto = almacenes_productos.id_producto
+        WHERE id_producto = ?
 
 --Entidad Categorias
         
