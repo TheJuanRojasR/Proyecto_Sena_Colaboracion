@@ -38,12 +38,48 @@
             <a class="navbar-brand" href="#">
                 <img src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
             </a>
-            <div class="d-flex">
-                </button>
-                <button class="btn btn-contenido_ingresar">Ingresar</button>
-                </button>
-                </button>
-                <button class="btn btn-contenido" >Registrar</button>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Operaciones
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Entradas/Salidas</a></li>
+                            <li><a class="dropdown-item" href="#">Entradas</a></li>
+                            <li><a class="dropdown-item" href="#">Salidas</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Stock
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Stock</a></li>
+                            <li><a class="dropdown-item" href="#">Abastecimiento</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Estadisticas</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Perfiles</a>
+                    </li>
+                </ul>
+
+                <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img src="./public/assets/images/logo_usuario.svg" alt="">
                 </button>
             </div>
         </div>
@@ -53,28 +89,18 @@
         
     </main>
 
-    <footer class="d-flex justify-content-center">
+    <!-- <div class="container encabezado">
+        <h1>Perfíles</h1>
         <div>
-            <a href="#">
-                <img class="logo_footer" src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
-            </a>
+            <form action="#" method="get" class="search-form encabezado__search-form">
+                <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                <button class="encabezado__search-button" type="button">
+                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                </button>
+            </form>
         </div>
-        <div class="d-flex flex-column elemento_flooter">
-            <p class="text-decoration-none color_blanco fw-bold">Enlaces de Navegación</p>
-            <a href="" class="text-decoration-none color_blanco">Inicio</a>
-            <a href="" class="text-decoration-none color_blanco">Contactos</a>
-            <a href="" class="text-decoration-none color_blanco">Nosotros</a>
-        </div>
-        <div class="d-flex flex-column elemento_flooter">
-            <p class="text-decoration-none color_blanco fw-bold">Enlaces a Politicas</p>
-            <a href="" class="text-decoration-none color_blanco">Política Privada</a>
-            <a href="" class="text-decoration-none color_blanco">Términos y Condiciones</a>
-            <a href="" class="text-decoration-none color_blanco">Cookies</a>
-        </div>
-        <div class="d-flex flex-column elemento_flooter">
-            <p class="text-decoration-none color_blanco fw-bold">© 2024 Variety Vault</p>
-        </div>
-    </footer>
+        <button class="btn encabezado__button ms-auto">Crear Entrada</button>
+    </div> -->
 
     <!-- /* ----------------------------------------------------------------------- */ -->
     <!-- Plantillas -->
@@ -212,6 +238,31 @@
         </section>
     </template>
 
+    <template id="footer">
+        <footer class="d-flex justify-content-center">
+            <div>
+                <a href="#">
+                    <img class="logo_footer" src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+                </a>
+            </div>
+            <div class="d-flex flex-column elemento_flooter">
+                <p class="text-decoration-none color_blanco fw-bold">Enlaces de Navegación</p>
+                <a href="" class="text-decoration-none color_blanco">Inicio</a>
+                <a href="" class="text-decoration-none color_blanco">Contactos</a>
+                <a href="" class="text-decoration-none color_blanco">Nosotros</a>
+            </div>
+            <div class="d-flex flex-column elemento_flooter">
+                <p class="text-decoration-none color_blanco fw-bold">Enlaces a Politicas</p>
+                <a href="" class="text-decoration-none color_blanco">Política Privada</a>
+                <a href="" class="text-decoration-none color_blanco">Términos y Condiciones</a>
+                <a href="" class="text-decoration-none color_blanco">Cookies</a>
+            </div>
+            <div class="d-flex flex-column elemento_flooter">
+                <p class="text-decoration-none color_blanco fw-bold">© 2024 Variety Vault</p>
+            </div>
+        </footer>
+    </template>
+
     <template id="Primera barra de navegación">
         <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
@@ -315,35 +366,28 @@
     </template>
 
     <template id="Inventario">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>INVENTARIO</h1>
-
-                <div>
-                    <form action="#" method="get" class="search-form">
-                        <div class="boton_busqueda">
-                            <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                            <button class="prueba_boton_boton" type="button">
-                                <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                            </button>
-                        </div>
-                    </form>
-                </div>
+        <div class="container encabezado">
+            <h1>INVENTARIO</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
         </div>
-
         <hr />
-
-        <div class="container container_contenido">
+        <div class="container sin-opciones">
             <h2>
-                No tienes Inventarios <a href="">haz clic aquí para crear uno</a>
+                ¿No tienes inventarios? <a href="">Haz clic aquí para crear uno.</a>
             </h2>
         </div>
     </template>
 
     <template id="Inventario/InventarioCrear">
         <div class="container">
-            <div class="titulo_btnbusqueda_main">
+            <div class="encabezado">
                 <h1>INVENTARIO</h1>
             </div>
         </div>
@@ -381,10 +425,17 @@
     </template>
 
     <template id="Inventario/Inventario con opcion de Eliminar o Editar">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>INVENTARIO</h1>
+        <div class="container encabezado">
+            <h1>INVENTARIO</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
+            <button class="btn encabezado__button ms-auto">Crear Inventario</button>
         </div>
         <hr />
 
@@ -430,24 +481,17 @@
     </template>
 
     <template id="Operaciones/Entradas y Salidas">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>ENTRADAS/SALIDAS</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <button class="btn btn-eliminar">Crear Entrada</button>
+        <div class="container encabezado">
+            <h1>ENTRADAS/SALIDAS</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
+            <button class="btn encabezado__button ms-auto">Crear Entrada</button>
         </div>
         <hr />
 
@@ -499,22 +543,15 @@
     </template>
 
     <template id="Operaciones/Crear filas productos Entradas">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>ENTRADAS</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="container encabezado">
+            <h1>ENTRADAS</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
         </div>
         <hr />
@@ -607,22 +644,15 @@
     </template>
 
     <template id="Operaciones/Crear filas productos Salidas">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>SALIDAS</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="container encabezado">
+            <h1>SALIDAS</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
         </div>
         <hr />
@@ -715,22 +745,15 @@
     </template>
 
     <template id="Operaciones/Entradas y Salidas con opciones">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>ENTRADAS/SALIDAS</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="container encabezado">
+            <h1>ENTRADAS/SALIDAS</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
         </div>
         <hr />
@@ -825,51 +848,37 @@
     </template>
 
     <template id="Stock">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>STOCK</h1>
-
-                <div>
-                    <form action="#" method="get" class="search-form">
-                        <div class="boton_busqueda">
-                            <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                            <button class="prueba_boton_boton" type="button">
-                                <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                            </button>
-                        </div>
-                    </form>
-                </div>
+        <div class="container encabezado">
+            <h1>STOCK</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
         </div>
-
         <hr />
-
-        <div class="container container_contenido">
+        <div class="container sin-opciones">
             <h2>
-                No tienes Productos <a href="">haz clic aquí para crear uno</a>
-            </h2>
+                ¿No tienes productos? <a href="">Haz clic aquí para crear uno.</a>
+            </h2>            
         </div>
     </template>
 
     <template id="Stock/Crear Producto">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>STOCK</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="container encabezado">
+            <h1>STOCK</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
+        </div> 
 
         <hr />
 
@@ -983,28 +992,19 @@
     </template>
 
     <template id="Stock/Produtos creados">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>STOCK</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <button class="btn btn-eliminar">Crear Producto</button>
+        <div class="container encabezado">
+            <h1>STOCK</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
-
+            <button class="btn encabezado__button ms-auto">Crear Producto</button>
+        </div> 
         <hr />
-
         <div class="container  table-responsive">
             <table class="table">
                 <thead>
@@ -1080,30 +1080,21 @@
                     </li>
                 </ul>
             </div>
-
         </div>
     </template>
 
     <template id="Stock/Produtos Eliminar">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>STOCK</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="container encabezado">
+            <h1>STOCK</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
-
+        </div> 
         <hr />
 
         <div class="container container_min_height table-responsive position-relative">
@@ -1158,57 +1149,43 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-contenido position-absolute bottom-0 end-0">Eliminar</button>
+            <button class="btn btn-eliminar position-absolute bottom-0 end-0">Eliminar</button>
         </div>
     </template>
 
     <template id="Stock/Categoria">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>Categoría</h1>
-
-                <div>
-                    <form action="#" method="get" class="search-form">
-                        <div class="boton_busqueda">
-                            <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                            <button class="prueba_boton_boton" type="button">
-                                <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                            </button>
-                        </div>
-                    </form>
-                </div>
+        <div class="container encabezado">
+            <h1>CATEGORIA</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
-
+        </div> 
         <hr />
-
-        <div class="container container_contenido">
+        <div class="container sin-opciones">
             <h2>
-                No tienes Categorías <a href="">haz clic aquí para crear uno</a>
-            </h2>
+                ¿No tienes categorías? <a href="">Haz clic aquí para crear una.</a>
+            </h2>            
         </div>
     </template>
 
     <template id="Stock/CrearCategoria">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>Categoría</h1>
-
-                <div>
-                    <form action="#" method="get" class="search-form">
-                        <div class="boton_busqueda">
-                            <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                            <button class="prueba_boton_boton" type="button">
-                                <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                            </button>
-                        </div>
-                    </form>
-                </div>
+        <div class="container encabezado">
+            <h1>CATEGORIA</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
-
+        </div> 
         <hr />
-
         <div class="container">
             <table class="table">
                 <thead>
@@ -1217,7 +1194,7 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 prueba_span">Categoria</span>
+                            <span class="ml-2 ">Categoría</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
@@ -1242,28 +1219,19 @@
     </template>
 
     <template id="Stock/Categoria con opciones">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>Categoría</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <button class="btn btn-eliminar">Crear Categoría</button>
+        <div class="container encabezado">
+            <h1>CATEGORIA</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
-
+            <button class="btn encabezado__button ms-auto">Crear Categoría</button>
+        </div> 
         <hr />
-
         <div class="container">
             <table class="table">
                 <thead>
@@ -1272,7 +1240,7 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 prueba_span">Categoria</span>
+                            <span class="ml-2">Categoría</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
@@ -1328,25 +1296,17 @@
     </template>
 
     <template id="Stock/Categoria Elminar">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>Categoría</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="container encabezado">
+            <h1>Categoría</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
-
+        </div> 
         <hr />
 
         <div class="container container_min_height position-relative">
@@ -1357,7 +1317,7 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 prueba_span">Categoria</span>
+                            <span class="ml-2 ">Categoría</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
@@ -1408,30 +1368,22 @@
                     </tr>
                 </tbody>
             </table>
-
             <button class="btn btn-eliminar position-absolute bottom-0 end-0">Eliminar</button>
         </div>
     </template>
 
     <template id="Stock/Abastecimiento">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>Abastecimiento</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="container encabezado">
+            <h1>Abastecimiento</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
+        </div> 
         <hr />
 
         <div class="container">
@@ -1563,20 +1515,17 @@
                     </li>
                 </ul>
             </div>
-
         </div>
     </template>
 
     <template id="Stock/Productos creados/Detalles del Producto">
         <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>DETALLES DEL PRODUCTO</h1>
+            <div class="encabezado">
+                <h1>Detalles del producto</h1>
             </div>
         </div>
-
         <hr />
-
-        <div class="container container_contenido">
+        <div class="container sin-opciones">
             <div class="d-flex flex-column">
                 <h1>Nombre del Producto</h1>
                 <div>
@@ -1601,7 +1550,7 @@
                                 <td>20</td>
                             </tr>
                             <tr>
-                                <td>Stock Minimo</td>
+                                <td>Stock Mínimo</td>
                                 <td>10</td>
                             </tr>
                             <tr>
@@ -1630,14 +1579,12 @@
 
     <template id="Stock/Productos creados/Detalles del Producto/Editar Producto">
         <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>DETALLES DEL PRODUCTO</h1>
+            <div class="encabezado">
+                <h1>Detalles del producto</h1>
             </div>
         </div>
-
         <hr />
-
-        <div class="container container_contenido">
+        <div class="container sin-opciones">
             <div class="d-flex flex-column">
                 <h1>Nombre del Producto</h1>
                 <div>
@@ -1671,7 +1618,7 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td>Stock Minimo</td>
+                                <td>Stock Mínimo</td>
                                 <td>
                                     <input type="text" class="form-control" aria-label="Text input with dropdown button"
                                         placeholder="" />
@@ -1728,26 +1675,18 @@
     </template>
 
     <template id="Stock/Detalles dle producto/Movimientos">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>MOVIMIENTOS</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="container encabezado">
+            <h1>Movimientos</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
+        </div> 
         <hr />
-
         <div class="container">
             <table class="table">
                 <thead>
@@ -1828,8 +1767,8 @@
 
     <template id="Estadisticas">
         <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>ESTADISTICAS</h1>
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
             </div>
         </div>
         <hr />
@@ -1846,12 +1785,11 @@
 
     <template id="Estadisticas/Estadistica 1">
         <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>ESTADISTICAS</h1>
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
             </div>
         </div>
         <hr />
-
         <div class="container position-relative alto_maximo">
             <select class="form-select form-select_modificado" aria-label="Default select example">
                 <option selected>Tipo de Estadística</option>
@@ -1893,12 +1831,11 @@
 
     <template id="Estadisticas/Estadistica 1 con grafico">
         <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>ESTADISTICAS</h1>
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
             </div>
         </div>
         <hr />
-
         <div class="container position-relative alto_maximo">
             <select class="form-select form-select_modificado" aria-label="Default select example">
                 <option selected>Tipo de Estadística</option>
@@ -1946,8 +1883,8 @@
 
     <template id="Estadisticas/Estadistica 2">
         <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>ESTADISTICAS</h1>
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
             </div>
         </div>
         <hr />
@@ -1993,8 +1930,8 @@
 
     <template id="Estadisticas/Estadistica 2 con grafico">
         <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>ESTADISTICAS</h1>
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
             </div>
         </div>
         <hr />
@@ -2044,8 +1981,8 @@
 
     <template id="Estadisticas/Estadistica 3">
         <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>ESTADISTICAS</h1>
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
             </div>
         </div>
         <hr />
@@ -2091,8 +2028,8 @@
 
     <template id="Estadisticas/Estadistica 3 con grafico">
         <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>ESTADISTICAS</h1>
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
             </div>
         </div>
         <hr />
@@ -2142,35 +2079,28 @@
     </template>
 
     <template id="Perfiles">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main">
-                <h1>PERFILES</h1>
-
-                <div>
-                    <form action="#" method="get" class="search-form">
-                        <div class="boton_busqueda">
-                            <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                            <button class="prueba_boton_boton" type="button">
-                                <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                            </button>
-                        </div>
-                    </form>
-                </div>
+        <div class="container encabezado">
+            <h1>Perfíles</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
-
+        </div> 
         <hr />
-
-        <div class="container container_contenido">
+        <div class="container sin-opciones">
             <h2>
-                No tienes Perfiles <a href="">haz clic aquí para crear uno</a>
+                ¿No tienes perfiles? <a href="">Haz clic aquí para crear uno.</a>
             </h2>
         </div>
     </template>
 
     <template id="Perfiles/Crear Perfil">
         <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+            <div class="encabezado d-flex justify-content-between">
                 <div class="d-flex align-items-center">
                     <h1>Perfiles</h1>
                 </div>
@@ -2182,7 +2112,7 @@
                 <h1 class="items-formularios_modificado text-center">Crear Perfil</h1>
                 <form class="form-floating items-formularios_modificado">
                     <input type="text" class="form-control form-select_modificado" id="floatingInputValue"
-                        placeholder="" value="Pepito Perez" />
+                        placeholder=""/>
                     <label for="floatingInputValue">Nombre Completo</label>
                 </form>
 
@@ -2196,25 +2126,25 @@
 
                 <form class="form-floating items-formularios_modificado">
                     <input type="number" class="form-control form-select_modificado" id="floatingInputValue"
-                        placeholder="" value="123456789" />
+                        placeholder=""/>
                     <label for="floatingInputValue">Numero de Documento</label>
                 </form>
 
                 <form class="form-floating items-formularios_modificado">
                     <input type="email" class="form-control form-select_modificado" id="floatingInputValue"
-                        placeholder="" value="PepitoPerez@gmail.com" />
+                        placeholder=""/>
                     <label for="floatingInputValue">Correo Electronico</label>
                 </form>
 
                 <form class="form-floating items-formularios_modificado">
                     <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
-                        placeholder="" value="Pepito Perez" />
+                        placeholder=""/>
                     <label for="floatingInputValue">Contraseña</label>
                 </form>
 
                 <form class="form-floating items-formularios_modificado">
                     <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
-                        placeholder="" value="Pepito Perez" />
+                        placeholder=""/>
                     <label for="floatingInputValue">Repetir Contraseña</label>
                 </form>
 
@@ -2224,28 +2154,19 @@
     </template>
 
     <template id="Perfiles/Perfiles con opciones">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>Perfiles</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <button class="btn btn-eliminar">Crear Perfil</button>
+        <div class="container encabezado">
+            <h1>Perfíles</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
-
+            <button class="btn encabezado__button ms-auto">Crear Perfil</button>
+        </div> 
         <hr />
-
         <div class="container">
             <table class="table">
                 <thead>
@@ -2254,13 +2175,13 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 prueba_span">Nombre Perfil</span>
+                            <span class="ml-2 ">Nombre Perfil</span>
                         </th>
                         <th scope="col" class="">
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 prueba_span">Rol</span>
+                            <span class="ml-2 ">Rol</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
@@ -2291,27 +2212,18 @@
     </template>
 
     <template id="Perfiles/Editar Perfiles">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>Perfiles</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="container encabezado">
+            <h1>Perfíles</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
-
+        </div> 
         <hr />
-
         <div class="container">
             <table class="table">
                 <thead>
@@ -2320,20 +2232,19 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 prueba_span">Nombre Perfil</span>
+                            <span class="ml-2 ">Nombre Perfil</span>
                         </th>
                         <th scope="col" class="">
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 prueba_span">Rol</span>
+                            <span class="ml-2 ">Rol</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
-
+                
                 <tbody>
-
                     <tr>
                         <th scope="row" class="td-body-tabla">
                             <input id="input_modificado" class="form-control form-select_modificado" type="text"
@@ -2354,34 +2265,24 @@
                             </button>
                         </td>
                     </tr>
-
                 </tbody>
             </table>
         </div>
     </template>
 
     <template id="Perfiles/Borrar Perfiles">
-        <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
-                <div class="d-flex align-items-center">
-                    <h1>Perfiles</h1>
-
-                    <div>
-                        <form action="#" method="get" class="search-form">
-                            <div class="boton_busqueda">
-                                <input class="prueba_boton_input" type="text" name="" placeholder="Buscar Producto" />
-                                <button class="prueba_boton_boton" type="button">
-                                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="container encabezado">
+            <h1>Perfíles</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-        </div>
-
+        </div> 
         <hr />
-
         <div class="container container_min_height position-relative">
             <table class="table">
                 <thead>
@@ -2390,13 +2291,13 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 prueba_span">Nombre Perfil</span>
+                            <span class="ml-2 ">Nombre Perfil</span>
                         </th>
                         <th scope="col" class="">
                             <button class="btn btn-tabla-icono">
                                 <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 prueba_span">Rol</span>
+                            <span class="ml-2 ">Rol</span>
                         </th>
                     </tr>
                 </thead>
@@ -2423,7 +2324,7 @@
 
     <template id="Menu/Terminos y Condiciones">
         <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+            <div class="encabezado d-flex justify-content-between">
                 <div class="d-flex align-items-center">
                     <h1>Términos y Condiciones</h1>
                 </div>
@@ -2481,7 +2382,7 @@
 
     <template id="Menu/Políticas de Privacidad">
         <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+            <div class="encabezado d-flex justify-content-between">
                 <div class="d-flex align-items-center">
                     <h1>Políticas de Privacidad</h1>
                 </div>
@@ -2539,7 +2440,7 @@
 
     <template id="Menu/Ajustes de Usuario">
         <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+            <div class="encabezado d-flex justify-content-between">
                 <div class="d-flex align-items-center">
                     <h1>Ajustes del Usuario</h1>
                 </div>
@@ -2605,7 +2506,7 @@
 
     <template id="Menu/Ajustes de usuario Editar">
         <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+            <div class="encabezado d-flex justify-content-between">
                 <div class="d-flex align-items-center">
                     <h1>Ajustes del Usuario</h1>
                 </div>
@@ -2631,7 +2532,7 @@
                         <td class="td-body-tabla">
                             <form class="form-floating">
                                 <input type="text" class="form-control form-select_modificado"
-                                    placeholder="" value="Ej: Pepito Perez" />
+                                    placeholder=""/>
                                 <label for="floatingInputValue">Nuevo nombre de Usuario</label>
                             </form>
                         </td>
@@ -2657,7 +2558,7 @@
                         <td class="td-body-tabla">
                             <form class="form-floating">
                                 <input type="number" class="form-control form-select_modificado"
-                                    placeholder="" value="123456789" />
+                                    placeholder=""/>
                                 <label for="floatingInputValue">Numero de Documento</label>
                             </form>
                         </td>
@@ -2669,7 +2570,7 @@
                         <td class="td-body-tabla">
                             <form class="form-floating">
                                 <input type="email" class="form-control form-select_modificado"
-                                    placeholder="" value="PepitoPerez@gmail.com" />
+                                    placeholder=""/>
                                 <label for="floatingInputValue">Correo Electronico</label>
                             </form>
                         </td>
@@ -2681,7 +2582,7 @@
                         <td class="td-body-tabla">
                             <form class="form-floating">
                                 <input type="password" class="form-control form-select_modificado"
-                                    placeholder="" value="123456789" />
+                                    placeholder=""/>
                                 <label for="floatingInputValue">Nueva Contraseña</label>
                             </form>
                         </td>
@@ -2693,7 +2594,7 @@
                         <td class="td-body-tabla">
                             <form class="form-floating">
                                 <input type="password" class="form-control form-select_modificado"
-                                    placeholder="" value="123456789" />
+                                    placeholder="" />
                                 <label for="floatingInputValue">Repetir Nueva Contraseña</label>
                             </form>
                         </td>
@@ -2701,11 +2602,12 @@
                 </tbody>
             </table>
             <button class="btn btn-eliminar position-absolute bottom-0 end-0">Guardar</button>
+        </div>
     </template>
 
     <template id="Menu/Ayuda">
         <div class="container">
-            <div class="titulo_btnbusqueda_main d-flex justify-content-between">
+            <div class="encabezado d-flex justify-content-between">
                 <div class="d-flex align-items-center">
                     <h1>Ayuda</h1>
                 </div>

@@ -332,32 +332,27 @@ GROUP BY
 
 -- ______________________________________________________________________________________________________________________
 
---Entidad Usuarios
+--Entidad Usuarios (Laura)
 
     --Vista Registro de usuario/perfil
-
-        -- AGREGUE
-        -- Consulta para el registro de un nuevo usuario para saber si ya esta registrado haciendo click al boton registrar.
-        SELECT COUNT(*) AS datos_existentes FROM usuarios
-        WHERE correo_electronico = ? OR numero_documento = ?;
-        -- Si datos_existentes es igual a 0, entonces se puede registrar el usuario. 
-
-        -- MODIFIQUE
         --Consulta para el registro de un nuevo usuario haciendo click al boton registrar
-        INSERT INTO Usuarios (nombre_completo, tipo_documento, numero_documento, correo_electronico, contraseña, rol)
-        VALUES (?, ?, ?, ?, ?, ?);
+        SELECT COUNT(*) AS datos_existentes FROM usuarios 
+        WHERE correo_electronico = ? OR numero_documento = ?;
 
+        INSERT INTO Usuarios (nombre_completo, tipo_documento, numero_documento, correo_electronico, contraseña, rol)
+            VALUES ('?', '?', ?, '?', '?','?');
 
     --Vista Igreso o Logeo de usuario
-
-        -- MODIFIQUE
         --Consulta para el ingreso/logeo del usuario haciendo click al boton ingreso
-        SELECT  correo_electronico, contraseña  FROM usuarios
-        WHERE correo_electronico = ? AND contraseña = ?;
+        SELECT * FROM usuarios
+        WHERE correo_electronico = '?' AND contraseña = '?';
 
     --Vista Perfiles
 
         --Consulta para crear un perfil
+        SELECT COUNT(*) AS datos_existentes FROM usuarios
+        WHERE correo_electronico = ? OR numero_documento = ?;
+
         INSERT INTO usuarios (nombre_usuario, id_rol, tipo_documento, numero_documento, correo_electronico, contraseña) VALUES
         (?,?,?,?,?,?)
 
@@ -369,14 +364,14 @@ GROUP BY
         UPDATE usuarios
         SET id_rol = ?
         WHERE id_usuario = ?
-
+        
         --Consulta para eliminar un perfil
         DELETE FROM usuarios
         WHERE id_usuario = ?
-
+    
     --Vista Ajustes del Usuario
         --Consulta para mostrar datos del usuario
-        SELECT nombre_completo, tipo_documento, numero_documento, correo_electronico, contraseña FROM usuarios
+        SELECT nombre_usuario, tipo_documento, numero_documento, correo_electronico, contraseña FROM usuarios
         WHERE id_usuario = ?
 
         --Consulta para editar usuario
@@ -388,12 +383,12 @@ GROUP BY
         SET contraseña = ?
         WHERE id_usuario = ?
 
---Entidad Almacenes
+--Entidad Almacenes (Laura)
 
     --Vista Mis Inventarios vacio
         --Consulta para crear un nuevo inventario
-        INSERT INTO Almacenes (codigo_almacen, nombre_almacen, direccion_almacen)
-        VALUES (1, Inventario1, 'Cra. 93 #80c – 72')
+        INSERT INTO Almacenes (nombre_almacen, direccion_almacen, descripcion_almacen)
+        VALUES (?, ?, ?)
 
     --Vista Mis Inventarios
         --Consulta para mostrar los inventarios
@@ -403,7 +398,7 @@ GROUP BY
         --Consulta para eliminar un inventario
         DELETE FROM almacenes
         WHERE id_almacen = ?
-
+    
     --Vista Editar Inventario
         --Consulta para editar un inventario
         UPDATE almacenes
@@ -412,10 +407,14 @@ GROUP BY
         SET descripcion_almacen = ?
         WHERE id_almacen = ?
 
---Entidad Productos
+--Entidad Productos (Laura)
 
     --Vista Stock
         --Consulta para crea un producto nuevo
+        SELECT COUNT(*) AS datos_existentes FROM almacenes_productos
+        JOIN productos ON almacenes_productos.id_producto = productos.id_producto 
+        WHERE nombre_producto OR referencia_producto = ?;
+
         INSERT INTO productos(referencia_producto, nombre_producto, stock_minimo, promedio_costo, precio_venta, imagen, id_categoria) VALUES
         (?,?,?,?,?,?,?)
 
@@ -429,9 +428,10 @@ GROUP BY
     --Vista Detalles del Producto
 
         --Consulta para detalles del producto al dar click en Detalles del Producto
-        SELECT nombre_producto, referencia_producto, nombre_almacen AS 'Ubicacion', cantidad_producto AS 'Cantidad', stock_minimo, promedio_costo AS 'Costo', precio_venta 'Precio', imagen FROM Productos
+        SELECT nombre_producto, referencia_producto, nombre_almacen AS 'Ubicacion', cantidad_producto AS 'Cantidad', stock_minimo, promedio_costo AS 'Costo', precio_venta 'Precio', imagen FROM Productos 
         JOIN Almacenes_Productos ON Productos.id_producto = Almacenes_Productos.id_producto
         JOIN Almacenes ON Almacenes_Productos.id_almacen = Almacenes.id_almacen
+        WHERE id_producto = ?
 
         --Consulta actualizacion datos del producto al editarlo y guardar cambios
         UPDATE Productos
@@ -446,89 +446,109 @@ GROUP BY
         SELECT  id_entrada AS 'Referencia', fecha_hora, origen_entrada, destino_entrada FROM Entradas
         UNION
         SELECT id_salida AS 'Referencia', fecha_hora, origen_salida, destino_salida FROM Salidas
+        WHERE id_producto = ?
 
+    --Vista Abastecimiento
+        --Consulta para mostrar stock minimo al dar click en stock minimo
+        SELECT nombre_producto, referencia_producto, stock_minimo cantidad_producto_almacen FROM productos
+        JOIN almacenes_productos ON productos.id_producto = almacenes_productos.id_producto
+        WHERE id_producto = ?
 
---Vista Operaciones
-    --Consulta para mostrar movimientos del dia
-    SELECT entradas.id_entrada AS 'Referencia', nombre_producto, fecha_hora, origen_entrada, destino_entrada FROM entradas
-    JOIN Productos_entradas ON entradas.id_entrada = Productos_entradas.id_entrada
-    JOIN Productos ON Productos_entradas.id_producto = Productos.id_producto
-    WHERE fecha_hora > ? AND fecha_hora < ?
-    UNION
-    SELECT salidas.id_salida AS 'Referencia', nombre_producto, fecha_hora, origen_salida, destino_salida FROM salidas
-    JOIN productos_salidas ON salidas.id_salida = productos_salidas.id_salida
-    JOIN Productos ON productos.id_producto = productos_salidas.id_producto
-    WHERE fecha_hora > ? AND fecha_hora < ?
+--Entidad Categorias (Juan)
+        
+    --Vista Categorias vacia
+        --Consulta para crear una categoria
+        INSERT INTO categorias(nombre_categoria) VALUES
+        (?)
 
-    --Consulta para crear una entrada
-    SELECT id_producto FROM productos
-    WHERE id_producto = ?
+    --Vista Categorias
+        --Consulta para mostrar las categorias
+        SELECT nombre_categoria FROM categorias
 
-    INSERT INTO productos(referencia_producto, nombre_producto, stock_minimo, promedio_costo, precio_venta, imagen, id_categoria) VALUES
-    (?,?,?,?,?,?,?)
+        --Consulta para eliminar una categoria
+        DELETE FROM categorias
+        WHERE id_categoria = ?
 
-    SELECT cantidad_producto FROM almacenes_productos
-    WHERE id_producto = ?
+    --Vista Editar Categoria
+        --Consulta para editar una categoria
+        UPDATE categorias
+        SET nombre_categoria = ?
+        WHERE id_categoria = ?
 
-    INSERT INTO almacenes_productos(id_almacen, id_producto, cantidad_producto_almacen)VALUES
-    (?,?,?)
+--Entidad Movimientos (Juan)
 
-    UPDATE almacenes_productos
-    SET cantidad_producto_almacen = ?
-    WHERE id_producto = ?
+    --Vista Operaciones/Entradas o Salidas
 
-    INSERT INTO entradas (origen_entrada, destino_entrada) VALUES
-    (?,?)
+        --Consulta para mostrar movimientos del dia Entradas y Salidas
+        SELECT CONCAT('ENT', entradas.id_entrada) AS Referencia, fecha_hora, nombre_producto, origen_entrada AS Origen, destino_entrada AS Destino, CONCAT('+',cantidad_entrada) AS Cantidad
+        FROM entradas 
+        JOIN Productos_entradas ON entradas.id_entrada = Productos_entradas.id_entrada 
+        JOIN Productos ON Productos_entradas.id_producto = Productos.id_producto 
+        WHERE fecha_hora > "2024-03-07" AND fecha_hora < "2024-03-30"
+        UNION
+        SELECT CONCAT('SAL', salidas.id_salida) AS Referencia, fecha_hora, nombre_producto, origen_salida AS Origen, destino_salida AS Destino, CONCAT('-',cantidad_salida) AS Cantidad 
+        FROM salidas 
+        JOIN productos_salidas ON salidas.id_salida = productos_salidas.id_salida 
+        JOIN Productos ON productos_salidas.id_producto = Productos.id_producto 
+        WHERE fecha_hora > "2024-03-07" AND fecha_hora < "2024-03-30";
 
-    INSERT INTO productos_entradas(id_entrada, id_producto, cantidad_entrada, precio_compra) VALUES
-    (?,?,?,?)
+    --Vista Crear Entrada
+        --Consulta para crear una entrada
+        SELECT id_producto FROM productos  
+        WHERE id_producto = ?
 
-    --Consulta para crear una salida
+        INSERT INTO productos(referencia_producto, nombre_producto, stock_minimo, promedio_costo, precio_venta, imagen, id_categoria) VALUES
+        (?,?,?,?,?,?,?)
 
-    INSERT INTO salidas(origen_salida, destino_salida) VALUES
-    (?,?)
+        SELECT cantidad_producto FROM almacenes_productos
+        WHERE id_producto = ?
+        
+        INSERT INTO almacenes_productos(id_almacen, id_producto, cantidad_producto_almacen)VALUES
+        (?,?,?)
 
-    SELECT cantidad_producto_almacen FROM almacenes_productos
-    WHERE id_producto = ? AND id_almacen = ?
+        UPDATE almacenes_productos
+        SET cantidad_producto_almacen = ?
+        WHERE id_producto = ?
 
-    INSERT INTO productos_salidas (id_salida, id_producto, cantidad_salida) VALUES
-    (?,?,?)
+        INSERT INTO entradas (origen_entrada, destino_entrada) VALUES
+        (?,?)
 
-    UPDATE almacenes_productos
-    SET cantidad_producto_almacen = cantidad_producto_almacen - ?
-    WHERE id_producto = ? AND id_almacen = ?
+        INSERT INTO productos_entradas(id_entrada, id_producto, cantidad_entrada, precio_compra) VALUES
+        (?,?,?,?)
 
---Vista de stock
+    --Vista Crear Salida
+        --Consulta para crear una salida        
+        INSERT INTO salidas(origen_salida, destino_salida) VALUES
+        (?,?)
 
-    --Consulta para crear una categoria
-    INSERT INTO categorias(nombre_categoria) VALUES
-    (?)
+        SELECT cantidad_producto_almacen FROM almacenes_productos
+        WHERE id_producto = ? AND id_almacen = ?
 
-    --Consulta para mostrar stock minimo al dar click en stock minimo
-    SELECT referencia_producto, nombre_producto FROM productos
+        INSERT INTO productos_salidas (id_salida, id_producto, cantidad_salida) VALUES
+        (?,?,?)
 
-    --Consulta para movimientos producto, al dar click en Movimientos del Producto
-    SELECT fecha_hora, origen_entrada, destino_entrada, id_entrada AS 'Referencia' FROM Entradas
-    UNION
-    SELECT fecha_hora, origen_salida, destino_salida, id_salida AS 'Referencia' FROM Salidas
+        UPDATE almacenes_productos
+        SET cantidad_producto_almacen = cantidad_producto_almacen - ?
+        WHERE id_producto = ? AND id_almacen = ?    
 
---Vista Informes
-    --Consulta para Informe/Salidas x Producto en Tiempo
-    SELECT productos.id_producto, cantidad_salida FROM productos_salidas
-    JOIN productos ON productos_salidas.id_producto = productos.id_producto
-    JOIN salidas ON productos_salidas.id_salida = salidas.id_salida
-    WHERE productos.id_producto = 3 AND fecha_hora >= ? AND fecha_hora < ?
+--Entidad Informes (Juan)
+    --Vista Informes
+        --Consulta para Informe/Salidas x Producto en Tiempo
+        SELECT productos.id_producto, cantidad_salida FROM productos_salidas
+        JOIN productos ON productos_salidas.id_producto = productos.id_producto
+        JOIN salidas ON productos_salidas.id_salida = salidas.id_salida
+        WHERE productos.id_producto = 3 AND fecha_hora >= ? AND fecha_hora < ?
 
-    --Consulta para Informe/Productos mas vendidos por almacen
-    SELECT P.id_producto, nombre_producto, cantidad_salida FROM productos_salidas AS PS
-    JOIN productos AS P ON PS.id_producto = P.id_producto
-    JOIN salidas AS S ON PS.id_salida = S.id_salida
-    WHERE id_almacen = 1 And S.fecha_hora >= '2024-02-21' AND S.fecha_hora <= '2024-02-23'
-    ORDER BY cantidad_salida DESC
-    LIMIT 1
+        --Consulta para Informe/Productos mas vendidos por almacen
+        SELECT P.id_producto, nombre_producto, cantidad_salida FROM productos_salidas AS PS
+        JOIN productos AS P ON PS.id_producto = P.id_producto
+        JOIN salidas AS S ON PS.id_salida = S.id_salida
+        WHERE id_almacen = 1 And S.fecha_hora >= '2024-02-21' AND S.fecha_hora <= '2024-02-23' 
+        ORDER BY cantidad_salida DESC
+        LIMIT 1
 
-    --Consulta para Informe/Movimiento por Producto en almacenes
-    SELECT almacenes.id_almacen, nombre_almacen, cantidad_salida FROM productos_salidas
-    JOIN salidas ON productos_salidas.id_salida = salidas.id_salida
-    JOIN almacenes ON salidas.id_almacen = almacenes.id_almacen
-    WHERE id_producto = 3 AND fecha_hora >= ? AND fecha_hora <= ?
+        --Consulta para Informe/Movimiento por Producto en almacenes
+        SELECT almacenes.id_almacen, nombre_almacen, cantidad_salida FROM productos_salidas
+        JOIN salidas ON productos_salidas.id_salida = salidas.id_salida
+        JOIN almacenes ON salidas.id_almacen = almacenes.id_almacen
+        WHERE id_producto = 3 AND fecha_hora >= ? AND fecha_hora <= ?

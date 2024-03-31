@@ -30,7 +30,7 @@ footer{
     height: 100%;
 }
 
-.container-fluid {
+.container-fluid{
     padding: 0 1.5rem;
 }
 
@@ -40,11 +40,6 @@ footer{
 
 .dropdown-toggle::after {
     border: 0;
-}
-
-.personalizar-icono-usuario {
-    font-size: 2rem;
-    padding: 0;
 }
 
 .alto_maximo {
@@ -82,7 +77,6 @@ h2 {
     color: #000;
     text-align: center;
     font-family: Inter;
-    font-size: 24px;
     font-style: normal;
     font-weight: 600;
     line-height: 32px;
@@ -96,7 +90,13 @@ h2 {
     line-height: 24px;
 }
 
-.boton_busqueda {
+.encabezado {
+    display: flex;
+    padding-top: 1rem;
+    align-items: center;
+}
+
+.encabezado__search-form {
     display: flex;
     justify-content: space-between;
     height: 3.5rem;
@@ -104,14 +104,7 @@ h2 {
     border-radius: 0.5rem;
 }
 
-.prueba_boton_boton {
-    padding: 0 20px 0 0;
-    border: none;
-    border-radius: 0 0.5rem 0.5rem 0;
-    background-color: white;
-}
-
-.prueba_boton_input {
+.encabezado__search-input {
     width: 100%;
     padding: 0 0 0 20px;
     border: none;
@@ -119,10 +112,11 @@ h2 {
     outline: none;
 }
 
-.titulo_btnbusqueda_main {
-    display: flex;
-    padding-top: 1rem;
-    align-items: center;
+.encabezado__search-button {
+    padding: 0 20px 0 0;
+    border: none;
+    border-radius: 0 0.5rem 0.5rem 0;
+    background-color: white;
 }
 
 hr {
@@ -132,15 +126,11 @@ hr {
     background-color: gray;
 }
 
-.container_contenido {
+.sin-opciones {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 81vh;
-}
-
-.container_contenido>h2 {
-    font-family: inter;
+    height: 85%;
 }
 
 /*Estilos para vista de Inventario */
@@ -289,7 +279,7 @@ hr {
 
 .ingreso__img {
     width: 100%;
-    max-height: 50%; /* Ajusta la altura máxima de la imagen según sea necesario */
+    height: 100%;
     object-fit: cover;
 }
 
@@ -386,13 +376,13 @@ li>button>p {
     white-space: nowrap;
 }
 
+.encabezado__button,
 .btn-contenido,
 .btn-eliminar {
     height: 56px;
     color: white;
     border-radius: 8px;
     background: var(--Brand-primary, #333A56);
-    margin-top: 0.5rem;
 
     /* Estilos para el texto */
     font-family: Inter;
@@ -844,4 +834,9 @@ a.page-link:hover {
     
 }
 
-
+@media screen and (max-height: 700px) {
+    .ingreso__img {
+        height: 250px;
+        border-radius: 10px 10px 0 0 ;
+    }
+}
