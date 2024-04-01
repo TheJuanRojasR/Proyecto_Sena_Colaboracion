@@ -1,11 +1,16 @@
+/* Estilos modificando directamente las etiquetas */
+
 body {
     background: var(--Base, #F7F5E6);
 }
 
-/* Estilos modificados para la etiqueta Nav y clases usadas en ella */
 nav {
     background-color: #F7F5E6;
     box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
+}
+
+main {
+    height: 80vh;
 }
 
 footer{
@@ -16,51 +21,6 @@ footer{
     padding: 5rem 10rem;
     align-items: flex-start;
     gap: 5rem;
-}
-
-/* .logo_footer{
-    filter: invert(100%);
-} */
-
-.color_blanco{
-    color: #FAFAFF;
-}
-
-.elemento_flooter{
-    height: 100%;
-}
-
-.container-fluid{
-    padding: 0 1.5rem;
-}
-
-.navbar-expand-md {
-    padding: 0 0 4px 0;
-}
-
-.dropdown-toggle::after {
-    border: 0;
-}
-
-.alto_maximo {
-    height: 100%;
-}
-
-.ancho_maximo {
-    width: 100%;
-}
-
-/* ----------------------------------------------------------------------- */
-
-
-/* Estilos modificados para la etiqueta Main y clases usadas en ella */
-main {
-    height: 80vh;
-}
-
-.container_main {
-    padding: 0;
-    min-height: 80vh;
 }
 
 h1 {
@@ -82,7 +42,45 @@ h2 {
     line-height: 32px;
 }
 
-.parrafo_menu {
+hr {
+    stroke-width: 2px;
+    height: 2px;
+    border: none;
+    background-color: gray;
+}
+
+.color_blanco{
+    color: #FAFAFF;
+}
+
+
+.elemento_flooter{
+    height: 100%;
+}
+
+/* Esta clase es para quitar la flecha hacia abajo de los desplegables */
+.dropdown-toggle::after {
+    border: 0;
+}
+
+.alto_maximo {
+    height: 100%;
+}
+
+.ancho_maximo {
+    width: 100%;
+}
+
+/* ----------------------------------------------------------------------- */
+
+/* Estilos modificados para la etiqueta Main y clases usadas en ella */
+
+.container_main {
+    padding: 0;
+    min-height: 80vh;
+}
+
+.menu__paragraph {
     color: #000;
     font-family: Inter;
     font-size: 1rem;
@@ -119,13 +117,6 @@ h2 {
     background-color: white;
 }
 
-hr {
-    stroke-width: 2px;
-    height: 2px;
-    border: none;
-    background-color: gray;
-}
-
 .sin-opciones {
     display: flex;
     align-items: center;
@@ -133,45 +124,16 @@ hr {
     height: 85%;
 }
 
+/* ----------------------------------------------------------------------- */
+
 /*Estilos para vista de Inventario */
 
-#container_inventarios {
-    display: flex;
-}
-
-.container_formularios_inventario {
+.registro-inventario {
     background-color: white;
     padding: 1rem 1.5rem;
     border-radius: 16px;
     margin: 0;
     box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
-}
-
-.items-formularios {
-    padding-bottom: 0.5rem;
-}
-
-.items-formularios_modificado {
-    margin-bottom: 0.5rem;
-}
-
-.btn_formulario_inventario {
-    height: 3.6rem;
-    margin-top: 3rem;
-    font-family: Inter;
-    font-size: 1.125rem;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.5rem;
-    background-color: #333A56;
-    color: white;
-    transition: none;
-}
-
-
-.btn_formulario_inventario:hover {
-    background-color: #333A56;
-    color: white;
 }
 
 /* ----------------------------------------------------------------------- */
@@ -181,8 +143,12 @@ hr {
 /* Estilos comunes */
 .registro__input,
 .registro__select,
-.registro__button,
-.registro__option {
+.registro__option,
+.btn-general,
+.btn-general--transparent,
+.btn-general--contenido,
+.btn-general--secundario,
+.btn-general--eliminar {
     color: var(--light-grey, #e0e0ff);
     font-family: Inter;
     font-size: 14px;
@@ -191,7 +157,7 @@ hr {
     height: 56px;
     border-radius: 8px;
     border: 1px solid #415176;
-    background: var(--Brand-primary-oscuro, #1f2535);
+    background-color: #1F2535;
 }
 
 /* Estilos específicos para el contenedor principal de registro */
@@ -242,11 +208,46 @@ hr {
 }
 
 /* Estilos para los botones dentro del formulario de registro */
-.registro__button {
+.btn-general,
+.btn-general--transparent,
+.btn-general--contenido,
+.btn-general--secundario,
+.btn-general--eliminar {
     width: 144px;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: 600;
     line-height: 24px;
+    background-color: #333A56;
+    width: auto;
+    height: 3.6rem;
+}
+
+.btn-general--transparent {
+    background-color: transparent;
+    color: #333A56;
+    border: none;
+}
+
+.btn-general--secundario {
+    color: #171740;
+    background: var(--lightestGrey, #FAFAFF);
+    margin-left: 1rem;
+    border: none;
+}
+
+.btn-general:hover,
+.btn-general--contenido:hover,
+.btn-general--eliminar:hover {
+    background-color: #333A56;
+    color: var(--light-grey, #e0e0ff);
+    border-color: #415176;
+    transition: none;
+}
+
+.btn-general--secundario:hover {
+    color: #171740;
+    background: var(--lightestGrey, #FAFAFF);
+    transition: none;
 }
 
 .registro__close {
@@ -288,7 +289,6 @@ hr {
 .registro select.form-select:focus,
 .registro select.form-select:hover,
 .ingreso input.form-control:focus {
-    /* Copia y pega los estilos para mantenerlos durante el enfoque o el hover */
     /* Esto asegura que los estilos se mantengan consistentes */
     color: var(--light-grey, #e0e0ff);
     font-family: Inter;
@@ -298,16 +298,14 @@ hr {
     height: 56px;
     border-radius: 8px;
     border: 1px solid #415176;
-    background: var(--Brand-primary-oscuro, #1f2535);
+    background-color: #1F2535;
 }
-
-
 
 /* ----------------------------------------------------------------------- */
 
 /* Estilos para vista de Inventario/InventarioCrear */
 
-.container_inventario_crear {
+.inventario {
     position: relative;
     background-color: white;
     padding: 1rem 1.5rem;
@@ -318,7 +316,7 @@ hr {
     margin-top: 1rem;
 }
 
-.container_inventario_crear>h3 {
+.inventario__title {
     font-family: Inter;
     font-size: 1.5rem;
     font-weight: 600;
@@ -326,7 +324,7 @@ hr {
     color: var(--black, #171740);
 }
 
-.container_inventario_crear>p {
+.inventario__paragraph {
     font-family: Inter;
     font-size: 1.125rem;
     font-weight: 400;
@@ -334,28 +332,11 @@ hr {
     color: var(--dark-grey, #242464);
 }
 
-.btn_inventario_crear {
-    height: 3.6rem;
-    margin-top: 3rem;
-    font-family: Inter;
-    font-size: 1.125rem;
-    font-weight: 600;
-    line-height: 1.5rem;
-    background-color: #333A56;
-    color: white;
-}
-
-
-.btn_inventario_crear:hover {
-    background-color: #333A56;
-    color: white;
-}
-
 .btn-group>.dropdown-menu {
     background-color: #333A56;
 }
 
-li>button>p {
+li > button > p {
     margin: 0;
     padding-left: 11px;
     color: white;
@@ -364,7 +345,6 @@ li>button>p {
     font-weight: 500;
     line-height: 1.125rem;
 }
-
 
 /* ----------------------------------------------------------------------- */
 
@@ -376,57 +356,6 @@ li>button>p {
     white-space: nowrap;
 }
 
-.encabezado__button,
-.btn-contenido,
-.btn-eliminar {
-    height: 56px;
-    color: white;
-    border-radius: 8px;
-    background: var(--Brand-primary, #333A56);
-
-    /* Estilos para el texto */
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    /* 133.333% */
-}
-
-.btn-contenido_ingresar{
-    height: 56px;
-    color: black;
-    border-radius: 8px;
-    background: transparent;
-    margin-top: 0.5rem;
-    margin-right: 1rem;
-    /* Estilos para el texto */
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    /* 133.333% */
-
-}
-
-.btn-contenido:hover,
-.btn-eliminar:hover {
-    background-color: #333A56;
-    color: white;
-}
-
-.btn-contenido_invertido {
-    color: #171740;
-    background: var(--lightestGrey, #FAFAFF);
-    margin-left: 1rem;
-}
-
-.btn-contenido_invertido:hover {
-    color: #171740;
-    background: var(--lightestGrey, #FAFAFF);
-}
-
 .btn-tabla-icono {
     padding: 0;
     color: var(--black, #171740);
@@ -436,8 +365,6 @@ li>button>p {
     font-weight: 700;
     line-height: 1.125rem;
 }
-
-
 
 /* Para poder colocar el color en el encabezado de la tabla*/
 
@@ -557,6 +484,7 @@ a.page-link:hover {
     border-radius: 5px 0 0 5px;
 }
 
+.texto_error,
 .texto_advertencia {
     color: var(--Advertencia, #FF9900);
     font-family: Inter;
@@ -567,10 +495,6 @@ a.page-link:hover {
 
 .texto_error {
     color: var(--Error, #F04C4C);
-    font-family: Inter;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 18px;
 }
 
 /* ----------------------------------------------------------------------- */
@@ -631,7 +555,6 @@ a.page-link:hover {
 /* ----------------------------------------------------------------------- */
 
 /* Estilos para vista de Barra lateral*/
-
 
 .color_inherit {
     color: inherit;
@@ -781,17 +704,13 @@ a.page-link:hover {
         font-size: 0.8em;
     }
 
-    .btn-contenido_invertido {
+    .btn-general--secundario,
+    .btn-general--contenido {
         margin-left: 0;
         width: 100%;
         margin-top: 0.5rem;
     }
 
-    .btn-contenido {
-        margin-left: 0;
-        width: 100%;
-        margin-top: 0.5rem;
-    }
 }
 
 @media screen and (max-width: 991px) {
@@ -803,7 +722,7 @@ a.page-link:hover {
         font-size: 0.8em;
     }
 
-    .form-select{
+    .form-select {
         font-size: 0.7em;
     }
 
@@ -822,7 +741,6 @@ a.page-link:hover {
 
     .td-body-tabla {
         line-height: 28px;
-        /* Valor ajustado para pantallas menores o iguales a 991px */
     }
 
     .btn-contenido_invertido {

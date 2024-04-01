@@ -38,69 +38,20 @@
             <a class="navbar-brand" href="#">
                 <img src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
             </a>
-
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Operaciones
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Entradas/Salidas</a></li>
-                            <li><a class="dropdown-item" href="#">Entradas</a></li>
-                            <li><a class="dropdown-item" href="#">Salidas</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Stock
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Stock</a></li>
-                            <li><a class="dropdown-item" href="#">Abastecimiento</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Estadisticas</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Perfiles</a>
-                    </li>
-                </ul>
-
-                <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                    <img src="./public/assets/images/logo_usuario.svg" alt="">
+            <div class="d-flex">
+                </button>
+                <button class="btn btn-general--transparent">Ingresar</button>
+                </button>
+                </button>
+                <button class="btn btn-general">Registrar</button>
                 </button>
             </div>
         </div>
     </nav>
 
     <main class="container-fluid container_main">
-        
+    
     </main>
-
-    <!-- <div class="container encabezado">
-        <h1>Perfíles</h1>
-        <div>
-            <form action="#" method="get" class="search-form encabezado__search-form">
-                <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                <button class="encabezado__search-button" type="button">
-                    <img src="/public/assets/images/logo_lupa.svg" alt="" />
-                </button>
-            </form>
-        </div>
-        <button class="btn encabezado__button ms-auto">Crear Entrada</button>
-    </div> -->
 
     <!-- /* ----------------------------------------------------------------------- */ -->
     <!-- Plantillas -->
@@ -204,7 +155,7 @@
                     </label>
                 </div>
             
-                <button class="btn btn-primary registro__button mb-3">Registrar</button>
+                <button class="btn btn-general mb-3">Registrar</button>
             
                 <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
             </div>
@@ -233,7 +184,7 @@
                         <a href="#" class="registro__text">¿Olvidó su contraseña?</a>
                     </div>
                 </div>
-                <button class="btn btn-primary registro__button mb-3">Ingresar</button>
+                <button class="btn btn-general mb-3">Ingresar</button>
             </div>
         </section>
     </template>
@@ -356,10 +307,10 @@
             </a>
             <div class="d-flex">
                 </button>
-                <button class="btn btn-contenido_ingresar ">Ingresar</button>
+                <button class="btn btn-general--transparent">Ingresar</button>
                 </button>
                 </button>
-                <button class="btn btn-contenido ">Registrar</button>
+                <button class="btn btn-general">Registrar</button>
                 </button>
             </div>
         </div>
@@ -392,23 +343,22 @@
             </div>
         </div>
         <hr />
-
-        <div class="container" id="container_inventarios">
-            <div class="container col-lg-4 container_formularios_inventario">
+        <div class="container d-flex">
+            <div class="container col-lg-4 registro-inventario">
                 <div>
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="email" class="form-control" id="floatingInputValue" placeholder="nombre-almacen"
                             value="SENA Quirigua" />
                         <label for="floatingInputValue">Nombre Inventario</label>
                     </form>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="email" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Dirección Inventario</label>
                     </form>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="email" class="form-control" id="floatingInputValue"
                             placeholder="descripcion-almacen" value="Contiene computadores" />
                         <label for="floatingInputValue">Descripción Inventario</label>
@@ -416,7 +366,7 @@
                 </div>
 
                 <div class="d-grid gap-2">
-                    <button class="btn btn_formulario_inventario" type="button">
+                    <button class="btn btn-general" type="button">
                         Crear Inventario
                     </button>
                 </div>
@@ -435,14 +385,13 @@
                     </button>
                 </form>
             </div>
-            <button class="btn encabezado__button ms-auto">Crear Inventario</button>
+            <button class="btn btn-general ms-auto">Crear Inventario</button>
         </div>
         <hr />
-
-        <div class="container flex-wrap justify-content-around" id="container_inventarios">
-            <div class="container col-lg-3 container_inventario_crear flex-wrap">
+        <div class="container d-flex flex-wrap justify-content-around">
+            <div class="container inventario flex-wrap col-lg-3">
                 <div class="d-flex justify-content-between">
-                    <h3>Nombre de Inventario</h3>
+                    <h3 class="inventario__title">Nombre de Inventario</h3>
                     <div class="btn-group" role="group">
                         <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -450,13 +399,13 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li class="d-grid gap-2">
-                                <button class="btn boton-menu d-flex align-items-center">
+                                <button class="btn d-flex align-items-center">
                                     <img src="/public/assets/images/lapiz_editar.svg" alt="" />
                                     <p>Editar</p>
                                 </button>
                             </li>
                             <li class="d-grid gap-2">
-                                <button class="btn boton-menu d-flex align-items-center">
+                                <button class="btn  d-flex align-items-center">
                                     <img src="/public/assets/images/eliminar.svg" alt="" />
                                     <p>Eliminar</p>
                                 </button>
@@ -465,14 +414,14 @@
                     </div>
                 </div>
 
-                <p>Dirección: XXXXX</p>
-                <p>
+                <p class="inventario__paragraph" >Dirección: XXXXX</p>
+                <p class="inventario__paragraph" >
                     Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh
                     malesuada, volutpat metus ac, laoreet erat.vestibulum orci. In ac
                     nibh malesuada, volutpat metus ac, laoreet erat
                 </p>
                 <div class="d-grid gap-2">
-                    <button class="btn btn_inventario_crear" type="button">
+                    <button class="btn btn-general" type="button">
                         Ingresar
                     </button>
                 </div>
@@ -491,7 +440,7 @@
                     </button>
                 </form>
             </div>
-            <button class="btn encabezado__button ms-auto">Crear Entrada</button>
+            <button class="btn btn-general ms-auto">Crear Entrada</button>
         </div>
         <hr />
 
@@ -1002,7 +951,7 @@
                     </button>
                 </form>
             </div>
-            <button class="btn encabezado__button ms-auto">Crear Producto</button>
+            <button class="btn btn-general ms-auto">Crear Producto</button>
         </div> 
         <hr />
         <div class="container  table-responsive">
@@ -1149,7 +1098,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-eliminar position-absolute bottom-0 end-0">Eliminar</button>
+            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
         </div>
     </template>
 
@@ -1229,7 +1178,7 @@
                     </button>
                 </form>
             </div>
-            <button class="btn encabezado__button ms-auto">Crear Categoría</button>
+            <button class="btn btn-general ms-auto">Crear Categoría</button>
         </div> 
         <hr />
         <div class="container">
@@ -1368,7 +1317,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-eliminar position-absolute bottom-0 end-0">Eliminar</button>
+            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
         </div>
     </template>
 
@@ -1565,8 +1514,8 @@
                     </table>
                 </div>
                 <div>
-                    <button class="btn btn-contenido">Ver Movimientos</button>
-                    <button class="btn btn-contenido btn-contenido_invertido">Editar Descripción</button>
+                    <button class="btn btn-general--contenido">Ver Movimientos</button>
+                    <button class="btn btn-general--secundario">Editar Descripción</button>
                 </div>
             </div>
             <div class="">
@@ -1642,7 +1591,7 @@
                     </table>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-contenido ">Guardar</button>
+                    <button class="btn btn-general--contenido ">Guardar</button>
                 </div>
             </div>
             <div class="position-relative">
@@ -1656,13 +1605,13 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li class="d-grid gap-2">
-                            <button class="btn boton-menu d-flex align-items-center">
+                            <button class="btn  d-flex align-items-center">
                                 <img src="/public/assets/images/lapiz_editar.svg" alt="" />
                                 <p>Cambiar</p>
                             </button>
                         </li>
                         <li class="d-grid gap-2">
-                            <button class="btn boton-menu d-flex align-items-center">
+                            <button class="btn  d-flex align-items-center">
                                 <img src="/public/assets/images/eliminar.svg" alt="" />
                                 <p>Eliminar</p>
                             </button>
@@ -1812,19 +1761,19 @@
                         <label for="floatingSelect">Seleccionar Producto</label>
                     </div>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Desde</label>
                     </form>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Hasta</label>
                     </form>
                 </div>
-                <button class="btn btn-eliminar">Generar</button>
+                <button class="btn btn-general">Generar</button>
             </div>
         </div>
     </template>
@@ -1858,20 +1807,20 @@
                         <label for="floatingSelect">Seleccionar Producto</label>
                     </div>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Desde</label>
                     </form>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Hasta</label>
                     </form>
                 </div>
 
-                <button class="btn btn-eliminar">Generar</button>
+                <button class="btn btn-general">Generar</button>
             </div>
 
             <div class="alto_maximo">
@@ -1911,19 +1860,19 @@
                         <label for="floatingSelect">Seleccionar Almacén</label>
                     </div>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Desde</label>
                     </form>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Hasta</label>
                     </form>
                 </div>
-                <button class="btn btn-eliminar">Generar</button>
+                <button class="btn btn-general">Generar</button>
             </div>
         </div>
     </template>
@@ -1958,19 +1907,19 @@
                         <label for="floatingSelect">Seleccionar Almacén</label>
                     </div>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Desde</label>
                     </form>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Hasta</label>
                     </form>
                 </div>
-                <button class="btn btn-eliminar">Generar</button>
+                <button class="btn btn-general">Generar</button>
             </div>
 
             <div class="alto_maximo">
@@ -2009,19 +1958,19 @@
                         <label for="floatingSelect">Seleccionar Almacén</label>
                     </div>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Desde</label>
                     </form>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Hasta</label>
                     </form>
                 </div>
-                <button class="btn btn-eliminar">Generar</button>
+                <button class="btn btn-general">Generar</button>
             </div>
         </div>
     </template>
@@ -2056,19 +2005,19 @@
                         <label for="floatingSelect">Seleccionar Almacén</label>
                     </div>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Desde</label>
                     </form>
 
-                    <form class="form-floating items-formularios">
+                    <form class="form-floating mb-2">
                         <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             value="Cra. 93 #80c-72" />
                         <label for="floatingInputValue">Hasta</label>
                     </form>
                 </div>
-                <button class="btn btn-eliminar">Generar</button>
+                <button class="btn btn-general">Generar</button>
             </div>
 
             <div class="alto_maximo">
@@ -2109,14 +2058,14 @@
         <hr />
         <div class="container container_min_height d-flex justify-content-center">
             <section id="registro_perfil" class="d-flex flex-column">
-                <h1 class="items-formularios_modificado text-center">Crear Perfil</h1>
-                <form class="form-floating items-formularios_modificado">
+                <h1 class="text-center mb-2">Crear Perfil</h1>
+                <form class="form-floating mb-2">
                     <input type="text" class="form-control form-select_modificado" id="floatingInputValue"
                         placeholder=""/>
                     <label for="floatingInputValue">Nombre Completo</label>
                 </form>
 
-                <select class="form-select form-select_modificado items-formularios_modificado"
+                <select class="form-select form-select_modificado mb-2"
                     aria-label="Default select example">
                     <option selected>Tipo de Documento</option>
                     <option value="1">Cedula de Ciudadania</option>
@@ -2124,31 +2073,31 @@
                     <option value="3">Rut</option>
                 </select>
 
-                <form class="form-floating items-formularios_modificado">
+                <form class="form-floating mb-2">
                     <input type="number" class="form-control form-select_modificado" id="floatingInputValue"
                         placeholder=""/>
                     <label for="floatingInputValue">Numero de Documento</label>
                 </form>
 
-                <form class="form-floating items-formularios_modificado">
+                <form class="form-floating mb-2">
                     <input type="email" class="form-control form-select_modificado" id="floatingInputValue"
                         placeholder=""/>
                     <label for="floatingInputValue">Correo Electronico</label>
                 </form>
 
-                <form class="form-floating items-formularios_modificado">
+                <form class="form-floating mb-2">
                     <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
                         placeholder=""/>
                     <label for="floatingInputValue">Contraseña</label>
                 </form>
 
-                <form class="form-floating items-formularios_modificado">
+                <form class="form-floating mb-2">
                     <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
                         placeholder=""/>
                     <label for="floatingInputValue">Repetir Contraseña</label>
                 </form>
 
-                <button class="btn btn-eliminar ">Crear</button>
+                <button class="btn btn-general ">Crear</button>
             </section>
         </div>
     </template>
@@ -2164,7 +2113,7 @@
                     </button>
                 </form>
             </div>
-            <button class="btn encabezado__button ms-auto">Crear Perfil</button>
+            <button class="btn btn-general ms-auto">Crear Perfil</button>
         </div> 
         <hr />
         <div class="container">
@@ -2318,7 +2267,7 @@
 
                 </tbody>
             </table>
-            <button class="btn btn-eliminar position-absolute bottom-0 end-0">Eliminar</button>
+            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
         </div>
     </template>
 
@@ -2332,7 +2281,7 @@
         </div>
         <hr />
         <div class="container">
-            <p class="element-with-padding text-justify parrafo_menu">Lorem ipsum dolor sit amet consectetur. Viverra a
+            <p class="element-with-padding text-justify menu__paragraph">Lorem ipsum dolor sit amet consectetur. Viverra a
                 rhoncus consectetur quam eget praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit
                 sodales. Viverra vitae lectus neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis
                 suspendisse. Consequat tellus vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla
@@ -2390,7 +2339,7 @@
         </div>
         <hr />
         <div class="container">
-            <p class="element-with-padding text-justify parrafo_menu">Lorem ipsum dolor sit amet consectetur. Viverra a
+            <p class="element-with-padding text-justify menu__paragraph">Lorem ipsum dolor sit amet consectetur. Viverra a
                 rhoncus consectetur quam eget praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit
                 sodales. Viverra vitae lectus neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis
                 suspendisse. Consequat tellus vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla
@@ -2501,7 +2450,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-eliminar position-absolute bottom-0 end-0">Editar</button>
+            <button class="btn btn-general position-absolute bottom-0 end-0">Editar</button>
     </template>
 
     <template id="Menu/Ajustes de usuario Editar">
@@ -2542,7 +2491,7 @@
                             <p class="td-body-tabla_opciones">Tipo de Documento</p>
                         </td>
                         <td class="td-body-tabla">
-                            <select class="form-select form-select_modificado items-formularios_modificado"
+                            <select class="form-select form-select_modificado mb-2"
                             aria-label="Default select example">
                                 <option selected>Tipo de Documento</option>
                                 <option value="1">Cedula de Ciudadania</option>
@@ -2601,7 +2550,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-eliminar position-absolute bottom-0 end-0">Guardar</button>
+            <button class="btn btn-general position-absolute bottom-0 end-0">Guardar</button>
         </div>
     </template>
 
@@ -2618,14 +2567,14 @@
             <p class="element-with-padding text-justify">Pasos para utilizar la aplicaci</p>
             <ol class="element-with-padding text-justify">
                 <li>
-                    <p class="parrafo_menu">Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam
+                    <p class="menu__paragraph">Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam
                         eget praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit sodales. Viverra
                         vitae lectus neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis
                         suspendisse. Consequat tellus vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas
                         nulla tincidunt laoreet semper. Nec augue massa libero est.</p>
                 </li>
                 <li>
-                    <p class="parrafo_menu">At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris
+                    <p class="menu__paragraph">At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris
                         nec. Facilisi adipiscing integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed
                         nam ut tempus. Eget duis lectus ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut
                         nec sit et egestas consectetur. Blandit ut risus blandit pharetra tortor sagittis interdum. Id
@@ -2641,7 +2590,7 @@
                         non aliquet nisl sem lectus nisl.</p>
                 </li>
                 <li>
-                    <p class="parrafo_menu">Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor
+                    <p class="menu__paragraph">Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor
                         suspendisse viverra pellentesque. Urna interdum augue mi est commodo in est etiam nunc. Pulvinar
                         scelerisque quis odio lorem blandit id id auctor mi. Nulla ullamcorper nisi ac amet. Consequat
                         sed a dui mauris. Ut et convallis tortor convallis blandit eget tempor eget. Tellus arcu odio id
@@ -2654,7 +2603,7 @@
                         integer.</p>
                 </li>
                 <li>
-                    <p class="parrafo_menu">Sed molestie consequat elementum id tellus tortor condimentum imperdiet.
+                    <p class="menu__paragraph">Sed molestie consequat elementum id tellus tortor condimentum imperdiet.
                         Magna dictumst molestie at gravida mauris. Blandit dui eget faucibus in augue. Eget in feugiat
                         egestas orci. Ac porttitor sapien orci amet purus est sit. Molestie id aliquam odio elit feugiat
                         amet. Commodo duis est mi faucibus odio euismod lectus maecenas vitae. Ac nisl nisl ultrices
