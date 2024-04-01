@@ -386,13 +386,11 @@ li > button > p {
     filter: invert(100%);
 }
 
-
 /* ----------------------------------------------------------------------- */
 
 /* Estilos para vista de Operaciones/Entradas y Salidas con opciones*/
 
 .td-body-tabla {
-
     margin: 0;
     font-family: Inter;
     font-size: 13px;
@@ -401,15 +399,14 @@ li > button > p {
     line-height: 36px;
 }
 
+.td-body-tabla_categoria,
 .td-body-tabla_opciones {
     margin: 0;
     padding-left: 32px;
-    vertical-align: middle;
 }
 
-.td-body-tabla_categoria {
-    margin: 0;
-    padding-left: 32px;
+.td-body-tabla_opciones {
+    vertical-align: middle;
 }
 
 /* Cambiar nombre de clases para estos estilos */
@@ -460,7 +457,7 @@ a.page-link:hover {
     align-items: center;
 }
 
-.p_div_input_p_tabla {
+.espacion-izq {
     margin: 0 0 0 12px;
 }
 
@@ -516,11 +513,9 @@ a.page-link:hover {
 
 /* Estilos para vista de Estadisticas*/
 
-.form-select_modificado,
-#input_modificado {
+.form-select_modificado {
     width: 325px;
     height: 48px;
-
     color: #666;
     font-family: Inter;
     font-size: 13px;
@@ -528,20 +523,9 @@ a.page-link:hover {
     line-height: 18px;
 }
 
-/* ----------------------------------------------------------------------- */
-
-/* Estilos para vista de Estadisticas/Estadistica 1*/
-
-#h2_estadistica_01 {
-    margin: 3.5rem 0;
-}
-
-
-/* ----------------------------------------------------------------------- */
-
 /* Estilos para vista de Perfiles/Crear Perfil */
 
-#registro_perfil {
+.registro-perfil{
     width: 374px;
     height: 535px;
     background-color: white;
@@ -550,7 +534,6 @@ a.page-link:hover {
     margin: 0;
     box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
 }
-
 
 /* ----------------------------------------------------------------------- */
 
@@ -743,9 +726,10 @@ a.page-link:hover {
         line-height: 28px;
     }
 
-    .btn-contenido_invertido {
+    .btn-general--secundario {
         margin-left: 0;
     }
+
     .element-with-padding{
         padding: 0 3rem;
     }

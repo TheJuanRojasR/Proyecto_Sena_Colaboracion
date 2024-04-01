@@ -50,7 +50,100 @@
     </nav>
 
     <main class="container-fluid container_main">
-    
+        <div class="container">
+            <div class="encabezado">
+                <h1>Detalles del producto</h1>
+            </div>
+        </div>
+        <hr />
+        <div class="container sin-opciones">
+            <div class="d-flex flex-column">
+                <h1>Nombre del Producto</h1>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Referencia</td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ubicación</td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Cantidad</td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Stock Mínimo</td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Costo</td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Precio de Venta</td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-general--contenido ">Guardar</button>
+                </div>
+            </div>
+            <div class="position-relative">
+                <figure class="contenedor-imagen">
+                    <img class="img-fluid" src="/public/assets/images/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
+                </figure>
+
+                <div class="btn-group position-absolute top-0 end-0" role="group">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/public/assets/images/menu_horizontal.svg" alt="" />
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="d-grid gap-2">
+                            <button class="btn  d-flex align-items-center">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                                <p>Cambiar</p>
+                            </button>
+                        </li>
+                        <li class="d-grid gap-2">
+                            <button class="btn  d-flex align-items-center">
+                                <img src="/public/assets/images/eliminar.svg" alt="" />
+                                <p>Eliminar</p>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
     </main>
 
     <!-- /* ----------------------------------------------------------------------- */ -->
@@ -992,7 +1085,7 @@
                         <td>
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="p_div_input_p_tabla">Categoria XXX</p>
+                                <p class="espacion-izq">Categoria XXX</p>
                             </div>
                         </td>
                         <th scope="row" class="td-body-tabla">
@@ -1083,7 +1176,7 @@
                         <td>
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="p_div_input_p_tabla">Categoria XXX</p>
+                                <p class="espacion-izq">Categoria XXX</p>
                             </div>
                         </td>
                         <th scope="row" class="td-body-tabla">
@@ -1201,7 +1294,7 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="p_div_input_p_tabla">Categoria XXX</p>
+                                <p class="espacion-izq">Categoria XXX</p>
                             </div>
                         </th>
                         <td class="text-end">
@@ -1215,7 +1308,7 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="p_div_input_p_tabla">Categoria XXX</p>
+                                <p class="espacion-izq">Categoria XXX</p>
                             </div>
                         </th>
                         <td class="text-end">
@@ -1229,7 +1322,7 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="p_div_input_p_tabla">Categoria XXX</p>
+                                <p class="espacion-izq">Categoria XXX</p>
                             </div>
                         </th>
                         <td class="text-end">
@@ -1278,7 +1371,7 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="p_div_input_p_tabla">Categoria XXX</p>
+                                <p class="espacion-izq">Categoria XXX</p>
                             </div>
                         </th>
                         <td class="text-end">
@@ -1292,7 +1385,7 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="p_div_input_p_tabla">Categoria XXX</p>
+                                <p class="espacion-izq">Categoria XXX</p>
                             </div>
                         </th>
                         <td class="text-end">
@@ -1306,7 +1399,7 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="p_div_input_p_tabla">Categoria XXX</p>
+                                <p class="espacion-izq">Categoria XXX</p>
                             </div>
                         </th>
                         <td class="text-end">
@@ -1747,7 +1840,7 @@
                 <option value="3">Estadística 03</option>
             </select>
 
-            <h2 id="h2_estadistica_01" class="text-center">Movimientos del Producto</h2>
+            <h2 class="text-center my-5">Movimientos del Producto</h2>
 
             <div class="d-flex justify-content-between">
                 <div class="d-flex gap-3">
@@ -1793,7 +1886,7 @@
                 <option value="3">Estadística 03</option>
             </select>
 
-            <h2 id="h2_estadistica_01" class="text-center">Movimientos del Producto</h2>
+            <h2 class="text-center my-5">Movimientos del Producto</h2>
 
             <div class="d-flex justify-content-between">
                 <div class="d-flex gap-3">
@@ -1846,7 +1939,7 @@
                 <option value="3">Estadística 03</option>
             </select>
 
-            <h2 id="h2_estadistica_01" class="text-center">Movimientos Almacén</h2>
+            <h2 class="text-center my-5">Movimientos Almacén</h2>
 
             <div class="d-flex justify-content-between">
                 <div class="d-flex gap-3">
@@ -1893,7 +1986,7 @@
                 <option value="3">Estadística 03</option>
             </select>
 
-            <h2 id="h2_estadistica_01" class="text-center">Movimientos Almacén</h2>
+            <h2 class="text-center my-5">Movimientos Almacén</h2>
 
             <div class="d-flex justify-content-between">
                 <div class="d-flex gap-3">
@@ -1944,7 +2037,7 @@
                 <option value="3">Estadística 03</option>
             </select>
 
-            <h2 id="h2_estadistica_01" class="text-center">Movimientos en Almacenes</h2>
+            <h2 class="text-center my-5">Movimientos en Almacenes</h2>
 
             <div class="d-flex justify-content-between">
                 <div class="d-flex gap-3">
@@ -1991,7 +2084,7 @@
                 <option value="3">Estadística 03</option>
             </select>
 
-            <h2 id="h2_estadistica_01" class="text-center">Movimientos en Almacenes</h2>
+            <h2 class="text-center my-5">Movimientos en Almacenes</h2>
 
             <div class="d-flex justify-content-between">
                 <div class="d-flex gap-3">
@@ -2057,7 +2150,7 @@
         </div>
         <hr />
         <div class="container container_min_height d-flex justify-content-center">
-            <section id="registro_perfil" class="d-flex flex-column">
+            <section class="d-flex flex-column registro-perfil">
                 <h1 class="text-center mb-2">Crear Perfil</h1>
                 <form class="form-floating mb-2">
                     <input type="text" class="form-control form-select_modificado" id="floatingInputValue"
@@ -2142,7 +2235,7 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="p_div_input_p_tabla">Pepito Perez</p>
+                                <p class="espacion-izq">Pepito Perez</p>
                             </div>
                         </th>
                         <td class="td-body-tabla">
@@ -2257,7 +2350,7 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="p_div_input_p_tabla">Pepito Perez</p>
+                                <p class="espacion-izq">Pepito Perez</p>
                             </div>
                         </th>
                         <td class="td-body-tabla">
