@@ -191,7 +191,7 @@
                 <button class="btn" type="button" onclick="mostrar_movimientos_vacia()">
                     <img src="Assets/img/arrow-arrow-left-right.svg" alt="">
                 </button>
-                <p class="text_nav_inf">Movimientos</p>
+                <p class="text_nav_inf">Operaciones</p>
             </li>
             <li class="nav-item" id="stock">
                 <button class="btn" type="button" onclick="mostrar_stock_vacia()">
@@ -203,7 +203,7 @@
                 <button class="btn" type="button" onclick="mostrar_seleccionar_informe()">
                     <img src="./Assets/img/file-file-document.svg" alt="">
                 </button>
-                <p class="text_nav_inf">Estadisticas</p>
+                <p class="text_nav_inf">Informes</p>
             </li>
             <li class="nav-item" id="perfiles">
                 <button class="btn" type="button" onclick="mostrar_perfiles_vacia()">
@@ -256,7 +256,7 @@
             <input type="text" class="form-control" placeholder="Repetir Contraseña">
         </div>
         <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor boton para registrarse -->
-            <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv_vacia()">
+            <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_form_login()">
                 Registar
             </button>
         </div>
@@ -664,7 +664,7 @@
                     <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" class="elementos_listas">Referencia Producto</p></li>
                     <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" class="elementos_listas">Categoria</p></li>
                     <li class="d-flex align-items-center texto_dropdown"><p type="text" name="" class="elementos_listas">Cantidad Disponible</p></li>
-                    <li  class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#">Detalles del Producto</a></li>
+                    <li  class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#" onclick="mostrar_detalles_producto()">Detalles del Producto</a></li>
                 </ul>
             </div>
         </div>

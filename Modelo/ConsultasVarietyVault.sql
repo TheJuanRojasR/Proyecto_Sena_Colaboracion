@@ -69,6 +69,13 @@ CREATE TABLE Productos(
     FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria)
 );
 
+CREATE TABLE Roles_Permisos(
+    id_rol INT NOT NULL,
+    id_permiso INT NOT NULL,
+    FOREIGN KEY (id_rol) REFERENCES Roles(id_rol),
+    FOREIGN KEY (id_permiso) REFERENCES Permisos(id_permiso)
+);
+
 CREATE TABLE Almacenes_Usuarios(
     id_almacen INT NOT NULL,
     id_usuario INT NOT NULL,
@@ -106,14 +113,90 @@ CREATE TABLE Almacenes_Productos(
 -- DATOS PARA INGRESAR A LA BASE DE DATOS.
 -- Insertar en el orden en que estan. 
 
--- 1. Insertar 3 roles
-    INSERT INTO Roles (nombre_rol, id_permiso)
+-- Insertar 26 permisos
+    INSERT INTO Permisos (nombre_permiso)
     VALUES
-        ('Administrador', 1),
-        ('Usuario', 2),
-        ('Cliente', 3);
+        ('Ver Inverios'),
+        ('Crear Inventarios'),
+        ('Editar Inventarios'),
+        ('Eliminar Inventarios'),
+        ('Ingresar a Inventarios'),
+        ('Ver Operaciones'),
+        ('Crear Entradas'),
+        ('Crear Salidas'),
+        ('Ver Stock'),
+        ('Crear Productos'),
+        ('Eliminar Productos'),
+        ('Ver Detalles del Producto'),
+        ('Ver movimientos del Producto'),
+        ('Editar Detalles del Producto'),
+        ('Ver Categorias'),
+        ('Crear Categorias'),
+        ('Editar Categorias'),
+        ('Eliminar Categorias'),        
+        ('Ver Abastecimiento'),
+        ('Ver Informes'),
+        ('Elegir Informes'),
+        ('Ver Perfiles'),
+        ('Crear Perfiles'),
+        ('Editar Perfiles'),
+        ('Eliminar Perfiles')
 
--- 2. Insertar 4 categoría
+-- Insertar 3 roles
+    INSERT INTO Roles (nombre_rol)
+    VALUES
+        ('Administrador'),
+        ('Analista'),
+        ('Almacenista')
+
+-- Insertar x roles_permisos
+    INSERT INTO Roles_Permisos (id_rol, id_permiso)
+    VALUES
+        (1, 1),
+        (1, 2),
+        (1, 3),
+        (1, 4),
+        (1, 5),
+        (1, 6),
+        (1, 7),
+        (1, 8),
+        (1, 9),
+        (1, 10),
+        (1, 11),
+        (1, 12),
+        (1, 13),
+        (1, 14),
+        (1, 15),
+        (1, 16),
+        (1, 17),
+        (1, 18),
+        (1, 19),
+        (1, 20),
+        (1, 21),
+        (1, 22),
+        (1, 23),
+        (1, 24),
+        (1, 25),
+        (2, 1),
+        (2, 5),
+        (2, 6),
+        (2, 9),
+        (2, 13),
+        (2, 19),
+        (2, 20),
+        (2, 21),
+        (3, 1),
+        (3, 5),
+        (3, 6),
+        (3, 7),
+        (3, 8),
+        (3, 9),
+        (3, 12),
+        (3, 13),
+        (3, 15),
+        (3, 19)
+
+-- Insertar 4 categoría
     INSERT INTO Categorias (nombre_categoria)
     VALUES
         ('Aseo'),

@@ -12,6 +12,9 @@ window.onload = function(){
 
 function regresar_pantalla(){
     vista.regresar_pantalla();
+    if(vista.stack_pantallas[vista.stack_pantallas.length-1] == "pagina_inicio"){
+        vista.limpiar_contenedor("navegador_inf");
+    };
 }
 
 // Funciones para acciones del la pantalla Inicio
