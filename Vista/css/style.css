@@ -1,4 +1,4 @@
-/* GENERAL */
+/* ------------- GENERAL ------------- */
 
 body{
     height: 100vh;
@@ -9,7 +9,7 @@ nav,main{
     background-color: #F7F5E6;
 }
 
-/* NAVEGADOR SUP */
+/* ------------- NAVEGADOR SUP  Y OFF CANVAS ------------- */
 .nav_sup{
     box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
     padding: 0px 5px 0px 5px;
@@ -45,6 +45,12 @@ nav,main{
     font-weight: 400;
 }
 
+.cont_opc_menu_ham{
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(228, 228, 228, 0.20);
+    margin: 12px 0px; 
+}
+
 .btn_transparente{
     background-color: transparent;
     padding: 0px;
@@ -57,13 +63,7 @@ nav,main{
     font-weight: 400;
 }
 
-.cont_opc_menu_ham{
-    padding: 16px 20px;
-    border-bottom: 1px solid rgba(228, 228, 228, 0.20);
-    margin: 12px 0px; 
-}
-
-/* MAIN */
+/* ------------- MAIN GENERALES------------- */
 
 main{
     min-height: 100%;
@@ -82,8 +82,10 @@ main{
     left: 15px;
 }
 
-.titulo_registro{
-    margin-top: 55px;
+.contenedor_form,.contenedor_textos,.contenedor_dropdown,.contenedor_boton{
+    min-width: 296px;
+    max-width: 323px;
+    padding: 0px 25px;
 }
 
 .form-control{
@@ -106,22 +108,44 @@ main{
     color: #E0E0FF;
 }
 
-#form_registro{
-    margin-top: 20px;
-}
-
-.contenedor_titulo_login{
-    max-width: 323px;
-    padding-right: 30px;
-    margin-top: 40px;
-}
-
-#subtitulo_login{
-    color: #000;
+.select_oscuro{
+    width: 100%;
+    height: 50px;
+    padding: .375rem .75rem;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    background-color: #333A56;
+    color: #E0E0FF;
     font-family: Inter;
-    font-size: 11px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 400;    
+    font-size: 15px;
+}
+
+.opciones{
+    background-color: #FAFAFF;
+    color:#000
+}
+
+.contenedor_boton{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.boton_oscuro_corto{
+    width: 142px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #333A56;
+    color: #E0E0FF;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.boton_oscuro_corto:hover{
+    background-color: #333A56;
+    color: #E0E0FF;
 }
 
 h1{
@@ -134,31 +158,6 @@ h1{
     font-weight: 600;
     line-height: 48px;
     letter-spacing: -1.02px;
-}
-
-.boton_oscuro_largo{
-    width: 100%;
-    height: 50px;
-    border-radius: 8px;
-    margin-bottom: 4px;
-    background-color: #333A56;
-    color: #E0E0FF;
-    font-family: Inter;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.boton_claro_largo{
-    width: 100%;
-    height: 50px;
-    border-radius: 8px;
-    margin-top: 4px;
-    background-color: #FAFAFF;
-    color: #333A56;
-    font-family: Inter;
-    font-size: 15px;
-    font-weight: 600;
-    border: 1px solid #D0D5DD;
 }
 
 .contenedor_titulo_small{
@@ -189,33 +188,8 @@ h1{
     font-weight: 600;
 }
 
-.contenedor_boton,.contenedor_form,.contenedor_textos,.contenedor_dropdown{
-    min-width: 296px;
-    max-width: 323px;
-    padding: 0px 25px;
-}
-
-.nombre_inventario,.direccion,.descripcion{
-    background-color: #333A56;
-    border-radius: 8px;
-    padding-left: 12px;
-    margin-bottom: 4px;
-}
-
-.input_oscuro{
-    height: 50px;
-    border-radius: 0px 8px 8px 0px;
-    padding-left: 10px;
-    background-color: #333A56;
-    border: none;
-}
-
-.input_oscuro::placeholder{
-    color: #E0E0FF;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 400;    
-    font-size: 16px;
+.contenedor_dropdown,.contenedor_seleccion_filtros_informe,.contenedor_buscador,.boton_busqueda,.contenedor_form_ajustes,.contenedor_form_editar_ajustes,.contenedor_term_cond{
+    margin-bottom: auto;
 }
 
 .dropdown{
@@ -269,14 +243,8 @@ h1{
     margin-left: auto;
 }
 
-.color_lateral{
-    width: 19px;
-    height: 49px;
-    border-radius: 4px 0px 0px 4px;
-}
-
-#lateral_amarillo{
-    background: #FCAF3B;
+#lateral_oscuro{
+    background: #333A56;
     margin-right: 5px;
 }
 
@@ -297,10 +265,6 @@ h1{
     font-style: normal;
     font-weight: 300;
     padding-left: 24px;
-}
-
-#producto,#stock_minimo{
-    margin: 0px;
 }
 
 .elementos_listas{
@@ -324,6 +288,132 @@ h1{
     border: 1px solid #D5D8DE;
     background-color: #FFF;
 }
+
+.contenedor_botones_largos{
+    margin-bottom: 20px;
+}
+
+.boton_largo_oscuro{
+    width: 272px;
+    height: 50px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background-color: #333A56;
+    color: #E0E0FF;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.boton_largo_claro{
+    width: 272px;
+    height: 50px;
+    border-radius: 8px;
+    margin-top: 8px;
+    background-color: #FAFAFF;
+    color: #171740;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.select_claro{   
+    width: 100%; 
+    height: 50px;
+    padding: .375rem .75rem;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 14px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #FAFAFF;
+    color: #171740;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+/* ------------- PAGINA INICIO ------------- */
+
+.boton_oscuro_largo{
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    background-color: #333A56;
+    color: #E0E0FF;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.boton_claro_largo{
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    margin-top: 4px;
+    background-color: #FAFAFF;
+    color: #333A56;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid #D0D5DD;
+}
+
+/* ------------- REGISTRO USUSARIO ------------- */
+
+.titulo_registro{
+    margin-top: 55px;
+}
+
+#form_registro{
+    margin-top: 20px;
+}
+
+.contenedor_titulo_login{
+    max-width: 323px;
+    padding-right: 30px;
+    margin-top: 40px;
+}
+
+#subtitulo_login{
+    color: #000;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.color_lateral{
+    width: 19px;
+    height: 49px;
+    border-radius: 4px 0px 0px 4px;
+}
+/* ------------- CREAR INVENTARIO ------------- */
+
+.nombre_inventario,.direccion,.descripcion{
+    background-color: #333A56;
+    border-radius: 8px;
+    padding-left: 12px;
+    margin-bottom: 4px;
+}
+
+.input_oscuro{
+    height: 50px;
+    border-radius: 0px 8px 8px 0px;
+    padding-left: 10px;
+    background-color: #333A56;
+    border: none;
+}
+
+.input_oscuro::placeholder{
+    color: #E0E0FF;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;    
+    font-size: 16px;
+}
+
+/* ------------- CREAR ENTRADA/SALIDA ------------- */
 
 .referencia{
     margin-top: 8px;
@@ -355,8 +445,14 @@ h1{
     background-color: #FFF;
 }
 
-#lateral_oscuro{
-    background: #333A56;
+.boton_add_producto_movimientos{
+    margin-bottom: 30px;
+}
+
+/* ------------- ABASTECIMIENTO ------------- */
+
+#lateral_amarillo{
+    background: #FCAF3B;
     margin-right: 5px;
 }
 
@@ -364,6 +460,8 @@ h1{
     background: #F04C4C;
     margin-right: 5px;
 }
+
+/* ------------- DETALLES DEL PRODUCTO ------------- */
 
 #nombre_producto_titulo{
     max-width: 323px;
@@ -386,121 +484,18 @@ h1{
     font-weight: 400;
 }
 
-.contenedor_botones_producto{
-    margin-bottom: 20px;
-}
-
-.boton_largo_oscuro{
-    width: 272px;
-    height: 50px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    background-color: #333A56;
-    color: #E0E0FF;
-    font-family: Inter;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.boton_largo_claro{
-    width: 272px;
-    height: 50px;
-    border-radius: 8px;
-    margin-top: 8px;
-    background-color: #FAFAFF;
-    color: #171740;
-    font-family: Inter;
-    font-size: 15px;
-    font-weight: 600;
-}
-
 #imagen_producto{
     width: 272px;
     margin-bottom: 13px;
 }
 
+/* ------------- SELECCION DE INFORME ------------- */
+
 #contenedor_seleccion_informe{
     margin-bottom: auto;
 }
 
-.select_claro{   
-    width: 100%; 
-    height: 50px;
-    padding: .375rem .75rem;
-    border-radius: 8px;
-    border: none;
-    margin-bottom: 14px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    background-color: #FAFAFF;
-    color: #171740;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-}
-
-.boton_add_producto_movimientos{
-    margin-bottom: 30px;
-}
-
-.select_oscuro{
-    width: 100%;
-    height: 50px;
-    padding: .375rem .75rem;
-    margin-bottom: 4px;
-    border-radius: 8px;
-    background-color: #333A56;
-    color: #E0E0FF;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 400;    
-    font-size: 15px;
-}
-
-.opciones{
-    background-color: #FAFAFF;
-    color:#000
-}
-
-.contenedor_boton{
-    margin-top: 5px;
-    margin-bottom: 10px;
-}
-
-.boton_oscuro_corto{
-    width: 142px;
-    height: 50px;
-    border-radius: 8px;
-    background-color: #333A56;
-    color: #E0E0FF;
-    font-family: Inter;
-    font-size: 15px;
-    font-weight: 600;
-}
-
-.boton_oscuro_corto:hover{
-    background-color: #333A56;
-    color: #E0E0FF;
-}
-
-.select_edicion{
-    width: 100%;
-    height: 50px;
-    padding: .375rem .75rem;
-    margin-bottom: 4px;
-    border: 1px solid #D5D8DE;
-    border-radius: 8px;
-    background-color:#FFF;
-    color: gray;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: 400;    
-    font-size: 15px;
-}
-
-.contenedor_seleccion_filtros_informe,.contenedor_buscador,.contenedor_form_ajustes,.contenedor_form_editar_ajustes,.boton_busqueda,.contenedor_dropdown,.contenedor_term_cond{
-    margin-bottom: auto;
-}
+/* ------------- FILTROS INFORMES ------------- */
 
 .input_claro_dos{
     width: 100%;
@@ -520,6 +515,25 @@ h1{
     font-style: normal;
     font-weight: 400;
 }
+
+/* ------------- EDITAR PERFILES ------------- */
+
+.select_edicion{
+    width: 100%;
+    height: 50px;
+    padding: .375rem .75rem;
+    margin-bottom: 4px;
+    border: 1px solid #D5D8DE;
+    border-radius: 8px;
+    background-color:#FFF;
+    color: gray;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;    
+    font-size: 15px;
+}
+
+/* ------------- BUSCADOR ------------- */
 
 .contendor_shadow{
     border-radius: 8px;
@@ -552,19 +566,13 @@ h1{
     background-color: #FAFAFF;
 }
 
+/* ------------- TERM Y COND/POLITICAS PRIV ------------- */
+
 .contenedor_term_cond{
     text-align: justify;
 }
 
-.input_claro_ajustes{
-    width: 100%;
-    height: 50px;
-    padding-left: 12px;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    border: 1px solid #D5D8DE;
-    background-color: #FFF;
-}
+/* ------------- AJUSTES USUARIO ------------- */
 
 .input_transparente{
     width: 100%;
@@ -576,14 +584,19 @@ h1{
     background-color: #F7F5E6;
 }
 
-.contenedor_instrucciones_ayuda{
-    color: #000;
-    text-align: justify;
-    font-family: Inter;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
+/* ------------- EDITAR USUARIO ------------- */
+
+.input_claro_ajustes{
+    width: 100%;
+    height: 50px;
+    padding-left: 12px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    border: 1px solid #D5D8DE;
+    background-color: #FFF;
 }
+
+/* ------------- AYUDA ------------- */
 
 #lista_instrucciones{
 padding-left: 20px;

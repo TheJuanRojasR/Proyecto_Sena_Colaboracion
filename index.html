@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="Juan Rojas y Laura Ortiz">
+    <meta name="author" content="Juan Rojas, Laura Ortiz y Alejandro ">
     <meta name="description" content="Pagina web de gestion de inventario">
     <meta name="keywords" content="HTML, CSS, JavaScript">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -114,7 +114,7 @@
         </button> 
         <div class="offcanvas offcanvas-end overflow-y-scroll" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"> <!-- Contenido menu desplegable -->
             <div class="offcanvas-header"> <!-- Header del menu desplegable -->
-                <button type="button" class="btn"> <!-- Boton de busqueda -->
+                <button type="button" class="btn" onclick="mostrar_busqueda()"> <!-- Boton de busqueda -->
                     <img src="./Assets/img/interface-search-magnifying-glass.svg" alt="">
                 </button>   
                 <button type="button" class="btn"> <!-- Boton de cierre -->
@@ -219,7 +219,7 @@
 
 <!-- Pantalla de Inicio -->
 <template id="pagina_inicio">
-    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center overflow-y-scroll contenedor_main">
+    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
         <div class="container d-flex flex-column justify-content-end contenedor_boton">
             <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_form_login()">
                 Iniciar Sesion
@@ -233,7 +233,7 @@
 
 <!-- Pantalla Registrarse -->
 <template id="registro_usuario">
-    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -243,8 +243,8 @@
             <h1>Registrarse</h1>
         </div>
         <div class="container d-flex flex-column align-items-center contenedor_form" id="form_registro"> <!-- Contendor de form para registrarse -->
-            <input type="text" class="form-control" id="nombre_inventario" placeholder="Nombre completo">
-            <select type="text" class="select_oscuro" id="Categoria Producto"> <!-- Select para seleccionar tipo de documento -->
+            <input type="text" class="form-control" placeholder="Nombre completo">
+            <select type="text" class="select_oscuro"> <!-- Select para seleccionar tipo de documento -->
                 <!-- Opciones del select -->
                 <option selected class="opciones">Tipo Documento</option> 
                 <option class="opciones">Documento 1</option> 
@@ -265,7 +265,7 @@
 
 <!-- Pantalla Log In -->
 <template id="log_in">
-    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -289,9 +289,9 @@
 
 <!-- Pantalla Inventarios vacia -->
 <template id="inventarios_vacia">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main">
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-            <p class="title_small">Inventraio</p>
+            <p class="title_small">Inventario</p>
         </div>
         <div class="contenedor_textos"> <!-- Contenido de la pagina -->  
             <p class="message">NO TIENES INVENTARIOS</p>
@@ -308,7 +308,7 @@
 
 <!-- Pantalla Crear Inventario -->
 <template id="crear_inventario">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main">
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -344,7 +344,7 @@
 
 <!-- Pantalla de Inventarios -->
 <template id="inventarios">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
             <p class="title_small">Inventario</p>
         </div>
@@ -374,7 +374,7 @@
 
 <!-- Pantalla Editar Inventarios -->
 <template id="editar_inventario">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -412,7 +412,7 @@
 
 <!-- Pantalla Eliminar Inventarios-->
 <template id="eliminar_inventario">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -448,7 +448,7 @@
 
 <!-- Pantalla Movimientos vacia -->
 <template id="movimientos_vacia">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
             <p class="title_small">Entradas y Salidas</p>
         </div>
@@ -475,7 +475,7 @@
 
 <!-- Pantalla Crear Entrada -->
 <template id="crear_entrada">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -511,7 +511,7 @@
 
 <!-- Pantalla Crear Salida -->
 <template id="crear_salida">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back" onclick="regresar_pantalla()"> <!-- Contendor flecha back -->
             <button class="btn">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -546,7 +546,7 @@
 
 <!-- Pantalla Movimientos -->
 <template id="movimientos_con_inf">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
             <p class="title_small">Entradas y Salidas</p>
         </div>
@@ -584,7 +584,7 @@
 
 <!-- Pantalla Stock vacia -->
 <template id="stock_vacia">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
             <p class="title_small">Stock</p>
         </div>
@@ -614,7 +614,7 @@
 
 <!-- Pantalla Crear producto -->
 <template id="crear_producto">
-    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -650,7 +650,7 @@
 
 <!-- Pantalla Stock -->
 <template id="stock_con_inf">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
             <p class="title_small">Stock</p>
         </div>
@@ -691,7 +691,7 @@
 
 <!-- Pantalla Eliminar Producto -->
 <template id="eliminar_producto">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
             <p class="title_small">Stock</p>
         </div>
@@ -722,7 +722,7 @@
 
 <!-- Pantalla Categorias vacia -->
 <template id="categorias_vacia">
-    <div class="container-fluid d-flex flex-column justify-content-between align-items-center overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column justify-content-between align-items-center contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -736,7 +736,7 @@
         </div>
         <div class="menu_un_btn"> <!-- Boton circular con una opcion -->
             <div class="btn_main d-flex justify-content-center"> <!-- Boton principal -->
-                <button class="btn crear" type="button">
+                <button class="btn crear" type="button" onclick="mostrar_form_crear_categoria()">
                     <img src="./Assets/img/plus.svg" alt="" class="img_big">
                 </button>
             </div>
@@ -746,7 +746,7 @@
 
 <!-- Pantalla Crear Categoria -->
 <template id="crear_categoria">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -771,7 +771,7 @@
 
 <!-- Pantalla Categorias -->
 <template id="categorias">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> 
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> 
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -803,7 +803,7 @@
 
 <!-- Pantalla Editar Categoria -->
 <template id="editar_categoria">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> 
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> 
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -836,7 +836,7 @@
 
 <!-- Pantalla Eliminar Categoria -->
 <template id="eliminar_categoria">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -869,7 +869,7 @@
 
 <!-- Pantalla Abastecimiento -->
 <template id="abastecimiento">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -907,7 +907,7 @@
 
 <!-- Pantalla Detalles del Producto -->
 <template id="detalles_producto">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor de la flecha de retroceso -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -931,11 +931,11 @@
                 <li>Precio de Venta</li>
             </ul>
         </div>
-        <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_producto"> <!-- Contenedor de botones -->
-            <button class="btn boton_largo_oscuro" type="button"> <!-- Boton para ver movimientos -->
+        <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos"> <!-- Contenedor de botones -->
+            <button class="btn boton_largo_oscuro" type="button" onclick="mostrar_mov_del_producto()"> <!-- Boton para ver movimientos -->
                 Ver Movimientos
             </button>
-            <button class="btn boton_largo_claro" type="button"> <!-- Boton para editar el producto -->
+            <button class="btn boton_largo_claro" type="button" onclick="mostrar_editar_producto()"> <!-- Boton para editar el producto -->
                 Editar Producto
             </button>
         </div>
@@ -947,7 +947,7 @@
 
 <!-- Pantalla Editar Producto -->
 <template id="editar_producto">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -972,7 +972,7 @@
             <input type="text" class="form-control" placeholder="Precio">
         </div>
         <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
-            <button class="btn boton_oscuro_corto" type="button">
+            <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_detalles_producto()">
                 Guardar
             </button>
         </div>
@@ -981,7 +981,7 @@
 
 <!-- Pantalla Movimientos del Producto -->
 <template id="movimientos_del_producto">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -1021,7 +1021,7 @@
 
 <!-- Pantalla Seleccionar Informe -->
 <template id="seleccionar_informe">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
             <p class="title_small">Estadisticas</p>
         </div>
@@ -1044,7 +1044,7 @@
 
 <!-- Pantalla Filtros Informe Mov Prod -->
 <template id="filtros_informe_mov_prod">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()"> 
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -1077,7 +1077,7 @@
 
 <!-- Pantalla Filtros Informe Mov Alm -->
 <template id="filtros_informe_mov_alm">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()"> 
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -1110,7 +1110,7 @@
 
 <!-- Pantalla Filtros Informe Mov en Alm -->
 <template id="filtros_informe_mov_en_alm">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()"> 
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -1143,7 +1143,7 @@
 
 <!-- Pantalla Perfiles vacia -->
 <template id="perfiles_vacia">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños --> 
             <p class="title_small">Perfiles</p>
         </div>
@@ -1152,7 +1152,7 @@
         </div>
         <div class="menu_un_btn"> <!-- Boton circular con una opcion -->
             <div class="btn_main d-flex justify-content-center"> <!-- Boton principal -->
-                <button class="btn crear" type="button">
+                <button class="btn crear" type="button" onclick="mostrar_form_crear_perfil()">
                     <img src="./Assets/img/plus.svg" alt="" class="img_big">
                 </button>
             </div>
@@ -1162,7 +1162,7 @@
 
 <!-- Pantalla Crear Perfil -->
 <template id="crear_perfil">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -1203,7 +1203,7 @@
 
 <!-- Pantalla Perfiles -->
 <template id="perfiles_con_inf">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
             <p class="title_small">Perfiles</p>
         </div>
@@ -1232,7 +1232,7 @@
 
 <!-- Pantalla Editar Perfiles -->
 <template id="editar_perfiles">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()">
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -1273,7 +1273,7 @@
 
 <!-- Pantalla Eliminar Perfiles -->
 <template id="eliminar_perfiles">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
             <p class="title_small">Perfiles</p>
         </div>
@@ -1303,7 +1303,7 @@
 
 <!-- Pantalla Buscar -->
 <template id="buscar">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal --> 
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal --> 
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()"> 
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -1325,7 +1325,7 @@
 
 <!-- Pantalla Terminos y Condiciones -->
 <template id="terminos_condiciones">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()"> 
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -1348,7 +1348,7 @@
 
 <!-- Pantalla Politicas de Privacidad -->
 <template id="politicas_privacidad">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()"> 
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -1371,7 +1371,7 @@
 
 <!-- Pantalla Ajustes de Usuario -->
 <template id="ajustes_usuario">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()"> 
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -1387,7 +1387,7 @@
             <input disabled class="input_transparente" type="text" placeholder="Correo Electronico">
             <input disabled class="input_transparente" type="text" placeholder="Contraseña">
         </div>
-        <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_producto"> <!-- Contenedor de botones para ver movimientos y editar el producto -->
+        <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos"> <!-- Contenedor de botones para ver movimientos y editar el producto -->
             <button class="btn boton_largo_claro" type="button">
                 Editar
             </button>
@@ -1397,7 +1397,7 @@
 
 <!-- Pantalla Editar Usuario -->
 <template id="editar_usuario">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()"> 
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
@@ -1414,7 +1414,7 @@
             <input class="input_claro_ajustes" type="text" placeholder="Contraseña">
             <input class="input_claro_ajustes" type="text" placeholder="Repetir Nueva Contraseña">
         </div>
-        <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_producto"> <!-- Contenedor de botones para ver movimientos y editar el producto -->
+        <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos"> <!-- Contenedor de botones para ver movimientos y editar el producto -->
             <button class="btn boton_largo_oscuro" type="button">
                 Guardar Cambios
             </button>
@@ -1424,7 +1424,7 @@
 
 <!-- Pantalla Ayuda -->
 <template id="ayuda">
-    <div class="container-fluid d-flex flex-column align-items-center justify-content-between overflow-y-scroll contenedor_main"> <!-- Contenedor principal -->
+    <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()"> 
                 <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
