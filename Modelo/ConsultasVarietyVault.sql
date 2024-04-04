@@ -6,7 +6,7 @@ USE VarietyVault;
 
 CREATE TABLE Permisos(
     id_permiso INT AUTO_INCREMENT PRIMARY KEY, -- PK
-    nombre_permiso VARCHAR(20) NOT NULL
+    nombre_permiso VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Roles(
@@ -22,7 +22,7 @@ CREATE TABLE Usuarios (
     id_rol INT NOT NULL,
     tipo_documento VARCHAR(5) NOT NULL,
     numero_documento INT NOT NULL UNIQUE,
-    correo_electronico VARCHAR(50) NOT NULL,
+    correo_electronico VARCHAR(50) NOT NULL UNIQUE,
     contraseña VARCHAR(10) NOT NULL,    
     FOREIGN KEY (id_rol) REFERENCES Roles(id_rol)
 );
@@ -60,7 +60,7 @@ CREATE TABLE Salidas(
 CREATE TABLE Productos(
     id_producto INT AUTO_INCREMENT PRIMARY KEY, -- PK
     referencia_producto VARCHAR (10) NOT NULL UNIQUE,
-    nombre_producto VARCHAR(100),    
+    nombre_producto VARCHAR(100) NOT NULL,    
     stock_minimo INT NOT NULL,
     promedio_costo INT NOT NULL,
     precio_venta INT NOT NULL,
@@ -479,9 +479,6 @@ CREATE TABLE Almacenes_Productos(
         --Consulta editar un perfil
         UPDATE usuarios
         SET nombre_usuario = ?
-        WHERE id_usuario = ?
-
-        UPDATE usuarios
         SET id_rol = ?
         WHERE id_usuario = ?
         
