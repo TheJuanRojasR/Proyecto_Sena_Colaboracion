@@ -12,8 +12,6 @@ CREATE TABLE Permisos(
 CREATE TABLE Roles(
     id_rol INT AUTO_INCREMENT PRIMARY KEY, -- PK
     nombre_rol VARCHAR(20) NOT NULL,
-    id_permiso INT NOT NULL,
-    FOREIGN KEY (id_permiso) references Permisos(id_permiso)
 );
 
 CREATE TABLE Usuarios (
@@ -23,7 +21,8 @@ CREATE TABLE Usuarios (
     tipo_documento VARCHAR(5) NOT NULL,
     numero_documento INT NOT NULL UNIQUE,
     correo_electronico VARCHAR(50) NOT NULL UNIQUE,
-    contraseña VARCHAR(10) NOT NULL,    
+    contraseña VARCHAR(10) NOT NULL,
+    estado_usuario BOOLEAN DEFAULT 1 NOT NULL,    
     FOREIGN KEY (id_rol) REFERENCES Roles(id_rol)
 );
 
@@ -66,6 +65,7 @@ CREATE TABLE Productos(
     precio_venta INT NOT NULL,
     imagen VARCHAR(250),
     id_categoria INT NOT NULL,
+    estado_producto BOOLEAN DEFAULT 1 NOT NULL,
     FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria)
 );
 
@@ -435,21 +435,6 @@ CREATE TABLE Almacenes_Productos(
         (2, 29, 3),
         (3, 30, 7);
 
--- Insertar valores en la tabla Almacenes_Productos para todos los almacenes
-    INSERT INTO Almacenes_Productos (id_almacen, id_producto, cantidad_producto_almacen)
-    SELECT
-        Entradas.id_almacen,
-        Productos_entradas.id_producto,
-        (SUM(Productos_entradas.cantidad_entrada) - COALESCE(SUM(Productos_Salidas.cantidad_salida), 0)) AS cantidad_producto_almacen
-    FROM
-        Productos_entradas
-    LEFT JOIN
-        Productos_Salidas ON Productos_entradas.id_producto = Productos_Salidas.id_producto
-    LEFT JOIN
-        Entradas ON Productos_entradas.id_entrada = Entradas.id_entrada
-    GROUP BY
-        Entradas.id_almacen, Productos_entradas.id_producto;
-
 -- ______________________________________________________________________________________________________________________
 
 --Entidad Usuarios
@@ -478,12 +463,12 @@ CREATE TABLE Almacenes_Productos(
 
         --Consulta editar un perfil
         UPDATE usuarios
-        SET nombre_usuario = ?
-        SET id_rol = ?
+        SET nombre_usuario = ?, id_rol = ?
         WHERE id_usuario = ?
         
         --Consulta para eliminar un perfil
-        DELETE FROM usuarios
+        UPDATE usuarios
+        SET estado = 0
         WHERE id_usuario = ?
     
     --Vista Ajustes del Usuario
@@ -493,11 +478,7 @@ CREATE TABLE Almacenes_Productos(
 
         --Consulta para editar usuario
         UPDATE usuarios
-        SET nombre_completo = ?
-        SET tipo_documento = ?
-        SET numero_documento = ?
-        SET correo_electronico = ?
-        SET contraseña = ?
+        SET nombre_completo = ?, tipo_documento = ?, numero_documento = ?, correo_electronico = ?, contraseña = ?
         WHERE id_usuario = ?
 
 --Entidad Almacenes
@@ -530,13 +511,15 @@ CREATE TABLE Almacenes_Productos(
         --Consulta para crea un producto nuevo
         SELECT COUNT(*) AS datos_existentes FROM almacenes_productos
         JOIN productos ON almacenes_productos.id_producto = productos.id_producto 
-        WHERE nombre_producto OR referencia_producto = ?;
+        WHERE nombre_producto = ? OR referencia_producto = ?;
 
         INSERT INTO productos(referencia_producto, nombre_producto, stock_minimo, promedio_costo, precio_venta, imagen, id_categoria) VALUES
         (?,?,?,?,?,?,?)
 
         --Consulta para mostrar la tabla de Stock
-        SELECT nombre_producto, referencia_producto, categoria, cantidad_producto_almacen AS cantidad_disponeble FROM Productos
+        SELECT nombre_producto, referencia_producto, nombre_categoria, cantidad_producto_almacen AS cantidad_disponeble FROM Productos
+        JOIN categorias ON productos.id_categoria = categorias.id_categoria
+        JOIN almacenes_productos ON productos.id_producto = almacenes_productos.id_producto
 
         --Consulta para eliminar un producto
         DELETE FROM productos
@@ -635,15 +618,15 @@ CREATE TABLE Almacenes_Productos(
         INSERT INTO salidas(origen_salida, destino_salida) VALUES
         (?,?)
 
-        SELECT cantidad_producto_almacen FROM almacenes_productos
-        WHERE id_producto = ? AND id_almacen = ?
+        -- SELECT cantidad_producto_almacen FROM almacenes_productos
+        -- WHERE id_producto = ? AND id_almacen = ?
 
-        INSERT INTO productos_salidas (id_salida, id_producto, cantidad_salida) VALUES
-        (?,?,?)
+        -- INSERT INTO productos_salidas (id_salida, id_producto, cantidad_salida) VALUES
+        -- (?,?,?)
 
-        UPDATE almacenes_productos
-        SET cantidad_producto_almacen = cantidad_producto_almacen - ?
-        WHERE id_producto = ? AND id_almacen = ?    
+        -- UPDATE almacenes_productos
+        -- SET cantidad_producto_almacen = cantidad_producto_almacen - ?
+        -- WHERE id_producto = ? AND id_almacen = ?    
 
 --Entidad Informes
     --Vista Informes

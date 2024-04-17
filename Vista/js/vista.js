@@ -9,7 +9,7 @@ class Vista {
    * @param {*} contenedor 
    */
 
-  limpiar_contenedor(contenedor, template_modificar) {
+  limpiar_contenedor(contenedor) {
     let cont = document.getElementById(contenedor);
     cont.innerHTML = "";
   }
