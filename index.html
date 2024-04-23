@@ -271,15 +271,12 @@
         </div>
         <div class="contenedor_form"> <!-- Contendor de form para crear un inventario -->
             <div class="d-flex flex-row align-items-center nombre_inventario"> <!-- Campos para ingresar informacion -->
-                <img src="../Assets/img/inventario-file-archive-claro.svg" alt="" class="img_small">
                 <input type="text" placeholder="Nombre Inventario" class="input_oscuro">
             </div>
             <div class="d-flex flex-row align-items-center direccion">
-                <img src="./Assets/img/inventario-navigation-map-pin.svg" alt="" class="img_small">
                 <input type="text" placeholder="Direccion" class="input_oscuro">
             </div>
             <div class="d-flex flex-row align-items-center descripcion">
-                <img src="./Assets/img/inventario-communication-chat.svg" alt="" class="img_small">
                 <input type="text" placeholder="Descripcion" class="input_oscuro">
             </div>
         </div>
@@ -439,10 +436,25 @@
         </div>
         <div class="container d-flex flex-column align-items-center contenedor_form" > <!-- Contendor de form para crear una entrada -->
             <input type="text" name="" class="form-control" placeholder="Origen">
-            <input type="text" name="" class="form-control" placeholder="Destino">
+            <select type="text" class="select_oscuro"> <!-- Select para seleccionar tipo de documento -->
+                <!-- Opciones del select -->
+                <option selected class="opciones">Destino</option> 
+                <option class="opciones">Destino 1</option> 
+                <option class="opciones">Destino 2</option>
+            </select>
             <div class="linea_division"></div>
-            <input type="text" name="" class="input_claro_mov" placeholder="Referencia Producto">
-            <input type="text" name="" class="input_claro_mov" placeholder="Producto">
+            <select type="text" class="select_claro_mov">
+                <!-- Opciones del select -->
+                <option selected class="opciones">Referencia Producto</option> 
+                <option class="opciones">REF 1</option> 
+                <option class="opciones">REF 2</option>
+            </select>
+            <select type="text" class="select_claro_mov">
+                <!-- Opciones del select -->
+                <option selected class="opciones">Producto</option> 
+                <option class="opciones">Producto 1</option> 
+                <option class="opciones">Producto 2</option>
+            </select>
             <input type="text" name="" class="input_claro_mov" placeholder="Cantidad">
             <input type="text" name="" class="input_claro_mov" placeholder="Precio">
             <div class="linea_division"></div>
@@ -474,11 +486,26 @@
             <p class="referencia">Referencia xxxxxx</p> <!-- Texto para mostrar la referencia del movimiento -->
         </div>
         <div class="container d-flex flex-column align-items-center contenedor_form" > <!-- Contendor de form para crear una salida -->
-            <input type="text" class="form-control" placeholder="Origen">
+            <select type="text" class="select_oscuro"> <!-- Select para seleccionar tipo de documento -->
+                <!-- Opciones del select -->
+                <option selected class="opciones">Origen</option> 
+                <option class="opciones">Origen 1</option> 
+                <option class="opciones">Origen 2</option>
+            </select>
             <input type="text" class="form-control" placeholder="Destino">
             <div class="linea_division"></div>
-            <input type="text" name="" class="input_claro_mov" placeholder="Referencia Producto">
-            <input type="text" name="" class="input_claro_mov" placeholder="Producto">
+            <select type="text" class="select_claro_mov">
+                <!-- Opciones del select -->
+                <option selected class="opciones">Referencia Producto</option> 
+                <option class="opciones">REF 1</option> 
+                <option class="opciones">REF 2</option>
+            </select>
+            <select type="text" class="select_claro_mov">
+                <!-- Opciones del select -->
+                <option selected class="opciones">Producto</option> 
+                <option class="opciones">Producto 1</option> 
+                <option class="opciones">Producto 2</option>
+            </select>
             <input type="text" name="" class="input_claro_mov" placeholder="Cantidad">
             <div class="linea_division"></div>
         </div>
