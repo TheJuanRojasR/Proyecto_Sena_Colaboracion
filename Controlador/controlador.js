@@ -32,7 +32,7 @@ function mostrar_form_login(){
 // Funciones acciones de las pantallas Registro de Usuario y Log In
 
 function mostrar_inv_vacia(){
-    vista.mostrar_plantilla("nav_sup_menu_ham","navegador_sup");
+    vista.mostrar_plantilla("nav_sup","navegador_sup");
     vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
     vista.limpiar_contenedor("navegador_inf");
 }
@@ -84,7 +84,7 @@ function mostar_form_crear_producto(){
 }
 
 function mostrar_stock(){
-    vista.mostrar_plantilla("stock_con_inf", "contenedor_principal", 1);
+    vista.mostrar_plantilla("stock", "contenedor_principal", 1);
     vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf")
 }
 
@@ -135,7 +135,7 @@ function mostrar_form_crear_salida(){
 }
 
 function mostrar_movimientos(){
-    vista.mostrar_plantilla("movimientos_con_inf", "contenedor_principal", 1);
+    vista.mostrar_plantilla("movimientos", "contenedor_principal", 1);
 }
 
 // Funciones para cambiar plantillas desde la pantalla de Perfiles

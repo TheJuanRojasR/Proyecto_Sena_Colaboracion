@@ -660,7 +660,7 @@ padding-left: 20px;
     width: 100%;
 }
 
-#home,#movimientos,#stock,#estadisticas,#perfiles{
+#home,#operaciones,#boton_stock,#estadisticas,#perfiles{
     display: flex;
     flex-direction: column;
     align-items: center;

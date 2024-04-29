@@ -44,7 +44,7 @@
 <!-- TEMPLATES BARRAS SUP E INF -->
 
 <!-- Navegador Superior sin menu -->
-<template id="nav_sup_sin_menu">
+<template id="nav_sup_inicio">
     <div class="container-fluid flex-nowrap" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
         <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
             <img src="./Assets/img/logo-layout.png" alt="Variety Vault">
@@ -53,7 +53,7 @@
 </template>
 
 <!-- Navegador Superior con menu Hamburguesa -->
-<template id="nav_sup_menu_ham">
+<template id="nav_sup">
     <div class="container-fluid" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
         <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
             <img src="./Assets/img/logo-layout.png" alt="Variety Vault">
@@ -136,13 +136,13 @@
                 </button>
                 <p class="text_nav_inf">Inventario</p>
             </li>
-            <li class="nav-item" id="movimientos">
+            <li class="nav-item" id="operaciones">
                 <button class="btn" type="button" onclick="mostrar_movimientos_vacia()">
                     <img src="Assets/img/arrow-arrow-left-right.svg" alt="">
                 </button>
                 <p class="text_nav_inf">Operaciones</p>
             </li>
-            <li class="nav-item" id="stock">
+            <li class="nav-item" id="boton_stock">
                 <button class="btn" type="button" onclick="mostrar_stock_vacia()">
                     <img src="./Assets/img/file-archive.svg" alt="">
                 </button>
@@ -521,7 +521,7 @@
 </template>
 
 <!-- Pantalla Movimientos -->
-<template id="movimientos_con_inf">
+<template id="movimientos">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
             <p class="title_small">Entradas y Salidas</p>
@@ -611,10 +611,10 @@
                 <option class="opciones">Categoria 1</option>
             </select>
             <input type="text" class="form-control" placeholder="Ubicacion">
-            <input type="text" class="form-control" placeholder="Cantidad">
-            <input type="text" class="form-control" placeholder="Stock minimo">
-            <input type="text" class="form-control" placeholder="Costo">
-            <input type="text" class="form-control" placeholder="Precio">
+            <input type="number" class="form-control" placeholder="Cantidad">
+            <input type="number" class="form-control" placeholder="Stock minimo">
+            <input type="number" class="form-control" placeholder="Costo">
+            <input type="number" class="form-control" placeholder="Precio">
         </div>
         <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear el producto -->
             <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_stock()">
@@ -625,7 +625,7 @@
 </template>
 
 <!-- Pantalla Stock -->
-<template id="stock_con_inf">
+<template id="stock">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
             <p class="title_small">Stock</p>
@@ -1031,7 +1031,7 @@
         <div class="titulo_creacion"> <!-- Titulo Grandes -->
             <h1>Movimientos del producto</h1>
         </div>
-        <div class="container d-flex flex-column align-items-center contenedor_form"> <!-- Contendor de form para filtrar el informe -->
+        <div class="container d-flex flex-column align-items-center contenedor_form"> <!-- Contendor para seleccionar filtros del informe -->
             <select type="text" class="select_claro"> <!-- Select para seleccionar el producto -->
                 <!-- Opciones del select -->
                 <option selected class="opciones">Seleccionar Producto</option>
@@ -1051,7 +1051,7 @@
 </template>
 
 <!-- Pantalla Filtros Informe Mov Alm -->
-<template id="filtros_informe_mov_alm">
+<template id="filtros_informe_categorias">
     <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main"> <!-- Contenedor principal -->
         <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
             <button class="btn" onclick="regresar_pantalla()"> 
@@ -1062,18 +1062,11 @@
             <p class="title_small">Estadisticas</p>
         </div>
         <div class="titulo_creacion"> <!-- Titulo Grandes -->
-            <h1>Movimientos Almacen</h1>
+            <h1>Categorías más vendidas</h1>
         </div>
-        <div class="container d-flex flex-column align-items-center contenedor_form contenedor_seleccion_filtros_informe "> <!-- Contenedor para seleccionar el informe a mostrar-->
-            <select type="text" class="select_claro"> <!-- Select para seleccionar el almacen -->
-                <!-- Opciones del select -->
-                <option selected class="opciones">Seleccionar Almacen</option>
-                <option class="opciones">Almacen 1</option>
-                <option class="opciones">Almacen 2</option>
-                <option class="opciones">Almacen 3</option>
-            </select>
-            <input type="text" placeholder="Desde" class="input_claro_dos">
-            <input type="text" placeholder="Hasta" class="input_claro_dos">
+        <div class="container d-flex flex-column align-items-center contenedor_form contenedor_seleccion_filtros_informe "> <!-- Contenedor para seleccionar filtros del informe-->
+            <input type="date" placeholder="Desde" class="input_claro_dos">
+            <input type="date" placeholder="Hasta" class="input_claro_dos">
         </div>
         <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor de boton generar -->
             <button class="btn boton_oscuro_corto" type="button">
