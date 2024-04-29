@@ -1,552 +1,688 @@
-body {
-    background: #F7F5E6;
+/* ------------- GENERAL ------------- */
+
+body{
     height: 100vh;
-}
-
-/* Estilos modificados para la etiqueta Nav y clases usadas en ella */
-.nav-link {
-    margin-right: 30%;
-}
-
-nav {
     background-color: #F7F5E6;
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
 }
 
-.container-fluid {
-    padding: 0 1.5rem;
+nav,main{
+    background-color: #F7F5E6;
 }
 
-.navbar-expand-md {
-    padding: 0 0 4px 0;
+/* ------------- NAVEGADOR SUP  Y OFF CANVAS ------------- */
+.nav_sup{
+    box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
+    padding: 0px 5px 0px 5px;
+    border-radius: 10px;
 }
 
-.dropdown-toggle::after {
-    border: 0;
+.contenedor_logo{
+    padding: 5px;
 }
 
-.personalizar-icono-usuario {
-    font-size: 2rem;
-    padding: 0;
+#contenedor_menu_desplegable{
+    padding: 4px 5px;
+    border: none;
 }
 
-/* ----------------------------------------------------------------------- */
-/* estilo botones inicio */
-#contenedor-botones {
-    width: 235px;
-}
-
-#boton2 {
+.offcanvas.offcanvas-end{
+    width: 88%;
+    padding-bottom: 72.31px;
+    border-radius: 10px 0px 0px 10px;
     background-color: #333A56;
-    border: 3px solid #333A56;
-    ;
-    color: #FFF;
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
 }
 
-#boton1 {
-    border: 3px solid #333A56;
-    color: #333A56;
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
+.offcanvas-header{
+    padding: 15px 4px;
 }
 
-.container-medio {
-    box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.25);
-    display: flex;
-    width: 1640px;
-    height: 902px;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0;
-    margin-left: 112px;
-}
-
-#imagem_centro {
-    box-shadow: 0px 4px 45px 40px rgba(0, 0, 0, 0.25);
-    width: 1350px;
-    margin-top: -210px;
-}
-
-.container-inferior {
-    height: 20vh;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333A56;
-    padding: 45px;
+#titulo_menu_desplegable{
+    color:#FFF;
     text-align: center;
-}
-
-#lista_1 {
-    font-family: Inter;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    color: #FFF;
-    display: flex;
-    align-items: flex-start;
-}
-
-#lista_2 {
-    color: #FFF;
     font-family: Inter;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px;
-    display: flex;
-    align-items: flex-start;
 }
 
-#container_i_1 {
-    width: 180px;
-    height: 120px;
+.cont_opc_menu_ham{
+    padding: 16px 20px;
+    border-bottom: 1px solid rgba(228, 228, 228, 0.20);
+    margin: 12px 0px; 
 }
 
-#container_i_2 {
-    width: 180px;
-    height: 120px;
-}
-
-
-#fondo2{
+.btn_transparente{
+    background-color: transparent;
     padding: 0px;
-    filter:blur(10px);
-}
-
-/* ---------------------------------EMERGENTE--------------------------------- */
-#imag{
-    margin-top: -29%;
-    margin-left: -29%;
-}
-
-
-#titulo{
-    color: #FFF;
+    border: none;
+    color:#FFF;
+    text-align: center;
     font-family: Inter;
-    font-size: 40px;
+    font-size: 13px;
     font-style: normal;
     font-weight: 400;
-    line-height: 39.6px; 
-    letter-spacing: -0.8px;
-    margin-left: 29%;
-    margin-bottom: 11%;
-    margin-top: 18%;
-}
-#formulas{
-    z-index: -1;
 }
 
-.almacen_principal {
-    padding: 0px;
+/* ------------- MAIN GENERALES------------- */
+
+main{
+    min-height: 100%;
+    padding-top: 57px;
+    padding-bottom: 72.31px;
+}
+
+.contenedor_main{
+    min-height: 100%;
     position: relative;
 }
 
-#contenedor_fomulario{
+.contenedor_flecha_back{
     position: absolute;
-    top: 0%;
-    left: 0%;
-    right: 0%;
-    bottom: 0%;
-    z-index: 5; 
-    background: rgba(146, 145, 145, 0.2);
-    backdrop-filter: blur(4px);
+    top: 22px;
+    left: 15px;
 }
 
-#formulario_login {
-    width: 533px;
-    height: 740px;
-    border-radius: 19px;
-    backdrop-filter: blur(1px);
-    background: #333A56;
-    position: absolute;
-    top: 8%;
-    left: 39%;
-    padding: 98px;
-    z-index: 8;
-}
-#formulario_registro {
-    width: 533px;
-    height: 822px;
-    border-radius: 19px;
-    backdrop-filter: blur(1px);
-    background: #333A56;
-    position: absolute;
-    top: 8%;
-    left: 39%;
-    padding: 98px;
-    z-index: 8;
+.contenedor_form,.contenedor_textos,.contenedor_dropdown,.contenedor_boton{
+    min-width: 296px;
+    max-width: 323px;
+    padding: 0px 25px;
 }
 
-#tel,#msj,#email,#nombre {
-    background: rgba(249, 249, 250, 0.1)
-}
-
-::placeholder {
-    color: rgb(245, 245, 245) !important;
-}
-
-#caja{
+.form-control{
+    height: 50px;
+    margin-bottom: 5px;
     border-radius: 8px;
-    border: 1px solid #415176;
-    background: #1F2535;
-    width: 144px;
-    height: 56px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    margin-left: 30%;
-    margin-top: 7%;
+    background-color: #333A56;
 }
-#espacios{
-    margin-bottom: 17%;
-    margin-top: 10%;
+
+.form-control::placeholder{
+    color: #E0E0FF;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;    
+    font-size: 15px;
 }
-#letras1{
-    color:#F2F2F2;
-    font-size: 12px;
+
+.form-control:hover{
+    background-color: #333A56;
+    color: #E0E0FF;
+}
+
+.select_oscuro{
+    width: 100%;
+    height: 50px;
+    padding: .375rem .75rem;
+    margin-bottom: 4px;
+    border-radius: 8px;
+    background-color: #333A56;
+    color: #E0E0FF;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;    
+    font-size: 15px;
+}
+
+.opciones{
+    background-color: #FAFAFF;
+    color:#000
+}
+
+.contenedor_boton{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.boton_oscuro_corto{
+    width: 142px;
+    height: 50px;
+    border-radius: 8px;
+    background-color: #333A56;
+    color: #E0E0FF;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.boton_oscuro_corto:hover{
+    background-color: #333A56;
+    color: #E0E0FF;
+}
+
+h1{
+    color: #000;
+    margin: 0px;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 35px;
     font-style: normal;
     font-weight: 600;
-    line-height: 16.8px;
-    font-family: Poppins;
-}
-label{
-    color: #FFF;
+    line-height: 48px;
+    letter-spacing: -1.02px;
 }
 
-/* ----------------------------------------------------------------------- */
-h1,#Regist{
-    color: #FFF;
+.contenedor_titulo_small{
+    margin-top: 24px;
+}
+
+.title_small{
+    color: #000;
+    vertical-align: baseline;
+    text-align: center;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.titulo_creacion{
+    min-width: 296px;
+    margin-bottom: 20px;
+}
+
+.message{
+    margin: 0px 0px;
+    text-align: center;
+    color: #8C8C8E;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.contenedor_dropdown,.contenedor_seleccion_filtros_informe,.contenedor_buscador,.boton_busqueda,.contenedor_form_ajustes,.contenedor_form_editar_ajustes,.contenedor_term_cond{
+    margin-bottom: auto;
+}
+
+.dropdown{
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.boton_informacion_dropdown{
+    background-color: transparent;
+    color:#666666;
+    width: 100%;
+    padding: 0px;
+    border: 1px solid rgba(126, 126, 129, 0.6);
+    border-radius: 4px;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.boton_informacion_dropdown::after{
+    content: url(/Assets/img/inventario-chevron-down.svg);
+    margin-left: auto;
+}
+
+.form-check{
+    margin: 0px;
+}
+
+.form-check-input:checked{
+    background-color: #333A56;
+    border: #333A56;
+}
+
+.boton_informacion_dropdown_corto{
+    margin-left: 12px;
+    background-color: transparent;
+    color:#666666;
+    width: 100%;
+    padding: 0px;
+    border: 1px solid rgba(126, 126, 129, 0.6);
+    border-radius: 4px;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+.boton_informacion_dropdown_corto::after{
+    content: url(/Assets/img/inventario-chevron-down.svg);
+    margin-left: auto;
+}
+
+#lateral_oscuro{
+    background: #333A56;
+    margin-right: 5px;
+}
+
+.informacion_dropdown_contenido{
+    width: 100%;
+    background-color: #F7F5E6;
+    border: 1px solid rgba(126, 126, 129, 0.6);
+    padding: 0px;
+}
+
+.texto_dropdown{
+    height: 50px;
+    border: none;
+    background-color: transparent;
+    color: #666;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    padding-left: 24px;
+}
+
+.elementos_listas{
+    margin: 0px;
+}
+
+.accion_dropdown{
+    height: 50px;
+    font-family: Inter;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    margin: 0px auto;
+}
+
+.input_claro{
+    width: 100%;
+    height: 50px;
+    padding-left: 12px;
+    border-radius: 4px;
+    border: 1px solid #D5D8DE;
+    background-color: #FFF;
+}
+
+.contenedor_botones_largos{
+    margin-bottom: 20px;
+}
+
+.boton_largo_oscuro{
+    width: 272px;
+    height: 50px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    background-color: #333A56;
+    color: #E0E0FF;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.boton_largo_claro{
+    width: 272px;
+    height: 50px;
+    border-radius: 8px;
+    margin-top: 8px;
+    background-color: #FAFAFF;
+    color: #171740;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.select_claro{   
+    width: 100%; 
+    height: 50px;
+    padding: .375rem .75rem;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 14px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background-color: #FAFAFF;
+    color: #171740;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
+/* ------------- PAGINA INICIO ------------- */
+
+.boton_oscuro_largo{
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    background-color: #333A56;
+    color: #E0E0FF;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.boton_claro_largo{
+    width: 100%;
+    height: 50px;
+    border-radius: 8px;
+    margin-top: 4px;
+    background-color: #FAFAFF;
+    color: #333A56;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+    border: 1px solid #D0D5DD;
+}
+
+/* ------------- REGISTRO USUSARIO ------------- */
+
+.titulo_registro{
+    margin-top: 55px;
+}
+
+#form_registro{
+    margin-top: 20px;
+}
+
+.contenedor_titulo_login{
+    max-width: 323px;
+    padding-right: 30px;
+    margin-top: 40px;
+}
+
+#subtitulo_login{
+    color: #000;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.color_lateral{
+    width: 19px;
+    height: 49px;
+    border-radius: 4px 0px 0px 4px;
+}
+/* ------------- CREAR INVENTARIO ------------- */
+
+.nombre_inventario,.direccion,.descripcion{
+    background-color: #333A56;
+    border-radius: 8px;
+    padding-left: 12px;
+    margin-bottom: 4px;
+}
+
+.input_oscuro{
+    height: 50px;
+    border-radius: 0px 8px 8px 0px;
+    padding-left: 10px;
+    background-color: #333A56;
+    border: none;
+}
+
+.input_oscuro::placeholder{
+    color: #E0E0FF;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;    
+    font-size: 16px;
+}
+
+/* ------------- CREAR ENTRADA/SALIDA ------------- */
+
+.referencia{
+    margin-top: 8px;
+    margin-right: auto;
+    margin-bottom: 0px;
+    padding: 0px 25px;
+    color: #000;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.linea_division{
+    width: 100%;
+    height: 2px;
+    margin: 10px 0px;
+    background-color: #C4C4C4;
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.25));
+}
+
+.select_claro_mov{
+    width: 100%;
+    height: 50px;
+    padding-left: 12px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    border: 1px solid #D5D8DE;
+    background-color: #FFF;
+    color: #6c757d;
+}
+
+.input_claro_mov{
+    width: 100%;
+    height: 50px;
+    padding-left: 12px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    border: 1px solid #D5D8DE;
+    background-color: #FFF;
+}
+
+.boton_add_producto_movimientos{
+    margin-bottom: 30px;
+}
+
+/* ------------- ABASTECIMIENTO ------------- */
+
+#lateral_amarillo{
+    background: #FCAF3B;
+    margin-right: 5px;
+}
+
+#lateral_rojo{
+    background: #F04C4C;
+    margin-right: 5px;
+}
+
+/* ------------- DETALLES DEL PRODUCTO ------------- */
+
+#nombre_producto_titulo{
+    max-width: 323px;
+    padding: 0px 16px;
+    color:#171740;
     font-family: Inter;
     font-size: 40px;
     font-style: normal;
+    font-weight: 600;
+    text-align:left
+}
+
+#contenedor_detalles_producto{
+    max-width: 323px;
+    margin: 20px 0px;
+    color: #242464;
+    font-family: Inter;
+    font-size: 18px;
+    font-style: normal;
     font-weight: 400;
-    line-height: 39.6px; 
-    letter-spacing: -0.8px;
-    margin-left: 20%;
-    margin-bottom: 11%;
 }
 
-input #caja{
-    margin-top: 0%;
+#imagen_producto{
+    width: 272px;
+    margin-bottom: 13px;
 }
-#cubo{
+
+/* ------------- SELECCION DE INFORME ------------- */
+
+#contenedor_seleccion_informe{
+    margin-bottom: auto;
+}
+
+/* ------------- FILTROS INFORMES ------------- */
+
+.input_claro_dos{
+    width: 100%;
+    height: 50px;
     border-radius: 8px;
-    border: 1px solid #415176;
-    background: #1F2535;
-    width: 340px;
-    height: 56px;
+    padding-left: 10px;
+    border: none;
+    margin-bottom: 14px;
+    background-color: #FAFAFF;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    
 }
 
-#cubo:hover{
-    color: #FFF;
+.input_claro_dos::placeholder{
+    color: #171740;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
 }
 
+/* ------------- EDITAR PERFILES ------------- */
 
+.select_edicion{
+    width: 100%;
+    height: 50px;
+    padding: .375rem .75rem;
+    margin-bottom: 4px;
+    border: 1px solid #D5D8DE;
+    border-radius: 8px;
+    background-color:#FFF;
+    color: gray;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;    
+    font-size: 15px;
+}
 
+/* ------------- BUSCADOR ------------- */
 
+.contendor_shadow{
+    border-radius: 8px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 100%;
+}
 
+.input_claro_busqueda{
+    width: 100%;
+    height: 50px;
+    border-radius: 8px 0px 0px 8px;
+    padding-left: 10px;
+    border: none;
+    background-color: #FAFAFF;
+}
 
+.input_claro_busqueda::placeholder{
+    color: #171740;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+}
 
+.icono_boton_busqueda{
+    height: 50px;
+    border-radius: 0px 8px 8px 0px;
+    padding: 0px 15px 0px 10px;
+    border: none;
+    background-color: #FAFAFF;
+}
 
+/* ------------- TERM Y COND/POLITICAS PRIV ------------- */
 
+.contenedor_term_cond{
+    text-align: justify;
+}
 
-/* ----------------------------------------------------------------------- */
-/* Estilos modificados para la etiqueta Main y clases usadas en ella */
-    main {
-        height: 80vh;
-    }
+/* ------------- AJUSTES USUARIO ------------- */
 
-    .container_main {
-        padding: 0;
-    }
+.input_transparente{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: 1px solid #DCDCE0;
+    margin-bottom: 10px;
+    background-color: #F7F5E6;
+}
 
-    h1 {
-        color: #000;
-        font-family: Poppins;
-        font-weight: 600;
-        line-height: 48.4px;
-        letter-spacing: -1.02px;
-        padding-right: 2rem;
-        margin: 0;
+/* ------------- EDITAR USUARIO ------------- */
 
-    }
+.input_claro_ajustes{
+    width: 100%;
+    height: 50px;
+    padding-left: 12px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    border: 1px solid #D5D8DE;
+    background-color: #FFF;
+}
 
-    .boton_busqueda {
-        display: flex;
-        justify-content: space-between;
-        height: 3.5rem;
-        background-color: white;
-        border-radius: 0.5rem;
-    }
+/* ------------- AYUDA ------------- */
 
-    .prueba_boton_boton {
-        padding: 0 20px 0 0;
-        border: none;
-        border-radius: 0 0.5rem 0.5rem 0;
-        background-color: white;
-    }
+#lista_instrucciones{
+padding-left: 20px;
+}
 
-    .prueba_boton_input {
-        width: 100%;
-        padding: 0 0 0 20px;
-        border: none;
-        border-radius: 0.5rem 0 0 0.5rem;
-        outline: none;
-    }
+/* MENU CIRCULAR */
 
-    .titulo_btnbusqueda_main {
-        display: flex;
-        padding-top: 1rem;
-        align-items: center;
-        margin-left: -2rem;
-    }
+.menu_un_btn,.menu_dos_btn,.menu_tres_btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 156px;
+    height: 116px;
+}
 
-    hr {
-        stroke-width: 2px;
-        height: 2px;
-        border: none;
-        background-color: gray;
-    }
+.entrada,.salida{
+    padding-right: 5px;
+    padding-left: 5px;
+}
 
-    .container_contenido {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 81vh;
-    }
+.clases{
+    position: relative;
+    top: -6px;
+}
 
-    .container_contenido>h2 {
-        font-family: inter;
-    }
+.producto,.abastecimiento{
+    padding: 6px 0px;
+    position: relative;
+    top: 12px;
+}
 
-    /*Estilos para vista de Inventario */
+.img_small{
+    width: 32px;
+    height: 32px;
+}
 
-    #container_inventarios {
-        display: flex;
-    }
+.img_big{
+    width: 50px;
+    height: 50px;
+}
 
-    .container_formularios_inventario {
-        background-color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 16px;
-        margin: 0;
-        box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
-    }
+/* NAVEGADOR INF */
 
-    .items-formularios {
-        padding-bottom: 0.5rem;
-    }
+.nav_inf{
+    border-radius: 0px 0px 16px 16px;
+    border: 1px solid #D0D5DD;
+}
 
-    .btn_formulario_inventario {
-        height: 3.6rem;
-        margin-top: 3rem;
-        font-family: Inter;
-        font-size: 1.125rem;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 1.5rem;
-        background-color: #333A56;
-        color: white;
-        transition: none;
-    }
+#lista_nav_inf{
+    width: 100%;
+}
 
+#home,#movimientos,#stock,#estadisticas,#perfiles{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 9.551px;
+}
 
-    .btn_formulario_inventario:hover {
-        background-color: #333A56;
-        color: white;
-    }
+.text_nav_inf{
+    margin: 0px;
+}
 
-    /* ----------------------------------------------------------------------- */
+.pregunta_nav_inf{
+    text-align: center;
+    font-family: Inter;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 400;
+}
 
-    /* Estilos para vista de Inventario/InventarioCrear */
+#pregunta_nav_inf_negro{
+    color: #000;
+}
 
-    .container_inventario_crear {
-        position: relative;
-        background-color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 16px;
-        margin: 0;
-        box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
-        margin-right: 1rem;
-        margin-top: 1rem;
-    }
-
-    .container_inventario_crear>h3 {
-        font-family: Inter;
-        font-size: 1.5rem;
-        font-weight: 600;
-        line-height: 2rem;
-        color: var(--black, #171740);
-    }
-
-    .container_inventario_crear>p {
-        font-family: Inter;
-        font-size: 1.125rem;
-        font-weight: 400;
-        line-height: 1.5rem;
-        color: var(--dark-grey, #242464);
-    }
-
-    .btn_inventario_crear {
-        height: 3.6rem;
-        margin-top: 3rem;
-        font-family: Inter;
-        font-size: 1.125rem;
-        font-weight: 600;
-        line-height: 1.5rem;
-        background-color: #333A56;
-        color: white;
-    }
-
-
-    .btn_inventario_crear:hover {
-        background-color: #333A56;
-        color: white;
-    }
-
-    .btn-group>.dropdown-menu {
-        background-color: #333A56;
-    }
-
-    li>button>p {
-        margin: 0;
-        padding-left: 11px;
-        color: white;
-        font-family: Inter;
-        font-size: 0.8125rem;
-        font-weight: 500;
-        line-height: 1.125rem;
-    }
-
-
-    /* ----------------------------------------------------------------------- */
-
-    /* Estilos para vista de Entradas y Salidas */
-
-    .btn-contenido {
-        height: 56px;
-        color: white;
-        border-radius: 8px;
-        background: var(--Brand-primary, #333A56);
-
-        /* Estilos para el texto */
-        font-family: Inter;
-        font-size: 18px;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 24px;
-        /* 133.333% */
-    }
-
-    .btn-contenido:hover {
-        background-color: #333A56;
-        color: white;
-    }
-
-    .btn-tabla-icono {
-        padding: 0;
-    }
-
-    /*  */
-
-    th {
-        color: var(--black, #171740);
-        font-family: Inter;
-        font-size: 0.875rem;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 1.125rem;
-        /* 128.571% */
-    }
-
-    /* Politicas y privacidad */
-
-    #ejemplo_id_css {
-        width: 75rem;
-        height: 58.375rem;
-        flex-shrink: 0;
-        color: #000;
-        text-align: justify;
-        font-family: Inter;
-        font-weight: 400;
-        font-size: 1.125rem;
-        line-height: 1.5rem;
-        font-style: normal;
-        padding: 0 7%;
-        margin-bottom: 20px;
-    }
-
-    /* Ajustes de Usuarios */
-
-    .nombres {
-        color: #000;
-        font-family: Inter;
-        font-size: 1.225rem;
-        font-style: normal;
-        font-weight: 600;
-        line-height: 37.5px;
-        letter-spacing: -1.02px;
-        margin-left: -70%;
-        margin-bottom: 7%;
-    }
-
-    h5 {
-        margin-bottom: 2.5%;
-    }
-
-    #N1 {
-        margin-top: 9%;
-    }
-
-    #ol1 {
-        color: #000;
-        text-align: justify;
-        font-family: Inter;
-        font-size: 1.125rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1.5rem;
-        margin-top: 24px;
-    }
-
-    #ol2 {
-        margin-top: 37px;
-        color: #000;
-        text-align: justify;
-        font-family: Inter;
-        font-size: 1.125rem;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 1.5rem;
-    }
-
-    #espacios {
-        margin-bottom: 2%;
-    }
-
-    .input-box {
-        width: 20.4375rem;
-        height: 3.75rem;
-        flex-shrink: 0;
-        margin-left: -25%;
-
-    }
-
-    #menu {
-        width: 20.4375rem;
-        height: 3.75rem;
-        flex-shrink: 0;
-    }
-
-    li {
-        list-style-type: none;
-    }
+#pregunta_nav_inf_morado{
+    color: #5D5DC5;
+}
