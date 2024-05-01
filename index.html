@@ -118,50 +118,7 @@
     </div>
 
     <main class="container-fluid container_main">
-        <div class="container">
-            <div class="encabezado">
-                <h1>Estadísticas</h1>
-            </div>
-        </div>
-        <hr />
-
-        <div class="container position-relative alto_maximo">
-            <select class="form-select form-select_modificado" aria-label="Default select example">
-                <option selected>Tipo de Estadística</option>
-                <option value="1">Estadística 01</option>
-                <option value="2">Estadística 02</option>
-                <option value="3">Estadística 03</option>
-            </select>
-
-            <h2 class="text-center my-5">Movimientos en Almacenes</h2>
-
-            <div class="d-flex justify-content-between">
-                <div class="d-flex gap-3">
-                    <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option selected>Despliegue el menú</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                        </select>
-                        <label for="floatingSelect">Seleccionar Almacén</label>
-                    </div>
-
-                    <form class="form-floating mb-2">
-                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
-                            value="Cra. 93 #80c-72" />
-                        <label for="floatingInputValue">Desde</label>
-                    </form>
-
-                    <form class="form-floating mb-2">
-                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
-                            value="Cra. 93 #80c-72" />
-                        <label for="floatingInputValue">Hasta</label>
-                    </form>
-                </div>
-                <button class="btn btn-general">Generar</button>
-            </div>
-        </div>
+        
     </main>
 
     <!-- /* ----------------------------------------------------------------------- */ -->
@@ -534,6 +491,40 @@
                 <div class="d-grid gap-2">
                     <button class="btn btn-general" type="button">
                         Ingresar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="editar_inventario_desktop"> 
+        <div class="container encabezado">
+            <h1>INVENTARIO</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+            <button class="btn btn-general ms-auto">Crear Inventario</button>
+        </div>
+        <hr />
+        <div class="container d-flex flex-wrap justify-content-around">
+            <div class="container inventario flex-wrap col-lg-3">
+                <input type="text" class="form-control mb-3"
+                                aria-label="Text input with dropdown button" value="Nombre de Inventario"
+                                placeholder="Editar título" />
+                <input type="text" class="form-control mb-3 "
+                                aria-label="Text input with dropdown button" value="Dirección: XXXXX"
+                                placeholder="Editar Dirección" />
+                <textarea class="form-control mb-3 min-height-100" rows="6"
+                >Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibhmalesuada, volutpat metus ac, laoreet erat.vestibulum orci. In acnibh malesuada.
+                </textarea>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-general" type="button">
+                        Guardar
                     </button>
                 </div>
             </div>
@@ -2173,7 +2164,7 @@
         </div>
     </template> -->
 
-    <template id="Perfiles">
+    <template id="perfiles_vacia_desktop">
         <div class="container encabezado">
             <h1>Perfíles</h1>
             <div>
@@ -2193,7 +2184,7 @@
         </div>
     </template>
 
-    <template id="Perfiles/Crear Perfil">
+    <template id="crear_perfil_desktop">
         <div class="container">
             <div class="encabezado d-flex justify-content-between">
                 <div class="d-flex align-items-center">
@@ -2248,7 +2239,7 @@
         </div>
     </template>
 
-    <template id="Perfiles/Perfiles con opciones">
+    <template id="perfiles_con_inf_desktop">
         <div class="container encabezado">
             <h1>Perfíles</h1>
             <div>
@@ -2306,7 +2297,7 @@
         </div>
     </template>
 
-    <template id="Perfiles/Editar Perfiles">
+    <template id="editar_perfiles_desktop">
         <div class="container encabezado">
             <h1>Perfíles</h1>
             <div>
@@ -2365,7 +2356,7 @@
         </div>
     </template>
 
-    <template id="Perfiles/Borrar Perfiles">
+    <template id="eliminar_perfiles_desktop">
         <div class="container encabezado">
             <h1>Perfíles</h1>
             <div>
@@ -2417,7 +2408,7 @@
         </div>
     </template>
 
-    <template id="Menu/Terminos y Condiciones">
+    <template id="terminos_condiciones_desktop">
         <div class="container">
             <div class="encabezado d-flex justify-content-between">
                 <div class="d-flex align-items-center">
@@ -2475,7 +2466,7 @@
         </div>
     </template>
 
-    <template id="Menu/Políticas de Privacidad">
+    <template id="politicas_privacidad_desktop">
         <div class="container">
             <div class="encabezado d-flex justify-content-between">
                 <div class="d-flex align-items-center">
@@ -2533,7 +2524,7 @@
         </div>
     </template>
 
-    <template id="Menu/Ajustes de Usuario">
+    <template id="ajustes_usuario_desktop">
         <div class="container">
             <div class="encabezado d-flex justify-content-between">
                 <div class="d-flex align-items-center">
@@ -2599,7 +2590,7 @@
             <button class="btn btn-general position-absolute bottom-0 end-0">Editar</button>
     </template>
 
-    <template id="Menu/Ajustes de usuario Editar">
+    <template id="editar_usuario_desktop">
         <div class="container">
             <div class="encabezado d-flex justify-content-between">
                 <div class="d-flex align-items-center">
@@ -2700,7 +2691,7 @@
         </div>
     </template>
 
-    <template id="Menu/Ayuda">
+    <template id="ayuda_desktop">
         <div class="container">
             <div class="encabezado d-flex justify-content-between">
                 <div class="d-flex align-items-center">
