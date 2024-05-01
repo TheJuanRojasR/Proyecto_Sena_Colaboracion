@@ -1481,3 +1481,2769 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Metadatos-->
+    <meta charset="UTF-8" />
+    <meta name="author" content="Juan Rojas y Laura Ortiz" />
+    <meta name="description" content="Pagina web de gestion de inventario" />
+    <meta name="keywords" content="HTML, CSS, JavaScript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+    <!-- Bootstrap Css-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+    <!-- Bootstrap Js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap Icos-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- Css -->
+    <link rel="stylesheet" href="/public/assets/styles/main.css" />
+    <!-- Titulo -->
+    <title>Variety Vault</title>
+    <!-- Favicon (Icono que se ve en la pestana) -->
+    <link rel="icon" type="image/x-icon" href="/public/assets/images/logo_pestaña.svg" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md ">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+            </a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Operaciones
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Entradas/Salidas</a></li>
+                            <li><a class="dropdown-item" href="#">Entradas</a></li>
+                            <li><a class="dropdown-item" href="#">Salidas</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Stock
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Stock</a></li>
+                            <li><a class="dropdown-item" href="#">Abastecimiento</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Informes</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Perfiles</a>
+                    </li>
+                </ul>
+
+                <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img src="./public/assets/images/logo_usuario.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="contenido_offcanvas d-flex flex-column">
+                <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
+                    <p>Menu</p>
+                </div>
+                <!-- Opciones del menu desplegable -->
+                <div class="mt-auto">
+                    <div id="term_condi">
+                        <a href="" class="color_inherit text-decoration-none">Terminos y Condiciones</a>
+                    </div>
+                    <div id="politicas_priv">
+                        <a href="" class="color_inherit text-decoration-none">Politicas de Privacidad</a>
+                    </div>
+                    <div id="ajustes_usu">
+                        <a href="" class="color_inherit text-decoration-none">Ajustes de usuario</a>
+                    </div>
+                    <div id="ayuda">
+                        <a href="" class="color_inherit text-decoration-none">Ayuda</a>
+                    </div>
+                    <div id="cerrar_ses">
+                        <a href="" class="color_inherit text-decoration-none">Cerrar Sesion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container-fluid container_main">
+        
+    </main>
+
+    <!-- /* ----------------------------------------------------------------------- */ -->
+    <!-- Plantillas -->
+
+    <template id="modal de infomarcion">
+        <section class="modal modal-info modal--show">
+            <div class="modal__container">
+                <button class="btn modal__close">
+                    <img src="/public/assets/images/logo_cerrar_x.svg" alt="">
+                </button>
+                <h2 class="modal__title">Modal de informacion</h2>
+                <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
+                <a href="#" class="modal__button">Aceptar</a>
+            </div>
+        </section> 
+    </template>
+
+    <template id="modal de confimacion">
+        <section class="modal modal--confirm modal--show">
+            <div class="modal__container">
+                <button class="btn modal__close">
+                    <img src="/public/assets/images/logo_cerrar_x.svg" alt="">
+                </button>
+                <img src="./public/assets/images/logo_modal_confirmacion.svg" alt="" class="modal__img">
+                <h2 class="modal__title">Modal de confirmación</h2>
+                <p class="modal__paragraph">¿Estás seguro de realizar esta acción?</p>
+                <div class="modal__buttons">
+                    <button class="modal__button">Aceptar</button>
+                    <button class="modal__button">Cancelar</button>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="modal de exito">
+        <section class="modal modal--success modal--show">
+            <div class="modal__container">
+                <button class="btn modal__close">
+                    <img src="/public/assets/images/logo_cerrar_x.svg" alt="">
+                </button>
+                <img src="./public/assets/images/logo_modal_exito.svg" alt="" class="modal__img">
+                <h2 class="modal__title">Modal de éxito</h2>
+                <p class="modal__paragraph">¡La acción se ha realizado con éxito!</p>
+            </div>
+        </section>
+    </template>
+
+    <template id="modal de error">
+        <section class="modal modal--error modal--show">
+            <div class="modal__container">
+                <button class="btn modal__close">
+                    <img src="/public/assets/images/logo_cerrar_x.svg" alt="">
+                </button>
+                <img src="./public/assets/images/logo_modal_error.svg" alt="" class="modal__img">
+                <h2 class="modal__title">Error</h2>
+                <p class="modal__paragraph">Se ha producido un error. Por favor, inténtelo de nuevo.</p>
+            </div>
+        </section>
+    </template>
+
+    <template id="registro_usuario_desktop">
+        <section class="registro">
+            <div class="registro__container text-center">
+                <button class="btn registro__close">
+                    <img src="./public/assets/images/logo_cerrar_x.svg" alt="">
+                </button>
+
+                <h1 class="registro__titulo mb-4">Registrarse</h1>
+        
+                <form class="registro__input mb-1"">
+                    <input type="text" class="form-control registro__input" placeholder="Nombre Completo" value="">
+                </form>
+            
+                <select class="form-select registro__select mb-1" aria-label="Default select example">
+                    <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
+                    <option class="registro__option" value="1">Cedula de Ciudadania</option>
+                    <option class="registro__option" value="2">Cedula de Extranjeria</option>
+                    <option class="registro__option" value="3">Rut</option>
+                </select>
+            
+                <form class="registro__input mb-1">
+                    <input type="number" class="form-control registro__input" placeholder="Numero de Documento" value="">
+                </form>
+            
+                <form class="registro__input mb-1">
+                    <input type="email" class="form-control registro__input" placeholder="Correo Electronico" value="">
+                </form>
+            
+                <form class="registro__input mb-1">
+                    <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
+                </form>
+            
+                <form class="registro__input mb-3">
+                    <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña" value="">
+                </form>
+            
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="terminosCondicionesCheckbox" value="">
+                    <label class="form-check-label registro__text" for="terminosCondicionesCheckbox">
+                        He leído y acepto los <a href="#">Términos y Condiciones</a>
+                    </label>
+                </div>
+            
+                <button class="btn btn-general mb-3">Registrar</button>
+            
+                <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
+            </div>
+        </section>
+    </template>
+        
+    <template id="log_in_desktop">
+        <section class="ingreso">
+            <div class="ingreso__container text-center">
+                <figure>
+                    <img class="ingreso__img" src="./public/assets/images//Imagen_Ingreso.png" alt="">
+                </figure>
+                <h1 class="registro__titulo mb-4">Ingreso</h1>
+                <div class="registro__padding">
+                    <form class="registro__input mb-1">
+                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico" value="">
+                    </form>
+                    <form class="registro__input mb-2">
+                        <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
+                    </form>
+                    <div class="form-check mb-3 d-flex align-items-end justify-content-evenly">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label registro__text">
+                            Recordar mi usuario 
+                        </label>
+                        <a href="#" class="registro__text">¿Olvidó su contraseña?</a>
+                    </div>
+                </div>
+                <button class="btn btn-general mb-3">Ingresar</button>
+            </div>
+        </section>
+    </template>
+
+    <template id="footer_desktop">
+        <footer class="d-flex justify-content-center">
+            <div>
+                <a href="#">
+                    <img class="logo_footer" src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+                </a>
+            </div>
+            <div class="d-flex flex-column elemento_flooter">
+                <p class="text-decoration-none color_blanco fw-bold">Enlaces de Navegación</p>
+                <a href="" class="text-decoration-none color_blanco">Inicio</a>
+                <a href="" class="text-decoration-none color_blanco">Contactos</a>
+                <a href="" class="text-decoration-none color_blanco">Nosotros</a>
+            </div>
+            <div class="d-flex flex-column elemento_flooter">
+                <p class="text-decoration-none color_blanco fw-bold">Enlaces a Politicas</p>
+                <a href="" class="text-decoration-none color_blanco">Política Privada</a>
+                <a href="" class="text-decoration-none color_blanco">Términos y Condiciones</a>
+                <a href="" class="text-decoration-none color_blanco">Cookies</a>
+            </div>
+            <div class="d-flex flex-column elemento_flooter">
+                <p class="text-decoration-none color_blanco fw-bold">© 2024 Variety Vault</p>
+            </div>
+        </footer>
+    </template>
+
+    <template id="nav_sup_desktop">
+        <nav class="navbar navbar-expand-md">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+                </a>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Operaciones
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Entradas/Salidas</a></li>
+                                <li><a class="dropdown-item" href="#">Entradas</a></li>
+                                <li><a class="dropdown-item" href="#">Salidas</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Stock
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Stock</a></li>
+                                <li><a class="dropdown-item" href="#">Abastecimiento</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Informes</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Perfiles</a>
+                        </li>
+                    </ul>
+
+                    <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        <img src="./public/assets/images/logo_usuario.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="contenido_offcanvas d-flex flex-column">
+                    <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
+                        <p>Menu</p>
+                    </div>
+                    <!-- Opciones del menu desplegable -->
+                    <div class="mt-auto">
+                        <div id="term_condi">
+                            <a href="" class="color_inherit text-decoration-none">Terminos y Condiciones</a>
+                        </div>
+                        <div id="politicas_priv">
+                            <a href="" class="color_inherit text-decoration-none">Politicas de Privacidad</a>
+                        </div>
+                        <div id="ajustes_usu">
+                            <a href="" class="color_inherit text-decoration-none">Ajustes de usuario</a>
+                        </div>
+                        <div id="ayuda">
+                            <a href="" class="color_inherit text-decoration-none">Ayuda</a>
+                        </div>
+                        <div id="cerrar_ses">
+                            <a href="" class="color_inherit text-decoration-none">Cerrar Sesion</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="nav_sup_inicio_desktop">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/public/assets/images/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+            </a>
+            <div class="d-flex">
+                </button>
+                <button class="btn btn-general--transparent">Ingresar</button>
+                </button>
+                </button>
+                <button class="btn btn-general">Registrar</button>
+                </button>
+            </div>
+        </div>
+    </template>
+
+    <template id="inventarios_vacia_desktop">
+        <div class="container encabezado">
+            <h1>INVENTARIO</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div>
+        <hr />
+        <div class="container sin-opciones">
+            <h2>
+                ¿No tienes inventarios? <a href="">Haz clic aquí para crear uno.</a>
+            </h2>
+        </div>
+    </template>
+
+    <template id="crear_inventario_desktop">
+        <div class="container">
+            <div class="encabezado">
+                <h1>INVENTARIO</h1>
+            </div>
+        </div>
+        <hr />
+        <div class="container d-flex">
+            <div class="container col-lg-4 registro-inventario">
+                <div>
+                    <form class="form-floating mb-2">
+                        <input type="email" class="form-control" id="floatingInputValue" placeholder="nombre-almacen"
+                            value="SENA Quirigua" />
+                        <label for="floatingInputValue">Nombre Inventario</label>
+                    </form>
+
+                    <form class="form-floating mb-2">
+                        <input type="email" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Dirección Inventario</label>
+                    </form>
+
+                    <form class="form-floating mb-2">
+                        <input type="email" class="form-control" id="floatingInputValue"
+                            placeholder="descripcion-almacen" value="Contiene computadores" />
+                        <label for="floatingInputValue">Descripción Inventario</label>
+                    </form>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button class="btn btn-general" type="button">
+                        Crear Inventario
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="inventarios_desktop">
+        <div class="container encabezado">
+            <h1>INVENTARIO</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+            <button class="btn btn-general ms-auto">Crear Inventario</button>
+        </div>
+        <hr />
+        <div class="container d-flex flex-wrap justify-content-around">
+            <div class="container inventario flex-wrap col-lg-3">
+                <div class="d-flex justify-content-between">
+                    <h3 class="inventario__title">Nombre de Inventario</h3>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="/public/assets/images/menu_horizontal.svg" alt="" />
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="d-grid gap-2">
+                                <button class="btn d-flex align-items-center">
+                                    <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                                    <p>Editar</p>
+                                </button>
+                            </li>
+                            <li class="d-grid gap-2">
+                                <button class="btn  d-flex align-items-center">
+                                    <img src="/public/assets/images/eliminar.svg" alt="" />
+                                    <p>Eliminar</p>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="inventario__paragraph" >Dirección: XXXXX</p>
+                <p class="inventario__paragraph" >
+                    Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh
+                    malesuada, volutpat metus ac, laoreet erat.vestibulum orci. In ac
+                    nibh malesuada, volutpat metus ac, laoreet erat
+                </p>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-general" type="button">
+                        Ingresar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="editar_inventario_desktop"> 
+        <div class="container encabezado">
+            <h1>INVENTARIO</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+            <button class="btn btn-general ms-auto">Crear Inventario</button>
+        </div>
+        <hr />
+        <div class="container d-flex flex-wrap justify-content-around">
+            <div class="container inventario flex-wrap col-lg-3">
+                <input type="text" class="form-control mb-3"
+                                aria-label="Text input with dropdown button" value="Nombre de Inventario"
+                                placeholder="Editar título" />
+                <input type="text" class="form-control mb-3 "
+                                aria-label="Text input with dropdown button" value="Dirección: XXXXX"
+                                placeholder="Editar Dirección" />
+                <textarea class="form-control mb-3 min-height-100" rows="6"
+                >Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibhmalesuada, volutpat metus ac, laoreet erat.vestibulum orci. In acnibh malesuada.
+                </textarea>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-general" type="button">
+                        Guardar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="movimientos_vacia_desktop">
+        <div class="container encabezado">
+            <h1>ENTRADAS/SALIDAS</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+            <button class="btn btn-general ms-auto">Crear Entrada</button>
+        </div>
+        <hr />
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2">Referencia</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2">Fecha y Hora</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2">Producto</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2">Cantidad</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2">Origen</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2">Destino</span>
+                            </button>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </template>
+
+    <template id="crear_entrada_desktop">
+        <div class="container encabezado">
+            <h1>ENTRADAS</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div>
+        <hr />
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Referencia</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Fecha y Hora</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Producto</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Origen</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Destino</span>
+                            </button>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr class="">
+                        <td>
+                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <img src="/public/assets/images/logo_suma.svg" alt="" />
+                            </button>
+                        </td>
+                        <th scope="row">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </th>
+                        <td>
+                            <input type="date" class="form-control disabled"
+                                aria-label="Text input with dropdown button" placeholder="" disabled />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <img src="/public/assets/images/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <template id="crear_salida_desktop">
+        <div class="container encabezado">
+            <h1>SALIDAS</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div>
+        <hr />
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Referencia</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Fecha y Hora</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Producto</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Origen</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Destino</span>
+                            </button>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <img src="/public/assets/images/logo_suma.svg" alt="" />
+                            </button>
+                        </td>
+                        <th scope="row">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </th>
+                        <td>
+                            <input type="date" class="form-control disabled"
+                                aria-label="Text input with dropdown button" placeholder="" disabled />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <img src="/public/assets/images/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <template id="movimientos_desktop">
+        <div class="container encabezado">
+            <h1>ENTRADAS/SALIDAS</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div>
+        <hr />
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Fecha y Hora</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Origen</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Destino</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row" class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ref 0001</p>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">05/03/2024</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Lapiz</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">10</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Destino A</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Destino B</p>
+                        </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="/public/assets/images/logo_flecha_izq.svg" alt="" />
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="/public/assets/images/logo_flecha_der.svg" alt="" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </template>
+
+    <template id="stock_vacia_desktop">
+        <div class="container encabezado">
+            <h1>STOCK</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div>
+        <hr />
+        <div class="container sin-opciones">
+            <h2>
+                ¿No tienes productos? <a href="">Haz clic aquí para crear uno.</a>
+            </h2>            
+        </div>
+    </template>
+
+    <template id="crear_producto_desktop">
+        <div class="container encabezado">
+            <h1>STOCK</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div> 
+
+        <hr />
+
+        <div class="container  table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th scope="col"></th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img class="imagen-tabla-icono" src="/public/assets/images/flechas_filtrar.svg"
+                                    alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Categoria</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Ubicacion</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Stock Minimo</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Costo</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Precio</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <img src="/public/assets/images/logo_suma.svg" alt="" />
+                            </button>
+                        </td>
+                        <th scope="row" class="td-body-tabla">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </th>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td class="text-end">
+                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <img src="/public/assets/images/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <template id="stock_desktop">
+        <div class="container encabezado">
+            <h1>STOCK</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+            <button class="btn btn-general ms-auto">Crear Producto</button>
+        </div> 
+        <hr />
+        <div class="container  table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img class="imagen-tabla-icono" src="/public/assets/images/flechas_filtrar.svg"
+                                    alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Categoria</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="form-check td-body-tabla div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p class="espacion-izq">Categoria XXX</p>
+                            </div>
+                        </td>
+                        <th scope="row" class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ref 0001</p>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">05/03/2024</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Lapiz</p>
+                        </td>
+                        <td class="">
+                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <img src="/public/assets/images/logo_ingresar_detalles.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="/public/assets/images/logo_flecha_izq.svg" alt="" />
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="/public/assets/images/logo_flecha_der.svg" alt="" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </template>
+
+    <template id="eliminar_producto_desktop">
+        <div class="container encabezado">
+            <h1>STOCK</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div> 
+        <hr />
+
+        <div class="container container_min_height table-responsive position-relative">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img class="imagen-tabla-icono" src="/public/assets/images/flechas_filtrar.svg"
+                                    alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Categoria</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="form-check td-body-tabla div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p class="espacion-izq">Categoria XXX</p>
+                            </div>
+                        </td>
+                        <th scope="row" class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ref 0001</p>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">05/03/2024</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Lapiz</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
+        </div>
+    </template>
+
+    <template id="categorias_vacia_desktop">
+        <div class="container encabezado">
+            <h1>CATEGORIA</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div> 
+        <hr />
+        <div class="container sin-opciones">
+            <h2>
+                ¿No tienes categorías? <a href="">Haz clic aquí para crear una.</a>
+            </h2>            
+        </div>
+    </template>
+
+    <template id="crear_categoria_desktop">
+        <div class="container encabezado">
+            <h1>CATEGORIA</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div> 
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 ">Categoría</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row" class="d-flex align-items-center">
+                            <input type="text" id="th_input_nombreCategoria" class="form-control"
+                                aria-label="Text input with dropdown button"
+                                placeholder="Ingreso nombre de Categoria" />
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <img src="/public/assets/images/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <template id="categorias_desktop">
+        <div class="container encabezado">
+            <h1>CATEGORIA</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+            <button class="btn btn-general ms-auto">Crear Categoría</button>
+        </div> 
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2">Categoría</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p class="espacion-izq">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p class="espacion-izq">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p class="espacion-izq">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <template id="editar_categoria_desktop">
+        <div class="container encabezado">
+            <h1>CATEGORIA</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div> 
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 ">Categoría</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row" class="d-flex align-items-center">
+                            <input type="text" id="th_input_nombreCategoria" class="form-control"
+                                aria-label="Text input with dropdown button"
+                                placeholder="Ingreso nuevo nombre de Categoria" />
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <img src="/public/assets/images/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <template id="eliminar_categoria_desktop">
+        <div class="container encabezado">
+            <h1>Categoría</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div> 
+        <hr />
+
+        <div class="container container_min_height position-relative">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 ">Categoría</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p class="espacion-izq">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p class="espacion-izq">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p class="espacion-izq">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
+        </div>
+    </template>
+
+    <template id="abastecimiento_desktop">
+        <div class="container encabezado">
+            <h1>Abastecimiento</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div> 
+        <hr />
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Categoría</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Ubicacion</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Stock Min</span>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="p-0" id="abastecimiento_columna_aviso_error"></td>
+                        <th scope="row" class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Lapiz</p>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ref 0001</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Papeleria</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Destino A</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones texto_error">0</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones texto_error">10</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-0" id="abastecimiento_columna_aviso_advertencia"></td>
+                        <th scope="row" class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Lapiz</p>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ref 0001</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Papeleria</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Destino A</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones texto_advertencia">10</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones texto_advertencia">10</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="p-0" id="abastecimiento_columna_aviso_advertencia"></td>
+                        <th scope="row" class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Lapiz</p>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ref 0001</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Papeleria</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Destino A</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones texto_advertencia">10</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones texto_advertencia">10</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="/public/assets/images/logo_flecha_izq.svg" alt="" />
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="/public/assets/images/logo_flecha_der.svg" alt="" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </template>
+
+    <template id="detalles_producto_desktop">
+        <div class="container">
+            <div class="encabezado">
+                <h1>Detalles del producto</h1>
+            </div>
+        </div>
+        <hr />
+        <div class="container sin-opciones">
+            <div class="d-flex flex-column">
+                <h1>Nombre del Producto</h1>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Referencia</td>
+                                <td>Ref xxx</td>
+                            </tr>
+                            <tr>
+                                <td>Ubicación</td>
+                                <td>Lugar A</td>
+                            </tr>
+                            <tr>
+                                <td>Cantidad</td>
+                                <td>20</td>
+                            </tr>
+                            <tr>
+                                <td>Stock Mínimo</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td>Costo</td>
+                                <td>1.000</td>
+                            </tr>
+                            <tr>
+                                <td>Precio de Venta</td>
+                                <td>2.000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <button class="btn btn-general--contenido">Ver Movimientos</button>
+                    <button class="btn btn-general--secundario">Editar Descripción</button>
+                </div>
+            </div>
+            <div class="">
+                <figure class="contenedor-imagen">
+                    <img class="img-fluid" src="/public/assets/images/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
+                </figure>
+            </div>
+        </div>
+    </template>
+
+    <template id="editar_producto_desktop">
+        <div class="container">
+            <div class="encabezado">
+                <h1>Detalles del producto</h1>
+            </div>
+        </div>
+        <hr />
+        <div class="container sin-opciones">
+            <div class="d-flex flex-column">
+                <h1>Nombre del Producto</h1>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Referencia</td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ubicación</td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Cantidad</td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Stock Mínimo</td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Costo</td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Precio de Venta</td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-general--contenido ">Guardar</button>
+                </div>
+            </div>
+            <div class="position-relative">
+                <figure class="contenedor-imagen">
+                    <img class="img-fluid" src="/public/assets/images/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
+                </figure>
+
+                <div class="btn-group position-absolute top-0 end-0" role="group">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="/public/assets/images/menu_horizontal.svg" alt="" />
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="d-grid gap-2">
+                            <button class="btn  d-flex align-items-center">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                                <p>Cambiar</p>
+                            </button>
+                        </li>
+                        <li class="d-grid gap-2">
+                            <button class="btn  d-flex align-items-center">
+                                <img src="/public/assets/images/eliminar.svg" alt="" />
+                                <p>Eliminar</p>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </template>
+
+    <template id="movimientos_de_producto_desktop">
+        <div class="container encabezado">
+            <h1>Movimientos</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div> 
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Fecha y Hora</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Origen</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Destino</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Cantidad Disponible</span>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row" class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ref 0001</p>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">05/03/2024</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ubicación A</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ubicación B</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">10</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="/public/assets/images/logo_flecha_izq.svg" alt="" />
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="/public/assets/images/logo_flecha_der.svg" alt="" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </template>
+
+    <template id="seleccionar_informe_desktop">
+        <div class="container">
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
+            </div>
+        </div>
+        <hr />
+
+        <div class="container">
+            <select class="form-select form-select_modificado" aria-label="Default select example">
+                <option selected>Tipo de Estadística</option>
+                <option value="1">Estadística 01</option>
+                <option value="2">Estadística 02</option>
+                <option value="3">Estadística 03</option>
+            </select>
+        </div>
+    </template>
+
+    <template id="filtros_informe_mov_pro_desktop">
+        <div class="container">
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
+            </div>
+        </div>
+        <hr />
+        <div class="container position-relative alto_maximo">
+            <select class="form-select form-select_modificado" aria-label="Default select example">
+                <option selected>Tipo de Estadística</option>
+                <option value="1">Estadística 01</option>
+                <option value="2">Estadística 02</option>
+                <option value="3">Estadística 03</option>
+            </select>
+
+            <h2 class="text-center my-5">Movimientos del Producto</h2>
+
+            <div class="d-flex justify-content-between">
+                <div class="d-flex gap-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <option selected>Despliegue el menú</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label for="floatingSelect">Seleccionar Producto</label>
+                    </div>
+
+                    <form class="form-floating mb-2">
+                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Desde</label>
+                    </form>
+
+                    <form class="form-floating mb-2">
+                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Hasta</label>
+                    </form>
+                </div>
+                <button class="btn btn-general">Generar</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- <template id="Estadisticas/Estadistica 1 con grafico"> // Falta realizar los graficos
+        <div class="container">
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
+            </div>
+        </div>
+        <hr />
+        <div class="container position-relative alto_maximo">
+            <select class="form-select form-select_modificado" aria-label="Default select example">
+                <option selected>Tipo de Estadística</option>
+                <option value="1">Estadística 01</option>
+                <option value="2">Estadística 02</option>
+                <option value="3">Estadística 03</option>
+            </select>
+
+            <h2 class="text-center my-5">Movimientos del Producto</h2>
+
+            <div class="d-flex justify-content-between">
+                <div class="d-flex gap-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <option selected>Despliegue el menú</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label for="floatingSelect">Seleccionar Producto</label>
+                    </div>
+
+                    <form class="form-floating mb-2">
+                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Desde</label>
+                    </form>
+
+                    <form class="form-floating mb-2">
+                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Hasta</label>
+                    </form>
+                </div>
+
+                <button class="btn btn-general">Generar</button>
+            </div>
+
+            <div class="alto_maximo">
+
+            </div>
+
+        </div>
+    </template> -->
+
+    <template id="filtros_informe_categorias_desktop">
+        <div class="container">
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
+            </div>
+        </div>
+        <hr />
+
+        <div class="container position-relative alto_maximo">
+            <select class="form-select form-select_modificado" aria-label="Default select example">
+                <option selected>Tipo de Estadística</option>
+                <option value="1">Estadística 01</option>
+                <option value="2">Estadística 02</option>
+                <option value="3">Estadística 03</option>
+            </select>
+
+            <h2 class="text-center my-5">Categoría más vendidas</h2>
+
+            <div class="d-flex justify-content-between">
+                <div class="d-flex gap-3">
+                    <form class="form-floating mb-2">
+                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Desde</label>
+                    </form>
+
+                    <form class="form-floating mb-2">
+                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Hasta</label>
+                    </form>
+                </div>
+                <button class="btn btn-general">Generar</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- <template id="Estadisticas/Estadistica 2 con grafico"> // Falta realizar los graficos
+        <div class="container">
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
+            </div>
+        </div>
+        <hr />
+
+        <div class="container position-relative alto_maximo">
+            <select class="form-select form-select_modificado" aria-label="Default select example">
+                <option selected>Tipo de Estadística</option>
+                <option value="1">Estadística 01</option>
+                <option value="2">Estadística 02</option>
+                <option value="3">Estadística 03</option>
+            </select>
+
+            <h2 class="text-center my-5">Movimientos Almacén</h2>
+
+            <div class="d-flex justify-content-between">
+                <div class="d-flex gap-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <option selected>Despliegue el menú</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label for="floatingSelect">Seleccionar Almacén</label>
+                    </div>
+
+                    <form class="form-floating mb-2">
+                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Desde</label>
+                    </form>
+
+                    <form class="form-floating mb-2">
+                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Hasta</label>
+                    </form>
+                </div>
+                <button class="btn btn-general">Generar</button>
+            </div>
+
+            <div class="alto_maximo">
+
+            </div>
+        </div>
+    </template> -->
+
+    <template id="Estadisticas/Estadistica 3">
+        <div class="container">
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
+            </div>
+        </div>
+        <hr />
+
+        <div class="container position-relative alto_maximo">
+            <select class="form-select form-select_modificado" aria-label="Default select example">
+                <option selected>Tipo de Estadística</option>
+                <option value="1">Estadística 01</option>
+                <option value="2">Estadística 02</option>
+                <option value="3">Estadística 03</option>
+            </select>
+
+            <h2 class="text-center my-5">Movimientos en Almacenes</h2>
+
+            <div class="d-flex justify-content-between">
+                <div class="d-flex gap-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <option selected>Despliegue el menú</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label for="floatingSelect">Seleccionar Almacén</label>
+                    </div>
+
+                    <form class="form-floating mb-2">
+                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Desde</label>
+                    </form>
+
+                    <form class="form-floating mb-2">
+                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Hasta</label>
+                    </form>
+                </div>
+                <button class="btn btn-general">Generar</button>
+            </div>
+        </div>
+    </template>
+
+    <!-- <template id="Estadisticas/Estadistica 3 con grafico"> // Falta realizar los graficos
+        <div class="container">
+            <div class="encabezado">
+                <h1>Estadísticas</h1>
+            </div>
+        </div>
+        <hr />
+
+        <div class="container position-relative alto_maximo">
+            <select class="form-select form-select_modificado" aria-label="Default select example">
+                <option selected>Tipo de Estadística</option>
+                <option value="1">Estadística 01</option>
+                <option value="2">Estadística 02</option>
+                <option value="3">Estadística 03</option>
+            </select>
+
+            <h2 class="text-center my-5">Movimientos en Almacenes</h2>
+
+            <div class="d-flex justify-content-between">
+                <div class="d-flex gap-3">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                            <option selected>Despliegue el menú</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                        <label for="floatingSelect">Seleccionar Almacén</label>
+                    </div>
+
+                    <form class="form-floating mb-2">
+                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Desde</label>
+                    </form>
+
+                    <form class="form-floating mb-2">
+                        <input type="date" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            value="Cra. 93 #80c-72" />
+                        <label for="floatingInputValue">Hasta</label>
+                    </form>
+                </div>
+                <button class="btn btn-general">Generar</button>
+            </div>
+
+            <div class="alto_maximo">
+
+            </div>
+
+        </div>
+    </template> -->
+
+    <template id="perfiles_vacia_desktop">
+        <div class="container encabezado">
+            <h1>Perfíles</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div> 
+        <hr />
+        <div class="container sin-opciones">
+            <h2>
+                ¿No tienes perfiles? <a href="">Haz clic aquí para crear uno.</a>
+            </h2>
+        </div>
+    </template>
+
+    <template id="crear_perfil_desktop">
+        <div class="container">
+            <div class="encabezado d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>Perfiles</h1>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container container_min_height d-flex justify-content-center">
+            <section class="d-flex flex-column registro-perfil">
+                <h1 class="text-center mb-2">Crear Perfil</h1>
+                <form class="form-floating mb-2">
+                    <input type="text" class="form-control form-select_modificado" id="floatingInputValue"
+                        placeholder=""/>
+                    <label for="floatingInputValue">Nombre Completo</label>
+                </form>
+
+                <select class="form-select form-select_modificado mb-2"
+                    aria-label="Default select example">
+                    <option selected>Tipo de Documento</option>
+                    <option value="1">Cedula de Ciudadania</option>
+                    <option value="2">Cedula de Extranjeria</option>
+                    <option value="3">Rut</option>
+                </select>
+
+                <form class="form-floating mb-2">
+                    <input type="number" class="form-control form-select_modificado" id="floatingInputValue"
+                        placeholder=""/>
+                    <label for="floatingInputValue">Numero de Documento</label>
+                </form>
+
+                <form class="form-floating mb-2">
+                    <input type="email" class="form-control form-select_modificado" id="floatingInputValue"
+                        placeholder=""/>
+                    <label for="floatingInputValue">Correo Electronico</label>
+                </form>
+
+                <form class="form-floating mb-2">
+                    <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
+                        placeholder=""/>
+                    <label for="floatingInputValue">Contraseña</label>
+                </form>
+
+                <form class="form-floating mb-2">
+                    <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
+                        placeholder=""/>
+                    <label for="floatingInputValue">Repetir Contraseña</label>
+                </form>
+
+                <button class="btn btn-general ">Crear</button>
+            </section>
+        </div>
+    </template>
+
+    <template id="perfiles_con_inf_desktop">
+        <div class="container encabezado">
+            <h1>Perfíles</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+            <button class="btn btn-general ms-auto">Crear Perfil</button>
+        </div> 
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 ">Nombre Perfil</span>
+                        </th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 ">Rol</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p class="espacion-izq">Pepito Perez</p>
+                            </div>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Administrador</p>
+                        </td>
+                        <td class="text-end">
+                            <button class="btn btn_editar_categoria">
+                                <img src="/public/assets/images/lapiz_editar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <template id="editar_perfiles_desktop">
+        <div class="container encabezado">
+            <h1>Perfíles</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div> 
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 ">Nombre Perfil</span>
+                        </th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 ">Rol</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                
+                <tbody>
+                    <tr>
+                        <th scope="row" class="td-body-tabla">
+                            <input id="input_modificado" class="form-control form-select_modificado" type="text"
+                                class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="Nuevo nombre de Perfil" />
+                        </th>
+                        <th scope="row" class="td-body-tabla">
+                            <select class="form-select form-select_modificado" aria-label="Default select example">
+                                <option selected>Escoger Tipo de Rol</option>
+                                <option value="1">Rol 01</option>
+                                <option value="2">Rol 02</option>
+                                <option value="3">Rol 03</option>
+                            </select>
+                        </th>
+                        <td class="text-end align-middle">
+                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <img src="/public/assets/images/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
+
+    <template id="eliminar_perfiles_desktop">
+        <div class="container encabezado">
+            <h1>Perfíles</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="/public/assets/images/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div> 
+        <hr />
+        <div class="container container_min_height position-relative">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 ">Nombre Perfil</span>
+                        </th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="/public/assets/images/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 ">Rol</span>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="form-check td-body-tabla div_input_p_tabla">
+                                <input class="form-check-input" type="checkbox" value="">
+                                <p class="espacion-izq">Pepito Perez</p>
+                            </div>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Administrador</p>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
+        </div>
+    </template>
+
+    <template id="terminos_condiciones_desktop">
+        <div class="container">
+            <div class="encabezado d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>Términos y Condiciones</h1>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <p class="element-with-padding text-justify menu__paragraph">Lorem ipsum dolor sit amet consectetur. Viverra a
+                rhoncus consectetur quam eget praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit
+                sodales. Viverra vitae lectus neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis
+                suspendisse. Consequat tellus vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla
+                tincidunt laoreet semper. Nec augue massa libero est.
+                At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi adipiscing
+                integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut tempus. Eget duis lectus
+                ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit et egestas consectetur. Blandit
+                ut risus blandit pharetra tortor sagittis interdum. Id phasellus urna arcu accumsan et faucibus. Purus
+                arcu ultrices diam donec. Nunc tincidunt est volutpat egestas amet in. Pellentesque eleifend tellus mi
+                ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.
+                Nulla nisl neque elit viverra mauris. Imperdiet neque magna id vestibulum eu id nisi. In vestibulum
+                pellentesque sed ultrices ultrices et. Donec imperdiet diam arcu vulputate nulla pellentesque
+                consectetur dignissim. Adipiscing diam lectus fermentum urna eu mi cras ornare. Justo ipsum bibendum
+                feugiat sagittis mollis dapibus id. Mattis vel ultricies augue orci. Est amet viverra hac ultrices id
+                cursus semper amet tristique. Bibendum elit viverra ullamcorper sagittis nibh penatibus. Enim vivamus
+                tincidunt in id mattis ornare est nunc. Enim eget viverra non aliquet nisl sem lectus nisl.
+                Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor suspendisse viverra
+                pellentesque. Urna interdum augue mi est commodo in est etiam nunc. Pulvinar scelerisque quis odio lorem
+                blandit id id auctor mi. Nulla ullamcorper nisi ac amet. Consequat sed a dui mauris. Ut et convallis
+                tortor convallis blandit eget tempor eget. Tellus arcu odio id ut egestas sit sed non. Et varius
+                dictumst facilisi malesuada felis.
+                Pulvinar massa eu non mi blandit venenatis tellus ornare ligula. Tristique ultrices orci feugiat platea
+                nibh turpis id turpis augue. Ut quisque ut placerat et. Sociis dolor semper ut maecenas. Dui bibendum id
+                massa varius vitae at urna odio. Pulvinar interdum ipsum quisque morbi sodales nibh quam. Volutpat ipsum
+                elementum volutpat hac cras et sit at sem. Mauris ultrices auctor ullamcorper lectus diam viverra
+                scelerisque. Quis felis id nulla id viverra sodales sem congue integer.
+                Sed molestie consequat elementum id tellus tortor condimentum imperdiet. Magna dictumst molestie at
+                gravida mauris. Blandit dui eget faucibus in augue. Eget in feugiat egestas orci. Ac porttitor sapien
+                orci amet purus est sit. Molestie id aliquam odio elit feugiat amet. Commodo duis est mi faucibus odio
+                euismod lectus maecenas vitae. Ac nisl nisl ultrices risus turpis fames lacinia massa consectetur. Sed
+                tellus condimentum nunc ornare orci viverra interdum.
+                In ut dignissim pretium lacus senectus bibendum vestibulum ultrices. Pulvinar amet luctus cras in. Lorem
+                eu arcu vitae a lectus sagittis. Scelerisque morbi diam pretium morbi consectetur posuere. Velit turpis
+                pretium risus eu. Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam eget
+                praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit sodales. Viverra vitae lectus
+                neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis suspendisse. Consequat tellus
+                vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla tincidunt laoreet semper. Nec augue
+                massa libero est.
+                At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi adipiscing
+                integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut tempus. Eget duis lectus
+                ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit et egestas consectetur. Blandit
+                ut risus blandit pharetra tortor sagittis interdum. Id phasellus urna arcu accumsan et faucibus. Purus
+                arcu ultrices diam donec. Nunc tincidunt est volutpat egestas amet in. Pellentesque eleifend tellus mi
+                ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.</p>
+        </div>
+    </template>
+
+    <template id="politicas_privacidad_desktop">
+        <div class="container">
+            <div class="encabezado d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>Políticas de Privacidad</h1>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <p class="element-with-padding text-justify menu__paragraph">Lorem ipsum dolor sit amet consectetur. Viverra a
+                rhoncus consectetur quam eget praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit
+                sodales. Viverra vitae lectus neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis
+                suspendisse. Consequat tellus vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla
+                tincidunt laoreet semper. Nec augue massa libero est.
+                At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi adipiscing
+                integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut tempus. Eget duis lectus
+                ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit et egestas consectetur. Blandit
+                ut risus blandit pharetra tortor sagittis interdum. Id phasellus urna arcu accumsan et faucibus. Purus
+                arcu ultrices diam donec. Nunc tincidunt est volutpat egestas amet in. Pellentesque eleifend tellus mi
+                ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.
+                Nulla nisl neque elit viverra mauris. Imperdiet neque magna id vestibulum eu id nisi. In vestibulum
+                pellentesque sed ultrices ultrices et. Donec imperdiet diam arcu vulputate nulla pellentesque
+                consectetur dignissim. Adipiscing diam lectus fermentum urna eu mi cras ornare. Justo ipsum bibendum
+                feugiat sagittis mollis dapibus id. Mattis vel ultricies augue orci. Est amet viverra hac ultrices id
+                cursus semper amet tristique. Bibendum elit viverra ullamcorper sagittis nibh penatibus. Enim vivamus
+                tincidunt in id mattis ornare est nunc. Enim eget viverra non aliquet nisl sem lectus nisl.
+                Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor suspendisse viverra
+                pellentesque. Urna interdum augue mi est commodo in est etiam nunc. Pulvinar scelerisque quis odio lorem
+                blandit id id auctor mi. Nulla ullamcorper nisi ac amet. Consequat sed a dui mauris. Ut et convallis
+                tortor convallis blandit eget tempor eget. Tellus arcu odio id ut egestas sit sed non. Et varius
+                dictumst facilisi malesuada felis.
+                Pulvinar massa eu non mi blandit venenatis tellus ornare ligula. Tristique ultrices orci feugiat platea
+                nibh turpis id turpis augue. Ut quisque ut placerat et. Sociis dolor semper ut maecenas. Dui bibendum id
+                massa varius vitae at urna odio. Pulvinar interdum ipsum quisque morbi sodales nibh quam. Volutpat ipsum
+                elementum volutpat hac cras et sit at sem. Mauris ultrices auctor ullamcorper lectus diam viverra
+                scelerisque. Quis felis id nulla id viverra sodales sem congue integer.
+                Sed molestie consequat elementum id tellus tortor condimentum imperdiet. Magna dictumst molestie at
+                gravida mauris. Blandit dui eget faucibus in augue. Eget in feugiat egestas orci. Ac porttitor sapien
+                orci amet purus est sit. Molestie id aliquam odio elit feugiat amet. Commodo duis est mi faucibus odio
+                euismod lectus maecenas vitae. Ac nisl nisl ultrices risus turpis fames lacinia massa consectetur. Sed
+                tellus condimentum nunc ornare orci viverra interdum.
+                In ut dignissim pretium lacus senectus bibendum vestibulum ultrices. Pulvinar amet luctus cras in. Lorem
+                eu arcu vitae a lectus sagittis. Scelerisque morbi diam pretium morbi consectetur posuere. Velit turpis
+                pretium risus eu. Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam eget
+                praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit sodales. Viverra vitae lectus
+                neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis suspendisse. Consequat tellus
+                vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla tincidunt laoreet semper. Nec augue
+                massa libero est.
+                At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi adipiscing
+                integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut tempus. Eget duis lectus
+                ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit et egestas consectetur. Blandit
+                ut risus blandit pharetra tortor sagittis interdum. Id phasellus urna arcu accumsan et faucibus. Purus
+                arcu ultrices diam donec. Nunc tincidunt est volutpat egestas amet in. Pellentesque eleifend tellus mi
+                ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.</p>
+        </div>
+    </template>
+
+    <template id="ajustes_usuario_desktop">
+        <div class="container">
+            <div class="encabezado d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>Ajustes del Usuario</h1>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container container_min_height position-relative">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                        </th>
+                        <th scope="col" class="">
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Nombre de Usuario</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ej: Administrador</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Tipo de Documento</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ej: Cedula de Ciudadania</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Numero de Documento</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ej: 123456789</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Correo Electronico</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">administrador@gmail.com</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Contraseña</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">********</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-general position-absolute bottom-0 end-0">Editar</button>
+    </template>
+
+    <template id="editar_usuario_desktop">
+        <div class="container">
+            <div class="encabezado d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>Ajustes del Usuario</h1>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container container_min_height position-relative">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                        </th>
+                        <th scope="col" class="">
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Nombre de Usuario</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <form class="form-floating">
+                                <input type="text" class="form-control form-select_modificado"
+                                    placeholder=""/>
+                                <label for="floatingInputValue">Nuevo nombre de Usuario</label>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Tipo de Documento</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <select class="form-select form-select_modificado mb-2"
+                            aria-label="Default select example">
+                                <option selected>Tipo de Documento</option>
+                                <option value="1">Cedula de Ciudadania</option>
+                                <option value="2">Cedula de Extranjeria</option>
+                                <option value="3">Rut</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Numero de Documento</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <form class="form-floating">
+                                <input type="number" class="form-control form-select_modificado"
+                                    placeholder=""/>
+                                <label for="floatingInputValue">Numero de Documento</label>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Correo Electronico</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <form class="form-floating">
+                                <input type="email" class="form-control form-select_modificado"
+                                    placeholder=""/>
+                                <label for="floatingInputValue">Correo Electronico</label>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Contraseña</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <form class="form-floating">
+                                <input type="password" class="form-control form-select_modificado"
+                                    placeholder=""/>
+                                <label for="floatingInputValue">Nueva Contraseña</label>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Repetir Contraseña</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <form class="form-floating">
+                                <input type="password" class="form-control form-select_modificado"
+                                    placeholder="" />
+                                <label for="floatingInputValue">Repetir Nueva Contraseña</label>
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-general position-absolute bottom-0 end-0">Guardar</button>
+        </div>
+    </template>
+
+    <template id="ayuda_desktop">
+        <div class="container">
+            <div class="encabezado d-flex justify-content-between">
+                <div class="d-flex align-items-center">
+                    <h1>Ayuda</h1>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <p class="element-with-padding text-justify">Pasos para utilizar la aplicaci</p>
+            <ol class="element-with-padding text-justify">
+                <li>
+                    <p class="menu__paragraph">Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam
+                        eget praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit sodales. Viverra
+                        vitae lectus neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis
+                        suspendisse. Consequat tellus vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas
+                        nulla tincidunt laoreet semper. Nec augue massa libero est.</p>
+                </li>
+                <li>
+                    <p class="menu__paragraph">At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris
+                        nec. Facilisi adipiscing integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed
+                        nam ut tempus. Eget duis lectus ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut
+                        nec sit et egestas consectetur. Blandit ut risus blandit pharetra tortor sagittis interdum. Id
+                        phasellus urna arcu accumsan et faucibus. Purus arcu ultrices diam donec. Nunc tincidunt est
+                        volutpat egestas amet in. Pellentesque eleifend tellus mi ornare nec interdum eu congue netus.
+                        Gravida vulputate aenean quam molestie urna viverra ipsum.
+                        Nulla nisl neque elit viverra mauris. Imperdiet neque magna id vestibulum eu id nisi. In
+                        vestibulum pellentesque sed ultrices ultrices et. Donec imperdiet diam arcu vulputate nulla
+                        pellentesque consectetur dignissim. Adipiscing diam lectus fermentum urna eu mi cras ornare.
+                        Justo ipsum bibendum feugiat sagittis mollis dapibus id. Mattis vel ultricies augue orci. Est
+                        amet viverra hac ultrices id cursus semper amet tristique. Bibendum elit viverra ullamcorper
+                        sagittis nibh penatibus. Enim vivamus tincidunt in id mattis ornare est nunc. Enim eget viverra
+                        non aliquet nisl sem lectus nisl.</p>
+                </li>
+                <li>
+                    <p class="menu__paragraph">Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor
+                        suspendisse viverra pellentesque. Urna interdum augue mi est commodo in est etiam nunc. Pulvinar
+                        scelerisque quis odio lorem blandit id id auctor mi. Nulla ullamcorper nisi ac amet. Consequat
+                        sed a dui mauris. Ut et convallis tortor convallis blandit eget tempor eget. Tellus arcu odio id
+                        ut egestas sit sed non. Et varius dictumst facilisi malesuada felis.
+                        Pulvinar massa eu non mi blandit venenatis tellus ornare ligula. Tristique ultrices orci feugiat
+                        platea nibh turpis id turpis augue. Ut quisque ut placerat et. Sociis dolor semper ut maecenas.
+                        Dui bibendum id massa varius vitae at urna odio. Pulvinar interdum ipsum quisque morbi sodales
+                        nibh quam. Volutpat ipsum elementum volutpat hac cras et sit at sem. Mauris ultrices auctor
+                        ullamcorper lectus diam viverra scelerisque. Quis felis id nulla id viverra sodales sem congue
+                        integer.</p>
+                </li>
+                <li>
+                    <p class="menu__paragraph">Sed molestie consequat elementum id tellus tortor condimentum imperdiet.
+                        Magna dictumst molestie at gravida mauris. Blandit dui eget faucibus in augue. Eget in feugiat
+                        egestas orci. Ac porttitor sapien orci amet purus est sit. Molestie id aliquam odio elit feugiat
+                        amet. Commodo duis est mi faucibus odio euismod lectus maecenas vitae. Ac nisl nisl ultrices
+                        risus turpis fames lacinia massa consectetur. Sed tellus condimentum nunc ornare orci viverra
+                        interdum.
+                        In ut dignissim pretium lacus senectus bibendum vestibulum ultrices. Pulvinar amet luctus cras
+                        in. Lorem eu arcu vitae a lectus sagittis. Scelerisque morbi diam pretium morbi consectetur
+                        posuere. Velit turpis pretium risus eu. Lorem ipsum dolor sit amet consectetur. Viverra a
+                        rhoncus consectetur quam eget praesent hac vel. Egestas neque vivamus nisi sit mauris massa
+                        suscipit sodales. Viverra vitae lectus neque suscipit diam sed nunc. Eu malesuada in pretium
+                        congue aliquet quis suspendisse. Consequat tellus vivamus magna eu dui. In vel felis feugiat
+                        risus eu a. Egestas nulla tincidunt laoreet semper. Nec augue massa libero est.</p>
+                </li>
+            </ol>\
+        </div>
+    </template>
+
+    <script src="./app/controllers/controler.js"></script>
+    <script src="./public/assets/scripts/main.js"></script>
+</body>
+
+</html>
+
