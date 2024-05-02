@@ -53,5 +53,29 @@ class Vista {
       cont.appendChild(clone);
     }
   }
-}
 
+  
+  /**
+   * Metodo para quitar o poner clases
+   */
+  identificar_tamaño(){
+    const tamañoPantalla = window.matchMedia('(max-width: 768px)');
+    cla
+
+    function cambiar_clases_main(tamañoPantalla,contenedor_etiqueta, ){
+
+      if(tamañoPantalla.matches){
+        document.getElementById("contenedor_principal").classList.remove("container-fluid","container_main");
+        document.getElementById("contenedor_principal").classList.add("overflow-y-scroll");
+      }
+      else{
+        document.getElementById("contenedor_principal").classList.remove("overflow-y-scroll");  
+        document.getElementById("contenedor_principal").classList.add("container-fluid","container_main");
+      }
+    }
+    cambiar_clases_main(tamañoPantalla);
+
+    tamañoPantalla.addEventListener(cambiar_clases_main)
+
+  }
+}
