@@ -3,12 +3,14 @@
  */
 
 let vista = new Vista();
-
+const cambio_clases = []
 
 window.onload = function(){
     vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
     vista.mostrar_plantilla("nav_sup_sin_menu","navegador_sup")
 }
+
+vista.identificar_tamaño2("contenedor_principal",cambio_clases)
 
 function regresar_pantalla(){
     vista.regresar_pantalla();
