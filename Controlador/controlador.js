@@ -3,14 +3,26 @@
  */
 
 let vista = new Vista();
-const cambio_clases = []
+const lista_clases_main_desktop = [ 'container-fluid', 'container_main' ];
+const lista_clases_main_mobile = [ 'overflow-y-scroll' ];
+
+const tamañoPantalla = window.matchMedia('(max-width: 768px)');
+
+window.addEventListener('resize', cambio_clases);
+function cambio_clases(){
+    if(tamañoPantalla.matches){
+        vista.cambiarClases("contenedor_principal", lista_clases_main_mobile);
+    }
+    else{
+        vista.cambiarClases("contenedor_principal", lista_clases_main_desktop);
+    }
+}
 
 window.onload = function(){
     vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
-    vista.mostrar_plantilla("nav_sup_sin_menu","navegador_sup")
+    vista.mostrar_plantilla("nav_sup_sin_menu","navegador_sup");
+    cambio_clases();
 }
-
-vista.identificar_tamaño2("contenedor_principal",cambio_clases)
 
 function regresar_pantalla(){
     vista.regresar_pantalla();
@@ -22,13 +34,21 @@ function regresar_pantalla(){
 // Funciones para acciones del la pantalla Inicio
 
 function mostrar_form_registro_usuario(){
-    vista.mostrar_plantilla("registro_usuario", "contenedor_principal", 1);
-    vista.mostrar_plantilla("nav_inf_reg","navegador_inf")
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("registro_usuario", "contenedor_principal", 1);
+        vista.mostrar_plantilla("nav_inf_reg","navegador_inf")
+    }
+    else{
+        vista.mostrar_plantilla("registro_usuario_desktop", "contenedor_principal", 1);
+    }
+    cambio_clases();
+
 }
 
 function mostrar_form_login(){
     vista.mostrar_plantilla("log_in", "contenedor_principal", 1);
     vista.mostrar_plantilla("nav_inf_login","navegador_inf");
+
 }
 
 // Funciones acciones de las pantallas Registro de Usuario y Log In

@@ -54,42 +54,18 @@ class Vista {
     }
   }
 
-  
   /**
-   * Metodo para quitar o poner clases
+   * Metodo para cambiar las clases de un contenedor
+   * @param {*} contenedor_etiqueta 
+   * @param {*} lista_clases 
    */
 
-  // identificar_tamaño(){
-  //   const tamañoPantalla = window.matchMedia('(max-width: 768px)');
-  //   cla
-
-  //   function cambiar_clases_main(tamañoPantalla,contenedor_etiqueta, ){
-
-  //     if(tamañoPantalla.matches){
-  //       document.getElementById("contenedor_principal").classList.remove("container-fluid","container_main");
-  //       document.getElementById("contenedor_principal").classList.add("overflow-y-scroll");
-  //     }
-  //     else{
-  //       document.getElementById("contenedor_principal").classList.remove("overflow-y-scroll");  
-  //       document.getElementById("contenedor_principal").classList.add("container-fluid","container_main");
-  //     }
-  //   }
-  //   cambiar_clases_main(tamañoPantalla);
-
-  //   tamañoPantalla.addEventListener(cambiar_clases_main)
-  // }
-
-  identificar_tamaño2(contenedor_etiqueta,lista_clases){
-    const tamañoPantalla = window.matchMedia('(max-width: 768px)');
-
-    if(tamañoPantalla.matches){
-      document.getElementById(contenedor_etiqueta).classList.remove(lista_clases);
-      document.getElementById(contenedor_etiqueta).classList.add(lista_clases)
-    }
-
-    else{
-      document.getElementById(contenedor_etiqueta).classList.remove(lista_clases);
-      document.getElementById(contenedor_etiqueta).classList.remove(lista_clases);
+  cambiarClases( contenedor_etiqueta,lista_clases ){
+    let contenedor = document.getElementById( contenedor_etiqueta );
+    contenedor.className = "";
+    for( let nombre_clase of lista_clases ){
+      contenedor.classList.add(nombre_clase);
     }
   }
 }
+
