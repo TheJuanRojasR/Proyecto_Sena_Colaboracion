@@ -314,3 +314,30 @@ function mostrar_terminos_condiciones(){
         vista.mostrar_plantilla("terminos_condiciones_desktop", "contenedor_principal", 1);
     }
 }
+
+function mostrar_politicas_privacidad(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("politicas_privacidad", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("politicas_privacidad_desktop", "contenedor_principal", 1);
+    }
+}
+
+function mostrar_ajustes_usuario(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("ajustes_usuario", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("ajustes_usuario_desktop", "contenedor_principal", 1);
+    }
+}
+
+function mostrar_ayuda(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("ayuda", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("ayuda_desktop", "contenedor_principal", 1);
+    }
+}
