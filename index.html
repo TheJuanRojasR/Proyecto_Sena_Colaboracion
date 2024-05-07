@@ -42,75 +42,92 @@
 <body class="d-flex flex-column justify-content-between">
     <!-- Barra superior -->
     <nav class="navbar navbar-expand-md" id="navegador_sup">
-        <div class="container-fluid" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
-            <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
-                <img src="./Assets/img/logo-layout.png" alt="Variety Vault">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
             </a>
-            <button class="navbar-toggler" id="contenedor_menu_desplegable" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <!-- Boton de menu desplegable -->
-                <img src="./Assets/img/menu-menu-alt-02.svg" alt="">
-            </button>
-            <div class="offcanvas offcanvas-end overflow-y-scroll" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel"> <!-- Contenido menu desplegable -->
-                <div class="offcanvas-header"> <!-- Header del menu desplegable -->
-                    <button type="button" class="btn" onclick="mostrar_busqueda()"> <!-- Boton de busqueda -->
-                        <img src="./Assets/img/interface-search-magnifying-glass.svg" alt="">
-                    </button>
-                    <button type="button" class="btn"> <!-- Boton de cierre -->
-                        <img src="./Assets/img/logo_cerrar_x.svg" alt="">
-                    </button>
-                </div>
-                <div class="offcanvas-body"> <!-- Cuerpo del menu desplegable -->
-                    <div class="contenido_offcanvas">
-                        <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
-                            <p>Menu</p>
-                        </div>
-                        <div id="icono_usuario"> <!-- Icono del usuario -->
-                            <img src="./Assets/img/user-user-circle.svg" alt="">
-                        </div>
-                        <!-- Opciones del menu hamburguesa -->
-                        <div class="cont_opc_menu_ham">
-                            <button type="button" class="btn btn_transparente">Terminos y Condiciones</button>
-                        </div>
-                        <div class="cont_opc_menu_ham">
-                            <button type="button" class="btn btn_transparente">
-                                Politicas de Privacidad
-                            </button>
-                        </div>
-                        <div class="cont_opc_menu_ham">
-                            <button type="button" class="btn btn_transparente">
-                                Ajustes de usuario
-                            </button>
-                        </div>
-                        <div class="cont_opc_menu_ham">
-                            <button type="button" class="btn btn_transparente">
-                                Ayuda
-                            </button>
-                        </div>
-                        <div class="cont_opc_menu_ham">
-                            <button type="button" class="btn btn_transparente">
-                                Cerrar Sesion
-                            </button>
-                        </div>
-                    </div>
-                </div>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#" onclick="mostrar_inv_vacia()">Inventarios</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Operaciones
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="mostrar_movimientos_vacia()" >Entradas/Salidas</a></li>
+                            <li><a class="dropdown-item" href="#"  onclick="mostrar_form_crear_entrada()">Crear entrada</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="mostrar_form_crear_salida()">Crear salida</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Stock
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="mostrar_stock_vacia()">Stock</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="mostrar_abastecimiento()">Abastecimiento</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="mostrar_seleccionar_informe()">Informes</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="mostrar_perfiles_vacia()">Perfiles</a>
+                    </li>
+                </ul>
+
+                <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img src="./Assets/img/user.svg" alt="">
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Contenido de la pagina -->
-    <main id="contenedor_principal" class="container-fluid container_main ">
-        <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
-            <div class="container d-flex flex-column justify-content-end contenedor_boton">
-                <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_form_login()">
-                    Iniciar Sesion
-                </button>
-                <button class="btn boton_claro_largo" type="button" onclick="mostrar_form_registro_usuario()">
-                    Registrarse
-                </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="contenido_offcanvas d-flex flex-column">
+                <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
+                    <p>Menu</p>
+                </div>
+                <!-- Opciones del menu desplegable -->
+                <div class="mt-auto">
+                    <div id="term_condi">
+                        <a href="" class="color_inherit text-decoration-none" onclick="mostrar_terminos_condiciones()">Terminos y Condiciones</a>
+                    </div>
+                    <div id="politicas_priv">
+                        <a href="" class="color_inherit text-decoration-none">Politicas de Privacidad</a>
+                    </div>
+                    <div id="ajustes_usu">
+                        <a href="" class="color_inherit text-decoration-none">Ajustes de usuario</a>
+                    </div>
+                    <div id="ayuda">
+                        <a href="" class="color_inherit text-decoration-none">Ayuda</a>
+                    </div>
+                    <div id="cerrar_ses">
+                        <a href="" class="color_inherit text-decoration-none">Cerrar Sesion</a>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+
+    <!-- Contenido de la pagina -->
+    <main id="contenedor_principal" class="container-fluid container_main ">
+        
     </main>
 
     <!-- Navegador Inferior -->
@@ -336,7 +353,7 @@
             <div class="menu_un_btn"> <!-- Boton circular con una opcion -->
                 <div class="btn_main d-flex justify-content-center">
                     <button class="btn crear" type="button" onclick="mostrar_form_crear_inv()">
-                        <img src="./Assets/img/plus.svg" alt="" class="img_big">
+                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
                     </button>
                 </div>
             </div>
@@ -410,7 +427,7 @@
             <div class="menu_un_btn"> <!-- Boton circular con una opcion -->
                 <div class="btn_main d-flex justify-content-center"> <!-- Boton principal -->
                     <button class="btn crear" type="button" onclick="mostrar_form_crear_inv()">
-                        <img src="./Assets/img/plus.svg" alt="" class="img_big">
+                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
                     </button>
                 </div>
             </div>
@@ -538,7 +555,7 @@
                 <div class="btn_main d-flex justify-content-center">
                     <!-- Boton principal para desplegar botones superiores -->
                     <button class="btn crear" type="button">
-                        <img src="./Assets/img/plus.svg" alt="" class="img_big">
+                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
                     </button>
                 </div>
             </div>
@@ -700,7 +717,7 @@
                 <div class="btn_main d-flex justify-content-center">
                     <!-- Boton principal para desplegar botones superiores -->
                     <button class="btn crear" type="button">
-                        <img src="./Assets/img/plus.svg" alt="" class="img_big">
+                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
                     </button>
                 </div>
             </div>
@@ -733,7 +750,7 @@
                 <div class="btn_main d-flex justify-content-center">
                     <!-- Boton principal para desplegar botones superiores -->
                     <button class="btn crear" type="button">
-                        <img src="./Assets/img/plus.svg" alt="" class="img_big">
+                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
                     </button>
                 </div>
             </div>
@@ -825,7 +842,7 @@
                 <div class="btn_main d-flex justify-content-center">
                     <!-- Boton principal para desplegar botones superiores -->
                     <button class="btn crear" type="button">
-                        <img src="./Assets/img/plus.svg" alt="" class="img_big">
+                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
                     </button>
                 </div>
             </div>
@@ -894,7 +911,7 @@
             <div class="menu_un_btn"> <!-- Boton circular con una opcion -->
                 <div class="btn_main d-flex justify-content-center"> <!-- Boton principal -->
                     <button class="btn crear" type="button" onclick="mostrar_form_crear_categoria()">
-                        <img src="./Assets/img/plus.svg" alt="" class="img_big">
+                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
                     </button>
                 </div>
             </div>
@@ -957,7 +974,7 @@
             <div class="menu_un_btn"> <!-- Boton circular con una opcion -->
                 <div class="btn_main d-flex justify-content-center"> <!-- Boton principal -->
                     <button class="btn crear" type="button" onclick="mostrar_form_crear_categoria()">
-                        <img src="./Assets/img/plus.svg" alt="" class="img_big">
+                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
                     </button>
                 </div>
             </div>
@@ -1382,7 +1399,7 @@
             <div class="menu_un_btn"> <!-- Boton circular con una opcion -->
                 <div class="btn_main d-flex justify-content-center"> <!-- Boton principal -->
                     <button class="btn crear" type="button" onclick="mostrar_form_crear_perfil()">
-                        <img src="./Assets/img/plus.svg" alt="" class="img_big">
+                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
                     </button>
                 </div>
             </div>
@@ -1464,7 +1481,7 @@
             <div class="menu_un_btn"> <!-- Boton circular con una opcion -->
                 <div class="btn_main d-flex justify-content-center"> <!-- Boton principal -->
                     <button class="btn crear" type="button">
-                        <img src="./Assets/img/plus.svg" alt="" class="img_big">
+                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
                     </button>
                 </div>
             </div>
@@ -1763,7 +1780,7 @@
             <div class="btn_main d-flex justify-content-center">
                 <!-- Boton principal para desplegar botones superiores -->
                 <button class="btn crear" type="button">
-                    <img src="./Assets/img/plus.svg" alt="" class="img_big">
+                    <img src="./Assets/img/Add.svg" alt="" class="img_big">
                 </button>
             </div>
         </div>
@@ -1786,7 +1803,7 @@
             <div class="btn_main d-flex justify-content-center">
                 <!-- Boton principal para desplegar botones superiores -->
                 <button class="btn crear" type="button">
-                    <img src="./Assets/img/plus.svg" alt="" class="img_big">
+                    <img src="./Assets/img/Add.svg" alt="" class="img_big">
                 </button>
             </div>
         </div>
@@ -1860,26 +1877,25 @@
 
     <!-- Navegador superior pagina de Inicio -->
     <template id="nav_sup_inicio_desktop">
-        <div class="navbar navbar-expand-md">
+        <nav class="navbar navbar-expand-md" id="navegador_sup">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
                 </a>
                 <div class="d-flex">
                     </button>
-                    <button class="btn btn-general--transparent">Ingresar</button>
+                    <button class="btn btn-general--transparent" onclick="mostrar_form_login()" >Ingresar</button>
                     </button>
                     </button>
-                    <button class="btn btn-general">Registrar</button>
+                    <button class="btn btn-general" onclick="mostrar_form_registro_usuario()" >Registrar</button>
                     </button>
                 </div>
             </div>
-        </div>
+        </nav>
     </template>
 
     <!-- Navegador superior -->
     <template id="nav_sup_desktop">
-        <div class="navbar navbar-expand-md">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
@@ -1929,8 +1945,9 @@
                     </button>
                 </div>
             </div>
-        </div>
     </template>
+
+    <!-- Menu desplegable -->
 
     <template id="menu_desplegable_desktop">
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -2023,8 +2040,7 @@
     </template>
 
     <!-- Pantalla Log In -->
-    <template id="log_in_desktop">
-        <div class="container-fluid container_main">
+    <template id="log_in_desktop">        
             <section class="ingreso">
                 <div class="ingreso__container text-center">
                     <figure>
@@ -2051,12 +2067,11 @@
                     <button class="btn btn-general mb-3">Ingresar</button>
                 </div>
             </section>
-        </div>
     </template>
 
     <!-- Pantalla Inventarios vacia -->
     <template id="inventarios_vacia_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>INVENTARIO</h1>
                 <div>
@@ -2074,12 +2089,11 @@
                     ¿No tienes inventarios? <a href="">Haz clic aquí para crear uno.</a>
                 </h2>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Crear Inventario -->
     <template id="crear_inventario_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado">
                     <h1>INVENTARIO</h1>
@@ -2115,12 +2129,11 @@
                     </div>
                 </div>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla de Inventarios -->
     <template id="inventarios_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>INVENTARIO</h1>
                 <div>
@@ -2173,12 +2186,11 @@
                     </div>
                 </div>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Editar Inventarios -->
     <template id="editar_inventario_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>INVENTARIO</h1>
                 <div>
@@ -2207,12 +2219,10 @@
                     </div>
                 </div>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Movimientos vacia -->
     <template id="movimientos_vacia_desktop">
-        <div class="container-fluid container_main">
             <div class="container encabezado">
                 <h1>ENTRADAS/SALIDAS</h1>
                 <div>
@@ -2223,7 +2233,6 @@
                         </button>
                     </form>
                 </div>
-                <button class="btn btn-general ms-auto">Crear Entrada</button>
             </div>
             <hr />
             <div class="container">
@@ -2271,12 +2280,11 @@
                     </thead>
                 </table>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Crear Entrada -->
     <template id="crear_entrada_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>ENTRADAS</h1>
                 <div>
@@ -2374,12 +2382,11 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Crear Salida -->
     <template id="crear_salida_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>SALIDAS</h1>
                 <div>
@@ -2477,12 +2484,11 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Movimientos -->
     <template id="movimientos_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>ENTRADAS/SALIDAS</h1>
                 <div>
@@ -2583,12 +2589,11 @@
                 </div>
 
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Stock vacia -->
     <template id="stock_vacia_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>STOCK</h1>
                 <div>
@@ -2606,12 +2611,11 @@
                     ¿No tienes productos? <a href="">Haz clic aquí para crear uno.</a>
                 </h2>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Crear producto -->
     <template id="crear_producto_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>STOCK</h1>
                 <div>
@@ -2730,12 +2734,11 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Stock -->
     <template id="stock_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>STOCK</h1>
                 <div>
@@ -2822,12 +2825,11 @@
                     </ul>
                 </div>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Eliminar Producto -->
     <template id="eliminar_producto_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>STOCK</h1>
                 <div>
@@ -2893,12 +2895,11 @@
                 </table>
                 <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Categorias vacia -->
     <template id="categorias_vacia_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>CATEGORIA</h1>
                 <div>
@@ -2916,12 +2917,11 @@
                     ¿No tienes categorías? <a href="">Haz clic aquí para crear una.</a>
                 </h2>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Crear Categoria -->
     <template id="crear_categoria_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>CATEGORIA</h1>
                 <div>
@@ -2964,12 +2964,11 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Categorias -->
     <template id="categorias_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>CATEGORIA</h1>
                 <div>
@@ -3044,12 +3043,11 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Editar Categoria -->
     <template id="editar_categoria_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>CATEGORIA</h1>
                 <div>
@@ -3092,12 +3090,11 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Eliminar Categoria -->
     <template id="eliminar_categoria_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>Categoría</h1>
                 <div>
@@ -3171,12 +3168,11 @@
                 </table>
                 <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Abastecimiento -->
     <template id="abastecimiento_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>Abastecimiento</h1>
                 <div>
@@ -3277,28 +3273,6 @@
                                 <p class="td-body-tabla_opciones texto_advertencia">10</p>
                             </td>
                         </tr>
-
-                        <tr>
-                            <td class="p-0" id="abastecimiento_columna_aviso_advertencia"></td>
-                            <th scope="row" class="td-body-tabla">
-                                <p class="td-body-tabla_opciones">Lapiz</p>
-                            </th>
-                            <td class="td-body-tabla">
-                                <p class="td-body-tabla_opciones">Ref 0001</p>
-                            </td>
-                            <td class="td-body-tabla">
-                                <p class="td-body-tabla_opciones">Papeleria</p>
-                            </td>
-                            <td class="td-body-tabla">
-                                <p class="td-body-tabla_opciones">Destino A</p>
-                            </td>
-                            <td class="td-body-tabla">
-                                <p class="td-body-tabla_opciones texto_advertencia">10</p>
-                            </td>
-                            <td class="td-body-tabla">
-                                <p class="td-body-tabla_opciones texto_advertencia">10</p>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
 
@@ -3320,12 +3294,11 @@
                     </ul>
                 </div>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Detalles del Producto -->
     <template id="detalles_producto_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado">
                     <h1>Detalles del producto</h1>
@@ -3378,16 +3351,15 @@
                 </div>
                 <div class="">
                     <figure class="contenedor-imagen">
-                        <img class="img-fluid" src="/public/assets/images/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
+                        <img class="img-fluid" src="./Assets/img/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
                     </figure>
                 </div>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Editar Producto -->
     <template id="editar_producto_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado">
                     <h1>Detalles del producto</h1>
@@ -3457,7 +3429,7 @@
                 </div>
                 <div class="position-relative">
                     <figure class="contenedor-imagen">
-                        <img class="img-fluid" src="/public/assets/images/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
+                        <img class="img-fluid" src="./Assets/img/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
                     </figure>
 
                     <div class="btn-group position-absolute top-0 end-0" role="group">
@@ -3483,12 +3455,11 @@
 
                 </div>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Movimientos del Producto -->
     <template id="movimientos_del_producto_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>Movimientos</h1>
                 <div>
@@ -3577,12 +3548,11 @@
                     </ul>
                 </div>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Seleccionar Informe -->
     <template id="seleccionar_informe_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado">
                     <h1>Estadísticas</h1>
@@ -3597,12 +3567,11 @@
                     <option value="3">Estadística 03</option>
                 </select>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Filtros Informe Mov Prod -->
     <template id="filtros_informe_mov_prod_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado">
                     <h1>Estadísticas</h1>
@@ -3646,12 +3615,11 @@
                     <button class="btn btn-general">Generar</button>
                 </div>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Filtros Informe Categorias -->
     <template id="filtros_informe_categorias_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado">
                     <h1>Estadísticas</h1>
@@ -3685,12 +3653,11 @@
                     <button class="btn btn-general">Generar</button>
                 </div>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Filtros Informe Precio Alm -->
     <template id="filtros_informe_precio_alm">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado">
                     <h1>Estadísticas</h1>
@@ -3734,12 +3701,11 @@
                     <button class="btn btn-general">Generar</button>
                 </div>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Perfiles vacia -->
     <template id="perfiles_vacia_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>Perfíles</h1>
                 <div>
@@ -3757,12 +3723,11 @@
                     ¿No tienes perfiles? <a href="">Haz clic aquí para crear uno.</a>
                 </h2>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Crear Perfil -->
     <template id="crear_perfil_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado d-flex justify-content-between">
                     <div class="d-flex align-items-center">
@@ -3814,12 +3779,11 @@
                     <button class="btn btn-general ">Crear</button>
                 </section>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Perfiles -->
     <template id="perfiles_con_inf_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>Perfíles</h1>
                 <div>
@@ -3875,12 +3839,11 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Editar Perfiles -->
     <template id="editar_perfiles_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>Perfíles</h1>
                 <div>
@@ -3937,12 +3900,11 @@
                     </tbody>
                 </table>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Eliminar Perfiles -->
     <template id="eliminar_perfiles_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container encabezado">
                 <h1>Perfíles</h1>
                 <div>
@@ -3992,12 +3954,11 @@
                 </table>
                 <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Terminos y Condiciones -->
     <template id="terminos_condiciones_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado d-flex justify-content-between">
                     <div class="d-flex align-items-center">
@@ -4076,12 +4037,11 @@
                     mi
                     ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.</p>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Politicas de Privacidad -->
     <template id="politicas_privacidad_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado d-flex justify-content-between">
                     <div class="d-flex align-items-center">
@@ -4160,12 +4120,11 @@
                     mi
                     ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.</p>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Ajustes de Usuario -->
     <template id="ajustes_usuario_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado d-flex justify-content-between">
                     <div class="d-flex align-items-center">
@@ -4230,12 +4189,11 @@
                 </table>
                 <button class="btn btn-general position-absolute bottom-0 end-0">Editar</button>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Editar Usuario -->
     <template id="editar_usuario_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado d-flex justify-content-between">
                     <div class="d-flex align-items-center">
@@ -4329,12 +4287,11 @@
                 </table>
                 <button class="btn btn-general position-absolute bottom-0 end-0">Guardar</button>
             </div>
-        </div>
     </template>
 
     <!-- Pantalla Ayuda -->
     <template id="ayuda_desktop">
-        <div class="container-fluid container_main">
+        
             <div class="container">
                 <div class="encabezado d-flex justify-content-between">
                     <div class="d-flex align-items-center">
@@ -4420,7 +4377,6 @@
                     </li>
                 </ol>\
             </div>
-        </div>
     </template>
 
     <!-- FOOTER DESKTOP -->
