@@ -85,5 +85,6 @@ class Vista {
       contenedor.classList.add(nombre_clase);
     }
   }
+
 }
 

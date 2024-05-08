@@ -42,17 +42,150 @@
 <body class="d-flex flex-column justify-content-between">
     <!-- Barra superior -->
     <nav class="navbar navbar-expand-md" id="navegador_sup">
-
+        <div class="container-fluid" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
+            <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
+                <img src="./Assets/img/logo-layout.png" alt="Variety Vault">
+            </a>
+            <button class="navbar-toggler" id="contenedor_menu_desplegable" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <!-- Boton de menu desplegable -->
+                <img src="./Assets/img/menu-menu-alt-02.svg" alt="">
+            </button>
+            <div class="offcanvas offcanvas-end overflow-y-scroll" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel"> <!-- Contenido menu desplegable -->
+                <div class="offcanvas-header"> <!-- Header del menu desplegable -->
+                    <button type="button" class="btn" onclick="mostrar_busqueda()"> <!-- Boton de busqueda -->
+                        <img src="./Assets/img/interface-search-magnifying-glass.svg" alt="">
+                    </button>
+                    <button type="button" class="btn"> <!-- Boton de cierre -->
+                        <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+                    </button>
+                </div>
+                <div class="offcanvas-body"> <!-- Cuerpo del menu desplegable -->
+                    <div class="contenido_offcanvas">
+                        <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
+                            <p>Menu</p>
+                        </div>
+                        <div id="icono_usuario"> <!-- Icono del usuario -->
+                            <img src="./Assets/img/user-user-circle.svg" alt="">
+                        </div>
+                        <!-- Opciones del menu hamburguesa -->
+                        <div class="cont_opc_menu_ham">
+                            <button type="button" class="btn btn_transparente" onclick="mostrar_terminos_condiciones()">Terminos y Condiciones</button>
+                        </div>
+                        <div class="cont_opc_menu_ham">
+                            <button type="button" class="btn btn_transparente" onclick="mostrar_politicas_privacidad()">
+                                Politicas de Privacidad
+                            </button>
+                        </div>
+                        <div class="cont_opc_menu_ham">
+                            <button type="button" class="btn btn_transparente" onclick="mostrar_ajustes_usuario()">
+                                Ajustes de usuario
+                            </button>
+                        </div>
+                        <div class="cont_opc_menu_ham">
+                            <button type="button" class="btn btn_transparente" onclick="mostrar_ayuda()">
+                                Ayuda
+                            </button>
+                        </div>
+                        <div class="cont_opc_menu_ham">
+                            <button type="button" class="btn btn_transparente">
+                                Cerrar Sesion
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
-        
+        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
+            <!-- Contenedor principal -->
+            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                <button class="btn" onclick="regresar_pantalla()">
+                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                </button>
+            </div>
+            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                <p class="title_small">Entradas y Salidas</p>
+            </div>
+            <div class="titulo_creacion"> <!-- Titulo Grandes -->
+                <h1>Crear Entrada</h1>
+                <p class="referencia">Referencia xxxxxx</p> <!-- Texto para mostrar la referencia del movimiento -->
+            </div>
+            <div class="container d-flex flex-column align-items-center contenedor_form">
+                <!-- Contendor de form para crear una entrada -->
+                <input type="text" name="" class="form-control" placeholder="Origen">
+                <input disabled type="text" class="form-control" placeholder="Destino">
+                <div class="linea_division"></div>
+                <select type="text" class="select_claro_mov">
+                    <!-- Opciones del select -->
+                    <option selected class="opciones">Referencia Producto</option>
+                    <option class="opciones">REF 1</option>
+                    <option class="opciones">REF 2</option>
+                </select>
+                <select type="text" class="select_claro_mov">
+                    <!-- Opciones del select -->
+                    <option selected class="opciones">Producto</option>
+                    <option class="opciones">Producto 1</option>
+                    <option class="opciones">Producto 2</option>
+                </select>
+                <input type="number" name="" class="input_claro_mov" placeholder="Cantidad">
+                <input type="number" name="" class="input_claro_mov" placeholder="Precio">
+                <div class="linea_division"></div>
+            </div>
+            <button class="btn boton_add_producto_movimientos" type="button">
+                <!-- Contendor de boton para añadir producto al movimiento -->
+                <img src="../Assets/img/edit-add-plus-circle.svg" alt="">
+            </button>
+            <div class="container d-flex justify-content-end contenedor_boton">
+                <!-- Contendor boton para crear el movimiento -->
+                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_movimientos()">
+                    Crear Entrada
+                </button>
+            </div>
+        </div>
     </main>
 
     <!-- Navegador Inferior -->
     <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
-
+        <div class="container-fluid justify-content-center">
+            <ul class="navbar-nav flex-row justify-content-around flex-wrap" id="lista_nav_inf">
+                <!-- Lista de Navegacion -->
+                <li class="nav-item" id="home">
+                    <button class="btn" type="button" onclick="mostrar_inventarios()">
+                        <img src="./Assets/img/home.svg" alt="">
+                    </button>
+                    <p class="text_nav_inf">Inventario</p>
+                </li>
+                <li class="nav-item" id="operaciones">
+                    <button class="btn" type="button" onclick="mostrar_movimientos_vacia()">
+                        <img src="Assets/img/arrow-arrow-left-right.svg" alt="">
+                    </button>
+                    <p class="text_nav_inf">Operaciones</p>
+                </li>
+                <li class="nav-item" id="boton_stock">
+                    <button class="btn" type="button" onclick="mostrar_stock_vacia()">
+                        <img src="./Assets/img/file-archive.svg" alt="">
+                    </button>
+                    <p class="text_nav_inf">Stock</p>
+                </li>
+                <li class="nav-item" id="estadisticas">
+                    <button class="btn" type="button" onclick="mostrar_seleccionar_informe()">
+                        <img src="./Assets/img/file-file-document.svg" alt="">
+                    </button>
+                    <p class="text_nav_inf">Informes</p>
+                </li>
+                <li class="nav-item" id="perfiles">
+                    <button class="btn" type="button" onclick="mostrar_perfiles_vacia()">
+                        <img src="./Assets/img/user.svg" alt="">
+                    </button>
+                    <p class="text_nav_inf">Perfiles</p>
+                </li>
+            </ul>
+        </div>
     </nav>
 
 
@@ -454,22 +587,7 @@
                 <p class="message">NO TIENES ENTRADAS/SALIDAS</p>
             </div>
             <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con dos opciones -->
-                <div class="btn_secundario_dos d-flex justify-content-center"> <!-- Botones superiores -->
-                    <button class="btn entrada" type="button" onclick="mostrar_form_crear_entrada()">
-                        <!-- Boton para añadir entrada -->
-                        <img src="./Assets/img/Add.svg" alt="" class="img_small">
-                    </button>
-                    <button class="btn salida">
-                        <img src="./Assets/img/substraction.svg" alt="" class="img_small"
-                            onclick="mostrar_form_crear_salida()"> <!-- Boton para añadir salida -->
-                    </button>
-                </div>
-                <div class="btn_main d-flex justify-content-center">
-                    <!-- Boton principal para desplegar botones superiores -->
-                    <button class="btn crear" type="button">
-                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
-                    </button>
-                </div>
+
             </div>
         </div>
     </template>
@@ -493,12 +611,7 @@
             <div class="container d-flex flex-column align-items-center contenedor_form">
                 <!-- Contendor de form para crear una entrada -->
                 <input type="text" name="" class="form-control" placeholder="Origen">
-                <select type="text" class="select_oscuro"> <!-- Select para seleccionar tipo de documento -->
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Destino</option>
-                    <option class="opciones">Destino 1</option>
-                    <option class="opciones">Destino 2</option>
-                </select>
+                <input disabled type="text" class="form-control" placeholder="Destino">
                 <div class="linea_division"></div>
                 <select type="text" class="select_claro_mov">
                     <!-- Opciones del select -->
@@ -512,8 +625,8 @@
                     <option class="opciones">Producto 1</option>
                     <option class="opciones">Producto 2</option>
                 </select>
-                <input type="text" name="" class="input_claro_mov" placeholder="Cantidad">
-                <input type="text" name="" class="input_claro_mov" placeholder="Precio">
+                <input type="number" name="" class="input_claro_mov" placeholder="Cantidad">
+                <input type="number" name="" class="input_claro_mov" placeholder="Precio">
                 <div class="linea_division"></div>
             </div>
             <button class="btn boton_add_producto_movimientos" type="button">
@@ -616,22 +729,7 @@
                 </div>
             </div>
             <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con dos opciones -->
-                <div class="btn_secundario_dos d-flex justify-content-center"> <!-- Botones superiores -->
-                    <button class="btn entrada" type="button" onclick="mostrar_form_crear_entrada()">
-                        <!-- Boton para añadir entrada -->
-                        <img src="./Assets/img/Add.svg" alt="" class="img_small">
-                    </button>
-                    <button class="btn salida" type="button" onclick="mostrar_form_crear_salida()">
-                        <!-- Boton para añadir salida -->
-                        <img src="./Assets/img/substraction.svg" alt="" class="img_small">
-                    </button>
-                </div>
-                <div class="btn_main d-flex justify-content-center">
-                    <!-- Boton principal para desplegar botones superiores -->
-                    <button class="btn crear" type="button">
-                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
-                    </button>
-                </div>
+
             </div>
         </div>
     </template>
@@ -647,24 +745,7 @@
                 <p class="message">NO TIENES PRODUCTOS</p>
             </div>
             <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con tres opciones -->
-                <div class="btn_secundario_dos d-flex justify-content-center"> <!-- Botones superiores -->
-                    <button class="btn producto" type="button"> <!-- Boton para añadir producto -->
-                        <img src="./Assets/img/Add.svg" alt="" class="img_small" onclick="mostar_form_crear_producto()">
-                    </button>
-                    <button class="btn clases"> <!-- Boton para categoria -->
-                        <img src="./Assets/img/category.svg" alt="" class="img_small"
-                            onclick="mostrar_categorias_vacia()">
-                    </button>
-                    <button class="btn abastecimiento"> <!-- Boton para ir a abastecimiento -->
-                        <img src="./Assets/img/supply.svg" alt="" class="img_small" onclick="mostrar_abastecimiento()">
-                    </button>
-                </div>
-                <div class="btn_main d-flex justify-content-center">
-                    <!-- Boton principal para desplegar botones superiores -->
-                    <button class="btn crear" type="button">
-                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
-                    </button>
-                </div>
+
             </div>
         </div>
     </template>
@@ -738,24 +819,7 @@
                 </div>
             </div>
             <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con tres opciones -->
-                <div class="btn_secundario_dos d-flex justify-content-center"> <!-- Botones superiores -->
-                    <button class="btn producto" type="button"> <!-- Boton para añadir producto -->
-                        <img src="./Assets/img/Add.svg" alt="" class="img_small" onclick="mostar_form_crear_producto()">
-                    </button>
-                    <button class="btn clases"> <!-- Boton para categoria -->
-                        <img src="./Assets/img/category.svg" alt="" class="img_small"
-                            onclick="mostrar_categorias_vacia()">
-                    </button>
-                    <button class="btn abastecimiento"> <!-- Boton para abastecimiento -->
-                        <img src="./Assets/img/supply.svg" alt="" class="img_small" onclick="mostrar_abastecimiento()">
-                    </button>
-                </div>
-                <div class="btn_main d-flex justify-content-center">
-                    <!-- Boton principal para desplegar botones superiores -->
-                    <button class="btn crear" type="button">
-                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
-                    </button>
-                </div>
+
             </div>
         </div>
     </template>
