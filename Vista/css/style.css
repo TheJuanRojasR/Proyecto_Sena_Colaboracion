@@ -738,13 +738,55 @@ a.page-link:hover {
     /* ------------- GENERAL ------------- */
 
     body {
-        height: 100vh;
+        min-height: 100vh;
         background-color: #F7F5E6;
     }
 
     nav,
     main {
         background-color: #F7F5E6;
+    }
+
+    /* ------------- INICIOS ------------- */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #contenedor_inicio{
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #5d6897;
+    }
+
+    .bubbles {
+        position: absolute;
+        display: flex;
+    }
+
+    .bubbles span {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background-color: #4fc3dc;
+        margin: 0 4px;
+        border-radius: 50%;
+        box-shadow: 0 0 0 10px #24642e,
+        0 0 50px #4fc3dc,
+        0 0 100px #4fc3dc;
+        animation: animate 15s linear infinite;
+    }
+
+    @keyframes animate {
+        0% {
+            transform: translateY(100vh) scale(0);
+        }
+        100% {
+            transform: translateY(0) scale(1);
+        }
     }
 
     /* ------------- NAVEGADOR SUP  Y OFF CANVAS ------------- */

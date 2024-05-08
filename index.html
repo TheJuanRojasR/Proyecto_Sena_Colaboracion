@@ -41,122 +41,30 @@
 
 <body class="d-flex flex-column justify-content-between">
     <!-- Barra superior -->
-    <nav class="navbar navbar-expand-md" id="navegador_sup">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+    <nav class="navbar fixed-top nav_sup" id="navegador_sup">
+        <div class="container-fluid flex-nowrap" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
+            <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
+                <img src="./Assets/img/logo-layout.png" alt="Variety Vault">
             </a>
-
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" onclick="mostrar_inv_vacia()">Inventarios</a>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Operaciones
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="mostrar_movimientos_vacia()" >Entradas/Salidas</a></li>
-                            <li><a class="dropdown-item" href="#"  onclick="mostrar_form_crear_entrada()">Crear entrada</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="mostrar_form_crear_salida()">Crear salida</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Stock
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="mostrar_stock_vacia()">Stock</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="mostrar_abastecimiento()">Abastecimiento</a></li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="mostrar_seleccionar_informe()">Informes</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="mostrar_perfiles_vacia()">Perfiles</a>
-                    </li>
-                </ul>
-
-                <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                    <img src="./Assets/img/user.svg" alt="">
-                </button>
-            </div>
         </div>
     </nav>
 
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="contenido_offcanvas d-flex flex-column">
-                <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
-                    <p>Menu</p>
-                </div>
-                <!-- Opciones del menu desplegable -->
-                <div class="mt-auto">
-                    <div id="term_condi">
-                        <a href="" class="color_inherit text-decoration-none" onclick="mostrar_terminos_condiciones()">Terminos y Condiciones</a>
-                    </div>
-                    <div id="politicas_priv">
-                        <a href="" class="color_inherit text-decoration-none">Politicas de Privacidad</a>
-                    </div>
-                    <div id="ajustes_usu">
-                        <a href="" class="color_inherit text-decoration-none">Ajustes de usuario</a>
-                    </div>
-                    <div id="ayuda">
-                        <a href="" class="color_inherit text-decoration-none">Ayuda</a>
-                    </div>
-                    <div id="cerrar_ses">
-                        <a href="" class="color_inherit text-decoration-none">Cerrar Sesion</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
+        <div id="contenedor_inicio" class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
+            <div class="bubbles">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Estadisticas</p>
-            </div>
-            <div class="titulo_creacion"> <!-- Titulo Grandes -->
-                <h1>Movimientos del producto</h1>
-            </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form">
-                <!-- Contendor para seleccionar filtros del informe -->
-                <select type="text" class="select_claro"> <!-- Select para seleccionar el producto -->
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Seleccionar Producto</option>
-                    <option class="opciones">Producto 1</option>
-                    <option class="opciones">Producto 2</option>
-                    <option class="opciones">Producto 3</option>
-                </select>
-                <input type="text" placeholder="Desde" class="input_claro_dos">
-                <input type="text" placeholder="Hasta" class="input_claro_dos">
-            </div>
-            <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor de boton generar -->
-                <button class="btn boton_oscuro_corto" type="button">
-                    Generar
-                </button>
-            </div>
+                <div class="container d-flex flex-column justify-content-end contenedor_boton">
+                    <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_form_login()">
+                        Iniciar Sesion
+                    </button>
+                    <button class="btn boton_claro_largo" type="button" onclick="mostrar_form_registro_usuario()">
+                        Registrarse
+                    </button>
+                </div>
         </div>
     </main>
 
