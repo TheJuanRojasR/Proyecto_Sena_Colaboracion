@@ -1,28 +1,30 @@
-/**
- * despliega el formulario de Creacion de Inventario id="crear_inventario" 
- */
-
 let vista = new Vista();
-const lista_clases_main_desktop = [ 'container-fluid', 'container_main' ];
-const lista_clases_main_mobile = [ 'overflow-y-scroll' ];
+
+const lista_clases_main_desktop = ['container-fluid', 'container_main'];
+const lista_clases_main_mobile = ['overflow-y-scroll'];
+const lista_clases_nav_sup_desktop = ['navbar', 'navbar-expand-md'];
+const lista_clases_nav_sup_mobile = ['navbar', 'fixed-top', 'nav_sup'];
 
 const tamañoPantalla = window.matchMedia('(max-width: 768px)');
 
 window.addEventListener('resize', cambio_clases);
+
 function cambio_clases(){
     if(tamañoPantalla.matches){
         vista.cambiarClases("contenedor_principal", lista_clases_main_mobile);
+        vista.cambiarClases("navegador_sup", lista_clases_nav_sup_mobile);
     }
     else{
         vista.cambiarClases("contenedor_principal", lista_clases_main_desktop);
+        vista.cambiarClases("navegador_sup", lista_clases_nav_sup_desktop)
     }
 }
 
-// window.onload = function(){
-//     vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
-//     vista.mostrar_plantilla("nav_sup_sin_menu","navegador_sup");
-//     cambio_clases();
-// }
+window.onload = function(){
+    vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+    vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
+    cambio_clases();
+}
 
 function regresar_pantalla(){
     vista.regresar_pantalla();
@@ -35,8 +37,8 @@ function regresar_pantalla(){
 
 function mostrar_form_registro_usuario(){
     if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("registro_usuario", "contenedor_principal", 1);
-        vista.mostrar_plantilla("nav_inf_reg","navegador_inf")
+        vista.mostrar_plantilla("registro_usuario", "contenedor_principal", 0);
+        vista.mostrar_plantilla("nav_inf_reg","navegador_inf", 0);
     }
     else{
         vista.mostrar_plantilla("registro_usuario_desktop", "contenedor_principal", 1);
@@ -47,7 +49,7 @@ function mostrar_form_registro_usuario(){
 
 function mostrar_form_login(){
     if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("log_in", "contenedor_principal", 1);
+        vista.mostrar_plantilla("log_in", "contenedor_principal", 0);
         vista.mostrar_plantilla("nav_inf_login","navegador_inf");
     }
     else{
@@ -61,8 +63,10 @@ function mostrar_form_login(){
 function mostrar_inv_vacia(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("nav_sup","navegador_sup");
+        vista.limpiar_contenedor("navegador_inf",);
         vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
-        vista.limpiar_contenedor("navegador_inf");
+        vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+        vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
     }
     else{
         vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
@@ -84,8 +88,10 @@ function mostrar_busqueda(){
 
 function mostrar_inventarios(){
     if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("inventarios", "contenedor_principal", 1);
         vista.limpiar_contenedor("navegador_inf");
+        vista.mostrar_plantilla("inventarios", "contenedor_principal", 1);
+        vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+        vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
     }
     else{
         vista.mostrar_plantilla("inventarios_desktop", "contenedor_principal", 1);
@@ -123,6 +129,8 @@ function mostrar_seleccionar_informe(){
 function mostrar_perfiles_vacia(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("perfiles_vacia", "contenedor_principal", 1);
+        vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+        vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_perfil);
     }
     else{
         vista.mostrar_plantilla("perfiles_vacia_desktop", "contenedor_principal", 1);
@@ -182,6 +190,8 @@ function mostrar_detalles_producto(){
 function mostrar_categorias_vacia(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("categorias_vacia", "contenedor_principal", 1);
+        vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+        vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_categoria);
     }
     else{
         vista.mostrar_plantilla("categorias_vacia_desktop", "contenedor_principal", 1);
@@ -191,6 +201,8 @@ function mostrar_categorias_vacia(){
 function mostrar_categorias(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("categorias", "contenedor_principal", 1);
+        vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+        vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_categoria);
     }
     else{
         vista.mostrar_plantilla("categorias_desktop", "contenedor_principal", 1);
@@ -288,10 +300,12 @@ function mostrar_form_crear_perfil(){
 
 function mostrar_perfiles(){
     if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("perfiles", "contenedor_principal", 1);
+        vista.mostrar_plantilla("perfiles_con_inf", "contenedor_principal", 1);
+        vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+        vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_perfil);
     }
     else{
-        vista.mostrar_plantilla("perfiles_desktop", "contenedor_principal", 1);
+        vista.mostrar_plantilla("perfiles_con_inf_desktop", "contenedor_principal", 1);
     }
 }
 

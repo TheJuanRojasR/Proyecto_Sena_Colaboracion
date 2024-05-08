@@ -1,11 +1,10 @@
 class Vista {
   constructor() {
     this.stack_pantallas = []; //Contiene el historial de navegacion de pantallas
-
   }
 
   /**
-   * 
+   * Metodo para limpiar un contenedor
    * @param {*} contenedor 
    */
 
@@ -22,7 +21,7 @@ class Vista {
    * @returns none
    */
 
-  mostrar_plantilla(plantilla, contenedor, pila=null) {
+  mostrar_plantilla(plantilla, contenedor, pila) {
     let cont = document.getElementById(contenedor);
     cont.innerHTML = "";
     //Clonar el contenido del template
@@ -34,6 +33,17 @@ class Vista {
     if(pila){
         this.stack_pantallas.push(plantilla);
     }   
+  }
+
+  /**
+   * Metodo para añadir un evento click a un elemento del HTML
+   * @param {*} plantilla 
+   * @param {*} funcion 
+   */
+
+  añadir_evento_click(plantilla, funcion) {
+    let elemento = document.getElementById(plantilla);
+    elemento.onclick = funcion;
   }
 
   /**
@@ -52,6 +62,14 @@ class Vista {
       let clone = template.content.cloneNode(true);
       cont.appendChild(clone);
     }
+    else{
+      let cont = document.getElementById("contenedor_principal");
+      cont.innerHTML = "";
+      let template = document.getElementById(plantilla);
+      let clone = template.content.cloneNode(true);
+      cont.appendChild(clone);
+      this.stack_pantallas.push(plantilla);
+    }
   }
 
   /**
@@ -60,10 +78,10 @@ class Vista {
    * @param {*} lista_clases 
    */
 
-  cambiarClases( contenedor_etiqueta,lista_clases ){
-    let contenedor = document.getElementById( contenedor_etiqueta );
+  cambiarClases(contenedor_etiqueta, lista_clases){
+    let contenedor = document.getElementById(contenedor_etiqueta);
     contenedor.className = "";
-    for( let nombre_clase of lista_clases ){
+    for(let nombre_clase of lista_clases){
       contenedor.classList.add(nombre_clase);
     }
   }

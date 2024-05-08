@@ -1366,9 +1366,7 @@ a.page-link:hover {
 
     /* MENU CIRCULAR */
 
-    .menu_un_btn,
-    .menu_dos_btn,
-    .menu_tres_btn {
+    .menu_circular {
         display: flex;
         flex-direction: column;
         justify-content: end;
