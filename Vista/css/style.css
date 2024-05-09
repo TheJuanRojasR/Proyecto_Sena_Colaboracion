@@ -836,11 +836,16 @@ a.page-link:hover {
         font-family: Inter;
         font-style: normal;
         font-weight: 400;
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .form-control:hover {
         background-color: #333A56;
+        color: #E0E0FF;
+    }
+
+    .form-control:disabled{
+        background-color: #6574ad;
         color: #E0E0FF;
     }
 
@@ -1189,7 +1194,9 @@ a.page-link:hover {
         margin-bottom: 5px;
         border: 1px solid #D5D8DE;
         background-color: #FFF;
-        color: #6c757d;
+        color: #666;
+        font-family: Inter;
+        font-size: 14px;
     }
 
     .input_claro_mov {
@@ -1200,6 +1207,8 @@ a.page-link:hover {
         margin-bottom: 5px;
         border: 1px solid #D5D8DE;
         background-color: #FFF;
+        font-family: Inter;
+        font-size: 14px;
     }
 
     .boton_add_producto_movimientos {

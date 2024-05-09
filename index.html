@@ -47,7 +47,7 @@
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
-        
+
     </main>
 
     <!-- Navegador Inferior -->
@@ -83,7 +83,7 @@
                     <button type="button" class="btn" onclick="mostrar_busqueda()"> <!-- Boton de busqueda -->
                         <img src="./Assets/img/interface-search-magnifying-glass.svg" alt="">
                     </button>
-                    <button type="button" class="btn"> <!-- Boton de cierre -->
+                    <button type="button" class="btn" data-bs-dismiss="offcanvas"> <!-- Boton de cierre -->
                         <img src="./Assets/img/logo_cerrar_x.svg" alt="">
                     </button>
                 </div>
@@ -453,22 +453,7 @@
                 <p class="message">NO TIENES ENTRADAS/SALIDAS</p>
             </div>
             <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con dos opciones -->
-                <div class="btn_secundario_dos d-flex justify-content-center"> <!-- Botones superiores -->
-                    <button class="btn entrada" type="button" onclick="mostrar_form_crear_entrada()">
-                        <!-- Boton para añadir entrada -->
-                        <img src="./Assets/img/Add.svg" alt="" class="img_small">
-                    </button>
-                    <button class="btn salida">
-                        <img src="./Assets/img/substraction.svg" alt="" class="img_small"
-                            onclick="mostrar_form_crear_salida()"> <!-- Boton para añadir salida -->
-                    </button>
-                </div>
-                <div class="btn_main d-flex justify-content-center">
-                    <!-- Boton principal para desplegar botones superiores -->
-                    <button class="btn crear" type="button">
-                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
-                    </button>
-                </div>
+
             </div>
         </div>
     </template>
@@ -492,27 +477,22 @@
             <div class="container d-flex flex-column align-items-center contenedor_form">
                 <!-- Contendor de form para crear una entrada -->
                 <input type="text" name="" class="form-control" placeholder="Origen">
-                <select type="text" class="select_oscuro"> <!-- Select para seleccionar tipo de documento -->
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Destino</option>
-                    <option class="opciones">Destino 1</option>
-                    <option class="opciones">Destino 2</option>
-                </select>
+                <input disabled type="text" class="form-control" placeholder="Destino">
                 <div class="linea_division"></div>
-                <select type="text" class="select_claro_mov">
+                <select type="text" class="select_claro_mov form-select">
                     <!-- Opciones del select -->
                     <option selected class="opciones">Referencia Producto</option>
                     <option class="opciones">REF 1</option>
                     <option class="opciones">REF 2</option>
                 </select>
-                <select type="text" class="select_claro_mov">
+                <select type="text" class="select_claro_mov form-select">
                     <!-- Opciones del select -->
                     <option selected class="opciones">Producto</option>
                     <option class="opciones">Producto 1</option>
                     <option class="opciones">Producto 2</option>
                 </select>
-                <input type="text" name="" class="input_claro_mov" placeholder="Cantidad">
-                <input type="text" name="" class="input_claro_mov" placeholder="Precio">
+                <input type="number" name="" class="input_claro_mov" placeholder="Cantidad">
+                <input type="number" name="" class="input_claro_mov" placeholder="Precio">
                 <div class="linea_division"></div>
             </div>
             <button class="btn boton_add_producto_movimientos" type="button">
@@ -546,21 +526,16 @@
             </div>
             <div class="container d-flex flex-column align-items-center contenedor_form">
                 <!-- Contendor de form para crear una salida -->
-                <select type="text" class="select_oscuro"> <!-- Select para seleccionar tipo de documento -->
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Origen</option>
-                    <option class="opciones">Origen 1</option>
-                    <option class="opciones">Origen 2</option>
-                </select>
+                <input disabled type="text" class="form-control" placeholder="Origen">
                 <input type="text" class="form-control" placeholder="Destino">
                 <div class="linea_division"></div>
-                <select type="text" class="select_claro_mov">
+                <select type="text" class="select_claro_mov form-select">
                     <!-- Opciones del select -->
                     <option selected class="opciones">Referencia Producto</option>
                     <option class="opciones">REF 1</option>
                     <option class="opciones">REF 2</option>
                 </select>
-                <select type="text" class="select_claro_mov">
+                <select type="text" class="select_claro_mov form-select">
                     <!-- Opciones del select -->
                     <option selected class="opciones">Producto</option>
                     <option class="opciones">Producto 1</option>
@@ -615,22 +590,7 @@
                 </div>
             </div>
             <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con dos opciones -->
-                <div class="btn_secundario_dos d-flex justify-content-center"> <!-- Botones superiores -->
-                    <button class="btn entrada" type="button" onclick="mostrar_form_crear_entrada()">
-                        <!-- Boton para añadir entrada -->
-                        <img src="./Assets/img/Add.svg" alt="" class="img_small">
-                    </button>
-                    <button class="btn salida" type="button" onclick="mostrar_form_crear_salida()">
-                        <!-- Boton para añadir salida -->
-                        <img src="./Assets/img/substraction.svg" alt="" class="img_small">
-                    </button>
-                </div>
-                <div class="btn_main d-flex justify-content-center">
-                    <!-- Boton principal para desplegar botones superiores -->
-                    <button class="btn crear" type="button">
-                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
-                    </button>
-                </div>
+
             </div>
         </div>
     </template>
@@ -646,24 +606,7 @@
                 <p class="message">NO TIENES PRODUCTOS</p>
             </div>
             <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con tres opciones -->
-                <div class="btn_secundario_dos d-flex justify-content-center"> <!-- Botones superiores -->
-                    <button class="btn producto" type="button"> <!-- Boton para añadir producto -->
-                        <img src="./Assets/img/Add.svg" alt="" class="img_small" onclick="mostar_form_crear_producto()">
-                    </button>
-                    <button class="btn clases"> <!-- Boton para categoria -->
-                        <img src="./Assets/img/category.svg" alt="" class="img_small"
-                            onclick="mostrar_categorias_vacia()">
-                    </button>
-                    <button class="btn abastecimiento"> <!-- Boton para ir a abastecimiento -->
-                        <img src="./Assets/img/supply.svg" alt="" class="img_small" onclick="mostrar_abastecimiento()">
-                    </button>
-                </div>
-                <div class="btn_main d-flex justify-content-center">
-                    <!-- Boton principal para desplegar botones superiores -->
-                    <button class="btn crear" type="button">
-                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
-                    </button>
-                </div>
+
             </div>
         </div>
     </template>
@@ -737,24 +680,7 @@
                 </div>
             </div>
             <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con tres opciones -->
-                <div class="btn_secundario_dos d-flex justify-content-center"> <!-- Botones superiores -->
-                    <button class="btn producto" type="button"> <!-- Boton para añadir producto -->
-                        <img src="./Assets/img/Add.svg" alt="" class="img_small" onclick="mostar_form_crear_producto()">
-                    </button>
-                    <button class="btn clases"> <!-- Boton para categoria -->
-                        <img src="./Assets/img/category.svg" alt="" class="img_small"
-                            onclick="mostrar_categorias_vacia()">
-                    </button>
-                    <button class="btn abastecimiento"> <!-- Boton para abastecimiento -->
-                        <img src="./Assets/img/supply.svg" alt="" class="img_small" onclick="mostrar_abastecimiento()">
-                    </button>
-                </div>
-                <div class="btn_main d-flex justify-content-center">
-                    <!-- Boton principal para desplegar botones superiores -->
-                    <button class="btn crear" type="button">
-                        <img src="./Assets/img/Add.svg" alt="" class="img_big">
-                    </button>
-                </div>
+
             </div>
         </div>
     </template>

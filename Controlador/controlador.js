@@ -20,6 +20,10 @@ function cambio_clases(){
     }
 }
 
+// function cerrarVentana(){
+//     cerrarPantalla("offcanvasNavbar");
+// }
+
 window.onload = function(){
     vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
     vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
@@ -101,6 +105,7 @@ function mostrar_inventarios(){
 function mostrar_movimientos_vacia(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
+        vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
     }
     else{
         vista.mostrar_plantilla("movimientos_vacia_desktop", "contenedor_principal", 1);
@@ -110,6 +115,7 @@ function mostrar_movimientos_vacia(){
 function mostrar_stock_vacia(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("stock_vacia", "contenedor_principal", 1);
+        vista.mostrar_plantilla("btn_tres","contenedor_boton_circular");
         vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf");
     }
     else{
@@ -171,6 +177,7 @@ function mostar_form_crear_producto(){
 function mostrar_stock(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("stock", "contenedor_principal", 1);
+        vista.mostrar_plantilla("btn_tres","contenedor_boton_circular");
         vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf")
     }
     else{
@@ -281,6 +288,7 @@ function mostrar_form_crear_salida(){
 function mostrar_movimientos(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("movimientos", "contenedor_principal", 1);
+        vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
     }
     else{
         vista.mostrar_plantilla("movimientos_desktop", "contenedor_principal", 1);

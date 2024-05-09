@@ -46,6 +46,16 @@ class Vista {
     elemento.onclick = funcion;
   }
 
+  // /**
+  //  * Metodo para cerrar una pantalla
+  //  * @param {*} plantilla 
+  //  */
+
+  // cerrarPantalla(plantilla){ 
+  //   let cont = document.getElementById(plantilla);
+  //   cont.style.display = "none"
+  // }
+
   /**
    * Metodo para regresar a la pantalla anterior
    * @param {*} none
@@ -85,6 +95,7 @@ class Vista {
       contenedor.classList.add(nombre_clase);
     }
   }
+
 
   /**
    * Metodo para insertar un template en un contenedor
