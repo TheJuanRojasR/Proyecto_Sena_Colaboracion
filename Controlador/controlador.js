@@ -20,6 +20,23 @@ function cambio_clases(){
     }
 }
 
+function remover_nav_inf(){
+    if(!tamañoPantalla.matches){
+        vista.removerEtiqueta("navegador_inf");
+    }
+}
+
+/**
+ function cambio_templates(){
+     if(tamañoPantalla.matches){
+         vista.mostrar_plantilla( "inventarios_vacia","contenedor_principal");
+     }
+     else{
+         vista.mostrar_plantilla("inventario_vacia_desktop", "contenedor_principal"  )
+     }
+ }
+ */
+
 // function cerrarVentana(){
 //     cerrarPantalla("offcanvasNavbar");
 // }
@@ -28,6 +45,7 @@ window.onload = function(){
     vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
     vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
     cambio_clases();
+    remover_nav_inf();
 }
 
 function regresar_pantalla(){
@@ -48,7 +66,6 @@ function mostrar_form_registro_usuario(){
         vista.mostrar_plantilla("registro_usuario_desktop", "contenedor_principal", 1);
     }
     cambio_clases();
-
 }
 
 function mostrar_form_login(){

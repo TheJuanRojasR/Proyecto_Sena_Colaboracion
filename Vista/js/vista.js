@@ -96,5 +96,9 @@ class Vista {
     }
   }
 
+  removerEtiqueta(etiqueta){
+    const elemento = document.getElementById(etiqueta);
+    elemento.remove();
+  }
 }
 
