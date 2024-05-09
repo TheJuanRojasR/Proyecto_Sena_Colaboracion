@@ -20,6 +20,10 @@ function cambio_clases(){
     }
 }
 
+// function cerrarVentana(){
+//     cerrarPantalla("offcanvasNavbar");
+// }
+
 window.onload = function(){
     vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
     vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
