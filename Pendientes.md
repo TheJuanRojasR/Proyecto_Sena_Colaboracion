@@ -14,8 +14,8 @@
 11. Crear una columna en almacenes llamada estado_almacen                                            ✔ 
 12. Borrar boton de + en el template Crar productos.                                                 ✔
 13. Cambiar el input por un select en la vista Crear entradas.                                       ✔
-14. LAURA : Cambiar disabel del input form control. 
-15. LAURA : Añadir form select y reescribirlo
-16. JUAN : Hacer mas anchos los selects en crear entrada
+14. LAURA : Cambiar disabel del input form control.                                                  ❌
+15. LAURA : Añadir form select y reescribirlo                                                        ❌
+16. JUAN : Hacer mas anchos los selects en crear entrada                                             ❌
 
 - Como agregar un row a un table body desde js

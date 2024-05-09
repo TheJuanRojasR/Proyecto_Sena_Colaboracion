@@ -357,7 +357,7 @@ li > button > p {
 }
 
 .btn-tabla-icono {
-    padding: 0;
+    padding: 0.45rem 0.45rem;
     color: var(--black, #171740);
     font-family: Inter;
     font-size: 0.875em;
@@ -376,14 +376,9 @@ li > button > p {
 
 /* Estilos para vista de Operaciones/Crear Entradas y Salidas*/
 
-#btnGuardar-tabla {
-    padding: 0.45rem 0.45rem;
-    background-color: #333A56;
-    color: white;
-}
-
-#btnGuardar-tabla img {
-    filter: invert(100%);
+.btnGuardar-tabla,
+.btnGuardar-tabla:hover {
+    background-color: #333A56 ;
 }
 
 /* ----------------------------------------------------------------------- */
@@ -706,11 +701,11 @@ a.page-link:hover {
         font-size: 0.7em;
     }
 
-    #btnGuardar-tabla {
+    .btnGuardar-tabla {
         padding: 0.3rem;
     }
 
-    #btnGuardar-tabla img {
+    .btnGuardar-tabla img {
         width: 18px;
         height: 18px;
     }

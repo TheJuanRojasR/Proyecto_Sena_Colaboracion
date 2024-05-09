@@ -85,5 +85,23 @@ class Vista {
       contenedor.classList.add(nombre_clase);
     }
   }
+
+  /*
+  Metodo para insertar un template a un espacio especifico en el html.
+  Que tenemos que tener para realizar esta accion?
+  - Codigos en templates para insertar en el html.
+  - Un contenedor donde insertar el template.
+  - Algun identificador para saber donde insertar el template.
+  */
+
+  cambiar_template(template_id, contenedor_id){
+    const TEMPLATE_ID = document.getElementById(template_id);
+    const CONTENEDOR_ID = document.getElementById(contenedor_id);
+
+    const clone = TEMPLATE_ID.content.cloneNode(true);
+
+    CONTENEDOR_ID.appendChild(clone);
+  }
 }
+
 
