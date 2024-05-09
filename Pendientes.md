@@ -2,9 +2,9 @@
 
 1. Colocar X para cerrar en ingreso.                                                                 ✔  
 2. Hacer pantallas de inicio. (Bien perrona)                                                         ❌ 1
-2. Crear funcion para las X (Cerrar) en todo el codigo.                                              ❌ 2
-3. Duplicar una seccion del codigo (Ej: añadir producto)                                             ❌ 1
-4. Añadir el name a los formularios para que queden vinculados con la DB.                            ✔ 3
+2. Crear funcion para las X (Cerrar) en todo el codigo.                                              ❗  2
+3. Duplicar una seccion del codigo (Ej: añadir producto)                                             ✔  1
+4. Añadir el name a los formularios para que queden vinculados con la DB.                            ✔  3
 5. Crear una clase para cambiar el color de inventario del nav o Revisar las demas clases del nav.   ❌ 3
 6. Abastecimiento_desktop : Alinear los numeros de cantidad y astick min.                            ❌ 3
 7. Informes : Revisar como añadir una seccion para los distintos informes.                           ❌ 1
@@ -14,8 +14,8 @@
 11. Crear una columna en almacenes llamada estado_almacen                                            ✔ 
 12. Borrar boton de + en el template Crar productos.                                                 ✔
 13. Cambiar el input por un select en la vista Crear entradas.                                       ✔
-14. LAURA : Cambiar disabel del input form control.                                                  ❌
-15. LAURA : Añadir form select y reescribirlo                                                        ❌
+14. LAURA : Cambiar disabel del input form control.                                                  ✔
+15. LAURA : Añadir form select y reescribirlo                                                        ✔
 16. JUAN : Hacer mas anchos los selects en crear entrada                                             ❌
+17. LAURA y JUAN: Revision de templates para modificarlos.                                           ❌
 
-- Como agregar un row a un table body desde js

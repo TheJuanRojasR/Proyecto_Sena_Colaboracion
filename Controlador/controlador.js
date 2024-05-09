@@ -9,10 +9,6 @@ const tamañoPantalla = window.matchMedia('(max-width: 768px)');
 
 window.addEventListener('resize', cambio_clases);
 
-function llamar_cambiar_template(){
-    vista.cambiar_template( "template_prueba", "tbody_prueba");
-}
-
 function cambio_clases(){
     if(tamañoPantalla.matches){
         vista.cambiarClases("contenedor_principal", lista_clases_main_mobile);
@@ -24,11 +20,11 @@ function cambio_clases(){
     }
 }
 
-// window.onload = function(){
-//     vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
-//     vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
-//     cambio_clases();
-// }
+window.onload = function(){
+    vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+    vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
+    cambio_clases();
+}
 
 function regresar_pantalla(){
     vista.regresar_pantalla();
@@ -358,4 +354,10 @@ function mostrar_ayuda(){
     else{
         vista.mostrar_plantilla("ayuda_desktop", "contenedor_principal", 1);
     }
+}
+
+// Funciones para acciones de los botones
+
+function añadir_producto_entradas(){
+    vista.anadir_seccion( "fila_productos_entradas_desktop", "tbody_productos_entradas");
 }
