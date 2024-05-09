@@ -759,25 +759,40 @@ a.page-link:hover {
         width: 100%;
         height: 100%;
         overflow: hidden;
-        background-color: #5d6897;
+        background-color: #475282;
+        min-height: 100%;
     }
 
     .bubbles {
         position: absolute;
+        top: 0;
         display: flex;
+        z-index: 1;
     }
 
     .bubbles span {
         position: relative;
         width: 30px;
         height: 30px;
-        background-color: #4fc3dc;
+        background-color: #FFF;
         margin: 0 4px;
         border-radius: 50%;
-        box-shadow: 0 0 0 10px #24642e,
-        0 0 50px #4fc3dc,
-        0 0 100px #4fc3dc;
+        box-shadow: 0 0 0 10px #FFFFFF44,
+        0 0 50px #FFF,
+        0 0 100px #FFF;
         animation: animate 15s linear infinite;
+        animation-duration: calc(125s / var(--i));
+    }
+
+    .bubbles span:nth-child(even) {
+        background-color: #333A56;
+        box-shadow: 0 0 0 10px #333A5644,
+        0 0 50px #333A56,
+        0 0 100px #333A56;
+    }
+
+    .container {
+        z-index: 2;
     }
 
     @keyframes animate {
@@ -785,15 +800,15 @@ a.page-link:hover {
             transform: translateY(100vh) scale(0);
         }
         100% {
-            transform: translateY(0) scale(1);
+            transform: translateY(-10) scale(1);
         }
     }
 
     /* ------------- NAVEGADOR SUP  Y OFF CANVAS ------------- */
     .nav_sup {
         box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
-        padding: 0px 5px 0px 5px;
-        border-radius: 10px;
+        padding: 0px 5px 0px 7px;
+        border-radius: 4px;
     }
 
     .contenedor_logo {
@@ -846,7 +861,7 @@ a.page-link:hover {
     /* ------------- MAIN GENERALES------------- */
 
     main {
-        min-height: 100%;
+        min-height: 100vh;
         padding-top: 57px;
         padding-bottom: 72.31px;
     }
