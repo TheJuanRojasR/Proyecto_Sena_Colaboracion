@@ -18,4 +18,6 @@
 15. LAURA : Añadir form select y reescribirlo                                                        ✔
 16. JUAN : Hacer mas anchos los selects en crear entrada                                             ❌
 17. LAURA y JUAN: Revision de templates para modificarlos.                                           ❌
+18. Crear metodo para borrar una seccion de codigo html cuando sea mayor a 768px                     ✔
+19. Verificar modales en desktop, para la pantalla de inicio                                         ❌   
 

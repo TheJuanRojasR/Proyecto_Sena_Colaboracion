@@ -88,7 +88,7 @@ class Vista {
    * @param {*} lista_clases 
    */
 
-  cambiarClases(contenedor_etiqueta, lista_clases){
+  cambiar_clases(contenedor_etiqueta, lista_clases){
     let contenedor = document.getElementById(contenedor_etiqueta);
     contenedor.className = "";
     for(let nombre_clase of lista_clases){
@@ -106,11 +106,15 @@ class Vista {
   anadir_seccion(template_id, contenedor_id){
     const template_insertar = document.getElementById(template_id);
     const contenedor = document.getElementById(contenedor_id);
-
     const clone = template_insertar.content.cloneNode(true);
-
     contenedor.appendChild(clone);
   }
+
+  remover_etiqueta(etiqueta){
+    const elemento = document.getElementById(etiqueta);
+    elemento.remove();
+  }
+
 }
 
 

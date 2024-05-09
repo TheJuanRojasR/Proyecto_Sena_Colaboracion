@@ -799,7 +799,7 @@ a.page-link:hover {
     /* ------------- MAIN GENERALES------------- */
 
     main {
-        min-height: 100%;
+        min-height: 100vh;
         padding-top: 57px;
         padding-bottom: 72.31px;
     }
