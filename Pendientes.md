@@ -20,4 +20,5 @@
 17. LAURA y JUAN: Revision de templates para modificarlos.                                           ❌
 18. Crear metodo para borrar una seccion de codigo html cuando sea mayor a 768px                     ✔
 19. Verificar modales en desktop, para la pantalla de inicio                                         ❌   
-
+20. Cambiar nomres de rutas guiones por slash 
+21. LAURA: En el servidor crear un metodo para que el administrardo pueda ver los perfiles creados. 
