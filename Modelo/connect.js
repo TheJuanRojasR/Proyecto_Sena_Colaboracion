@@ -1,7 +1,19 @@
 class Connect {
     constructor() { }
 
-    connect(dataRequest, endpoin, method, callback) {
+    
+/**
+ *Coneccion con la API utilzando fetch para hacer las peticiones al servidor
+ *
+ * @param {*} dataRequest Datos a enviar al servidor
+ * @param {*} endpoin Ruta del servidor al que se connecta
+ * @param {*} method Verbo de la peticion (GET, POST, PUT, DELETE)
+ * @param {*} callback Funcion a ejecutar despues de la peticion
+ * @memberof Connect
+ */
+
+ 
+connect(dataRequest, endpoin, method, callback) {
 
         const url = `http://localhost:3000/${endpoin}`;
 

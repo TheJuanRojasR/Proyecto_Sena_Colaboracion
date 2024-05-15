@@ -11,12 +11,18 @@ window.addEventListener('resize', cambio_clases);
 
 function cambio_clases(){
     if(tamañoPantalla.matches){
-        vista.cambiarClases("contenedor_principal", lista_clases_main_mobile);
-        vista.cambiarClases("navegador_sup", lista_clases_nav_sup_mobile);
+        vista.cambiar_clases("contenedor_principal", lista_clases_main_mobile);
+        vista.cambiar_clases("navegador_sup", lista_clases_nav_sup_mobile);
     }
     else{
-        vista.cambiarClases("contenedor_principal", lista_clases_main_desktop);
-        vista.cambiarClases("navegador_sup", lista_clases_nav_sup_desktop)
+        vista.cambiar_clases("contenedor_principal", lista_clases_main_desktop);
+        vista.cambiar_clases("navegador_sup", lista_clases_nav_sup_desktop)
+    }
+}
+
+function remover_nav_inf(){
+    if(!tamañoPantalla.matches){
+        vista.remover_etiqueta("navegador_inf");
     }
 }
 
@@ -41,12 +47,12 @@ function remover_nav_inf(){
 //     cerrarPantalla("offcanvasNavbar");
 // }
 
-window.onload = function(){
-    vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
-    vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
-    cambio_clases();
-    remover_nav_inf();
-}
+// window.onload = function(){
+//     vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+//     vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
+//     cambio_clases();
+//     remover_nav_inf();
+// }
 
 function regresar_pantalla(){
     vista.regresar_pantalla();
@@ -379,4 +385,10 @@ function mostrar_ayuda(){
     else{
         vista.mostrar_plantilla("ayuda_desktop", "contenedor_principal", 1);
     }
+}
+
+// Funciones para acciones de los botones
+
+function añadir_producto_entradas(){
+    vista.anadir_seccion( "fila_productos_entradas_desktop", "tbody_productos_entradas");
 }

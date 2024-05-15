@@ -42,19 +42,66 @@
 <body class="d-flex flex-column justify-content-between">
     <!-- Barra superior -->
     <nav class="navbar navbar-expand-md" id="navegador_sup">
-
     </nav>
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
+        <section class="registro">
+            <div class="registro__container text-center">
+                <button class="btn registro__close">
+                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+                </button>
 
+                <h1 class="registro__titulo mb-4">Registrarse</h1>
+
+                <form class="registro__input mb-1">
+                    <input type="text" class="form-control registro__input" placeholder="Nombre Completo" value="">
+                </form>
+
+                <select class="form-select registro__select mb-1" aria-label="Default select example">
+                    <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
+                    <option class="registro__option" value="1">Cedula de Ciudadania</option>
+                    <option class="registro__option" value="2">Cedula de Extranjeria</option>
+                    <option class="registro__option" value="3">Rut</option>
+                </select>
+
+                <form class="registro__input mb-1">
+                    <input type="number" class="form-control registro__input" placeholder="Numero de Documento"
+                        value="">
+                </form>
+
+                <form class="registro__input mb-1">
+                    <input type="email" class="form-control registro__input" placeholder="Correo Electronico"
+                        value="">
+                </form>
+
+                <form class="registro__input mb-1">
+                    <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
+                </form>
+
+                <form class="registro__input mb-3">
+                    <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña"
+                        value="">
+                </form>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="terminosCondicionesCheckbox" value="">
+                    <label class="form-check-label registro__text" for="terminosCondicionesCheckbox">
+                        He leído y acepto los <a href="#">Términos y Condiciones</a>
+                    </label>
+                </div>
+
+                <button class="btn btn-general mb-3">Registrar</button>
+
+                <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
+            </div>
+        </section>
     </main>
 
     <!-- Navegador Inferior -->
     <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
 
     </nav>
-
 
     <!-- TEMPLATES BARRAS SUP E INF MOBILE-->
 
@@ -1623,6 +1670,43 @@
             </div>
     </template>
 
+    <template id="fila_productos_entradas_desktop">
+        <tr>
+            <td>
+            </td>
+            <th scope="row">
+                <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                    placeholder="" />
+            </th>
+            <td>
+                <input type="text" class="form-control disabled"
+                    aria-label="Text input with dropdown button" placeholder="Ej: Almacen 1" disabled />
+            </td>
+            <td>
+                <select class="form-select" name="referencia_producto">
+                    <option selected value=""></option>
+                    <option value="1">Referencia 1</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-select" name="">
+                    <option selected value=""></option>
+                    <option value="1">Producto 1</option>
+                </select>
+            </td>
+            <td>
+                <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                    placeholder="" />
+            </td>
+            <td>
+                <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                    placeholder="" />
+            </td>
+            <td>
+            </td>
+        </tr>
+    </template>
+
     <!-- TEMPLATES MODALES DESKTOP -->
 
     <!-- Modal para Informacion -->
@@ -1691,8 +1775,7 @@
 
     <!-- Navegador superior pagina de Inicio -->
     <template id="nav_sup_inicio_desktop">
-        <nav class="navbar navbar-expand-md" id="navegador_sup">
-            <div class="container-fluid">
+        <div class="container-fluid">
                 <a class="navbar-brand" href="#">
                     <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
                 </a>
@@ -1704,8 +1787,7 @@
                     <button class="btn btn-general" onclick="mostrar_form_registro_usuario()" >Registrar</button>
                     </button>
                 </div>
-            </div>
-        </nav>
+        </div>
     </template>
 
     <!-- Navegador superior -->
@@ -1854,32 +1936,35 @@
 
     <!-- Pantalla Log In -->
     <template id="log_in_desktop">        
-            <section class="ingreso">
-                <div class="ingreso__container text-center">
-                    <figure>
-                        <img class="ingreso__img" src="./Assets/img/Imagen_Ingreso.png" alt="">
-                    </figure>
-                    <h1 class="registro__titulo mb-4">Ingreso</h1>
-                    <div class="registro__padding">
-                        <form class="registro__input mb-1">
-                            <input type="email" class="form-control registro__input" placeholder="Correo Electronico"
-                                value="">
-                        </form>
-                        <form class="registro__input mb-2">
-                            <input type="password" class="form-control registro__input" placeholder="Contraseña"
-                                value="">
-                        </form>
-                        <div class="form-check mb-3 d-flex align-items-end justify-content-evenly">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label registro__text">
-                                Recordar mi usuario
-                            </label>
-                            <a href="#" class="registro__text">¿Olvidó su contraseña?</a>
-                        </div>
+        <section class="ingreso">
+            <div class="ingreso__container text-center">
+                <figure>
+                    <img class="ingreso__img" src="./Assets/img/Imagen_Ingreso.png" alt="">
+                </figure>
+                <h1 class="registro__titulo mb-4">Ingreso</h1>
+                <div class="registro__padding">
+                    <button class="btn registro__close">
+                        <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+                    </button>
+                    <form class="registro__input mb-1">
+                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico"
+                            value="">
+                    </form>
+                    <form class="registro__input mb-2">
+                        <input type="password" class="form-control registro__input" placeholder="Contraseña"
+                            value="">
+                    </form>
+                    <div class="form-check mb-3 d-flex align-items-end justify-content-evenly">
+                        <input class="form-check-input" type="checkbox" value="">
+                        <label class="form-check-label registro__text">
+                            Recordar mi usuario
+                        </label>
+                        <a href="#" class="registro__text">¿Olvidó su contraseña?</a>
                     </div>
-                    <button class="btn btn-general mb-3">Ingresar</button>
                 </div>
-            </section>
+                <button class="btn btn-general mb-3">Ingresar</button>
+            </div>
+        </section>
     </template>
 
     <!-- Pantalla Inventarios vacia -->
@@ -2097,104 +2182,107 @@
 
     <!-- Pantalla Crear Entrada -->
     <template id="crear_entrada_desktop">
-        
-            <div class="container encabezado">
-                <h1>ENTRADAS</h1>
-                <div>
-                    <form action="#" method="get" class="search-form encabezado__search-form">
-                        <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                        <button class="encabezado__search-button" type="button">
-                            <img src="./Assets/img/logo_lupa.svg" alt="" />
-                        </button>
-                    </form>
-                </div>
+        <div class="container encabezado">
+            <h1>ENTRADAS</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="./Assets/img/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-            <hr />
-            <div class="container">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col" class="">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                    <span class="ml-2 btn-tabla-icono">Referencia</span>
-                                </button>
-                            </th>
-                            <th scope="col">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                    <span class="ml-2 btn-tabla-icono">Fecha y Hora</span>
-                                </button>
-                            </th>
-                            <th scope="col">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                    <span class="ml-2 btn-tabla-icono">Producto</span>
-                                </button>
-                            </th>
-                            <th scope="col">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                    <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                                </button>
-                            </th>
-                            <th scope="col">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                    <span class="ml-2 btn-tabla-icono">Origen</span>
-                                </button>
-                            </th>
-                            <th scope="col">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                    <span class="ml-2 btn-tabla-icono">Destino</span>
-                                </button>
-                            </th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
+        </div>
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Origen</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Destino</span>
+                            </button>
+                        </th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Referencia</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Producto</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Precio</span>
+                            </button>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
 
-                    <tbody>
-                        <tr class="">
-                            <td>
-                                <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
-                                    <img src="./Assets/img/logo_suma.svg" alt="" />
-                                </button>
-                            </td>
-                            <th scope="row">
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </th>
-                            <td>
-                                <input type="date" class="form-control disabled"
-                                    aria-label="Text input with dropdown button" placeholder="" disabled />
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </td>
-                            <td>
-                                <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
-                                    <img src="./Assets/img/guardar.svg" alt="" />
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <tbody id="tbody_productos_entradas">
+                    <tr>
+                        <td>
+                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="añadir_producto_entradas()">
+                                <img src="./Assets/img/logo_suma.svg" alt="" />
+                            </button>
+                        </td>
+                        <th scope="row">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </th>
+                        <td>
+                            <input type="text" class="form-control disabled"
+                                aria-label="Text input with dropdown button" placeholder="Ej: Almacen 1" disabled />
+                        </td>
+                        <td>
+                            <select class="form-select" name="referencia_producto">
+                                <option selected value=""></option>
+                                <option value="1">Referencia 1</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="form-select" name="">
+                                <option selected value=""></option>
+                                <option value="1">Producto 1</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <button class="btn btn-tabla-icono btnGuardar-tabla">
+                                <img src="./Assets/img/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </template>
 
     <!-- Pantalla Crear Salida -->
@@ -2260,7 +2348,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <button class="btn btn-tabla-icono btnGuardar-tabla">
                                     <img src="./Assets/img/logo_suma.svg" alt="" />
                                 </button>
                             </td>
@@ -2289,7 +2377,7 @@
                                     placeholder="" />
                             </td>
                             <td>
-                                <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <button class="btn btn-tabla-icono btnGuardar-tabla">
                                     <img src="./Assets/img/guardar.svg" alt="" />
                                 </button>
                             </td>
@@ -2301,7 +2389,6 @@
 
     <!-- Pantalla Movimientos -->
     <template id="movimientos_desktop">
-        
             <div class="container encabezado">
                 <h1>ENTRADAS/SALIDAS</h1>
                 <div>
@@ -2406,7 +2493,6 @@
 
     <!-- Pantalla Stock vacia -->
     <template id="stock_vacia_desktop">
-        
             <div class="container encabezado">
                 <h1>STOCK</h1>
                 <div>
@@ -2428,125 +2514,108 @@
 
     <!-- Pantalla Crear producto -->
     <template id="crear_producto_desktop">
+        <div class="container encabezado">
+            <h1>STOCK</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="./Assets/img/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
+            </div>
+        </div>
+        <hr />
+        <div class="container  table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Categoria</span>
+                        </th>
         
-            <div class="container encabezado">
-                <h1>STOCK</h1>
-                <div>
-                    <form action="#" method="get" class="search-form encabezado__search-form">
-                        <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                        <button class="encabezado__search-button" type="button">
-                            <img src="./Assets/img/logo_lupa.svg" alt="" />
-                        </button>
-                    </form>
-                </div>
-            </div>
-            <hr />
-            <div class="container  table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Stock Minimo</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Costo</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Precio</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
 
-                            <th scope="col"></th>
-                            <th scope="col" class="">
-                                <button class="btn btn-tabla-icono">
-                                    <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                </button>
-                                <span class="ml-2 btn-tabla-icono">Producto</span>
-                            </th>
-                            <th scope="col" class="">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                </button>
-                                <span class="ml-2 btn-tabla-icono">Referencia</span>
-                            </th>
-                            <th scope="col">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                </button>
-                                <span class="ml-2 btn-tabla-icono">Categoria</span>
-                            </th>
-                            <th scope="col">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                </button>
-                                <span class="ml-2 btn-tabla-icono">Ubicacion</span>
-                            </th>
-                            <th scope="col">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                </button>
-                                <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                            </th>
-                            <th scope="col">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                </button>
-                                <span class="ml-2 btn-tabla-icono">Stock Minimo</span>
-                            </th>
-                            <th scope="col">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                </button>
-                                <span class="ml-2 btn-tabla-icono">Costo</span>
-                            </th>
-                            <th scope="col">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                </button>
-                                <span class="ml-2 btn-tabla-icono">Precio</span>
-                            </th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>
-                                <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
-                                    <img src="./Assets/img/logo_suma.svg" alt="" />
-                                </button>
-                            </td>
-                            <th scope="row" class="td-body-tabla">
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </th>
-                            <td>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </td>
-                            <td>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" />
-                            </td>
-                            <td class="text-end">
-                                <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
-                                    <img src="./Assets/img/guardar.svg" alt="" />
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="td-body-tabla">
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </th>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td>
+                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                placeholder="" />
+                        </td>
+                        <td class="text-end">
+                            <button class="btn btn-tabla-icono btnGuardar-tabla">
+                                <img src="./Assets/img/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </template>
 
     <!-- Pantalla Stock -->
@@ -2614,7 +2683,7 @@
                                 <p class="td-body-tabla_opciones">Lapiz</p>
                             </td>
                             <td class="">
-                                <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <button class="btn btn-tabla-icono btnGuardar-tabla">
                                     <img src="./Assets/img/logo_ingresar_detalles.svg" alt="" />
                                 </button>
                             </td>
@@ -2769,7 +2838,7 @@
                                     placeholder="Ingreso nombre de Categoria" />
                             </th>
                             <td class="text-end">
-                                <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <button class="btn btn-tabla-icono btnGuardar-tabla">
                                     <img src="./Assets/img/guardar.svg" alt="" />
                                 </button>
                             </td>
@@ -2895,7 +2964,7 @@
                                     placeholder="Ingreso nuevo nombre de Categoria" />
                             </th>
                             <td class="text-end">
-                                <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <button class="btn btn-tabla-icono btnGuardar-tabla">
                                     <img src="./Assets/img/guardar.svg" alt="" />
                                 </button>
                             </td>
@@ -3705,7 +3774,7 @@
                                 </select>
                             </th>
                             <td class="text-end align-middle">
-                                <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
+                                <button class="btn btn-tabla-icono btnGuardar-tabla">
                                     <img src="./Assets/img/guardar.svg" alt="" />
                                 </button>
                             </td>
