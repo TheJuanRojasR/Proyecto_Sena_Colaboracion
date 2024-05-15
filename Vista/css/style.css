@@ -13,7 +13,7 @@ main {
     height: 80vh;
 }
 
-footer{
+footer {
     background-color: #1F2535;
     display: flex;
     width: 100%;
@@ -49,12 +49,12 @@ hr {
     background-color: gray;
 }
 
-.color_blanco{
+.color_blanco {
     color: #FAFAFF;
 }
 
 
-.elemento_flooter{
+.elemento_flooter {
     height: 100%;
 }
 
@@ -174,13 +174,19 @@ hr {
 .registro__container,
 .ingreso__container {
     position: fixed;
-    top: 50%; /* Centra verticalmente */
-    left: 50%; /* Centra horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta para centrar */
+    top: 50%;
+    /* Centra verticalmente */
+    left: 50%;
+    /* Centra horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Ajusta para centrar */
     width: 533px;
-    max-width: 90%; /* Para que se ajuste al ancho máximo de la pantalla */
-    height: auto; /* Se ajustará automáticamente según el contenido */
-    max-height: 90%; /* Evita que el contenido sea más alto que la pantalla */
+    max-width: 90%;
+    /* Para que se ajuste al ancho máximo de la pantalla */
+    height: auto;
+    /* Se ajustará automáticamente según el contenido */
+    max-height: 90%;
+    /* Evita que el contenido sea más alto que la pantalla */
     border-radius: 10px;
     background: #333a56;
     padding: 44px 90px;
@@ -336,7 +342,7 @@ hr {
     background-color: #333A56;
 }
 
-li > button > p {
+li>button>p {
     margin: 0;
     padding-left: 11px;
     color: white;
@@ -525,7 +531,7 @@ a.page-link:hover {
 
 /* Estilos para vista de Perfiles/Crear Perfil */
 
-.registro-perfil{
+.registro-perfil {
     width: 374px;
     height: 535px;
     background-color: white;
@@ -589,12 +595,12 @@ a.page-link:hover {
 
 /* Estilos para vista de Menu/Terminos y Condiciones*/
 
-.element-with-padding{
+.element-with-padding {
     padding: 0 5rem;
 }
 
 
-.text-justify{
+.text-justify {
     text-align: justify;
 }
 
@@ -602,7 +608,7 @@ a.page-link:hover {
 
 /* Estilos para vista de Modales*/
 
-.modal{
+.modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -615,7 +621,7 @@ a.page-link:hover {
     background-color: #111111aa;
 }
 
-.modal--show{
+.modal--show {
     opacity: 1;
     pointer-events: unset;
     transition: opacity .6s;
@@ -623,11 +629,13 @@ a.page-link:hover {
     --transition: transform .8s .8s;
 }
 
-.modal__container{
+.modal__container {
     position: fixed;
-    top: 10%; /* Ajusta este valor según la posición vertical deseada */
+    top: 10%;
+    /* Ajusta este valor según la posición vertical deseada */
     left: 50%;
-    transform: translateX(-50%); /* Centra horizontalmente */
+    transform: translateX(-50%);
+    /* Centra horizontalmente */
     margin: auto;
     width: 90%;
     max-width: 600px;
@@ -641,37 +649,37 @@ a.page-link:hover {
     grid-auto-columns: 100%;
 }
 
-.modal__title{
+.modal__title {
     font-size: 2.5rem;
 }
 
-.modal__paragraph{
+.modal__paragraph {
     margin-bottom: 10px;
 }
 
-.modal__img{
+.modal__img {
     width: 20%;
     max-width: 300px;
 }
 
-.modal__button{
+.modal__button {
     text-decoration: none;
     color: #fff;
     background-color: #333A56;
     padding: 1em 3em;
-    border: 1px solid ;
+    border: 1px solid;
     border-radius: 6px;
     display: inline-block;
     font-weight: 300;
     transition: background-color .3s;
 }
 
-.modal__button:hover{
+.modal__button:hover {
     color: #333A51;
     background-color: #fff;
 }
 
-.modal__close{
+.modal__close {
     position: fixed;
     top: 4%;
     right: 2%;
@@ -747,6 +755,16 @@ a.page-link:hover {
         background-color: #F7F5E6;
     }
 
+    footer {
+        background-color: #1F2535;
+        display: flex;
+        width: 100%;
+        height: 20vh;
+        padding: 0rem 2rem;
+        align-items: flex-start;
+        gap: 5rem;
+    }
+
     /* ------------- INICIOS ------------- */
     * {
         margin: 0;
@@ -754,7 +772,7 @@ a.page-link:hover {
         box-sizing: border-box;
     }
 
-    #contenedor_inicio{
+    #contenedor_inicio {
         position: relative;
         width: 100%;
         height: 100%;
@@ -778,8 +796,8 @@ a.page-link:hover {
         margin: 0 4px;
         border-radius: 50%;
         box-shadow: 0 0 0 10px #FFFFFF44,
-        0 0 50px #FFF,
-        0 0 100px #FFF;
+            0 0 50px #FFF,
+            0 0 100px #FFF;
         animation: animate 15s linear infinite;
         animation-duration: calc(125s / var(--i));
     }
@@ -787,8 +805,8 @@ a.page-link:hover {
     .bubbles span:nth-child(even) {
         background-color: #333A56;
         box-shadow: 0 0 0 10px #333A5644,
-        0 0 50px #333A56,
-        0 0 100px #333A56;
+            0 0 50px #333A56,
+            0 0 100px #333A56;
     }
 
     .container {
@@ -799,24 +817,28 @@ a.page-link:hover {
         0% {
             transform: translateY(100vh) scale(0);
         }
+
         100% {
             transform: translateY(-10) scale(1);
         }
     }
-    
+
     /* ------------- INFERIOR INICIO ------------- */
 
+
     .rectangulo-inferior {
-        size: 10%;
-        position: fixed;
-        left: 0;
         bottom: 0;
         width: 100%;
-        height: 50px; 
-        z-index: 10; 
+        height: auto;
+        z-index: 10;
+        background-color: #333A56;
+        row-gap: 0;
+    }
+    .imagen_inicio{
+        padding: 15px;
     }
 
-    
+
     /* ------------- NAVEGADOR SUP  Y OFF CANVAS ------------- */
     .nav_sup {
         box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
@@ -876,7 +898,7 @@ a.page-link:hover {
     main {
         min-height: 100vh;
         padding-top: 57px;
-        padding-bottom: 72.31px;
+        /* padding-bottom: 72.31px; */
     }
 
     .contenedor_main {
