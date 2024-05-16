@@ -26,12 +26,6 @@ function remover_nav_inf(){
     }
 }
 
-function remover_nav_inf(){
-    if(!tamañoPantalla.matches){
-        vista.removerEtiqueta("navegador_inf");
-    }
-}
-
 /**
  function cambio_templates(){
      if(tamañoPantalla.matches){

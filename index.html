@@ -42,65 +42,131 @@
 <body class="d-flex flex-column justify-content-between">
     <!-- Barra superior -->
     <nav class="navbar navbar-expand-md" id="navegador_sup">
+        <div class="container-fluid" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
+            <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
+                <img src="./Assets/img/logo-layout.png" alt="Variety Vault">
+            </a>
+            <button class="navbar-toggler" id="contenedor_menu_desplegable" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <!-- Boton de menu desplegable -->
+                <img src="./Assets/img/menu-menu-alt-02.svg" alt="">
+            </button>
+            <div class="offcanvas offcanvas-end overflow-y-scroll" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel"> <!-- Contenido menu desplegable -->
+                <div class="offcanvas-header"> <!-- Header del menu desplegable -->
+                    <button type="button" class="btn" onclick="mostrar_busqueda()"> <!-- Boton de busqueda -->
+                        <img src="./Assets/img/interface-search-magnifying-glass.svg" alt="">
+                    </button>
+                    <button type="button" class="btn" data-bs-dismiss="offcanvas"> <!-- Boton de cierre -->
+                        <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+                    </button>
+                </div>
+                <div class="offcanvas-body"> <!-- Cuerpo del menu desplegable -->
+                    <div class="contenido_offcanvas">
+                        <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
+                            <p>Menu</p>
+                        </div>
+                        <div id="icono_usuario"> <!-- Icono del usuario -->
+                            <img src="./Assets/img/user-user-circle.svg" alt="">
+                        </div>
+                        <!-- Opciones del menu hamburguesa -->
+                        <div class="cont_opc_menu_ham">
+                            <button type="button" class="btn btn_transparente" onclick="mostrar_terminos_condiciones()">Terminos y Condiciones</button>
+                        </div>
+                        <div class="cont_opc_menu_ham">
+                            <button type="button" class="btn btn_transparente" onclick="mostrar_politicas_privacidad()">
+                                Politicas de Privacidad
+                            </button>
+                        </div>
+                        <div class="cont_opc_menu_ham">
+                            <button type="button" class="btn btn_transparente" onclick="mostrar_ajustes_usuario()">
+                                Ajustes de usuario
+                            </button>
+                        </div>
+                        <div class="cont_opc_menu_ham">
+                            <button type="button" class="btn btn_transparente" onclick="mostrar_ayuda()">
+                                Ayuda
+                            </button>
+                        </div>
+                        <div class="cont_opc_menu_ham">
+                            <button type="button" class="btn btn_transparente">
+                                Cerrar Sesion
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <!-- Contenido de la pagina -->
-    <main id="contenedor_principal" class="container-fluid container_main ">
-        <section class="registro">
-            <div class="registro__container text-center">
-                <button class="btn registro__close">
-                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+    <main id="contenedor_principal" class="">
+        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
+            <!-- Contenedor principal -->
+            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                <button class="btn" onclick="regresar_pantalla()">
+                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
                 </button>
-
-                <h1 class="registro__titulo mb-4">Registrarse</h1>
-
-                <form class="registro__input mb-1">
-                    <input type="text" class="form-control registro__input" placeholder="Nombre Completo" value="">
-                </form>
-
-                <select class="form-select registro__select mb-1" aria-label="Default select example">
-                    <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
-                    <option class="registro__option" value="1">Cedula de Ciudadania</option>
-                    <option class="registro__option" value="2">Cedula de Extranjeria</option>
-                    <option class="registro__option" value="3">Rut</option>
-                </select>
-
-                <form class="registro__input mb-1">
-                    <input type="number" class="form-control registro__input" placeholder="Numero de Documento"
-                        value="">
-                </form>
-
-                <form class="registro__input mb-1">
-                    <input type="email" class="form-control registro__input" placeholder="Correo Electronico"
-                        value="">
-                </form>
-
-                <form class="registro__input mb-1">
-                    <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
-                </form>
-
-                <form class="registro__input mb-3">
-                    <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña"
-                        value="">
-                </form>
-
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" id="terminosCondicionesCheckbox" value="">
-                    <label class="form-check-label registro__text" for="terminosCondicionesCheckbox">
-                        He leído y acepto los <a href="#">Términos y Condiciones</a>
-                    </label>
-                </div>
-
-                <button class="btn btn-general mb-3">Registrar</button>
-
-                <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
             </div>
-        </section>
+            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                <p class="title_small">Ajustes del Usuario</p>
+            </div>
+            <form class="container d-flex flex-column align-items-center contenedor_form contenedor_form_editar_ajustes" id="form_editar_usuario">
+                <!-- Contenedor para seleccionar el informe a mostrar-->
+                <input class="input_claro_ajustes" type="text" placeholder="Nombre Completo">
+                <input class="input_claro_ajustes" type="text" placeholder="Tipo Documento">
+                <input class="input_claro_ajustes" type="text" placeholder="Numero Documento">
+                <input class="input_claro_ajustes" type="text" placeholder="Correo Electronico">
+                <input class="input_claro_ajustes" type="text" placeholder="Contraseña">
+                <input class="input_claro_ajustes" type="text" placeholder="Repetir Nueva Contraseña">
+            </form>
+            <div
+                class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
+                <!-- Contenedor de botones para ver movimientos y editar el producto -->
+                <button class="btn boton_largo_oscuro" type="button">
+                    Guardar Cambios
+                </button>
+            </div>
+        </div>
     </main>
 
     <!-- Navegador Inferior -->
     <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
-
+        <div class="container-fluid justify-content-center">
+            <ul class="navbar-nav flex-row justify-content-around flex-wrap" id="lista_nav_inf">
+                <!-- Lista de Navegacion -->
+                <li class="nav-item" id="home">
+                    <button class="btn" type="button" onclick="mostrar_inventarios()">
+                        <img src="./Assets/img/home.svg" alt="">
+                    </button>
+                    <p class="text_nav_inf">Inventario</p>
+                </li>
+                <li class="nav-item" id="operaciones">
+                    <button class="btn" type="button" onclick="mostrar_movimientos_vacia()">
+                        <img src="Assets/img/arrow-arrow-left-right.svg" alt="">
+                    </button>
+                    <p class="text_nav_inf">Operaciones</p>
+                </li>
+                <li class="nav-item" id="boton_stock">
+                    <button class="btn" type="button" onclick="mostrar_stock_vacia()">
+                        <img src="./Assets/img/file-archive.svg" alt="">
+                    </button>
+                    <p class="text_nav_inf">Stock</p>
+                </li>
+                <li class="nav-item" id="estadisticas">
+                    <button class="btn" type="button" onclick="mostrar_seleccionar_informe()">
+                        <img src="./Assets/img/file-file-document.svg" alt="">
+                    </button>
+                    <p class="text_nav_inf">Informes</p>
+                </li>
+                <li class="nav-item" id="perfiles">
+                    <button class="btn" type="button" onclick="mostrar_perfiles_vacia()">
+                        <img src="./Assets/img/user.svg" alt="">
+                    </button>
+                    <p class="text_nav_inf">Perfiles</p>
+                </li>
+            </ul>
+        </div>
     </nav>
 
     <!-- TEMPLATES BARRAS SUP E INF MOBILE-->
@@ -258,7 +324,7 @@
             <div class="titulo_registro"> <!-- Titulo Grandes -->
                 <h1>Registrarse</h1>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form" id="form_registro">
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_registro_usuario">
                 <!-- Contendor de form para registrarse -->
                 <input type="text" class="form-control" placeholder="Nombre completo">
                 <select type="text" class="select_oscuro"> <!-- Select para seleccionar tipo de documento -->
@@ -271,7 +337,7 @@
                 <input type="text" class="form-control" placeholder="Correo Electronico">
                 <input type="text" class="form-control" placeholder="Contraseña">
                 <input type="text" class="form-control" placeholder="Repetir Contraseña">
-            </div>
+            </form>
             <div class="container d-flex justify-content-end contenedor_boton">
                 <!-- Contendor boton para registrarse -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_form_login()">
@@ -295,11 +361,11 @@
                 <h1>Ingresar</h1>
                 <p id="subtitulo_login">Por favor ingrese para poder continuar</p>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form">
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_login">
                 <!-- Contendor de form para log in -->
                 <input type="text" class="form-control" placeholder="Correo Electronico">
                 <input type="text" class="form-control" placeholder="Contraseña">
-            </div>
+            </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor boton para log in -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv_vacia()">
                     Ingresar
@@ -337,7 +403,7 @@
             <div class="titulo_creacion"> <!-- Titulo Grandes -->
                 <h1>Nuevo Inventario</h1>
             </div>
-            <div class="contenedor_form"> <!-- Contendor de form para crear un inventario -->
+            <form class="contenedor_form" id="form_crear_inventario"> <!-- Contendor de form para crear un inventario -->
                 <div class="d-flex flex-row align-items-center nombre_inventario">
                     <!-- Campos para ingresar informacion -->
                     <input type="text" placeholder="Nombre Inventario" class="input_oscuro">
@@ -348,7 +414,7 @@
                 <div class="d-flex flex-row align-items-center descripcion">
                     <input type="text" placeholder="Descripcion" class="input_oscuro">
                 </div>
-            </div>
+            </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear el inventario -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inventarios()">
                     Crear
@@ -457,7 +523,9 @@
             <div class="d-flex flex-column justify-content-center contenedor_dropdown">
                 <!-- Contenido para menu dropdown -->
                 <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <form action="" id="form_eliminar_inventario">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    </form>
                     <div class="d-flex flex-column dropdown"> <!-- Contenedor para el dropdown -->
                         <button disabled
                             class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto"
@@ -473,10 +541,12 @@
                             <li class="d-flex align-items-center texto_dropdown">
                                 <p type="text" name="" id="descripcion">Descripcion</p>
                             </li>
-                            <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                    onclick="mostrar_editar_inv()">Editar Inventario</a></li>
-                            <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                    onclick="mostrar_stock_vacia()">Ver Inventario</a></li>
+                            <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                                <a href="#" onclick="mostrar_editar_inv()">Editar Inventario</a>
+                            </li>
+                            <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                                <a href="#"onclick="mostrar_stock_vacia()">Ver Inventario</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -522,7 +592,7 @@
                 <h1>Crear Entrada</h1>
                 <p class="referencia">Referencia xxxxxx</p> <!-- Texto para mostrar la referencia del movimiento -->
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form">
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_entrada">
                 <!-- Contendor de form para crear una entrada -->
                 <input type="text" name="" class="form-control" placeholder="Origen">
                 <input disabled type="text" class="form-control" placeholder="Destino">
@@ -542,7 +612,7 @@
                 <input type="number" name="" class="input_claro_mov" placeholder="Cantidad">
                 <input type="number" name="" class="input_claro_mov" placeholder="Precio">
                 <div class="linea_division"></div>
-            </div>
+            </form>
             <button class="btn boton_add_producto_movimientos" type="button">
                 <!-- Contendor de boton para añadir producto al movimiento -->
                 <img src="../Assets/img/edit-add-plus-circle.svg" alt="">
@@ -572,7 +642,7 @@
                 <h1>Crear Salida</h1>
                 <p class="referencia">Referencia xxxxxx</p> <!-- Texto para mostrar la referencia del movimiento -->
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form">
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_salida">
                 <!-- Contendor de form para crear una salida -->
                 <input disabled type="text" class="form-control" placeholder="Origen">
                 <input type="text" class="form-control" placeholder="Destino">
@@ -591,7 +661,7 @@
                 </select>
                 <input type="text" name="" class="input_claro_mov" placeholder="Cantidad">
                 <div class="linea_division"></div>
-            </div>
+            </form>
             <button class="btn boton_add_producto_movimientos" type="button">
                 <!-- Contendor de btn para añadir producto al movimiento -->
                 <img src="../Assets/img/edit-add-plus-circle.svg" alt="">
@@ -674,7 +744,7 @@
             <div class="titulo_creacion"> <!-- Titulo Grandes -->
                 <h1>Crear Producto</h1>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form">
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_producto">
                 <!-- Contendor de form para crear un producto -->
                 <input type="text" class="form-control" placeholder="Nombre Producto">
                 <input type="text" class="form-control" placeholder="Referencia Producto">
@@ -687,7 +757,7 @@
                 <input type="number" class="form-control" placeholder="Stock minimo">
                 <input type="number" class="form-control" placeholder="Costo">
                 <input type="number" class="form-control" placeholder="Precio">
-            </div>
+            </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear el producto -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_stock()">
                     Crear
@@ -737,13 +807,20 @@
     <template id="eliminar_producto">
         <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
             <!-- Contenedor principal -->
+            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                <button class="btn" onclick="regresar_pantalla()">
+                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                </button>
+            </div>
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                 <p class="title_small">Stock</p>
             </div>
             <div class="d-flex flex-column justify-content-center contenedor_dropdown">
                 <!-- Contenido para menu dropdown -->
                 <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <form action="" id="form_eliminar_producto">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    </form>
                     <div class="d-flex dropdown"> <!-- Contenedor para el dropdown -->
                         <button disabled
                             class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto"
@@ -762,8 +839,9 @@
                             <li class="d-flex align-items-center texto_dropdown">
                                 <p type="text" name="" class="elementos_listas">Cantidad Disponible</p>
                             </li>
-                            <li class="d-flex accion_dropdown align-items-center justify-content-center"><a
-                                    href="#">Detalles del Producto</a></li>
+                            <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                                <a href="#">Detalles del Producto</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -813,10 +891,10 @@
             <div class="titulo_creacion"> <!-- Titulo Grandes -->
                 <h1>Crear Categoria</h1>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form">
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_categoria">
                 <!-- Contendor de form para crear una categoria -->
                 <input type="text" class="form-control" placeholder="Nombre Categoria">
-            </div>
+            </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear la categoria -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_categorias()">
                     Crear Categoria
@@ -879,13 +957,14 @@
                     </button>
                     <ul class="dropdown-menu informacion_dropdown_contenido">
                         <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                onclick="mostrar_editar_categoria()">Editar Categoria</a></li>
+                        <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                            <a href="#" onclick="mostrar_editar_categoria()">Editar Categoria</a>
+                        </li>
                     </ul>
-                    <div class="d-flex flex-column contenedor_campos_edicion">
+                    <form class="d-flex flex-column contenedor_campos_edicion" id="form_editar_categoria">
                         <!-- Contenedor de campos para editar categoria -->
                         <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Categoria">
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
@@ -911,18 +990,19 @@
             <div class="d-flex flex-column justify-content-center contenedor_dropdown">
                 <!-- Contenido para menu dropdown -->
                 <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <form action="" id="form_eliminar_categoria">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    </form>
                     <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                        <button disabled
-                            class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
                             Categoria 1
                         </button>
                         <ul class="dropdown-menu informacion_dropdown_contenido">
                             <!-- Lista de infomacion desplegable en el dropdown -->
-                            <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                    onclick="mostrar_editar_categoria()">Editar Categoria</a></li>
+                            <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                                <a href="#" onclick="mostrar_editar_categoria()">Editar Categoria</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1020,8 +1100,7 @@
                     <li>Precio de Venta</li>
                 </ul>
             </div>
-            <div
-                class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
+            <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
                 <!-- Contenedor de botones -->
                 <button class="btn boton_largo_oscuro" type="button" onclick="mostrar_mov_del_producto()">
                     <!-- Boton para ver movimientos -->
@@ -1054,7 +1133,7 @@
             <div class="titulo_creacion"> <!-- Titulo Grandes -->
                 <h1>Editar Producto</h1>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form">
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_editar_producto">
                 <!-- Contendor de form para editar un producto -->
                 <input type="text" class="form-control" placeholder="Nombre Producto">
                 <select type="text" class="select_oscuro"> <!-- Select para seleccionar categoria del producto -->
@@ -1065,7 +1144,7 @@
                 <input type="text" class="form-control" placeholder="Ubicacion">
                 <input type="text" class="form-control" placeholder="Stock minimo">
                 <input type="text" class="form-control" placeholder="Precio">
-            </div>
+            </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_detalles_producto()">
                     Guardar
@@ -1143,8 +1222,7 @@
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                 <p class="title_small">Estadisticas</p>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form"
-                id="contenedor_seleccion_informe"> <!-- Contenedor para seleccionar el informe a mostrar-->
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="contenedor_seleccion_informe"> <!-- Contenedor para seleccionar el informe a mostrar-->
                 <select type="text" class="select_claro"> <!-- Select para seleccionar el informe -->
                     <!-- Opciones del select -->
                     <option selected class="opciones">Seleccionar Informe</option>
@@ -1152,7 +1230,7 @@
                     <option class="opciones">Movimientos del Almacen</option>
                     <option class="opciones">Movimientos en Almacen</option>
                 </select>
-            </div>
+            </form>
             <div class="container d-flex justify-content-end contenedor_boton">
                 <!-- Boton para mostrar el informe seleccionado -->
                 <button class="btn boton_oscuro_corto" type="button">
@@ -1177,7 +1255,7 @@
             <div class="titulo_creacion"> <!-- Titulo Grandes -->
                 <h1>Movimientos del producto</h1>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form">
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_filtros_informe_mov_prod">
                 <!-- Contendor para seleccionar filtros del informe -->
                 <select type="text" class="select_claro"> <!-- Select para seleccionar el producto -->
                     <!-- Opciones del select -->
@@ -1186,9 +1264,9 @@
                     <option class="opciones">Producto 2</option>
                     <option class="opciones">Producto 3</option>
                 </select>
-                <input type="text" placeholder="Desde" class="input_claro_dos">
-                <input type="text" placeholder="Hasta" class="input_claro_dos">
-            </div>
+                <input type="date" placeholder="Desde" class="input_claro_dos">
+                <input type="date" placeholder="Hasta" class="input_claro_dos">
+            </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor de boton generar -->
                 <button class="btn boton_oscuro_corto" type="button">
                     Generar
@@ -1212,12 +1290,11 @@
             <div class="titulo_creacion"> <!-- Titulo Grandes -->
                 <h1>Categorías más vendidas</h1>
             </div>
-            <div
-                class="container d-flex flex-column align-items-center contenedor_form contenedor_seleccion_filtros_informe ">
+            <form class="container d-flex flex-column align-items-center contenedor_form contenedor_seleccion_filtros_informe" id="form_filtros_informe_precio_alm">
                 <!-- Contenedor para seleccionar filtros del informe-->
                 <input type="date" placeholder="Desde" class="input_claro_dos">
                 <input type="date" placeholder="Hasta" class="input_claro_dos">
-            </div>
+            </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor de boton generar -->
                 <button class="btn boton_oscuro_corto" type="button">
                     Generar
@@ -1226,7 +1303,7 @@
         </div>
     </template>
 
-    <!-- Pantalla Filtros Informe Precio Alm -->
+    <!-- Pantalla Filtros Informe Precio Alm Pendiente si se necesita--> 
     <template id="filtros_informe_precio_alm">
         <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
             <!-- Contenedor principal -->
@@ -1293,7 +1370,7 @@
             <div class="titulo_creacion"> <!-- Titulo Grandes -->
                 <h1>Crear Perfil</h1>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form">
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_perfil">
                 <!-- Contendor de form para crear un perfil-->
                 <input type="text" class="form-control" placeholder="Nombre Completo">
                 <select type="text" class="select_oscuro"> <!-- Select para seleccionar el rol del usuario -->
@@ -1312,7 +1389,7 @@
                 <input type="text" class="form-control" placeholder="Correo Electronico">
                 <input type="text" class="form-control" placeholder="Contraseña">
                 <input type="text" class="form-control" placeholder="Repetir Contraseña">
-            </div>
+            </form>
             <div class="container d-flex justify-content-end contenedor_boton">
                 <!-- Contendor boton para crear el perfil -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_perfiles()">
@@ -1371,9 +1448,7 @@
             <div class="d-flex flex-column justify-content-center contenedor_dropdown">
                 <!-- Contenido para menu dropdown -->
                 <div class="d-flex flex-column dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                    <button disabled
-                        class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <div class="color_lateral" id="lateral_oscuro"></div>
                         Perfil 1
                     </button>
@@ -1385,10 +1460,11 @@
                         <li class="d-flex align-items-center texto_dropdown">
                             <p type="text" name="" class="elementos_listas">Rol</p>
                         </li>
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                onclick="mostrar_editar_perfiles()">Editar Perfil</a></li>
+                        <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                            <a href="#" onclick="mostrar_editar_perfiles()">Editar Perfil</a>
+                        </li>
                     </ul>
-                    <div class="contenedor_campos_edicion"> <!-- Contenedor de campos para editar perfil -->
+                    <form class="contenedor_campos_edicion" id="form_editar_perfil"> <!-- Contenedor de campos para editar perfil -->
                         <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Usuario">
                         <select type="text" class="select_edicion"> <!-- Select para seleccionar el rol del usuario -->
                             <!-- Opciones del select -->
@@ -1396,7 +1472,7 @@
                             <option class="opciones">Rol 1</option>
                             <option class="opciones">Rol 2</option>
                         </select>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
@@ -1417,11 +1493,11 @@
             <div class="d-flex flex-column justify-content-center contenedor_dropdown">
                 <!-- Contenido para menus dropdown -->
                 <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <form action="" id="form_eliminar_perfiles">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    </form>
                     <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                        <button disabled
-                            class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
                             Perfil 1
                         </button>
@@ -1433,8 +1509,9 @@
                             <li class="d-flex align-items-center texto_dropdown">
                                 <p type="text" name="">Rol</p>
                             </li>
-                            <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                    onclick="mostrar_editar_perfiles()">Editar Perfil</a></li>
+                            <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                                <a href="#" onclick="mostrar_editar_perfiles()">Editar Perfil</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -1458,11 +1535,13 @@
                 </button>
             </div>
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Estadisticas</p>
+                <p class="title_small">Buscar</p>
             </div>
             <div class="container contenedor_form boton_busqueda"> <!-- Contendor de form para buscar -->
                 <div class="d-flex contendor_shadow"> <!-- Contenedor de busqueda -->
-                    <input class="input_claro_busqueda" type="text" name="" placeholder="Buscar">
+                    <form action="" id="form_buscar">
+                        <input class="input_claro_busqueda" type="text" name="" placeholder="Buscar">
+                    </form>
                     <button class="icono_boton_busqueda" type="button"> <!-- Boton de busqueda -->
                         <img src="./Assets/img/logo_lupa.svg" alt="" />
                     </button>
@@ -1535,14 +1614,14 @@
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                 <p class="title_small">Ajustes del Usuario</p>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form contenedor_form_ajustes">
+            <form class="container d-flex flex-column align-items-center contenedor_form contenedor_form_ajustes" id="form_ajustes_usuario">
                 <!-- Contendor de form para ajustes de usuario -->
                 <input disabled class="input_transparente" type="text" placeholder="Nombre Completo">
                 <input disabled class="input_transparente" type="text" placeholder="Tipo Documento">
                 <input disabled class="input_transparente" type="text" placeholder="Numero Documento">
                 <input disabled class="input_transparente" type="text" placeholder="Correo Electronico">
                 <input disabled class="input_transparente" type="text" placeholder="Contraseña">
-            </div>
+            </form>
             <div
                 class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
                 <!-- Contenedor de botones para ver movimientos y editar el producto -->
@@ -1565,7 +1644,7 @@
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                 <p class="title_small">Ajustes del Usuario</p>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form contenedor_form_editar_ajustes">
+            <form class="container d-flex flex-column align-items-center contenedor_form contenedor_form_editar_ajustes" id="form_editar_usuario">
                 <!-- Contenedor para seleccionar el informe a mostrar-->
                 <input class="input_claro_ajustes" type="text" placeholder="Nombre Completo">
                 <input class="input_claro_ajustes" type="text" placeholder="Tipo Documento">
@@ -1573,7 +1652,7 @@
                 <input class="input_claro_ajustes" type="text" placeholder="Correo Electronico">
                 <input class="input_claro_ajustes" type="text" placeholder="Contraseña">
                 <input class="input_claro_ajustes" type="text" placeholder="Repetir Nueva Contraseña">
-            </div>
+            </form>
             <div
                 class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
                 <!-- Contenedor de botones para ver movimientos y editar el producto -->
@@ -1882,56 +1961,56 @@
 
     <!-- Pantalla Registrarse -->
     <template id="registro_usuario_desktop">
-            <section class="registro">
-                <div class="registro__container text-center">
-                    <button class="btn registro__close">
-                        <img src="./Assets/img/logo_cerrar_x.svg" alt="">
-                    </button>
+        <section class="registro">
+            <div class="registro__container text-center">
+                <button class="btn registro__close">
+                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+                </button>
 
-                    <h1 class="registro__titulo mb-4">Registrarse</h1>
+                <h1 class="registro__titulo mb-4">Registrarse</h1>
 
-                    <form class="registro__input mb-1">
-                        <input type="text" class="form-control registro__input" placeholder="Nombre Completo" value="">
-                    </form>
+                <form class="registro__input mb-1">
+                    <input type="text" class="form-control registro__input" placeholder="Nombre Completo" value="">
+                </form>
 
-                    <select class="form-select registro__select mb-1" aria-label="Default select example">
-                        <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
-                        <option class="registro__option" value="1">Cedula de Ciudadania</option>
-                        <option class="registro__option" value="2">Cedula de Extranjeria</option>
-                        <option class="registro__option" value="3">Rut</option>
-                    </select>
+                <select class="form-select registro__select mb-1" aria-label="Default select example">
+                    <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
+                    <option class="registro__option" value="1">Cedula de Ciudadania</option>
+                    <option class="registro__option" value="2">Cedula de Extranjeria</option>
+                    <option class="registro__option" value="3">Rut</option>
+                </select>
 
-                    <form class="registro__input mb-1">
-                        <input type="number" class="form-control registro__input" placeholder="Numero de Documento"
-                            value="">
-                    </form>
+                <form class="registro__input mb-1">
+                    <input type="number" class="form-control registro__input" placeholder="Numero de Documento"
+                        value="">
+                </form>
 
-                    <form class="registro__input mb-1">
-                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico"
-                            value="">
-                    </form>
+                <form class="registro__input mb-1">
+                    <input type="email" class="form-control registro__input" placeholder="Correo Electronico"
+                        value="">
+                </form>
 
-                    <form class="registro__input mb-1">
-                        <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
-                    </form>
+                <form class="registro__input mb-1">
+                    <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
+                </form>
 
-                    <form class="registro__input mb-3">
-                        <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña"
-                            value="">
-                    </form>
+                <form class="registro__input mb-3">
+                    <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña"
+                        value="">
+                </form>
 
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" id="terminosCondicionesCheckbox" value="">
-                        <label class="form-check-label registro__text" for="terminosCondicionesCheckbox">
-                            He leído y acepto los <a href="#">Términos y Condiciones</a>
-                        </label>
-                    </div>
-
-                    <button class="btn btn-general mb-3">Registrar</button>
-
-                    <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="checkbox" id="terminosCondicionesCheckbox" value="">
+                    <label class="form-check-label registro__text" for="terminosCondicionesCheckbox">
+                        He leído y acepto los <a href="#">Términos y Condiciones</a>
+                    </label>
                 </div>
-            </section>
+
+                <button class="btn btn-general mb-3">Registrar</button>
+
+                <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
+            </div>
+        </section>
     </template>
 
     <!-- Pantalla Log In -->
