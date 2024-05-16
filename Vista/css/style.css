@@ -184,11 +184,18 @@ hr {
     border-radius: 10px;
     background: #333a56;
     padding: 44px 90px;
+    overflow-y: auto;
+}
+
+.registro__container::-webkit-scrollbar,
+.ingreso__container::-webkit-scrollbar {
+    width: 0;  /* Ancho de la barra de desplazamiento a cero */
+    display: none; /* Oculta la barra de desplazamiento */
 }
 
 .ingreso__container {
     padding: 0;
-    max-height: 100%;
+    max-height: 90%;
 }
 
 /* Estilos para el título del formulario de registro */
@@ -199,7 +206,6 @@ hr {
     font-weight: 400;
     line-height: 1.0;
     letter-spacing: -0.8px;
-    margin-bottom: 20px;
 }
 
 /* Estilos para el placeholder de los inputs dentro del formulario de registro */
@@ -427,7 +433,6 @@ a.page-link:hover {
 }
 
 .form-check-input:checked {
-    background-color: #333A56;
     border-color: #333A56;
 }
 
