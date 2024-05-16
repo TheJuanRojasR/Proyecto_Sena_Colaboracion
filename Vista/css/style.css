@@ -543,6 +543,76 @@ a.page-link:hover {
 
 /* ----------------------------------------------------------------------- */
 
+/* ------------------------------------INICIO DESTOCK BUBBLES----------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#contenedor_desktop{
+    height: 100%;
+    width: 100%;
+}
+
+#contenedor_inicio_desktop {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #475282;
+    min-height: 100%;
+    z-index: -1;
+}
+
+.bubbles {
+    position: absolute;
+    top: 0;
+    display: flex;
+    z-index: 10;
+}
+
+.bubbles span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    background-color: #FFF;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #FFFFFF44,
+        0 0 50px #FFF,
+        0 0 100px #FFF;
+    animation: animate 15s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+.bubbles span:nth-child(even) {
+    background-color: #333A56;
+    box-shadow: 0 0 0 10px #333A5644,
+        0 0 50px #333A56,
+        0 0 100px #333A56;
+}
+
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+
+    100% {
+        transform: translateY(-10) scale(1);
+    }
+}
+
+#carouselExampleDark{
+    position: absolute;
+    z-index: 4;
+    top: 10%;
+    left: 10%;
+}
+
+
+
 /* Estilos para vista de Barra lateral*/
 
 .color_inherit {
