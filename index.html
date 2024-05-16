@@ -35,66 +35,127 @@
 <body class="d-flex flex-column justify-content-between">
     <!-- Barra superior -->
     <nav class="navbar navbar-expand-md" id="navegador_sup">
-        <div class="container-fluid" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
-            <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
-                <img src="./Assets/img/logo-layout.png" alt="Variety Vault">
-            </a>
-            <button class="navbar-toggler" id="contenedor_menu_desplegable" type="button" data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-                <!-- Boton de menu desplegable -->
-                <img src="./Assets/img/menu-menu-alt-02.svg" alt="">
-            </button>
-            <div class="offcanvas offcanvas-end overflow-y-scroll" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel"> <!-- Contenido menu desplegable -->
-                <div class="offcanvas-header"> <!-- Header del menu desplegable -->
-                    <button type="button" class="btn" onclick="mostrar_busqueda()"> <!-- Boton de busqueda -->
-                        <img src="./Assets/img/interface-search-magnifying-glass.svg" alt="">
-                    </button>
-                    <button type="button" class="btn" data-bs-dismiss="offcanvas"> <!-- Boton de cierre -->
-                        <img src="./Assets/img/logo_cerrar_x.svg" alt="">
-                    </button>
-                </div>
-                <div class="offcanvas-body"> <!-- Cuerpo del menu desplegable -->
-                    <div class="contenido_offcanvas">
-                        <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
-                            <p>Menu</p>
-                        </div>
-                        <div id="icono_usuario"> <!-- Icono del usuario -->
-                            <img src="./Assets/img/user-user-circle.svg" alt="">
-                        </div>
-                        <!-- Opciones del menu hamburguesa -->
-                        <div class="cont_opc_menu_ham">
-                            <button type="button" class="btn btn_transparente" onclick="mostrar_terminos_condiciones()">Terminos y Condiciones</button>
-                        </div>
-                        <div class="cont_opc_menu_ham">
-                            <button type="button" class="btn btn_transparente" onclick="mostrar_politicas_privacidad()">
-                                Politicas de Privacidad
-                            </button>
-                        </div>
-                        <div class="cont_opc_menu_ham">
-                            <button type="button" class="btn btn_transparente" onclick="mostrar_ajustes_usuario()">
-                                Ajustes de usuario
-                            </button>
-                        </div>
-                        <div class="cont_opc_menu_ham">
-                            <button type="button" class="btn btn_transparente" onclick="mostrar_ayuda()">
-                                Ayuda
-                            </button>
-                        </div>
-                        <div class="cont_opc_menu_ham">
-                            <button type="button" class="btn btn_transparente">
-                                Cerrar Sesion
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </nav>
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
-        
+        <div class="container encabezado">
+            <h1>Abastecimiento</h1>
+            <div class="d-flex flex-row">
+                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                </form>
+                <button class="encabezado__search-button" type="button">
+                    <img src="./Assets/img/logo_lupa.svg" alt="" />
+                </button>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Categoría</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Ubicacion</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Stock Min</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-0" id="abastecimiento_columna_aviso_error"></td>
+                        <th scope="row" class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Lapiz</p>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ref 0001</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Papeleria</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Destino A</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones texto_error">0</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones texto_error">10</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="p-0" id="abastecimiento_columna_aviso_advertencia"></td>
+                        <th scope="row" class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Lapiz</p>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ref 0001</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Papeleria</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Destino A</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones texto_advertencia">10</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones texto_advertencia">10</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="./Assets/img/logo_flecha_izq.svg" alt="" />
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="./Assets/img/logo_flecha_der.svg" alt="" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </main>
 
     <!-- Navegador Inferior -->
@@ -1809,7 +1870,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link " aria-current="page" href="#">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

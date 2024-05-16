@@ -408,6 +408,7 @@ li > button > p {
 
 .td-body-tabla_opciones {
     vertical-align: middle;
+    margin-left: 11%;
 }
 
 /* Cambiar nombre de clases para estos estilos */
@@ -487,7 +488,6 @@ a.page-link:hover {
     font-family: Inter;
     font-size: 13px;
     font-weight: 700;
-    line-height: 18px;
 }
 
 .texto_error {
@@ -677,6 +677,10 @@ a.page-link:hover {
     right: 2%;
 }
 
+.form-select{
+    min-width: 10vw !important;
+}
+
 /* MEDIAS */
 
 @media screen and (max-width: 1200px) {
@@ -700,6 +704,7 @@ a.page-link:hover {
 
     .form-control {
         font-size: 0.8em;
+        height: 100%;
     }
 
     .form-select {
