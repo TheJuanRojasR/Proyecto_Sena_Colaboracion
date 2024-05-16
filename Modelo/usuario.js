@@ -71,7 +71,7 @@ class Usuario extends Connect{
     getUsuario( dataRequest, getUsuarioCallback ){
         const endpoint = 'usuarios/ajustes';
         const method = 'GET';
-        this.connect( dataRequest, endpoint, method, getUsuarioCallback );
+        this.connect( {}, endpoint, method, getUsuarioCallback );
     }
 
     // Metodo para actualizar la informacion del usuario

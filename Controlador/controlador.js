@@ -1,4 +1,5 @@
 let vista = new Vista();
+let usuario = new Usuario();
 
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
@@ -56,6 +57,27 @@ function mostrar_form_registro_usuario(){
     }
     cambio_clases();
 
+}
+
+function registrarUsuario() {
+    let data = vista.getForm("form_registro_desktop");
+
+    if (data.ok) {
+        usuario.register(data, function(data){
+            //verificar si el registro fue exitoso
+            if(data.success){
+                //Mensaje de exito
+                //Mostar modal de registro exitoso
+                mostrar_form_login();
+            }
+            else{
+                //Mensaje de error
+            }
+        })
+    }
+    else{
+        //Mensaje de error
+    }
 }
 
 function mostrar_form_login(){

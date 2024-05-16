@@ -22,3 +22,6 @@
 19. Verificar modales en desktop, para la pantalla de inicio                                         ❌   
 20. Cambiar nomres de rutas guiones por slash 
 21. LAURA: En el servidor crear un metodo para que el administrardo pueda ver los perfiles creados. 
+21. Cambiar por form para los inputs/selects todos con id
+22. LAURA: Funcion padding main-botton 
+23. JUAN: Cambiar form de la barra de busqueda Desktop en el resto de templates

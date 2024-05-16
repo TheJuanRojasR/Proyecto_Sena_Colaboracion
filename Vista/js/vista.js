@@ -115,6 +115,24 @@ class Vista {
     elemento.remove();
   }
 
+  getForm(formulario) {
+    let form = document.getElementById(formulario);
+    let datos = new FormData(form);
+    let data = {};
+    data.ok = true; //Bandera para verificar si los campos estan llenos
+    data.msj = ""; //Mensaje de error
+  
+    datos.forEach((value, key) => {
+      data[key] = value;
+      if(value === "" || (form[key].tagName === "SELECT" && value === "0")) {
+        data.ok = false;
+        data.msj = "Por favor llene " + key;
+      }
+    });
+  
+    return data;
+  }
+
 }
 
 

@@ -46,56 +46,108 @@
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
-        <section class="registro">
-            <div class="registro__container text-center">
-                <button class="btn registro__close">
-                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+        <div class="container encabezado">
+            <h1>ENTRADAS</h1>
+            <div class="d-flex flex-row">
+                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                </form>
+                <button class="encabezado__search-button" type="button">
+                    <img src="./Assets/img/logo_lupa.svg" alt="" />
                 </button>
-
-                <h1 class="registro__titulo mb-4">Registrarse</h1>
-
-                <form class="registro__input mb-1">
-                    <input type="text" class="form-control registro__input" placeholder="Nombre Completo" value="">
-                </form>
-
-                <select class="form-select registro__select mb-1" aria-label="Default select example">
-                    <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
-                    <option class="registro__option" value="1">Cedula de Ciudadania</option>
-                    <option class="registro__option" value="2">Cedula de Extranjeria</option>
-                    <option class="registro__option" value="3">Rut</option>
-                </select>
-
-                <form class="registro__input mb-1">
-                    <input type="number" class="form-control registro__input" placeholder="Numero de Documento"
-                        value="">
-                </form>
-
-                <form class="registro__input mb-1">
-                    <input type="email" class="form-control registro__input" placeholder="Correo Electronico"
-                        value="">
-                </form>
-
-                <form class="registro__input mb-1">
-                    <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
-                </form>
-
-                <form class="registro__input mb-3">
-                    <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña"
-                        value="">
-                </form>
-
-                <div class="form-check mb-3">
-                    <input class="form-check-input" type="checkbox" id="terminosCondicionesCheckbox" value="">
-                    <label class="form-check-label registro__text" for="terminosCondicionesCheckbox">
-                        He leído y acepto los <a href="#">Términos y Condiciones</a>
-                    </label>
-                </div>
-
-                <button class="btn btn-general mb-3">Registrar</button>
-
-                <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
             </div>
-        </section>
+        </div>
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Origen</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Destino</span>
+                            </button>
+                        </th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Referencia</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Producto</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <span class="ml-2 btn-tabla-icono">Precio</span>
+                            </button>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_productos_entradas">
+                    <tr>
+                        <td>
+                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="añadir_producto_entradas()">
+                                <img src="./Assets/img/logo_suma.svg" alt="" />
+                            </button>
+                        </td>
+                        <form action="" id="form_crear_entrada_desktop">
+                            <th scope="row">
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                    placeholder="" />
+                            </th>
+                            <td>
+                                <input type="text" class="form-control disabled"
+                                    aria-label="Text input with dropdown button" placeholder="Ej: Almacen 1" disabled />
+                            </td>
+                            <td>
+                                <select class="form-select" name="referencia_producto">
+                                    <option selected value=""></option>
+                                    <option value="1">Referencia 1</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" name="">
+                                    <option selected value=""></option>
+                                    <option value="1">Producto 1</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                    placeholder="" />
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                    placeholder="" />
+                            </td>
+                        </form>
+                        <td>
+                            <button class="btn btn-tabla-icono btnGuardar-tabla">
+                                <img src="./Assets/img/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </main>
 
     <!-- Navegador Inferior -->
@@ -258,7 +310,7 @@
             <div class="titulo_registro"> <!-- Titulo Grandes -->
                 <h1>Registrarse</h1>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form" id="form_registro">
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_registro">
                 <!-- Contendor de form para registrarse -->
                 <input type="text" class="form-control" placeholder="Nombre completo">
                 <select type="text" class="select_oscuro"> <!-- Select para seleccionar tipo de documento -->
@@ -271,7 +323,7 @@
                 <input type="text" class="form-control" placeholder="Correo Electronico">
                 <input type="text" class="form-control" placeholder="Contraseña">
                 <input type="text" class="form-control" placeholder="Repetir Contraseña">
-            </div>
+            </form>
             <div class="container d-flex justify-content-end contenedor_boton">
                 <!-- Contendor boton para registrarse -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_form_login()">
@@ -295,11 +347,11 @@
                 <h1>Ingresar</h1>
                 <p id="subtitulo_login">Por favor ingrese para poder continuar</p>
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form">
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_login">
                 <!-- Contendor de form para log in -->
                 <input type="text" class="form-control" placeholder="Correo Electronico">
                 <input type="text" class="form-control" placeholder="Contraseña">
-            </div>
+            </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor boton para log in -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv_vacia()">
                     Ingresar
@@ -337,17 +389,19 @@
             <div class="titulo_creacion"> <!-- Titulo Grandes -->
                 <h1>Nuevo Inventario</h1>
             </div>
-            <div class="contenedor_form"> <!-- Contendor de form para crear un inventario -->
-                <div class="d-flex flex-row align-items-center nombre_inventario">
-                    <!-- Campos para ingresar informacion -->
-                    <input type="text" placeholder="Nombre Inventario" class="input_oscuro">
-                </div>
-                <div class="d-flex flex-row align-items-center direccion">
-                    <input type="text" placeholder="Direccion" class="input_oscuro">
-                </div>
-                <div class="d-flex flex-row align-items-center descripcion">
-                    <input type="text" placeholder="Descripcion" class="input_oscuro">
-                </div>
+            <div class="contenedor_form"> 
+                <form action="" id="form_crear_inventario">
+                    <div class="d-flex flex-row align-items-center nombre_inventario">
+                        <!-- Campos para ingresar informacion -->
+                        <input type="text" placeholder="Nombre Inventario" class="input_oscuro">
+                    </div>
+                    <div class="d-flex flex-row align-items-center direccion">
+                        <input type="text" placeholder="Direccion" class="input_oscuro">
+                    </div>
+                    <div class="d-flex flex-row align-items-center descripcion">
+                        <input type="text" placeholder="Descripcion" class="input_oscuro">
+                    </div>
+                </form><!-- Contendor de form para crear un inventario -->
             </div>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear el inventario -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inventarios()">
@@ -427,11 +481,11 @@
                         <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
                                 onclick="mostrar_stock_vacia()">Ver Inventario</a></li>
                     </ul>
-                    <div class="contenedor_campos_edicion"> <!-- Contenedor de campos para editar inventario -->
+                    <form class="contenedor_campos_edicion" id="form_editar_inventario"> <!-- Contenedor de campos para editar inventario -->
                         <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Inventario">
                         <input type="text" name="" class="input_claro" placeholder="Nueva Direccion">
                         <input type="text" name="" class="input_claro" placeholder="Nueva Descripcion">
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
@@ -457,7 +511,9 @@
             <div class="d-flex flex-column justify-content-center contenedor_dropdown">
                 <!-- Contenido para menu dropdown -->
                 <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
-                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <form action="" id="form_eliminar_inventario">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    </form>
                     <div class="d-flex flex-column dropdown"> <!-- Contenedor para el dropdown -->
                         <button disabled
                             class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto"
@@ -522,7 +578,7 @@
                 <h1>Crear Entrada</h1>
                 <p class="referencia">Referencia xxxxxx</p> <!-- Texto para mostrar la referencia del movimiento -->
             </div>
-            <div class="container d-flex flex-column align-items-center contenedor_form">
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_entrada">
                 <!-- Contendor de form para crear una entrada -->
                 <input type="text" name="" class="form-control" placeholder="Origen">
                 <input disabled type="text" class="form-control" placeholder="Destino">
@@ -542,7 +598,7 @@
                 <input type="number" name="" class="input_claro_mov" placeholder="Cantidad">
                 <input type="number" name="" class="input_claro_mov" placeholder="Precio">
                 <div class="linea_division"></div>
-            </div>
+            </form>
             <button class="btn boton_add_producto_movimientos" type="button">
                 <!-- Contendor de boton para añadir producto al movimiento -->
                 <img src="../Assets/img/edit-add-plus-circle.svg" alt="">
@@ -1796,13 +1852,11 @@
                 <a class="navbar-brand" href="#">
                     <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
                 </a>
-
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Inicio</a>
                         </li>
-
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -1814,7 +1868,6 @@
                                 <li><a class="dropdown-item" href="#">Salidas</a></li>
                             </ul>
                         </li>
-
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -1825,16 +1878,13 @@
                                 <li><a class="dropdown-item" href="#">Abastecimiento</a></li>
                             </ul>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" href="#">Informes</a>
                         </li>
-
                         <li class="nav-item">
                             <a class="nav-link" href="#">Perfiles</a>
                         </li>
                     </ul>
-
                     <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                         <img src="./Assets/img/user.svg" alt="">
@@ -1882,56 +1932,49 @@
 
     <!-- Pantalla Registrarse -->
     <template id="registro_usuario_desktop">
-            <section class="registro">
-                <div class="registro__container text-center">
-                    <button class="btn registro__close">
-                        <img src="./Assets/img/logo_cerrar_x.svg" alt="">
-                    </button>
-
-                    <h1 class="registro__titulo mb-4">Registrarse</h1>
-
-                    <form class="registro__input mb-1">
+        <section class="registro">
+            <div class="registro__container text-center">
+                <button class="btn registro__close">
+                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+                </button>
+                <h1 class="registro__titulo mb-4">Registrarse</h1>
+                <form action="" id="form_registro_desktop">
+                    <div class="registro__input mb-1">
                         <input type="text" class="form-control registro__input" placeholder="Nombre Completo" value="">
-                    </form>
-
+                    </div>    
                     <select class="form-select registro__select mb-1" aria-label="Default select example">
                         <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
                         <option class="registro__option" value="1">Cedula de Ciudadania</option>
                         <option class="registro__option" value="2">Cedula de Extranjeria</option>
                         <option class="registro__option" value="3">Rut</option>
-                    </select>
-
-                    <form class="registro__input mb-1">
+                    </select>    
+                    <div class="registro__input mb-1">
                         <input type="number" class="form-control registro__input" placeholder="Numero de Documento"
                             value="">
-                    </form>
-
-                    <form class="registro__input mb-1">
+                    </div>    
+                    <div class="registro__input mb-1">
                         <input type="email" class="form-control registro__input" placeholder="Correo Electronico"
                             value="">
-                    </form>
-
-                    <form class="registro__input mb-1">
+                    </div>    
+                    <div class="registro__input mb-1">
                         <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
-                    </form>
-
-                    <form class="registro__input mb-3">
+                    </div>    
+                    <div class="registro__input mb-3">
                         <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña"
                             value="">
-                    </form>
-
+                    </div>    
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" id="terminosCondicionesCheckbox" value="">
                         <label class="form-check-label registro__text" for="terminosCondicionesCheckbox">
                             He leído y acepto los <a href="#">Términos y Condiciones</a>
                         </label>
                     </div>
+                </form>
+                <button class="btn btn-general mb-3" onclick="registrarUsuario()">Registrar</button>
 
-                    <button class="btn btn-general mb-3">Registrar</button>
-
-                    <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
-                </div>
-            </section>
+                <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
+            </div>
+        </section>
     </template>
 
     <!-- Pantalla Log In -->
@@ -1946,21 +1989,23 @@
                     <button class="btn registro__close">
                         <img src="./Assets/img/logo_cerrar_x.svg" alt="">
                     </button>
-                    <form class="registro__input mb-1">
-                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico"
-                            value="">
+                    <form action="" id="form_login_desktop">
+                        <div class="registro__input mb-1">
+                            <input type="email" class="form-control registro__input" placeholder="Correo Electronico"
+                                value="">
+                        </div>
+                        <div class="registro__input mb-2">
+                            <input type="password" class="form-control registro__input" placeholder="Contraseña"
+                                value="">
+                        </div>
+                        <div class="form-check mb-3 d-flex align-items-end justify-content-evenly">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label registro__text">
+                                Recordar mi usuario
+                            </label>
+                            <a href="#" class="registro__text">¿Olvidó su contraseña?</a>
+                        </div>
                     </form>
-                    <form class="registro__input mb-2">
-                        <input type="password" class="form-control registro__input" placeholder="Contraseña"
-                            value="">
-                    </form>
-                    <div class="form-check mb-3 d-flex align-items-end justify-content-evenly">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label registro__text">
-                            Recordar mi usuario
-                        </label>
-                        <a href="#" class="registro__text">¿Olvidó su contraseña?</a>
-                    </div>
                 </div>
                 <button class="btn btn-general mb-3">Ingresar</button>
             </div>
@@ -1990,8 +2035,7 @@
     </template>
 
     <!-- Pantalla Crear Inventario -->
-    <template id="crear_inventario_desktop">
-        
+    <template id="crear_inventario_desktop">        
             <div class="container">
                 <div class="encabezado">
                     <h1>INVENTARIO</h1>
@@ -2000,26 +2044,23 @@
             <hr />
             <div class="container d-flex">
                 <div class="container col-lg-4 registro-inventario">
-                    <div>
-                        <form class="form-floating mb-2">
+                    <form id="form_crear_inventario_desktop">
+                        <div class="form-floating mb-2">
                             <input type="email" class="form-control" id="floatingInputValue"
                                 placeholder="nombre-almacen" value="SENA Quirigua" />
                             <label for="floatingInputValue">Nombre Inventario</label>
-                        </form>
-
-                        <form class="form-floating mb-2">
+                        </div>
+                        <div class="form-floating mb-2">
                             <input type="email" class="form-control" id="floatingInputValue"
                                 placeholder="direccion-almacen" value="Cra. 93 #80c-72" />
                             <label for="floatingInputValue">Dirección Inventario</label>
-                        </form>
-
-                        <form class="form-floating mb-2">
+                        </div>
+                        <div class="form-floating mb-2">
                             <input type="email" class="form-control" id="floatingInputValue"
                                 placeholder="descripcion-almacen" value="Contiene computadores" />
                             <label for="floatingInputValue">Descripción Inventario</label>
-                        </form>
-                    </div>
-
+                        </div>
+                    </form>
                     <div class="d-grid gap-2">
                         <button class="btn btn-general" type="button">
                             Crear Inventario
@@ -2088,35 +2129,36 @@
 
     <!-- Pantalla Editar Inventarios -->
     <template id="editar_inventario_desktop">
-        
-            <div class="container encabezado">
-                <h1>INVENTARIO</h1>
-                <div>
-                    <form action="#" method="get" class="search-form encabezado__search-form">
-                        <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                        <button class="encabezado__search-button" type="button">
-                            <img src="./Assets/img/logo_lupa.svg" alt="" />
-                        </button>
-                    </form>
-                </div>
-                <button class="btn btn-general ms-auto">Crear Inventario</button>
+        <div class="container encabezado">
+            <h1>INVENTARIO</h1>
+            <div>
+                <form action="#" method="get" class="search-form encabezado__search-form">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                    <button class="encabezado__search-button" type="button">
+                        <img src="./Assets/img/logo_lupa.svg" alt="" />
+                    </button>
+                </form>
             </div>
-            <hr />
-            <div class="container d-flex flex-wrap justify-content-around">
-                <div class="container inventario flex-wrap col-lg-3">
+            <button class="btn btn-general ms-auto">Crear Inventario</button>
+        </div>
+        <hr />
+        <div class="container d-flex flex-wrap justify-content-around">
+            <div class="container inventario flex-wrap col-lg-3">
+                <form action="" id="form_editar_inventarios_desktop">
                     <input type="text" class="form-control mb-3" aria-label="Text input with dropdown button"
                         value="Nombre de Inventario" placeholder="Editar título" />
                     <input type="text" class="form-control mb-3 " aria-label="Text input with dropdown button"
                         value="Dirección: XXXXX" placeholder="Editar Dirección" />
                     <textarea class="form-control mb-3 min-height-100" rows="6">Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibhmalesuada, volutpat metus ac, laoreet erat.vestibulum orci. In acnibh malesuada.
-                </textarea>
-                    <div class="d-grid gap-2">
-                        <button class="btn btn-general" type="button">
-                            Guardar
-                        </button>
-                    </div>
+                    </textarea>
+                </form>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-general" type="button">
+                        Guardar
+                    </button>
                 </div>
             </div>
+        </div>
     </template>
 
     <!-- Pantalla Movimientos vacia -->
@@ -2184,13 +2226,13 @@
     <template id="crear_entrada_desktop">
         <div class="container encabezado">
             <h1>ENTRADAS</h1>
-            <div>
-                <form action="#" method="get" class="search-form encabezado__search-form">
+            <div class="d-flex flex-row">
+                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
                     <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                    <button class="encabezado__search-button" type="button">
-                        <img src="./Assets/img/logo_lupa.svg" alt="" />
-                    </button>
                 </form>
+                <button class="encabezado__search-button" type="button">
+                    <img src="./Assets/img/logo_lupa.svg" alt="" />
+                </button>
             </div>
         </div>
         <hr />
@@ -2238,7 +2280,6 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-
                 <tbody id="tbody_productos_entradas">
                     <tr>
                         <td>
@@ -2246,34 +2287,36 @@
                                 <img src="./Assets/img/logo_suma.svg" alt="" />
                             </button>
                         </td>
-                        <th scope="row">
-                            <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                placeholder="" />
-                        </th>
-                        <td>
-                            <input type="text" class="form-control disabled"
-                                aria-label="Text input with dropdown button" placeholder="Ej: Almacen 1" disabled />
-                        </td>
-                        <td>
-                            <select class="form-select" name="referencia_producto">
-                                <option selected value=""></option>
-                                <option value="1">Referencia 1</option>
-                            </select>
-                        </td>
-                        <td>
-                            <select class="form-select" name="">
-                                <option selected value=""></option>
-                                <option value="1">Producto 1</option>
-                            </select>
-                        </td>
-                        <td>
-                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                placeholder="" />
-                        </td>
-                        <td>
-                            <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                placeholder="" />
-                        </td>
+                        <form action="" id="form_crear_entrada_desktop">
+                            <th scope="row">
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                    placeholder="" />
+                            </th>
+                            <td>
+                                <input type="text" class="form-control disabled"
+                                    aria-label="Text input with dropdown button" placeholder="Ej: Almacen 1" disabled />
+                            </td>
+                            <td>
+                                <select class="form-select" name="referencia_producto">
+                                    <option selected value=""></option>
+                                    <option value="1">Referencia 1</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" name="">
+                                    <option selected value=""></option>
+                                    <option value="1">Producto 1</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                    placeholder="" />
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                    placeholder="" />
+                            </td>
+                        </form>
                         <td>
                             <button class="btn btn-tabla-icono btnGuardar-tabla">
                                 <img src="./Assets/img/guardar.svg" alt="" />
@@ -3053,8 +3096,7 @@
     </template>
 
     <!-- Pantalla Abastecimiento -->
-    <template id="abastecimiento_desktop">
-        
+    <template id="abastecimiento_desktop">        
             <div class="container encabezado">
                 <h1>Abastecimiento</h1>
                 <div>
@@ -4289,6 +4331,8 @@
 
     <!-- Enlaces a JS -->
     <script src="./Vista/js/vista.js"></script>
+    <script src="./Modelo/connect.js"></script>
+    <script src="./Modelo/usuario.js"></script>
     <script src="./Controlador/controlador.js"></script>
 
 </body>

@@ -13,9 +13,9 @@ class Connect {
  */
 
  
-connect(dataRequest, endpoin, method, callback) {
+connect(dataRequest, endpoint, method, callback) {
 
-        const url = `http://localhost:3000/${endpoin}`;
+        const url = `http://localhost:3000/${endpoint}`;
 
         let config = {
             method: method,
