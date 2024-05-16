@@ -27,6 +27,17 @@ function remover_nav_inf(){
     }
 }
 
+/**
+ function cambio_templates(){
+     if(tamañoPantalla.matches){
+         vista.mostrar_plantilla( "inventarios_vacia","contenedor_principal");
+     }
+     else{
+         vista.mostrar_plantilla("inventario_vacia_desktop", "contenedor_principal"  )
+     }
+ }
+ */
+
 // function cerrarVentana(){
 //     cerrarPantalla("offcanvasNavbar");
 // }
@@ -56,7 +67,6 @@ function mostrar_form_registro_usuario(){
         vista.mostrar_plantilla("registro_usuario_desktop", "contenedor_principal", 1);
     }
     cambio_clases();
-
 }
 
 function registrarUsuario() {
