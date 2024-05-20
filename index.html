@@ -32,7 +32,7 @@
 
 </head>
 
-<body class="d-flex flex-column justify-content-between">
+<body class=" overflow-y-scroll d-flex flex-column justify-content-between">
     <!-- Barra superior -->
     <nav class="navbar navbar-expand-md" id="navegador_sup">
         
@@ -294,7 +294,29 @@
 
     <!-- Pantalla de Inicio -->
     <template id="pagina_inicio">
-        <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
+        <div id="contenedor_inicio" class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
+            <div class="bubbles">
+                <span style="--i:11;"></span>
+                <span style="--i:12;"></span>
+                <span style="--i:24;"></span>
+                <span style="--i:10;"></span>
+                <span style="--i:17;"></span>
+                <span style="--i:6;"></span>
+                <span style="--i:23;"></span>
+                <span style="--i:9;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:22;"></span>
+                <span style="--i:27;"></span>
+                <span style="--i:14;"></span>
+                <span style="--i:21;"></span>
+                <span style="--i:7;"></span>
+                <span style="--i:16;"></span>
+                <span style="--i:19;"></span>
+                <span style="--i:25;"></span>
+                <span style="--i:26;"></span>
+                <span style="--i:15;"></span>
+                <span style="--i:20;"></span>
+            </div>
             <div class="container d-flex flex-column justify-content-end contenedor_boton">
                 <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_form_login()">
                     Iniciar Sesion
@@ -304,6 +326,28 @@
                 </button>
             </div>
         </div>
+
+        <!-- Navegador Inferior -->
+        <footer id="footer_inicio" class=" rectangulo-inferior d-flex flex-wrap justify-content-between align-items-center">
+            <div class="row">
+                <div class="col-6 imagen_inicio"><img src="/Assets/img/logo_empresa_sin_fondo_blanco.svg"></img>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <a href="#Enlace_de_navegacion">Enlace de Navegaciòn</a><br>
+                    <a href="#noticias">Inicio</a><br>
+                    <a href="#noticias">Noticias</a><br>
+                    <a href="#noticias">Noticias</a>
+                    <a href="#deportes">© 2024 Variety Vault</a><br>
+                    <a href="#deportes">Deportes</a><br>
+                    <a href="#deportes">Deportes</a><br>
+                    <a href="#deportes">Deportes</a><br>
+                    <a href="#contacto">Contacto</a>
+                </div>
+            </div>
+        </footer>
+
     </template>
 
     <!-- Pantalla Registrarse -->
@@ -320,17 +364,17 @@
             </div>
             <form class="container d-flex flex-column align-items-center contenedor_form" id="form_registro_usuario">
                 <!-- Contendor de form para registrarse -->
-                <input type="text" class="form-control" placeholder="Nombre completo">
-                <select type="text" class="select_oscuro"> <!-- Select para seleccionar tipo de documento -->
+                <input type="text" class="form-control" placeholder="Nombre completo" name="nombre_usuario">
+                <select type="text" class="select_oscuro" name="tipo_documento"> <!-- Select para seleccionar tipo de documento -->
                     <!-- Opciones del select -->
                     <option selected class="opciones">Tipo Documento</option>
                     <option class="opciones">Documento 1</option>
                     <option class="opciones">Documento 2</option>
                 </select>
-                <input type="text" class="form-control" placeholder="Numero Documento">
-                <input type="text" class="form-control" placeholder="Correo Electronico">
-                <input type="text" class="form-control" placeholder="Contraseña">
-                <input type="text" class="form-control" placeholder="Repetir Contraseña">
+                <input type="text" class="form-control" placeholder="Numero Documento" name="numero_documento">
+                <input type="text" class="form-control" placeholder="Correo Electronico" name="correo_electronico">
+                <input type="text" class="form-control" placeholder="Contraseña" name="contraseña">
+                <input type="text" class="form-control" placeholder="Repetir Contraseña" name="contraseña">
             </form>
             <div class="container d-flex justify-content-end contenedor_boton">
                 <!-- Contendor boton para registrarse -->
@@ -357,8 +401,8 @@
             </div>
             <form class="container d-flex flex-column align-items-center contenedor_form" id="form_login">
                 <!-- Contendor de form para log in -->
-                <input type="text" class="form-control" placeholder="Correo Electronico">
-                <input type="text" class="form-control" placeholder="Contraseña">
+                <input type="text" class="form-control" placeholder="Correo Electronico" name="correo_electronico">
+                <input type="text" class="form-control" placeholder="Contraseña" name="contraseña">
             </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor boton para log in -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv_vacia()">
@@ -400,13 +444,13 @@
             <form class="contenedor_form" id="form_crear_inventario"> <!-- Contendor de form para crear un inventario -->
                 <div class="d-flex flex-row align-items-center nombre_inventario">
                     <!-- Campos para ingresar informacion -->
-                    <input type="text" placeholder="Nombre Inventario" class="input_oscuro">
+                    <input type="text" placeholder="Nombre Inventario" class="input_oscuro" name="nombre_almacen">
                 </div>
                 <div class="d-flex flex-row align-items-center direccion">
-                    <input type="text" placeholder="Direccion" class="input_oscuro">
+                    <input type="text" placeholder="Direccion" class="input_oscuro" name="direccion_almacen">
                 </div>
                 <div class="d-flex flex-row align-items-center descripcion">
-                    <input type="text" placeholder="Descripcion" class="input_oscuro">
+                    <input type="text" placeholder="Descripcion" class="input_oscuro" name="descripcion_almacen">
                 </div>
             </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear el inventario -->
@@ -488,9 +532,9 @@
                                 onclick="mostrar_stock_vacia()">Ver Inventario</a></li>
                     </ul>
                     <form class="contenedor_campos_edicion" id="form_editar_inventario"> <!-- Contenedor de campos para editar inventario -->
-                        <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Inventario">
-                        <input type="text" name="" class="input_claro" placeholder="Nueva Direccion">
-                        <input type="text" name="" class="input_claro" placeholder="Nueva Descripcion">
+                        <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Inventario" name="nombre_almacen">
+                        <input type="text" name="" class="input_claro" placeholder="Nueva Direccion" name="direccion_almacen">
+                        <input type="text" name="" class="input_claro" placeholder="Nueva Descripcion" name="descripcion_almacen">
                     </form>
                 </div>
             </div>
@@ -591,20 +635,20 @@
                 <input type="text" name="" class="form-control" placeholder="Origen">
                 <input disabled type="text" class="form-control" placeholder="Destino">
                 <div class="linea_division"></div>
-                <select type="text" class="select_claro_mov form-select">
+                <select type="text" class="select_claro_mov form-select" name="referecia_producto">
                     <!-- Opciones del select -->
                     <option selected class="opciones">Referencia Producto</option>
                     <option class="opciones">REF 1</option>
                     <option class="opciones">REF 2</option>
                 </select>
-                <select type="text" class="select_claro_mov form-select">
+                <select type="text" class="select_claro_mov form-select" name="nombre_producto">
                     <!-- Opciones del select -->
                     <option selected class="opciones">Producto</option>
                     <option class="opciones">Producto 1</option>
                     <option class="opciones">Producto 2</option>
                 </select>
-                <input type="number" name="" class="input_claro_mov" placeholder="Cantidad">
-                <input type="number" name="" class="input_claro_mov" placeholder="Precio">
+                <input type="number" name="" class="input_claro_mov" placeholder="Cantidad" name="cantidad_entrada">
+                <input type="number" name="" class="input_claro_mov" placeholder="Precio" name="precio_compra">
                 <div class="linea_division"></div>
             </form>
             <button class="btn boton_add_producto_movimientos" type="button">
@@ -641,19 +685,19 @@
                 <input disabled type="text" class="form-control" placeholder="Origen">
                 <input type="text" class="form-control" placeholder="Destino">
                 <div class="linea_division"></div>
-                <select type="text" class="select_claro_mov form-select">
+                <select type="text" class="select_claro_mov form-select" name="referencia_producto">
                     <!-- Opciones del select -->
                     <option selected class="opciones">Referencia Producto</option>
                     <option class="opciones">REF 1</option>
                     <option class="opciones">REF 2</option>
                 </select>
-                <select type="text" class="select_claro_mov form-select">
+                <select type="text" class="select_claro_mov form-select" name="nombre_producto">
                     <!-- Opciones del select -->
                     <option selected class="opciones">Producto</option>
                     <option class="opciones">Producto 1</option>
                     <option class="opciones">Producto 2</option>
                 </select>
-                <input type="text" name="" class="input_claro_mov" placeholder="Cantidad">
+                <input type="text" name="" class="input_claro_mov" placeholder="Cantidad" name="cantidad_salida">
                 <div class="linea_division"></div>
             </form>
             <button class="btn boton_add_producto_movimientos" type="button">
@@ -740,17 +784,17 @@
             </div>
             <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_producto">
                 <!-- Contendor de form para crear un producto -->
-                <input type="text" class="form-control" placeholder="Nombre Producto">
-                <input type="text" class="form-control" placeholder="Referencia Producto">
-                <select type="text" class="select_oscuro"> <!-- Select para seleccionar categoria del producto -->
+                <input type="text" class="form-control" placeholder="Nombre Producto" name="nombre_producto">
+                <input type="text" class="form-control" placeholder="Referencia Producto" name="referencia_producto">
+                <select type="text" class="select_oscuro" name="nombre_categoria"> <!-- Select para seleccionar categoria del producto -->
                     <!-- Opciones del select -->
                     <option selected class="opciones">Categoria Producto</option>
                     <option class="opciones">Categoria 1</option>
                 </select>
-                <input type="number" class="form-control" placeholder="Cantidad">
-                <input type="number" class="form-control" placeholder="Stock minimo">
-                <input type="number" class="form-control" placeholder="Costo">
-                <input type="number" class="form-control" placeholder="Precio">
+                <input type="number" class="form-control" placeholder="Cantidad" name="cantidad_producto_almacen">
+                <input type="number" class="form-control" placeholder="Stock minimo" name="stock_minimo">
+                <input type="number" class="form-control" placeholder="Costo" name="promedio_costo">
+                <input type="number" class="form-control" placeholder="Precio" name="precio_venta">
             </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear el producto -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_stock()">
@@ -887,7 +931,7 @@
             </div>
             <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_categoria">
                 <!-- Contendor de form para crear una categoria -->
-                <input type="text" class="form-control" placeholder="Nombre Categoria">
+                <input type="text" class="form-control" placeholder="Nombre Categoria" name="nombre_categoria">
             </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear la categoria -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_categorias()">
@@ -957,7 +1001,7 @@
                     </ul>
                     <form class="d-flex flex-column contenedor_campos_edicion" id="form_editar_categoria">
                         <!-- Contenedor de campos para editar categoria -->
-                        <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Categoria">
+                        <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Categoria" name="nombre_categoria">
                     </form>
                 </div>
             </div>
@@ -1129,15 +1173,15 @@
             </div>
             <form class="container d-flex flex-column align-items-center contenedor_form" id="form_editar_producto">
                 <!-- Contendor de form para editar un producto -->
-                <input type="text" class="form-control" placeholder="Nombre Producto">
-                <select type="text" class="select_oscuro"> <!-- Select para seleccionar categoria del producto -->
+                <input type="text" class="form-control" placeholder="Nombre Producto" name="nombre_producto">
+                <select type="text" class="select_oscuro" name="nombre_categoria"> <!-- Select para seleccionar categoria del producto -->
                     <!-- Opciones del select -->
                     <option selected class="opciones">Categoria Producto</option>
                     <option class="opciones">Categoria 1</option>
                 </select>
                 <input type="text" class="form-control" placeholder="Ubicacion">
-                <input type="text" class="form-control" placeholder="Stock minimo">
-                <input type="text" class="form-control" placeholder="Precio">
+                <input type="text" class="form-control" placeholder="Stock minimo" name="stock_minimo">
+                <input type="text" class="form-control" placeholder="Precio" name="precio_venta">
             </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_detalles_producto()">
@@ -1251,7 +1295,7 @@
             </div>
             <form class="container d-flex flex-column align-items-center contenedor_form" id="form_filtros_informe_mov_prod">
                 <!-- Contendor para seleccionar filtros del informe -->
-                <select type="text" class="select_claro"> <!-- Select para seleccionar el producto -->
+                <select type="text" class="select_claro" name="nombre_producto"> <!-- Select para seleccionar el producto -->
                     <!-- Opciones del select -->
                     <option selected class="opciones">Seleccionar Producto</option>
                     <option class="opciones">Producto 1</option>
@@ -1315,7 +1359,7 @@
             <div
                 class="container d-flex flex-column align-items-center contenedor_form contenedor_seleccion_filtros_informe">
                 <!-- Contenedor para seleccionar el informe a mostrar-->
-                <select type="text" class="select_claro"> <!-- Select para seleccionar el producto -->
+                <select type="text" class="select_claro" name="nombre_produto"> <!-- Select para seleccionar el producto -->
                     <!-- Opciones del select -->
                     <option selected class="opciones">Seleccionar Producto</option>
                     <option class="opciones">Producto 1</option>
@@ -1366,23 +1410,23 @@
             </div>
             <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_perfil">
                 <!-- Contendor de form para crear un perfil-->
-                <input type="text" class="form-control" placeholder="Nombre Completo">
-                <select type="text" class="select_oscuro"> <!-- Select para seleccionar el rol del usuario -->
+                <input type="text" class="form-control" placeholder="Nombre Completo" name="nombre_usuario">
+                <select type="text" class="select_oscuro" name="nombre_rol"> <!-- Select para seleccionar el rol del usuario -->
                     <!-- Opciones del select -->
                     <option selected class="opciones">Rol</option>
                     <option class="opciones">Rol 1</option>
                     <option class="opciones">Rol 2</option>
                 </select>
-                <select type="text" class="select_oscuro"> <!-- Select para seleccionar el tipo de documento -->
+                <select type="text" class="select_oscuro" name="tipo_documento"> <!-- Select para seleccionar el tipo de documento -->
                     <!-- Opciones del select -->
                     <option selected class="opciones">Tipo de Documento</option>
                     <option class="opciones">Cedula</option>
                     <option class="opciones">Pasaporte</option>
                 </select>
-                <input type="text" class="form-control" placeholder="Numero Documento">
-                <input type="text" class="form-control" placeholder="Correo Electronico">
-                <input type="text" class="form-control" placeholder="Contraseña">
-                <input type="text" class="form-control" placeholder="Repetir Contraseña">
+                <input type="text" class="form-control" placeholder="Numero Documento" name="numero_documento">
+                <input type="text" class="form-control" placeholder="Correo Electronico" name="correo_electronico">
+                <input type="text" class="form-control" placeholder="Contraseña" name="contraseña">
+                <input type="text" class="form-control" placeholder="Repetir Contraseña" name="contraseña">
             </form>
             <div class="container d-flex justify-content-end contenedor_boton">
                 <!-- Contendor boton para crear el perfil -->
@@ -1459,8 +1503,8 @@
                         </li>
                     </ul>
                     <form class="contenedor_campos_edicion" id="form_editar_perfil"> <!-- Contenedor de campos para editar perfil -->
-                        <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Usuario">
-                        <select type="text" class="select_edicion"> <!-- Select para seleccionar el rol del usuario -->
+                        <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Usuario" name="nombre_usuario">
+                        <select type="text" class="select_edicion" name="nombre_rol"> <!-- Select para seleccionar el rol del usuario -->
                             <!-- Opciones del select -->
                             <option selected class="opciones">Rol</option>
                             <option class="opciones">Rol 1</option>
@@ -1610,11 +1654,11 @@
             </div>
             <form class="container d-flex flex-column align-items-center contenedor_form contenedor_form_ajustes" id="form_ajustes_usuario">
                 <!-- Contendor de form para ajustes de usuario -->
-                <input disabled class="input_transparente" type="text" placeholder="Nombre Completo">
-                <input disabled class="input_transparente" type="text" placeholder="Tipo Documento">
-                <input disabled class="input_transparente" type="text" placeholder="Numero Documento">
-                <input disabled class="input_transparente" type="text" placeholder="Correo Electronico">
-                <input disabled class="input_transparente" type="text" placeholder="Contraseña">
+                <input disabled class="input_transparente" type="text" placeholder="Nombre Completo" name="nombre_usuario">
+                <input disabled class="input_transparente" type="text" placeholder="Tipo Documento" name="tipo_documento">
+                <input disabled class="input_transparente" type="text" placeholder="Numero Documento" name="numero_documento">
+                <input disabled class="input_transparente" type="text" placeholder="Correo Electronico" name="correo_electronico">
+                <input disabled class="input_transparente" type="text" placeholder="Contraseña" name="contraseña">
             </form>
             <div
                 class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
@@ -1640,12 +1684,12 @@
             </div>
             <form class="container d-flex flex-column align-items-center contenedor_form contenedor_form_editar_ajustes" id="form_editar_usuario">
                 <!-- Contenedor para seleccionar el informe a mostrar-->
-                <input class="input_claro_ajustes" type="text" placeholder="Nombre Completo">
-                <input class="input_claro_ajustes" type="text" placeholder="Tipo Documento">
-                <input class="input_claro_ajustes" type="text" placeholder="Numero Documento">
-                <input class="input_claro_ajustes" type="text" placeholder="Correo Electronico">
-                <input class="input_claro_ajustes" type="text" placeholder="Contraseña">
-                <input class="input_claro_ajustes" type="text" placeholder="Repetir Nueva Contraseña">
+                <input class="input_claro_ajustes" type="text" placeholder="Nombre Completo" name="nombre_usuario">
+                <input class="input_claro_ajustes" type="text" placeholder="Tipo Documento" name="tipo_documento">
+                <input class="input_claro_ajustes" type="text" placeholder="Numero Documento" name="numero_documento">
+                <input class="input_claro_ajustes" type="text" placeholder="Correo Electronico" name="correo_electronico">
+                <input class="input_claro_ajustes" type="text" placeholder="Contraseña" name="contraseña">
+                <input class="input_claro_ajustes" type="text" placeholder="Repetir Nueva Contraseña" name="contraseña">
             </form>
             <div
                 class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
@@ -1945,6 +1989,114 @@
 
     <!-- TEMPLATES DESKTOP -->
 
+    <!-- Pantalla de Inicio -->
+    <template id="pagina_inicio_desktop">
+        <div id="contenedor_desktop">
+            <div id="contenedor_inicio_desktop">
+                <div class="bubbles">
+                    <span style="--i:11;"></span>
+                    <span style="--i:12;"></span>
+                    <span style="--i:24;"></span>
+                    <span style="--i:10;"></span>
+                    <span style="--i:17;"></span>
+                    <span style="--i:6;"></span>
+                    <span style="--i:23;"></span>
+                    <span style="--i:9;"></span>
+                    <span style="--i:18;"></span>
+                    <span style="--i:22;"></span>
+                    <span style="--i:27;"></span>
+                    <span style="--i:14;"></span>
+                    <span style="--i:21;"></span>
+                    <span style="--i:7;"></span>
+                    <span style="--i:16;"></span>
+                    <span style="--i:19;"></span>
+                    <span style="--i:25;"></span>
+                    <span style="--i:26;"></span>
+                    <span style="--i:15;"></span>
+                    <span style="--i:20;"></span>
+                    <span style="--i:11;"></span>
+                    <span style="--i:12;"></span>
+                    <span style="--i:24;"></span>
+                    <span style="--i:10;"></span>
+                    <span style="--i:17;"></span>
+                    <span style="--i:6;"></span>
+                    <span style="--i:23;"></span>
+                    <span style="--i:9;"></span>
+                    <span style="--i:18;"></span>
+                    <span style="--i:22;"></span>
+                    <span style="--i:27;"></span>
+                    <span style="--i:14;"></span>
+                    <span style="--i:21;"></span>
+                    <span style="--i:7;"></span>
+                    <span style="--i:16;"></span>
+                    <span style="--i:19;"></span>
+                    <span style="--i:25;"></span>
+                    <span style="--i:26;"></span>
+                    <span style="--i:15;"></span>
+                    <span style="--i:20;"></span>
+                    <span style="--i:11;"></span>
+                    <span style="--i:12;"></span>
+                    <span style="--i:24;"></span>
+                    <span style="--i:10;"></span>
+                    <span style="--i:17;"></span>
+                    <span style="--i:6;"></span>
+                    <span style="--i:23;"></span>
+                    <span style="--i:9;"></span>
+                    <span style="--i:18;"></span>
+                    <span style="--i:22;"></span>
+                    <span style="--i:27;"></span>
+                    <span style="--i:14;"></span>
+                    <span style="--i:21;"></span>
+                    <span style="--i:7;"></span>
+                    <span style="--i:16;"></span>
+                    <span style="--i:19;"></span>
+                    <span style="--i:25;"></span>
+                    <span style="--i:26;"></span>
+                    <span style="--i:15;"></span>
+                    <span style="--i:20;"></span>
+                </div>
+            </div>     
+            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="10000">
+                    <img src="" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>First slide label</h5>
+                      <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2000">
+                    <img src="" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Second slide label</h5>
+                      <p>Some representative placeholder content for the second slide.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img src="" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                      <h5>Third slide label</h5>
+                      <p>Some representative placeholder content for the third slide.</p>
+                    </div>
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </template>
+
     <!-- Pantalla Registrarse -->
     <template id="registro_usuario_desktop">
         <section class="registro">
@@ -1955,27 +2107,29 @@
                 <h1 class="registro__titulo mb-4">Registrarse</h1>
                 <form action="" id="form_registro_usuario_desktop">
                     <div class="registro__input mb-1">
-                        <input type="text" class="form-control registro__input" placeholder="Nombre Completo" value="">
+                        <input type="text" class="form-control registro__input" placeholder="Nombre Completo" 
+                            value="" name="nombre_usuario">
                     </div>
-                    <select class="form-select registro__select mb-1" aria-label="Default select example">
+                    <select class="form-select registro__select mb-1" aria-label="Default select example" name="tipo_documento">
                         <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
                         <option class="registro__option" value="1">Cedula de Ciudadania</option>
                         <option class="registro__option" value="2">Cedula de Extranjeria</option>
                         <option class="registro__option" value="3">Rut</option>
                     </select>
                     <div class="registro__input mb-1">
-                        <input type="number" class="form-control registro__input" placeholder="Numero de Documento"
-                            value="">
+                        <input type="number" class="form-control registro__input" placeholder="Numero de Documento" 
+                            value="" name="numero_documento">
                     </div>
                     <div class="registro__input mb-1">
-                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico" value="">
+                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico"  value="" name="correo_electronico">
                     </div>
                     <div class="registro__input mb-1">
-                        <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
+                        <input type="password" class="form-control registro__input" placeholder="Contraseña" 
+                            value="" name="contraseña">
                     </div>
                     <div class="registro__input mb-3">
-                        <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña"
-                            value="">
+                        <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña" 
+                            value="" name="contraseña">
                     </div>
                     <div class="form-check mb-3">
                         <input class="form-check-input" type="checkbox" id="terminosCondicionesCheckbox" value="">
@@ -2004,11 +2158,11 @@
                     </button>
                     <form action="" id="form_log_desktop">
                         <div class="registro__input mb-1">
-                            <input type="email" class="form-control registro__input" placeholder="Correo Electronico"
-                                value="">
+                            <input type="email" class="form-control registro__input" placeholder="Correo Electronico" 
+                                value="" name="correo_electronico">
                         </div>
                         <div class="registro__input mb-2">
-                            <input type="password" class="form-control registro__input" placeholder="Contraseña" value="">
+                            <input type="password" class="form-control registro__input" placeholder="Contraseña"  value="" name="contraseña">
                         </div>
                         <div class="form-check mb-3 d-flex align-items-end justify-content-evenly">
                             <input class="form-check-input" type="checkbox" value="">
@@ -2058,17 +2212,17 @@
                 <form id="form_crear_inventario_desktop">
                     <div class="form-floating mb-2">
                         <input type="email" class="form-control" id="floatingInputValue" placeholder="nombre-almacen"
-                            value="SENA Quirigua" />
+                            value="SENA Quirigua" name="nombre_almacen"/>
                         <label for="floatingInputValue">Nombre Inventario</label>
                     </div>
                     <div class="form-floating mb-2">
                         <input type="email" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
-                            value="Cra. 93 #80c-72" />
+                            value="Cra. 93 #80c-72" name="direccion_almacen"/>
                         <label for="floatingInputValue">Dirección Inventario</label>
                     </div>
                     <div class="form-floating mb-2">
                         <input type="email" class="form-control" id="floatingInputValue"
-                            placeholder="descripcion-almacen" value="Contiene computadores" />
+                            placeholder="descripcion-almacen" value="Contiene computadores" name="descripcion_almacen"/>
                         <label for="floatingInputValue">Descripción Inventario</label>
                     </div>
                 </form>
@@ -2155,9 +2309,9 @@
             <div class="container inventario flex-wrap col-lg-3">
                 <form action="" id="form_editar_inventario_desktop">
                     <input type="text" class="form-control mb-3" aria-label="Text input with dropdown button"
-                        value="Nombre de Inventario" placeholder="Editar título" />
+                        value="Nombre de Inventario" placeholder="Editar título" name="nombre_almacen"/>
                     <input type="text" class="form-control mb-3 " aria-label="Text input with dropdown button"
-                        value="Dirección: XXXXX" placeholder="Editar Dirección" />
+                        value="Dirección: XXXXX" placeholder="Editar Dirección" name="direccion_almacen"/>
                     <textarea class="form-control mb-3 min-height-100" rows="6">Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibhmalesuada, volutpat metus ac, laoreet erat.vestibulum orci. In acnibh malesuada.
                     </textarea>
                 </form>
@@ -2876,7 +3030,7 @@
                             <th scope="row" class="d-flex align-items-center">
                                 <input type="text" id="th_input_nombreCategoria" class="form-control"
                                     aria-label="Text input with dropdown button"
-                                    placeholder="Ingreso nombre de Categoria" />
+                                    placeholder="Ingreso nombre de Categoria" name="nombre_categoria"/>
                             </th>
                         </form>
                         <td class="text-end">
@@ -3289,7 +3443,7 @@
                                     <td>Referencia</td>
                                     <td>
                                         <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                            placeholder="" />
+                                            placeholder="" name="referencia_producto"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -3303,28 +3457,28 @@
                                     <td>Cantidad</td>
                                     <td>
                                         <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                            placeholder="" />
+                                            placeholder="" name="cantidad_producto_almacen"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Stock Mínimo</td>
                                     <td>
                                         <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                            placeholder="" />
+                                            placeholder="" name="stock_minimo"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Costo</td>
                                     <td>
                                         <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                            placeholder="" />
+                                            placeholder="" name="promedio_costo"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Precio de Venta</td>
                                     <td>
                                         <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                            placeholder="" />
+                                            placeholder="" name="precio_ventas"/>
                                     </td>
                                 </tr>
                             </form>
@@ -3622,10 +3776,10 @@
                 <form action="" id="form_crear_perfil_desktop">
                     <div class="form-floating mb-2">
                         <input type="text" class="form-control form-select_modificado" id="floatingInputValue"
-                            placeholder="" />
+                            placeholder="" name="nombre_usuario"/>
                         <label for="floatingInputValue">Nombre Completo</label>
                     </div>
-                    <select class="form-select form-select_modificado mb-2" aria-label="Default select example">
+                    <select class="form-select form-select_modificado mb-2" aria-label="Default select example" name="tipo_documento">
                         <option selected>Tipo de Documento</option>
                         <option value="1">Cedula de Ciudadania</option>
                         <option value="2">Cedula de Extranjeria</option>
@@ -3633,22 +3787,22 @@
                     </select>
                     <div class="form-floating mb-2">
                         <input type="number" class="form-control form-select_modificado" id="floatingInputValue"
-                            placeholder="" />
+                            placeholder="" name="numero_documento"/>
                         <label for="floatingInputValue">Numero de Documento</label>
                     </div>
                     <div class="form-floating mb-2">
                         <input type="email" class="form-control form-select_modificado" id="floatingInputValue"
-                            placeholder="" />
+                            placeholder="" name="correo_electronico"/>
                         <label for="floatingInputValue">Correo Electronico</label>
                     </div>
                     <div class="form-floating mb-2">
                         <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
-                            placeholder="" />
+                            placeholder="" name="contraseña"/>
                         <label for="floatingInputValue">Contraseña</label>
                     </div>
                     <div class="form-floating mb-2">
                         <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
-                            placeholder="" />
+                            placeholder="" name="contraseña"/>
                         <label for="floatingInputValue">Repetir Contraseña</label>
                     </div>
                 </form>
@@ -3751,10 +3905,10 @@
                         <th scope="row" class="td-body-tabla">
                             <input id="input_modificado" class="form-control form-select_modificado" type="text"
                                 class="form-control" aria-label="Text input with dropdown button"
-                                placeholder="Nuevo nombre de Perfil" />
+                                placeholder="Nuevo nombre de Perfil" name="nombre_usuario"/>
                         </th>
                         <th scope="row" class="td-body-tabla">
-                            <select class="form-select form-select_modificado" aria-label="Default select example">
+                            <select class="form-select form-select_modificado" aria-label="Default select example" name="id_rol">
                                 <option selected>Escoger Tipo de Rol</option>
                                 <option value="1">Rol 01</option>
                                 <option value="2">Rol 02</option>
@@ -4081,7 +4235,7 @@
                             </td>
                             <td class="td-body-tabla">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control form-select_modificado" placeholder="" />
+                                    <input type="text" class="form-control form-select_modificado" placeholder="" name="nombre_usuario"/>
                                     <label for="floatingInputValue">Nuevo nombre de Usuario</label>
                                 </div>
                             </td>
@@ -4091,7 +4245,7 @@
                                 <p class="td-body-tabla_opciones">Tipo de Documento</p>
                             </td>
                             <td class="td-body-tabla">
-                                <select class="form-select form-select_modificado mb-2" aria-label="Default select example">
+                                <select class="form-select form-select_modificado mb-2" aria-label="Default select example" name="tipo_documento">
                                     <option selected>Tipo de Documento</option>
                                     <option value="1">Cedula de Ciudadania</option>
                                     <option value="2">Cedula de Extranjeria</option>
@@ -4105,7 +4259,7 @@
                             </td>
                             <td class="td-body-tabla">
                                 <div class="form-floating">
-                                    <input type="number" class="form-control form-select_modificado" placeholder="" />
+                                    <input type="number" class="form-control form-select_modificado" placeholder="" name="numero_documento"/>
                                     <label for="floatingInputValue">Numero de Documento</label>
                                 </div>
                             </td>
@@ -4116,7 +4270,7 @@
                             </td>
                             <td class="td-body-tabla">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control form-select_modificado" placeholder="" />
+                                    <input type="email" class="form-control form-select_modificado" placeholder="" name="correo_electronico"/>
                                     <label for="floatingInputValue">Correo Electronico</label>
                                 </div>
                             </td>
@@ -4127,7 +4281,7 @@
                             </td>
                             <td class="td-body-tabla">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control form-select_modificado" placeholder="" />
+                                    <input type="password" class="form-control form-select_modificado" placeholder="" name="contraseña"/>
                                     <label for="floatingInputValue">Nueva Contraseña</label>
                                 </div>
                             </td>
@@ -4138,7 +4292,7 @@
                             </td>
                             <td class="td-body-tabla">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control form-select_modificado" placeholder="" />
+                                    <input type="password" class="form-control form-select_modificado" placeholder="" name="contraseña"/>
                                     <label for="floatingInputValue">Repetir Nueva Contraseña</label>
                                 </div>
                             </td>
