@@ -96,7 +96,6 @@ class Vista {
     }
   }
 
-
   /**
    * Metodo para insertar un template en un contenedor
    * @param {*} template_id 
@@ -110,9 +109,28 @@ class Vista {
     contenedor.appendChild(clone);
   }
 
+  /**
+   * Metodo para remover una etiqueta
+   * @param {*} etiqueta 
+   */
+
   remover_etiqueta(etiqueta){
     const elemento = document.getElementById(etiqueta);
     elemento.remove();
+  }
+
+  /**
+   * Metodo para añadir una etiqueta
+   * @param {*} etiqueta 
+   * @param {*} contenedor 
+   * @param {*} id_etiqueta 
+   */
+
+  añadir_etiqueta(etiqueta, contenedor, id_etiqueta){
+    const tag = document.createElement(etiqueta);
+    tag.id = id_etiqueta;
+    const cont = document.getElementById(contenedor);
+    cont.appendChild(tag);
   }
 
   getForm(formulario) {

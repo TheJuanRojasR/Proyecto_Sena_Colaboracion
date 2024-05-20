@@ -5,6 +5,7 @@ const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
 const lista_clases_nav_sup_desktop = ['navbar', 'navbar-expand-md'];
 const lista_clases_nav_sup_mobile = ['navbar', 'fixed-top', 'nav_sup'];
+const lista_clases_nav_inf = ['navbar', 'fixed-bottom', 'nav_inf'];
 
 const tamañoPantalla = window.matchMedia('(max-width: 768px)');
 
@@ -22,7 +23,10 @@ function cambio_clases(){
 }
 
 function remover_nav_inf(){
-    if(!tamañoPantalla.matches){
+    if(tamañoPantalla.matches){
+        vista.remover_etiqueta("navegador_inf");
+    }
+    else{
         vista.remover_etiqueta("navegador_inf");
     }
 }
@@ -42,12 +46,19 @@ function remover_nav_inf(){
 //     cerrarPantalla("offcanvasNavbar");
 // }
 
-// window.onload = function(){
-//     vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
-//     vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
-//     cambio_clases();
-//     remover_nav_inf();
-// }
+window.onload = function(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
+        vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
+        vista.mostrar_plantilla("pagina_inicio_desktop", "contenedor_principal");
+        vista.mostrar_plantilla("footer_desktop", "footer");
+    }
+    cambio_clases();
+    remover_nav_inf();
+}
 
 function regresar_pantalla(){
     vista.regresar_pantalla();
@@ -93,7 +104,10 @@ function registrarUsuario() {
 function mostrar_form_login(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("log_in", "contenedor_principal", 0);
+        vista.remover_etiqueta("footer");
+        vista.añadir_etiqueta("nav", "body", "navegador_inf");
         vista.mostrar_plantilla("nav_inf_login","navegador_inf");
+        vista.cambiar_clases("navegador_inf", lista_clases_nav_inf);
     }
     else{
         vista.mostrar_plantilla("log_in_desktop", "contenedor_principal", 1);
@@ -112,7 +126,9 @@ function mostrar_inv_vacia(){
         vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
     }
     else{
+        vista.mostrar_plantilla("nav_sup_desktop","navegador_sup");
         vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
+        vista.remover_etiqueta("footer");
     }
 }
 

@@ -32,7 +32,7 @@
 
 </head>
 
-<body class=" overflow-y-scroll d-flex flex-column justify-content-between">
+<body class=" overflow-y-scroll d-flex flex-column justify-content-between" id="body">
     <!-- Barra superior -->
     <nav class="navbar navbar-expand-md" id="navegador_sup">
         
@@ -40,127 +40,16 @@
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
-        <div class="container encabezado">
-            <h1>Abastecimiento</h1>
-            <div class="d-flex flex-row">
-                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
-                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                </form>
-                <button class="encabezado__search-button" type="button">
-                    <img src="./Assets/img/logo_lupa.svg" alt="" />
-                </button>
-            </div>
-        </div>
-        <hr />
-        <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Producto</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Referencia</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Categoría</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Ubicacion</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Stock Min</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="p-0" id="abastecimiento_columna_aviso_error"></td>
-                        <th scope="row" class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Lapiz</p>
-                        </th>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Papeleria</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Destino A</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones texto_error">0</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones texto_error">10</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-0" id="abastecimiento_columna_aviso_advertencia"></td>
-                        <th scope="row" class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Lapiz</p>
-                        </th>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Papeleria</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Destino A</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones texto_advertencia">10</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones texto_advertencia">10</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <img src="./Assets/img/logo_flecha_izq.svg" alt="" />
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <img src="./Assets/img/logo_flecha_der.svg" alt="" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+
     </main>
 
     <!-- Navegador Inferior -->
     <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
     </nav>
+
+    <footer id="footer">
+
+    </footer>
 
     <!-- TEMPLATES BARRAS SUP E INF MOBILE-->
 
@@ -168,7 +57,7 @@
     <template id="nav_sup_inicio">
         <div class="container-fluid flex-nowrap" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
             <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
-                <img src="./Assets/img/logo-layout.png" alt="Variety Vault">
+                <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Variety Vault">
             </a>
         </div>
     </template>
@@ -177,7 +66,7 @@
     <template id="nav_sup">
         <div class="container-fluid" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
             <a class="navbar-brand contenedor_logo" href="#"> <!-- Logo de la pagina -->
-                <img src="./Assets/img/logo-layout.png" alt="Variety Vault">
+                <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Variety Vault">
             </a>
             <button class="navbar-toggler" id="contenedor_menu_desplegable" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
@@ -2138,7 +2027,7 @@
                         </label>
                     </div>
                 </form>
-                <button class="btn btn-general mb-3">Registrar</button>
+                <button class="btn btn-general mb-3" onclick="mostrar_form_login()">Registrar</button>
                 <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
             </div>
         </section>
@@ -2173,7 +2062,7 @@
                         </div>
                     </form>
                 </div>
-                <button class="btn btn-general mb-3">Ingresar</button>
+                <button class="btn btn-general mb-3" onclick="mostrar_inv_vacia()">Ingresar</button>
             </div>
         </section>
     </template>
@@ -4398,7 +4287,7 @@
         <footer class="d-flex justify-content-center">
             <div>
                 <a href="#">
-                    <img class="logo_footer" src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+                    <img class="logo_footer" src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
                 </a>
             </div>
             <div class="d-flex flex-column elemento_flooter">

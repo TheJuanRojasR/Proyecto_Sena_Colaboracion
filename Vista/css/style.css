@@ -17,8 +17,8 @@ footer {
     background-color: #1F2535;
     display: flex;
     width: 100%;
-    min-height: 248px;
-    padding: 5rem 10rem;
+    min-height: auto;
+    padding: 1.5rem 10rem;
     align-items: flex-start;
     gap: 5rem;
 }
