@@ -32,7 +32,7 @@
 
 </head>
 
-<body class=" overflow-y-scroll d-flex flex-column justify-content-between" id="body">
+<body class=" overflow-y-scroll d-flex flex-column justify-content-between">
     <!-- Barra superior -->
     <nav class="navbar navbar-expand-md" id="navegador_sup">
         
@@ -43,12 +43,11 @@
 
     </main>
 
-    <!-- Navegador Inferior -->
+    <!-- Barra Inferior -->
     <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
     </nav>
 
-    <footer id="footer">
-
+    <footer id="footer_inicio" class="d-flex justify-content-center" >
     </footer>
 
     <!-- TEMPLATES BARRAS SUP E INF MOBILE-->
@@ -179,6 +178,27 @@
         </div>
     </template>
 
+    <!-- Footer Pagina de Inicio -->
+    <template id="footer_mobile">
+        <div class="row">
+            <div class="col-6 imagen_inicio"><img src="/Assets/img/logo_empresa_sin_fondo_blanco.svg"></img>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <a href="#Enlace_de_navegacion">Enlace de Navegaciòn</a><br>
+                <a href="#noticias">Inicio</a><br>
+                <a href="#noticias">Noticias</a><br>
+                <a href="#noticias">Noticias</a>
+                <a href="#deportes">© 2024 Variety Vault</a><br>
+                <a href="#deportes">Deportes</a><br>
+                <a href="#deportes">Deportes</a><br>
+                <a href="#deportes">Deportes</a><br>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </template>
+
     <!-- TEMPLATES MOBILE -->
 
     <!-- Pantalla de Inicio -->
@@ -215,28 +235,6 @@
                 </button>
             </div>
         </div>
-
-        <!-- Navegador Inferior -->
-        <footer id="footer_inicio" class=" rectangulo-inferior d-flex flex-wrap justify-content-between align-items-center">
-            <div class="row">
-                <div class="col-6 imagen_inicio"><img src="/Assets/img/logo_empresa_sin_fondo_blanco.svg"></img>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-8">
-                    <a href="#Enlace_de_navegacion">Enlace de Navegaciòn</a><br>
-                    <a href="#noticias">Inicio</a><br>
-                    <a href="#noticias">Noticias</a><br>
-                    <a href="#noticias">Noticias</a>
-                    <a href="#deportes">© 2024 Variety Vault</a><br>
-                    <a href="#deportes">Deportes</a><br>
-                    <a href="#deportes">Deportes</a><br>
-                    <a href="#deportes">Deportes</a><br>
-                    <a href="#contacto">Contacto</a>
-                </div>
-            </div>
-        </footer>
-
     </template>
 
     <!-- Pantalla Registrarse -->
@@ -2083,7 +2081,7 @@
         <hr />
         <div class="container sin-opciones">
             <h2>
-                ¿No tienes inventarios? <a href="">Haz clic aquí para crear uno.</a>
+                ¿No tienes inventarios? <a href="#" onclick="mostrar_form_crear_inv()">Haz clic aquí para crear uno.</a>
             </h2>
         </div>
     </template>
@@ -2116,7 +2114,7 @@
                     </div>
                 </form>
                 <div class="d-grid gap-2">
-                    <button class="btn btn-general" type="button">
+                    <button class="btn btn-general" type="button" onclick="mostrar_inventarios()">
                         Crear Inventario
                     </button>
                 </div>
@@ -2136,7 +2134,7 @@
                     <img src="./Assets/img/logo_lupa.svg" alt="" />
                 </button>
             </div>
-            <button class="btn btn-general ms-auto">Crear Inventario</button>
+            <button class="btn btn-general ms-auto" onclick="mostrar_form_crear_inv()">Crear Inventario</button>
         </div>
         <hr />
         <div class="container d-flex flex-wrap justify-content-around">
@@ -2171,7 +2169,7 @@
                     nibh malesuada, volutpat metus ac, laoreet erat
                 </p>
                 <div class="d-grid gap-2">
-                    <button class="btn btn-general" type="button">
+                    <button class="btn btn-general" type="button" onclick="mostrar_stock_vacia()">
                         Ingresar
                     </button>
                 </div>
@@ -2597,7 +2595,7 @@
         <hr />
         <div class="container sin-opciones">
             <h2>
-                ¿No tienes productos? <a href="">Haz clic aquí para crear uno.</a>
+                ¿No tienes productos? <a href="#" onclick="mostar_form_crear_producto()">Haz clic aquí para crear uno.</a>
             </h2>
         </div>
     </template>
@@ -2698,7 +2696,7 @@
                             </td>
                         </form>
                         <td class="text-end">
-                            <button class="btn btn-tabla-icono btnGuardar-tabla">
+                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_stock()">
                                 <img src="./Assets/img/guardar.svg" alt="" />
                             </button>
                         </td>
@@ -2720,7 +2718,7 @@
                     <img src="./Assets/img/logo_lupa.svg" alt="" />
                 </button>
             </div>
-            <button class="btn btn-general ms-auto">Crear Producto</button>
+            <button class="btn btn-general ms-auto" onclick="mostar_form_crear_producto()">Crear Producto</button>
         </div>
         <hr />
         <div class="container  table-responsive">
@@ -2772,7 +2770,7 @@
                             <p class="td-body-tabla_opciones">Lapiz</p>
                         </td>
                         <td class="">
-                            <button class="btn btn-tabla-icono btnGuardar-tabla">
+                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_detalles_producto()">
                                 <img src="./Assets/img/logo_ingresar_detalles.svg" alt="" />
                             </button>
                         </td>
@@ -4284,28 +4282,26 @@
 
     <!-- FOOTER DESKTOP -->
     <template id="footer_desktop">
-        <footer class="d-flex justify-content-center">
-            <div>
-                <a href="#">
-                    <img class="logo_footer" src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
-                </a>
-            </div>
-            <div class="d-flex flex-column elemento_flooter">
-                <p class="text-decoration-none color_blanco fw-bold">Enlaces de Navegación</p>
-                <a href="" class="text-decoration-none color_blanco">Inicio</a>
-                <a href="" class="text-decoration-none color_blanco">Contactos</a>
-                <a href="" class="text-decoration-none color_blanco">Nosotros</a>
-            </div>
-            <div class="d-flex flex-column elemento_flooter">
-                <p class="text-decoration-none color_blanco fw-bold">Enlaces a Politicas</p>
-                <a href="" class="text-decoration-none color_blanco">Política Privada</a>
-                <a href="" class="text-decoration-none color_blanco">Términos y Condiciones</a>
-                <a href="" class="text-decoration-none color_blanco">Cookies</a>
-            </div>
-            <div class="d-flex flex-column elemento_flooter">
-                <p class="text-decoration-none color_blanco fw-bold">© 2024 Variety Vault</p>
-            </div>
-        </footer>
+        <div>
+            <a href="#">
+                <img class="logo_footer" src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
+            </a>
+        </div>
+        <div class="d-flex flex-column elemento_flooter">
+            <p class="text-decoration-none color_blanco fw-bold">Enlaces de Navegación</p>
+            <a href="" class="text-decoration-none color_blanco">Inicio</a>
+            <a href="" class="text-decoration-none color_blanco">Contactos</a>
+            <a href="" class="text-decoration-none color_blanco">Nosotros</a>
+        </div>
+        <div class="d-flex flex-column elemento_flooter">
+            <p class="text-decoration-none color_blanco fw-bold">Enlaces a Politicas</p>
+            <a href="" class="text-decoration-none color_blanco">Política Privada</a>
+            <a href="" class="text-decoration-none color_blanco">Términos y Condiciones</a>
+            <a href="" class="text-decoration-none color_blanco">Cookies</a>
+        </div>
+        <div class="d-flex flex-column elemento_flooter">
+            <p class="text-decoration-none color_blanco fw-bold">© 2024 Variety Vault</p>
+        </div>
     </template>
 
     <!-- Enlaces a JS -->

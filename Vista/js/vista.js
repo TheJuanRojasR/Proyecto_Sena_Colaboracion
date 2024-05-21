@@ -5,7 +5,7 @@ class Vista {
 
   /**
    * Metodo para limpiar un contenedor
-   * @param {*} contenedor 
+   * @param {*} contenedor: id del contenedor a limpiar
    */
 
   limpiar_contenedor(contenedor) {
@@ -37,8 +37,8 @@ class Vista {
 
   /**
    * Metodo para añadir un evento click a un elemento del HTML
-   * @param {*} plantilla 
-   * @param {*} funcion 
+   * @param {*} plantilla: id del la etiqueta a la que se le añadira el evento
+   * @param {*} funcion: funcion a ejecutar al hacer click
    */
 
   añadir_evento_click(plantilla, funcion) {
@@ -58,7 +58,7 @@ class Vista {
 
   /**
    * Metodo para regresar a la pantalla anterior
-   * @param {*} none
+   * @param {*} none: no recibe parametros
    */
 
   regresar_pantalla() {
@@ -84,8 +84,8 @@ class Vista {
 
   /**
    * Metodo para cambiar las clases de un contenedor
-   * @param {*} contenedor_etiqueta 
-   * @param {*} lista_clases 
+   * @param {*} contenedor_etiqueta: id del contenedor al que se le cambiaran las clases
+   * @param {*} lista_clases: lista de clases que se modificaran del contenedor
    */
 
   cambiar_clases(contenedor_etiqueta, lista_clases){
@@ -98,8 +98,8 @@ class Vista {
 
   /**
    * Metodo para insertar un template en un contenedor
-   * @param {*} template_id 
-   * @param {*} contenedor_id 
+   * @param {*} template_id: id del template a insertar
+   * @param {*} contenedor_id: id del contenedor donde se insertara el template 
    */
 
   anadir_seccion(template_id, contenedor_id){
@@ -111,7 +111,7 @@ class Vista {
 
   /**
    * Metodo para remover una etiqueta
-   * @param {*} etiqueta 
+   * @param {*} etiqueta: id de la etiqueta a remover
    */
 
   remover_etiqueta(etiqueta){
@@ -121,16 +121,27 @@ class Vista {
 
   /**
    * Metodo para añadir una etiqueta
-   * @param {*} etiqueta 
-   * @param {*} contenedor 
-   * @param {*} id_etiqueta 
+   * @param {*} etiqueta: nombre de la etiqueta que se va a añadir 
+   * @param {*} contenedor: id del contenedor donde se va a añadir la etiqueta
+   * @param {*} id_etiqueta: id de la etiqueta que se va a añadir
    */
 
   añadir_etiqueta(etiqueta, contenedor, id_etiqueta){
     const tag = document.createElement(etiqueta);
     tag.id = id_etiqueta;
-    const cont = document.getElementById(contenedor);
-    cont.appendChild(tag);
+    const cont = document.getElementsByTagName(contenedor);
+    cont[0].appendChild(tag);
+  }
+
+/**
+ * Metodo para añadir padding inferior a un contenedor
+ * @param {*} id_contenedor: id del contenedor al que se le añadira el padding
+ * @param {*} padding: valor del padding que se añadira al contenedor
+ */
+
+  añadir_padding(id_contenedor, padding){
+    let contenedor = document.getElementById(id_contenedor);
+    contenedor.style.paddingBottom = padding;
   }
 
   getForm(formulario) {

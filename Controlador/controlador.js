@@ -5,11 +5,15 @@ const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
 const lista_clases_nav_sup_desktop = ['navbar', 'navbar-expand-md'];
 const lista_clases_nav_sup_mobile = ['navbar', 'fixed-top', 'nav_sup'];
+const lista_clases_footer_inicio_mobile = ["rectangulo-inferior", "d-flex", "flex-wrap", "justify-content-between", "align-items-center"];
+const lista_clases_footer_inicio_destkop = ["d-flex", "justify-content-center"];
 const lista_clases_nav_inf = ['navbar', 'fixed-bottom', 'nav_inf'];
 
 const tamañoPantalla = window.matchMedia('(max-width: 768px)');
 
-window.addEventListener('resize', cambio_clases);
+window.addEventListener('resize', cambio_clases, cambio_clases_footer);
+window.addEventListener('resize', cambio_clases_footer);
+window.addEventListener('resize', cambio_templates);
 
 function cambio_clases(){
     if(tamañoPantalla.matches){
@@ -18,7 +22,16 @@ function cambio_clases(){
     }
     else{
         vista.cambiar_clases("contenedor_principal", lista_clases_main_desktop);
-        vista.cambiar_clases("navegador_sup", lista_clases_nav_sup_desktop)
+        vista.cambiar_clases("navegador_sup", lista_clases_nav_sup_desktop);
+    }
+}
+
+function cambio_clases_footer(){
+    if(tamañoPantalla.matches){
+        vista.cambiar_clases("footer_inicio", lista_clases_footer_inicio_mobile);
+    }
+    else{
+        vista.cambiar_clases("footer_inicio", lista_clases_footer_inicio_destkop);
     }
 }
 
@@ -31,16 +44,19 @@ function remover_nav_inf(){
     }
 }
 
-/**
- function cambio_templates(){
-     if(tamañoPantalla.matches){
-         vista.mostrar_plantilla( "inventarios_vacia","contenedor_principal");
-     }
-     else{
-         vista.mostrar_plantilla("inventario_vacia_desktop", "contenedor_principal"  )
-     }
- }
- */
+function cambio_templates(){
+    if(tamañoPantalla.matches){
+    vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+    vista.mostrar_plantilla("nav_sup_inicio", "navegador_sup");
+    vista.mostrar_plantilla("footer_mobile", "footer_inicio");
+    }
+    else{
+    vista.mostrar_plantilla("pagina_inicio_desktop", "contenedor_principal");
+    vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
+    vista.mostrar_plantilla("footer_desktop", "footer_inicio");
+    }
+}
+
 
 // function cerrarVentana(){
 //     cerrarPantalla("offcanvasNavbar");
@@ -50,13 +66,15 @@ window.onload = function(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
         vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+        vista.mostrar_plantilla("footer_mobile", "footer_inicio");
     }
     else{
         vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
         vista.mostrar_plantilla("pagina_inicio_desktop", "contenedor_principal");
-        vista.mostrar_plantilla("footer_desktop", "footer");
+        vista.mostrar_plantilla("footer_desktop", "footer_inicio");
     }
     cambio_clases();
+    cambio_clases_footer();
     remover_nav_inf();
 }
 
@@ -72,7 +90,10 @@ function regresar_pantalla(){
 function mostrar_form_registro_usuario(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("registro_usuario", "contenedor_principal", 0);
+        vista.remover_etiqueta("footer_inicio");
+        vista.añadir_etiqueta("nav", "body", "navegador_inf");
         vista.mostrar_plantilla("nav_inf_reg","navegador_inf", 0);
+        vista.cambiar_clases("navegador_inf", lista_clases_nav_inf);
     }
     else{
         vista.mostrar_plantilla("registro_usuario_desktop", "contenedor_principal", 1);
@@ -104,7 +125,7 @@ function registrarUsuario() {
 function mostrar_form_login(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("log_in", "contenedor_principal", 0);
-        vista.remover_etiqueta("footer");
+        vista.remover_etiqueta("footer_inicio");
         vista.añadir_etiqueta("nav", "body", "navegador_inf");
         vista.mostrar_plantilla("nav_inf_login","navegador_inf");
         vista.cambiar_clases("navegador_inf", lista_clases_nav_inf);
@@ -119,6 +140,7 @@ function mostrar_form_login(){
 
 function mostrar_inv_vacia(){
     if(tamañoPantalla.matches){
+        vista.añadir_padding("contenedor_principal", "72.31px");
         vista.mostrar_plantilla("nav_sup","navegador_sup");
         vista.limpiar_contenedor("navegador_inf",);
         vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
@@ -128,7 +150,7 @@ function mostrar_inv_vacia(){
     else{
         vista.mostrar_plantilla("nav_sup_desktop","navegador_sup");
         vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
-        vista.remover_etiqueta("footer");
+        vista.remover_etiqueta("footer_inicio");
     }
 }
 

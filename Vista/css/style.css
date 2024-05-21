@@ -909,6 +909,7 @@ a.page-link:hover {
         background-color: #333A56;
         row-gap: 0;
     }
+
     .imagen_inicio{
         padding: 15px;
     }
@@ -1001,6 +1002,7 @@ a.page-link:hover {
         margin-bottom: 5px;
         border-radius: 8px;
         background-color: #333A56;
+        color: #E0E0FF;
     }
 
     .form-control::placeholder {
