@@ -1,5 +1,7 @@
 let vista = new Vista();
 let usuario = new Usuario();
+let producto = new Producto();
+let lista_categ = []
 
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
@@ -243,6 +245,13 @@ function mostrar_editar_inv(){
 // Funciones acciones de la pantalla de Stock
 
 function mostar_form_crear_producto(){
+    //consultar categ productos 
+    producto.getAllCategories(function (data) {
+        if(data.success) {
+            lista_categ = data.data
+        }
+    });
+
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("crear_producto", "contenedor_principal", 1);
     }

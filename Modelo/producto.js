@@ -50,6 +50,12 @@ class Producto extends Connect{
         this.connect(dataRequest, endpoint, method, getAllProductCallback);
     }
 
+    getAllCategories(getAllCategoriesCallback){
+        const endpoint = "categorias"
+        const method = "GET"
+        this.connect({}, endpoint, method, getAllCategoriesCallback);
+    }
+
     //Metodo para eliminar un producto
     delete(dataRequest, deleteCallback){
         const endpoint = "productos/eliminar"

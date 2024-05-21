@@ -26,7 +26,8 @@
 22. LAURA: Funcion padding main-botton                                                               ✔
 23. JUAN: Cambiar form de la barra de busqueda Desktop en el resto de templates                      ✔
 24. LAURA y JUAN : Revisar color de texto en los inputs y los selects                                ❗ 
-25. LAURA JUAN: Revisar funcion para regresar entre pantallas
-26. Descargar svg del logo de variety vault blanco.
+25. LAURA JUAN: Revisar funcion para regresar entre pantallas                                        
+26. Descargar svg del logo de variety vault blanco.                                                  ✔
 27. Revisar name en pantallas crear salida, entrada, e informes. 
-28. JUAN: Revisar pantalla editar perfiles
+28. JUAN: Revisar pantalla editar perfiles                                                           ✔
+29. SERVIDOR: Hacer la consulta de la barra de busqueda. 
