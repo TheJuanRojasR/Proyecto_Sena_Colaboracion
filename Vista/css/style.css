@@ -550,7 +550,7 @@ a.page-link:hover {
     box-sizing: border-box;
 }
 
-#contenedor_desktop{
+#contenedor_desktop {
     height: 100%;
     width: 100%;
 }
@@ -604,13 +604,53 @@ a.page-link:hover {
     }
 }
 
-#carouselExampleDark{
+#contenedor_inicio_desktop {}
+
+#carouselExampleDark {
     position: absolute;
     z-index: 4;
-    top: 10%;
-    left: 10%;
+    top: 20%;
+    left: 55%;
+    width: 38%;
+    height: 38%;
 }
 
+.carousel-inner {
+    border-radius: 1.5%;
+}
+
+.carousel-control-prev {
+    left: -4%;
+    bottom: -41%;
+}
+
+.carousel-control-next {
+    right: -4%;
+    bottom: -41%;
+}
+
+.carousel-indicators {
+    bottom: -44%;
+}
+
+#text-container {
+    position: relative;
+    width: 50%;
+    left: 3%;
+    z-index: 20;
+}
+
+#text-container h1 {
+    font-size: 4em;
+    text-shadow: 7px 2px 9px #000000;
+}
+
+#texto_inicio {
+    font-family: "Rubik", sans-serif;
+    color: #ffffff;
+    text-align: center;
+    line-height: 110%
+}
 
 
 /* Estilos para vista de Barra lateral*/
@@ -904,7 +944,8 @@ a.page-link:hover {
         background-color: #333A56;
         row-gap: 0;
     }
-    .imagen_inicio{
+
+    .imagen_inicio {
         padding: 15px;
     }
 
