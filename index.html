@@ -40,7 +40,7 @@
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
-
+        
     </main>
 
     <!-- Barra Inferior -->
@@ -1066,7 +1066,7 @@
                     <option selected class="opciones">Categoria Producto</option>
                     <option class="opciones">Categoria 1</option>
                 </select>
-                <input type="text" class="form-control" placeholder="Ubicacion">
+                <input type="text" class="form-control" placeholder="Ubicacion" disabled>
                 <input type="text" class="form-control" placeholder="Stock minimo" name="stock_minimo">
                 <input type="text" class="form-control" placeholder="Precio" name="precio_venta">
             </form>
@@ -2295,48 +2295,46 @@
                     </tr>
                 </thead>
                 <tbody id="tbody_productos_entradas">
-                    <form action="" id="form_crear_entrada_desktop">
                     <tr>
                         <td>
                             <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="añadir_producto_entradas()">
                                 <img src="./Assets/img/logo_suma.svg" alt="" />
                             </button>
                         </td>
-                            <th scope="row">
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="origen_entrada"/>
-                            </th>
-                            <td>
-                                <input type="text" class="form-control disabled"
-                                    aria-label="Text input with dropdown button" placeholder="Ej: Almacen 1" disabled name="nombre_almacen"/>
-                            </td>
-                            <td>
-                                <select class="form-select" name="referencia_producto">
-                                    <option selected value=""></option>
-                                    <option value="1">Referencia 1</option>
-                                </select>
-                            </td>
-                            <td>
-                                <select class="form-select" name="nombre_producto">
-                                    <option selected value=""></option>
-                                    <option value="1">Producto 1</option>
-                                </select>
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="cantidad_entrada"/>
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="precio_venta" />
-                            </td>
+                            <form action="" id="form_crear_entrada_desktop">
+                                <th scope="row">
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" name="origen_entrada"/>
+                                </th>
+                                <td>
+                                    <input type="text" class="form-control disabled"
+                                        aria-label="Text input with dropdown button" placeholder="Ej: Almacen 1" disabled name="nombre_almacen"/>
+                                </td>
+                                <td>
+                                    <select class="form-select" name="referencia_producto">
+                                        <option selected value="">Referencia</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-select" name="nombre_producto">
+                                        <option selected value="">Producto</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" name="cantidad_entrada"/>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" name="precio_venta" />
+                                </td>
+                            </form>
                             <td>
                                 <button class="btn btn-tabla-icono btnGuardar-tabla">
                                     <img src="./Assets/img/guardar.svg" alt="" />
                                 </button>
                             </td>
                         </tr>
-                    </form>
                     </tbody>
             </table>
         </div>
@@ -2412,14 +2410,12 @@
                             </td>
                             <td>
                                 <select class="form-select" name="referencia_producto">
-                                    <option selected value=""></option>
-                                    <option value="1">Referencia 1</option>
+                                    <option selected value="">Referencia</option>
                                 </select>
                             </td>
                             <td>
                                 <select class="form-select" name="nombre_producto">
-                                    <option selected value=""></option>
-                                    <option value="1">Producto 1</option>
+                                    <option selected value="">Producto</option>
                                 </select>
                             </td>
                             <td>
@@ -2634,6 +2630,7 @@
                             </td>
                             <td>
                                 <select class="form-select" name="id_categoria">
+                                    <option selected value="">Categoria</option>
                                 </select>
                             </td>
                             <td>
@@ -2995,7 +2992,7 @@
                             <th scope="row" class="d-flex align-items-center">
                                 <input type="text" id="th_input_nombreCategoria" class="form-control"
                                     aria-label="Text input with dropdown button"
-                                    placeholder="Ingreso nuevo nombre de Categoria" />
+                                    placeholder="Ingreso nuevo nombre de Categoria" name="nombre_categoria"/>
                             </th>
                         </form>
                         <td class="text-end">
@@ -3285,45 +3282,40 @@
                         <tbody>
                             <form id="form_editar_producto_desktop">
                                 <tr>
-                                    <td>Referencia</td>
+                                    <td>Nombre producto</td>
                                     <td>
                                         <input type="text" class="form-control" aria-label="Text input with dropdown button"
                                             placeholder="" name="referencia_producto"/>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Ubicación</td>
+                                    <td>Categoria producto</td>
                                     <td>
-                                        <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                            placeholder="" />
+                                        <select type="text" class="select_claro_mov form-select" name="referecia_producto">
+                                            <!-- Opciones del select -->
+                                            <option selected class="opciones">Categoria</option>
+                                        </select>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Cantidad</td>
+                                    <td>Ubicación</td>
+                                    <td>
+                                        <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                            placeholder="" name="nombre_almacen" disabled />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Stock minimo</td>
                                     <td>
                                         <input type="text" class="form-control" aria-label="Text input with dropdown button"
                                             placeholder="" name="cantidad_producto_almacen"/>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Stock Mínimo</td>
+                                    <td>Precio</td>
                                     <td>
                                         <input type="text" class="form-control" aria-label="Text input with dropdown button"
                                             placeholder="" name="stock_minimo"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Costo</td>
-                                    <td>
-                                        <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                            placeholder="" name="promedio_costo"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Precio de Venta</td>
-                                    <td>
-                                        <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                            placeholder="" name="precio_ventas"/>
                                     </td>
                                 </tr>
                             </form>
@@ -3489,11 +3481,8 @@
             <div class="d-flex justify-content-between">
                 <form class="d-flex gap-3" id="form_filtros_informe_mov_prod_desktop">
                     <div class="form-floating">
-                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-                            <option selected>Despliegue el menú</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                        <select class="form-select" id="floatingSelect" aria-label="Floating label select example" name="id_producto">
+                            <option selected>Seleccionar Producto</option>
                         </select>
                         <label for="floatingSelect">Seleccionar Producto</label>
                     </div>
@@ -3756,9 +3745,6 @@
                             <th scope="row" class="td-body-tabla">
                                 <select class="form-select form-select_modificado" aria-label="Default select example" name="id_rol">
                                     <option selected>Escoger Tipo de Rol</option>
-                                    <option value="1">Rol 01</option>
-                                    <option value="2">Rol 02</option>
-                                    <option value="3">Rol 03</option>
                                 </select>
                             </th>
                             <td class="text-end align-middle">

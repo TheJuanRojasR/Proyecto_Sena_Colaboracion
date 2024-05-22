@@ -64,21 +64,21 @@ function cambio_templates(){
 //     cerrarPantalla("offcanvasNavbar");
 // }
 
-window.onload = function(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
-        vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
-        vista.mostrar_plantilla("footer_mobile", "footer_inicio");
-    }
-    else{
-        vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
-        vista.mostrar_plantilla("pagina_inicio_desktop", "contenedor_principal");
-        vista.mostrar_plantilla("footer_desktop", "footer_inicio");
-    }
-    cambio_clases();
-    cambio_clases_footer();
-    remover_nav_inf();
-}
+// window.onload = function(){
+//     if(tamañoPantalla.matches){
+//         vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
+//         vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+//         vista.mostrar_plantilla("footer_mobile", "footer_inicio");
+//     }
+//     else{
+//         vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
+//         vista.mostrar_plantilla("pagina_inicio_desktop", "contenedor_principal");
+//         vista.mostrar_plantilla("footer_desktop", "footer_inicio");
+//     }
+//     cambio_clases();
+//     cambio_clases_footer();
+//     remover_nav_inf();
+// }
 
 function regresar_pantalla(){
     vista.regresar_pantalla();
