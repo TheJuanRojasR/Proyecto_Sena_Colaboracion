@@ -611,8 +611,6 @@ a.page-link:hover {
     left: 10%;
 }
 
-
-
 /* Estilos para vista de Barra lateral*/
 
 .color_inherit {
@@ -1309,33 +1307,6 @@ a.page-link:hover {
         width: 19px;
         height: 49px;
         border-radius: 4px 0px 0px 4px;
-    }
-
-    /* ------------- CREAR INVENTARIO ------------- */
-
-    .nombre_inventario,
-    .direccion,
-    .descripcion {
-        background-color: #333A56;
-        border-radius: 8px;
-        padding-left: 12px;
-        margin-bottom: 4px;
-    }
-
-    .input_oscuro {
-        height: 50px;
-        border-radius: 0px 8px 8px 0px;
-        padding-left: 10px;
-        background-color: #333A56;
-        border: none;
-    }
-
-    .input_oscuro::placeholder {
-        color: #E0E0FF;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
     }
 
     /* ------------- CREAR ENTRADA/SALIDA ------------- */
