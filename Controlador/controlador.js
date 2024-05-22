@@ -15,7 +15,7 @@ const tamañoPantalla = window.matchMedia('(max-width: 768px)');
 
 window.addEventListener('resize', cambio_clases, cambio_clases_footer);
 window.addEventListener('resize', cambio_clases_footer);
-window.addEventListener('resize', cambio_templates);
+winkdow.addEventListener('resize', cambio_templates);
 
 function cambio_clases(){
     if(tamañoPantalla.matches){
@@ -58,7 +58,6 @@ function cambio_templates(){
     vista.mostrar_plantilla("footer_desktop", "footer_inicio");
     }
 }
-
 
 // function cerrarVentana(){
 //     cerrarPantalla("offcanvasNavbar");
@@ -153,17 +152,6 @@ function mostrar_inv_vacia(){
         vista.mostrar_plantilla("nav_sup_desktop","navegador_sup");
         vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
         vista.remover_etiqueta("footer_inicio");
-    }
-}
-
-//Funciones acciones del menu hamburguesa
-
-function mostrar_busqueda(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("buscar", "contenedor_principal", 1);
-    }
-    else{
-        
     }
 }
 
@@ -414,6 +402,15 @@ function mostrar_editar_perfiles(){
 
 // Funciones para cambiar plantillas desde el menu lateral
 
+function mostrar_busqueda(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("buscar", "contenedor_principal", 1);
+    }
+    else{
+        
+    }
+}
+
 function mostrar_terminos_condiciones(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("terminos_condiciones", "contenedor_principal", 1);
@@ -439,6 +436,16 @@ function mostrar_ajustes_usuario(){
     else{
         vista.mostrar_plantilla("ajustes_usuario_desktop", "contenedor_principal", 1);
     }
+}
+
+function mostrar_editar_usario(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("editar_usuario", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("editar_usuario_desktop", "contenedor_principal", 1);
+    }
+
 }
 
 function mostrar_ayuda(){

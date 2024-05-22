@@ -329,16 +329,10 @@
                 <h1>Nuevo Inventario</h1>
             </div>
             <form class="contenedor_form" id="form_crear_inventario"> <!-- Contendor de form para crear un inventario -->
-                <div class="d-flex flex-row align-items-center nombre_inventario">
-                    <!-- Campos para ingresar informacion -->
-                    <input type="text" placeholder="Nombre Inventario" class="input_oscuro" name="nombre_almacen">
-                </div>
-                <div class="d-flex flex-row align-items-center direccion">
-                    <input type="text" placeholder="Direccion" class="input_oscuro" name="direccion_almacen">
-                </div>
-                <div class="d-flex flex-row align-items-center descripcion">
-                    <input type="text" placeholder="Descripcion" class="input_oscuro" name="descripcion_almacen">
-                </div>
+                <!-- Campos para ingresar informacion -->
+                <input type="text" placeholder="Nombre Inventario" class="form-control name="nombre_almacen">
+                <input type="text" placeholder="Direccion" class="form-control name="direccion_almacen">
+                <input type="text" placeholder="Descripcion" class="form-control name="descripcion_almacen">
             </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear el inventario -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inventarios()">
@@ -584,7 +578,7 @@
                     <option class="opciones">Producto 1</option>
                     <option class="opciones">Producto 2</option>
                 </select>
-                <input type="text" name="" class="input_claro_mov" placeholder="Cantidad" name="cantidad_salida">
+                <input type="numer" name="" class="input_claro_mov" placeholder="Cantidad" name="cantidad_salida">
                 <div class="linea_division"></div>
             </form>
             <button class="btn boton_add_producto_movimientos" type="button">
@@ -1514,7 +1508,7 @@
             <div
                 class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
                 <!-- Contenedor de botones para ver movimientos y editar el producto -->
-                <button class="btn boton_largo_claro" type="button">
+                <button class="btn boton_largo_claro" type="button" onclick="mostrar_editar_usario()">
                     Editar
                 </button>
             </div>
@@ -1545,7 +1539,7 @@
             <div
                 class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
                 <!-- Contenedor de botones para ver movimientos y editar el producto -->
-                <button class="btn boton_largo_oscuro" type="button">
+                <button class="btn boton_largo_oscuro" type="button" onclick="mostrar_ajustes_usuario()">
                     Guardar Cambios
                 </button>
             </div>
@@ -1773,9 +1767,9 @@
                             Operaciones
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Entradas/Salidas</a></li>
-                            <li><a class="dropdown-item" href="#">Entradas</a></li>
-                            <li><a class="dropdown-item" href="#">Salidas</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="mostrar_movimientos_vacia()">Entradas/Salidas</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="mostrar_form_crear_entrada()">Entradas</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="mostrar_form_crear_salida()">Salidas</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -1784,15 +1778,15 @@
                             Stock
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Stock</a></li>
-                            <li><a class="dropdown-item" href="#">Abastecimiento</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="mostrar_stock_vacia()">Stock</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="mostrar_abastecimiento()">Abastecimiento</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Informes</a>
+                        <a class="nav-link" href="#" onclick="mostrar_seleccionar_informe()">Informes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Perfiles</a>
+                        <a class="nav-link" href="#" onclick="mostrar_perfiles_vacia()">Perfiles</a>
                     </li>
                 </ul>
                 <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
@@ -1818,16 +1812,16 @@
                     <!-- Opciones del menu desplegable -->
                     <div class="mt-auto">
                         <div id="term_condi">
-                            <a href="" class="color_inherit text-decoration-none">Terminos y Condiciones</a>
+                            <a href="#" class="color_inherit text-decoration-none" onclick="mostrar_terminos_condiciones()">Terminos y Condiciones</a>
                         </div>
                         <div id="politicas_priv">
-                            <a href="" class="color_inherit text-decoration-none">Politicas de Privacidad</a>
+                            <a href="#" class="color_inherit text-decoration-none" onclick="mostrar_politicas_privacidad()">Politicas de Privacidad</a>
                         </div>
                         <div id="ajustes_usu">
-                            <a href="" class="color_inherit text-decoration-none">Ajustes de usuario</a>
+                            <a href="#" class="color_inherit text-decoration-none" onclick="mostrar_ajustes_usuario()">Ajustes de usuario</a>
                         </div>
                         <div id="ayuda">
-                            <a href="" class="color_inherit text-decoration-none">Ayuda</a>
+                            <a href="#" class="color_inherit text-decoration-none" onclick="mostrar_ayuda()">Ayuda</a>
                         </div>
                         <div id="cerrar_ses">
                             <a href="" class="color_inherit text-decoration-none">Cerrar Sesion</a>
@@ -2112,7 +2106,7 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li class="d-grid gap-2">
-                                <button class="btn d-flex align-items-center">
+                                <button class="btn d-flex align-items-center" onclick="mostrar_editar_inv()">
                                     <img src="./Assets/img/lapiz_editar.svg" alt="" />
                                     <p>Editar</p>
                                 </button>
@@ -2167,7 +2161,7 @@
                     </textarea>
                 </form>
                 <div class="d-grid gap-2">
-                    <button class="btn btn-general" type="button">
+                    <button class="btn btn-general" type="button" onclick="mostrar_inventarios()">
                         Guardar
                     </button>
                 </div>
@@ -2301,41 +2295,43 @@
                                 <img src="./Assets/img/logo_suma.svg" alt="" />
                             </button>
                         </td>
-                            <form action="" id="form_crear_entrada_desktop">
-                                <th scope="row">
-                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                        placeholder="" name="origen_entrada"/>
-                                </th>
-                                <td>
-                                    <input type="text" class="form-control disabled"
-                                        aria-label="Text input with dropdown button" placeholder="Ej: Almacen 1" disabled name="nombre_almacen"/>
-                                </td>
-                                <td>
-                                    <select class="form-select" name="referencia_producto">
-                                        <option selected value="">Referencia</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select class="form-select" name="nombre_producto">
-                                        <option selected value="">Producto</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                        placeholder="" name="cantidad_entrada"/>
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                        placeholder="" name="precio_venta" />
-                                </td>
-                            </form>
+                        <form action="" id="form_crear_entrada_desktop">
+                            <th scope="row">
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                    placeholder="" name="origen_entrada"/>
+                            </th>
                             <td>
-                                <button class="btn btn-tabla-icono btnGuardar-tabla">
-                                    <img src="./Assets/img/guardar.svg" alt="" />
-                                </button>
+                                <input type="text" class="form-control disabled"
+                                    aria-label="Text input with dropdown button" placeholder="Ej: Almacen 1" disabled name="nombre_almacen"/>
                             </td>
-                        </tr>
-                    </tbody>
+                            <td>
+                                <select class="form-select" name="referencia_producto">
+                                    <option selected value=""></option>
+                                    <option value="1">Referencia 1</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" name="nombre_producto">
+                                    <option selected value=""></option>
+                                    <option value="1">Producto 1</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                    placeholder="" name="cantidad_entrada"/>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                    placeholder="" name="precio_venta" />
+                            </td>
+                        </form>
+                        <td>
+                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_movimientos()">
+                                <img src="./Assets/img/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
     </template>
@@ -2424,7 +2420,7 @@
                             </td>
                         </form>
                         <td>
-                            <button class="btn btn-tabla-icono btnGuardar-tabla">
+                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_movimientos()">
                                 <img src="./Assets/img/guardar.svg" alt="" />
                             </button>
                         </td>
@@ -3248,8 +3244,8 @@
                     </table>
                 </div>
                 <div>
-                    <button class="btn btn-general--contenido">Ver Movimientos</button>
-                    <button class="btn btn-general--secundario">Editar Descripción</button>
+                    <button class="btn btn-general--contenido" onclick="mostrar_mov_del_producto()">Ver Movimientos</button>
+                    <button class="btn btn-general--secundario" onclick="mostrar_editar_producto()">Editar Descripción</button>
                 </div>
             </div>
             <div class="">
@@ -3323,7 +3319,7 @@
                     </table>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-general--contenido ">Guardar</button>
+                    <button class="btn btn-general--contenido" onclick="mostrar_detalles_producto()">Guardar</button>
                 </div>
             </div>
             <div class="position-relative">
@@ -3450,19 +3446,15 @@
         </div>
         <hr />
         <div class="container" id="contenedor_form_seleccionar_informe_desktop">
-            
+            <form action="" id="form_seleccionar_informe_desktop">
+                <select class="form-select form-select_modificado" aria-label="Default select example">
+                    <option selected>Tipo de Estadística</option>
+                    <option value="1">Estadística 01</option>
+                    <option value="2">Estadística 02</option>
+                    <option value="3">Estadística 03</option>
+                </select>
+            </form>
         </div>
-    </template>
-
-    <template id="select_informes">
-        <form action="" id="form_seleccionar_informe_desktop">
-            <select class="form-select form-select_modificado" aria-label="Default select example">
-                <option selected>Tipo de Estadística</option>
-                <option value="1">Estadística 01</option>
-                <option value="2">Estadística 02</option>
-                <option value="3">Estadística 03</option>
-            </select>
-        </form>
     </template>
 
     <!-- Pantalla Filtros Informe Mov Prod -->
@@ -3589,7 +3581,7 @@
         <hr />
         <div class="container sin-opciones">
             <h2>
-                ¿No tienes perfiles? <a href="">Haz clic aquí para crear uno.</a>
+                ¿No tienes perfiles? <a href="#" onclick="mostrar_form_crear_perfil()">Haz clic aquí para crear uno.</a>
             </h2>
         </div>
     </template>
@@ -3640,7 +3632,7 @@
                         <label for="floatingInputValue">Repetir Contraseña</label>
                     </div>
                 </form>
-                <button class="btn btn-general ">Crear</button>
+                <button class="btn btn-general" onclick="mostrar_perfiles()">Crear</button>
             </section>
         </div>
     </template>
@@ -3657,7 +3649,7 @@
                     <img src="./Assets/img/logo_lupa.svg" alt="" />
                 </button>
             </div>
-            <button class="btn btn-general ms-auto">Crear Perfil</button>
+            <button class="btn btn-general ms-auto" onclick="mostrar_form_crear_perfil()">Crear Perfil</button>
         </div>
         <hr />
         <div class="container">
@@ -3691,7 +3683,7 @@
                             <p class="td-body-tabla_opciones">Administrador</p>
                         </td>
                         <td class="text-end">
-                            <button class="btn btn_editar_categoria">
+                            <button class="btn btn_editar_categoria" onclick="mostrar_editar_perfiles()">
                                 <img src="./Assets/img/lapiz_editar.svg" alt="" />
                             </button>
                         </td>
@@ -3735,8 +3727,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <form id="form_editar_perfiles_desktop">
-                        <tr>
+                    <tr>
+                        <form id="form_editar_perfiles_desktop">
                             <th scope="row" class="td-body-tabla">
                                 <input id="input_modificado" class="form-control form-select_modificado" type="text"
                                     class="form-control" aria-label="Text input with dropdown button"
@@ -3747,13 +3739,13 @@
                                     <option selected>Escoger Tipo de Rol</option>
                                 </select>
                             </th>
-                            <td class="text-end align-middle">
-                                <button class="btn btn-tabla-icono btnGuardar-tabla">
-                                    <img src="./Assets/img/guardar.svg" alt="" />
-                                </button>
-                            </td>
-                        </tr>
-                    </form> 
+                        </form> 
+                        <td class="text-end align-middle">
+                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_perfiles()">
+                                <img src="./Assets/img/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
