@@ -31,3 +31,4 @@
 27. Revisar name en pantallas crear salida, entrada, e informes. 
 28. JUAN: Revisar pantalla editar perfiles                                                           ✔
 29. SERVIDOR: Hacer la consulta de la barra de busqueda. 
+30. JUAN: Arreglar boton de detalles del producto y alinear datos en perfiles

@@ -6,6 +6,7 @@ class Vista {
   /**
    * Metodo para limpiar un contenedor
    * @param {*} contenedor: id del contenedor a limpiar
+   * @memberof Vista
    */
 
   limpiar_contenedor(contenedor) {
@@ -19,6 +20,7 @@ class Vista {
    * @param {*} contenedor: id del contenedor donde se desplegara la plantilla
    * @param {*} pila: si es 1 se guarda el nombre de la plantilla en el historial de navegacion
    * @returns none
+   * @memberof Vista
    */
 
   mostrar_plantilla(plantilla, contenedor, pila) {
@@ -39,10 +41,12 @@ class Vista {
    * Metodo para añadir un evento click a un elemento del HTML
    * @param {*} plantilla: id del la etiqueta a la que se le añadira el evento
    * @param {*} funcion: funcion a ejecutar al hacer click
+   * @memberof Vista
    */
 
   añadir_evento_click(plantilla, funcion) {
     let elemento = document.getElementById(plantilla);
+    //Falta eliminar posibles manejadores anteriores
     elemento.onclick = funcion;
   }
 
@@ -59,6 +63,7 @@ class Vista {
   /**
    * Metodo para regresar a la pantalla anterior
    * @param {*} none: no recibe parametros
+   * @memberof Vista
    */
 
   regresar_pantalla() {
@@ -86,6 +91,7 @@ class Vista {
    * Metodo para cambiar las clases de un contenedor
    * @param {*} contenedor_etiqueta: id del contenedor al que se le cambiaran las clases
    * @param {*} lista_clases: lista de clases que se modificaran del contenedor
+   * @memberof Vista
    */
 
   cambiar_clases(contenedor_etiqueta, lista_clases){
@@ -100,6 +106,7 @@ class Vista {
    * Metodo para insertar un template en un contenedor
    * @param {*} template_id: id del template a insertar
    * @param {*} contenedor_id: id del contenedor donde se insertara el template 
+   * @memberof Vista
    */
 
   anadir_seccion(template_id, contenedor_id){
@@ -112,6 +119,7 @@ class Vista {
   /**
    * Metodo para remover una etiqueta
    * @param {*} etiqueta: id de la etiqueta a remover
+   * @memberof Vista
    */
 
   remover_etiqueta(etiqueta){
@@ -124,6 +132,7 @@ class Vista {
    * @param {*} etiqueta: nombre de la etiqueta que se va a añadir 
    * @param {*} contenedor: id del contenedor donde se va a añadir la etiqueta
    * @param {*} id_etiqueta: id de la etiqueta que se va a añadir
+   * @memberof Vista
    */
 
   añadir_etiqueta(etiqueta, contenedor, id_etiqueta){
@@ -137,6 +146,7 @@ class Vista {
  * Metodo para añadir padding inferior a un contenedor
  * @param {*} id_contenedor: id del contenedor al que se le añadira el padding
  * @param {*} padding: valor del padding que se añadira al contenedor
+ * @memberof Vista
  */
 
   añadir_padding(id_contenedor, padding){
@@ -144,7 +154,16 @@ class Vista {
     contenedor.style.paddingBottom = padding;
   }
 
-  getForm(formulario) {
+  
+/**
+ * Metodo para obtener los datos de un formulario
+ *
+ * @param {*} formulario: nombre del formulario del que se obtendran los datos
+ * @return {*} data: objeto con los datos del formulario
+ * @memberof Vista
+ */
+
+getForm(formulario) {
     let form = document.getElementById(formulario);
     let datos = new FormData(form);
     let data = {};
@@ -160,6 +179,31 @@ class Vista {
     });
   
     return data;
+  }
+
+  
+/**
+ *Metodo para añadir opciones de un select
+ *
+ * @param {*} opciones: opciones a añadir al select que devuelve server como lista
+ * @param {*} selectName: nombre del select al que se le añadiran las opciones
+ * @param {*} nombre_llave: nombre de la llave de las opciones
+ * @param {*} nombre_valor: nombre del valor de las opciones
+ * @memberof Vista
+ */
+crearSelectDesdeJSON(opciones, select_name, nombre_llave, nombre_valor){
+    const select = document.getElementsByName(select_name);
+
+    if (select) {
+      Object.entries(opciones).forEach(([nombre_llave, nombre_valor]) => {
+        const option = document.createElement('option');
+        option.value = nombre_llave;
+        option.textContent = nombre_valor;
+        select[0].appendChild(option);
+      });
+    } else {
+      console.error('El contenedro especificado no existe')
+    }
   }
 
 }

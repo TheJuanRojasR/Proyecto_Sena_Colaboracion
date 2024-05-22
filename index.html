@@ -670,7 +670,6 @@
                 <select type="text" class="select_oscuro" name="id_categoria"> <!-- Select para seleccionar categoria del producto -->
                     <!-- Opciones del select -->
                     <option selected class="opciones">Categoria Producto</option>
-                    <option class="opciones">Categoria 1</option>
                 </select>
                 <input type="number" class="form-control" placeholder="Cantidad" name="cantidad_producto_almacen">
                 <input type="number" class="form-control" placeholder="Stock minimo" name="stock_minimo">
@@ -1671,7 +1670,7 @@
 
     <!-- Modal para Informacion -->
     <template id="modal_informacion">
-        <section class="modal modal-info modal--show">
+        <section class="modal modal-info">
             <div class="modal__container">
                 <button class="btn modal__close">
                     <img src="./Assets/img/logo_cerrar_x.svg" alt="">
@@ -1687,7 +1686,7 @@
 
     <!-- Modal para Confirmacion -->
     <template id="modal_confirmacion">
-        <section class="modal modal--confirm modal--show">
+        <section class="modal modal--confirm">
             <div class="modal__container">
                 <button class="btn modal__close">
                     <img src="./Assets/img/logo_cerrar_x.svg" alt="">
@@ -1705,7 +1704,7 @@
 
     <!-- Modal para Exito -->
     <template id="modal_exito">
-        <section class="modal modal--success modal--show">
+        <section class="modal modal--success">
             <div class="modal__container">
                 <button class="btn modal__close">
                     <img src="./Assets/img/logo_cerrar_x.svg" alt="">
@@ -1719,7 +1718,7 @@
 
     <!-- Modal para Error -->
     <template id="modal_error">
-        <section class="modal modal--error modal--show">
+        <section class="modal modal--error">
             <div class="modal__container">
                 <button class="btn modal__close">
                     <img src="./Assets/img/logo_cerrar_x.svg" alt="">
@@ -2615,7 +2614,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <form action="" id="form_crear_producto_desktop">
+                        <form id="form_prueba">
                             <th scope="row" class="td-body-tabla">
                                 <input type="text" class="form-control" aria-label="Text input with dropdown button"
                                     placeholder="" name="nombre_producto" />

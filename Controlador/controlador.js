@@ -15,7 +15,7 @@ const tamañoPantalla = window.matchMedia('(max-width: 768px)');
 
 window.addEventListener('resize', cambio_clases, cambio_clases_footer);
 window.addEventListener('resize', cambio_clases_footer);
-winkdow.addEventListener('resize', cambio_templates);
+window.addEventListener('resize', cambio_templates);
 
 function cambio_clases(){
     if(tamañoPantalla.matches){
@@ -63,21 +63,21 @@ function cambio_templates(){
 //     cerrarPantalla("offcanvasNavbar");
 // }
 
-// window.onload = function(){
-//     if(tamañoPantalla.matches){
-//         vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
-//         vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
-//         vista.mostrar_plantilla("footer_mobile", "footer_inicio");
-//     }
-//     else{
-//         vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
-//         vista.mostrar_plantilla("pagina_inicio_desktop", "contenedor_principal");
-//         vista.mostrar_plantilla("footer_desktop", "footer_inicio");
-//     }
-//     cambio_clases();
-//     cambio_clases_footer();
-//     remover_nav_inf();
-// }
+window.onload = function(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
+        vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+        vista.mostrar_plantilla("footer_mobile", "footer_inicio");
+    }
+    else{
+        vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
+        vista.mostrar_plantilla("pagina_inicio_desktop", "contenedor_principal");
+        vista.mostrar_plantilla("footer_desktop", "footer_inicio");
+    }
+    cambio_clases();
+    cambio_clases_footer();
+    remover_nav_inf();
+}
 
 function regresar_pantalla(){
     vista.regresar_pantalla();
@@ -233,19 +233,27 @@ function mostrar_editar_inv(){
 // Funciones acciones de la pantalla de Stock
 
 function mostar_form_crear_producto(){
-    //consultar categ productos 
-    producto.getAllCategories(function (data) {
-        if(data.success) {
-            lista_categ = data.data
-        }
-    });
-
+    
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("crear_producto", "contenedor_principal", 1);
     }
     else{
         vista.mostrar_plantilla("crear_producto_desktop", "contenedor_principal", 1);
     }
+    
+    //consultar categ productos 
+    producto.getAllCategories(function (data) {
+        if(data.success) {
+            lista_categ = data.data
+            //poblar select id_categoria
+            const categoriasObj = Object.fromEntries(
+                lista_categ.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
+            );
+            console.log(categoriasObj)
+            vista.crearSelectDesdeJSON(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")
+        }
+    });
+
 }
 
 function mostrar_stock(){
