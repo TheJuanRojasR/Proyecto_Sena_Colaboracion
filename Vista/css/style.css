@@ -407,7 +407,7 @@ li>button>p {
 }
 
 .td-body-tabla_categoria,
-.td-body-tabla_opciones {
+.td-body-tabla_opciones{
     margin: 0;
     padding-left: 32px;
 }
@@ -464,9 +464,7 @@ a.page-link:hover {
     align-items: center;
 }
 
-.espacion-izq {
-    margin: 0 0 0 12px;
-}
+
 
 /* ----------------------------------------------------------------------- */
 
@@ -685,16 +683,16 @@ a.page-link:hover {
     display: flex;
     opacity: 0;
     pointer-events: none;
-    transition: opacity .6s .9s;
+    transition: opacity .2s .2s;
     background-color: #111111aa;
 }
 
 .modal--show {
     opacity: 1;
     pointer-events: unset;
-    transition: opacity .6s;
+    transition: opacity .3s;
     --transform: translateY(0);
-    --transition: transform .8s .8s;
+    --transition: transform .3s .3s;
 }
 
 .modal__container {
@@ -755,6 +753,10 @@ a.page-link:hover {
 
 .form-select{
     min-width: 10vw !important;
+}
+
+.espacio-izq {
+    margin: 0 0 0 0px !important;
 }
 
 /* MEDIAS */

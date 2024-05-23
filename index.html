@@ -40,7 +40,7 @@
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
-        
+
     </main>
 
     <!-- Barra Inferior -->
@@ -49,6 +49,46 @@
 
     <footer id="footer_inicio" class="d-flex justify-content-center" >
     </footer>
+
+    <!-- Modal para Confirmacion -->
+    <section class="modal modal--confirm" id="modal_confirmacion">
+        <div class="modal__container">
+            <button class="btn modal__close">
+                <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+            </button>
+            <img src="./Assets/img/logo_modal_confirmacion.svg" alt="" class="modal__img">
+            <h2 class="modal__title">Modal de confirmación</h2>
+            <p class="modal__paragraph">¿Estás seguro de realizar esta acción?</p>
+            <div class="modal__buttons">
+                <button class="modal__button">Aceptar</button>
+                <button class="modal__button">Cancelar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para Exito -->
+    <section class="modal modal--success" id="modal_exito">
+        <div class="modal__container">
+            <button class="btn modal__close">
+                <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+            </button>
+            <img src="./Assets/img/logo_modal_exito.svg" alt="" class="modal__img">
+            <h2 class="modal__title">Modal de éxito</h2>
+            <p class="modal__paragraph">¡La acción se ha realizado con éxito!</p>
+        </div>
+    </section>
+
+    <!-- Modal para Error -->
+    <section class="modal modal--error" id="modal_error">
+        <div class="modal__container">
+            <button class="btn modal__close" onclick="cerrar_modal_error()">
+                <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+            </button>
+            <img src="./Assets/img/logo_modal_error.svg" alt="" class="modal__img">
+            <h2 class="modal__title">Error</h2>
+            <p class="modal__paragraph" id="modal__mensaje"></p>
+        </div>
+    </section>
 
     <!-- TEMPLATES BARRAS SUP E INF MOBILE-->
 
@@ -145,7 +185,7 @@
             <ul class="navbar-nav flex-row justify-content-around flex-wrap" id="lista_nav_inf">
                 <!-- Lista de Navegacion -->
                 <li class="nav-item" id="home">
-                    <button class="btn" type="button" onclick="mostrar_inventarios()">
+                    <button class="btn" type="button" onclick="mostrar_inv_vacia()">
                         <img src="./Assets/img/home.svg" alt="">
                     </button>
                     <p class="text_nav_inf">Inventario</p>
@@ -1668,68 +1708,6 @@
 
     <!-- TEMPLATES MODALES DESKTOP -->
 
-    <!-- Modal para Informacion -->
-    <template id="modal_informacion">
-        <section class="modal modal-info">
-            <div class="modal__container">
-                <button class="btn modal__close">
-                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
-                </button>
-                <h2 class="modal__title">Modal de informacion</h2>
-                <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis nisi
-                    quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur
-                    deleniti maxime.</p>
-                <a href="#" class="modal__button">Aceptar</a>
-            </div>
-        </section>
-    </template>
-
-    <!-- Modal para Confirmacion -->
-    <template id="modal_confirmacion">
-        <section class="modal modal--confirm">
-            <div class="modal__container">
-                <button class="btn modal__close">
-                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
-                </button>
-                <img src="./Assets/img/logo_modal_confirmacion.svg" alt="" class="modal__img">
-                <h2 class="modal__title">Modal de confirmación</h2>
-                <p class="modal__paragraph">¿Estás seguro de realizar esta acción?</p>
-                <div class="modal__buttons">
-                    <button class="modal__button">Aceptar</button>
-                    <button class="modal__button">Cancelar</button>
-                </div>
-            </div>
-        </section>
-    </template>
-
-    <!-- Modal para Exito -->
-    <template id="modal_exito">
-        <section class="modal modal--success">
-            <div class="modal__container">
-                <button class="btn modal__close">
-                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
-                </button>
-                <img src="./Assets/img/logo_modal_exito.svg" alt="" class="modal__img">
-                <h2 class="modal__title">Modal de éxito</h2>
-                <p class="modal__paragraph">¡La acción se ha realizado con éxito!</p>
-            </div>
-        </section>
-    </template>
-
-    <!-- Modal para Error -->
-    <template id="modal_error">
-        <section class="modal modal--error">
-            <div class="modal__container">
-                <button class="btn modal__close">
-                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
-                </button>
-                <img src="./Assets/img/logo_modal_error.svg" alt="" class="modal__img">
-                <h2 class="modal__title">Error</h2>
-                <p class="modal__paragraph">Se ha producido un error. Por favor, inténtelo de nuevo.</p>
-            </div>
-        </section>
-    </template>
-
     <!-- TEMPLATES NAVEGADORES DESKTOP -->
 
     <!-- Navegador superior pagina de Inicio -->
@@ -1740,7 +1718,7 @@
             </a>
             <div class="d-flex">
                 </button>
-                <button class="btn btn-general--transparent" onclick="mostrar_form_login()">Ingresar</button>
+                <button class="btn btn-general--transparent" onclick="mostrar_login()">Ingresar</button>
                 </button>
                 </button>
                 <button class="btn btn-general" onclick="mostrar_form_registro_usuario()">Registrar</button>
@@ -1758,7 +1736,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#">Inicio</a>
+                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inv_vacia()">Inicio</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -1778,6 +1756,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#" onclick="mostrar_stock_vacia()">Stock</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="mostrar_categorias_vacia()">Categoria</a></li>
                             <li><a class="dropdown-item" href="#" onclick="mostrar_abastecimiento()">Abastecimiento</a></li>
                         </ul>
                     </li>
@@ -1975,12 +1954,6 @@
                         <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña" 
                             value="" name="contraseña">
                     </div>
-                    <div class="form-check mb-3">
-                        <input class="form-check-input" type="checkbox" id="terminosCondicionesCheckbox" value="">
-                        <label class="form-check-label registro__text" for="terminosCondicionesCheckbox">
-                            He leído y acepto los <a href="#">Términos y Condiciones</a>
-                        </label>
-                    </div>
                 </form>
                 <button class="btn btn-general mb-3" onclick="mostrar_form_login()">Registrar</button>
                 <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
@@ -2007,13 +1980,6 @@
                         </div>
                         <div class="registro__input mb-2">
                             <input type="password" class="form-control registro__input" placeholder="Contraseña"  value="" name="contraseña">
-                        </div>
-                        <div class="form-check mb-3 d-flex align-items-end justify-content-evenly">
-                            <input class="form-check-input" type="checkbox" value="">
-                            <label class="form-check-label registro__text">
-                                Recordar mi usuario
-                            </label>
-                            <a href="#" class="registro__text">¿Olvidó su contraseña?</a>
                         </div>
                     </form>
                 </div>
@@ -2146,7 +2112,6 @@
                     <img src="./Assets/img/logo_lupa.svg" alt="" />
                 </button>
             </div>
-            <button class="btn btn-general ms-auto">Crear Inventario</button>
         </div>
         <hr />
         <div class="container d-flex flex-wrap justify-content-around">
@@ -2707,7 +2672,7 @@
                         <td>
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="espacion-izq">Categoria XXX</p>
+                                <p class="td-body-tabla_opciones espacio-izq">Categoria XXX</p>
                             </div>
                         </td>
                         <th scope="row" class="td-body-tabla">
@@ -2794,7 +2759,7 @@
                         <td>
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="espacion-izq">Categoria XXX</p>
+                                <p class="td-body-tabla_opciones">Categoria XXX</p>
                             </div>
                         </td>
                         <th scope="row" class="td-body-tabla">
@@ -2829,7 +2794,7 @@
         <hr />
         <div class="container sin-opciones">
             <h2>
-                ¿No tienes categorías? <a href="">Haz clic aquí para crear una.</a>
+                ¿No tienes categorías? <a href="#" onclick="mostrar_form_crear_categoria()">Haz clic aquí para crear una.</a>
             </h2>
         </div>
     </template>
@@ -2871,7 +2836,7 @@
                             </th>
                         </form>
                         <td class="text-end">
-                            <button class="btn btn-tabla-icono btnGuardar-tabla">
+                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_categorias()">
                                 <img src="./Assets/img/guardar.svg" alt="" />
                             </button>
                         </td>
@@ -2893,7 +2858,7 @@
                     <img src="./Assets/img/logo_lupa.svg" alt="" />
                 </button>
             </div>
-            <button class="btn btn-general ms-auto">Crear Categoría</button>
+            <button class="btn btn-general ms-auto" onclick="mostrar_form_crear_categoria()">Crear Categoría</button>
         </div>
         <hr />
         <div class="container">
@@ -2914,37 +2879,11 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="espacion-izq">Categoria XXX</p>
+                                <p class="td-body-tabla_opciones">Categoria XXX</p>
                             </div>
                         </th>
                         <td class="text-end">
-                            <button class="btn btn_editar_categoria">
-                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="d-flex">
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <p class="espacion-izq">Categoria XXX</p>
-                            </div>
-                        </th>
-                        <td class="text-end">
-                            <button class="btn btn_editar_categoria">
-                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="d-flex">
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <p class="espacion-izq">Categoria XXX</p>
-                            </div>
-                        </th>
-                        <td class="text-end">
-                            <button class="btn btn_editar_categoria">
+                            <button class="btn btn_editar_categoria" onclick="mostrar_editar_categoria()">
                                 <img src="./Assets/img/lapiz_editar.svg" alt="" />
                             </button>
                         </td>
@@ -2991,7 +2930,7 @@
                             </th>
                         </form>
                         <td class="text-end">
-                            <button class="btn btn-tabla-icono btnGuardar-tabla">
+                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_categorias()">
                                 <img src="./Assets/img/guardar.svg" alt="" />
                             </button>
                         </td>
@@ -3034,7 +2973,7 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="espacion-izq">Categoria XXX</p>
+                                <p class="td-body-tabla_opciones">Categoria XXX</p>
                             </div>
                         </th>
                         <td class="text-end">
@@ -3047,7 +2986,7 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="espacion-izq">Categoria XXX</p>
+                                <p class="td-body-tabla_opciones">Categoria XXX</p>
                             </div>
                         </th>
                         <td class="text-end">
@@ -3060,7 +2999,7 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="espacion-izq">Categoria XXX</p>
+                                <p class="td-body-tabla_opciones">Categoria XXX</p>
                             </div>
                         </th>
                         <td class="text-end">
@@ -3674,12 +3613,12 @@
                     <tr>
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <p class="espacion-izq">Pepito Perez</p>
+                                <input class="form-check-input espacio-izq" type="checkbox" value="">
+                                <p class="td-body-tabla_opciones">Pepito Perez</p>
                             </div>
                         </th>
                         <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Administrador</p>
+                            <p class="td-body-tabla_opciones espacio-izq">Administrador</p>
                         </td>
                         <td class="text-end">
                             <button class="btn btn_editar_categoria" onclick="mostrar_editar_perfiles()">
@@ -3787,7 +3726,7 @@
                         <th scope="row" class="d-flex">
                             <div class="form-check td-body-tabla div_input_p_tabla">
                                 <input class="form-check-input" type="checkbox" value="">
-                                <p class="espacion-izq">Pepito Perez</p>
+                                <p class="td-body-tabla_opciones">Pepito Perez</p>
                             </div>
                         </th>
                         <td class="td-body-tabla">

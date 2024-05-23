@@ -10,6 +10,12 @@ const lista_clases_nav_sup_mobile = ['navbar', 'fixed-top', 'nav_sup'];
 const lista_clases_footer_inicio_mobile = ["rectangulo-inferior", "d-flex", "flex-wrap", "justify-content-between", "align-items-center"];
 const lista_clases_footer_inicio_destkop = ["d-flex", "justify-content-center"];
 const lista_clases_nav_inf = ['navbar', 'fixed-bottom', 'nav_inf'];
+const lista_clases_modal_error_show = ['modal', 'modal--error','modal--show'];
+const lista_clases_modal_error = ['modal', 'modal--error'];
+const lista_clases_modal_exito_show = ['modal', 'modal--exito','modal--show'];
+const lista_clases_modal_exito = ['modal', 'modal--exito','modal--show'];
+const lista_clases_modal_confirmacion_show = ['modal', 'modal--confirmacion','modal--show'];
+const lista_clases_modal_confirmacion = ['modal', 'modal--confirmacion'];
 
 const tamañoPantalla = window.matchMedia('(max-width: 768px)');
 
@@ -89,6 +95,8 @@ function regresar_pantalla(){
 // Funciones para acciones del la pantalla Inicio
 
 function mostrar_form_registro_usuario(){
+
+    //Mostrar plantilla de registro de usuario
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("registro_usuario", "contenedor_principal", 0);
         vista.remover_etiqueta("footer_inicio");
@@ -102,28 +110,7 @@ function mostrar_form_registro_usuario(){
     cambio_clases();
 }
 
-function registrarUsuario() {
-    let data = vista.getForm("form_registro_desktop");
-
-    if (data.ok) {
-        usuario.register(data, function(data){
-            //verificar si el registro fue exitoso
-            if(data.success){
-                //Mensaje de exito
-                //Mostar modal de registro exitoso
-                mostrar_form_login();
-            }
-            else{
-                //Mensaje de error
-            }
-        })
-    }
-    else{
-        //Mensaje de error
-    }
-}
-
-function mostrar_form_login(){
+function mostrar_login(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("log_in", "contenedor_principal", 0);
         vista.remover_etiqueta("footer_inicio");
@@ -135,6 +122,30 @@ function mostrar_form_login(){
         vista.mostrar_plantilla("log_in_desktop", "contenedor_principal", 1);
     }
     cambio_clases();
+}
+
+function mostrar_form_login(){
+
+    //Verificacion de form y registro de usuario
+
+    data = vista.getForm("form_registro_usuario_desktop")
+
+    if(data.ok){
+        usuario.register(data, function(data){
+            if(data.success){
+                //Mensaje de exito
+                //Mostar modal de registro exitoso
+                vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                mostrar_login();
+            }
+            else{
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }
+        });
+    } else {
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    }
+
 }
 
 // Funciones acciones de las pantallas Registro de Usuario y Log In
@@ -234,14 +245,16 @@ function mostrar_editar_inv(){
 
 function mostar_form_crear_producto(){
     
+    //Mostrar plantilla para crear un producto
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("crear_producto", "contenedor_principal", 1);
     }
     else{
         vista.mostrar_plantilla("crear_producto_desktop", "contenedor_principal", 1);
     }
+    cambio_clases();
     
-    //consultar categ productos 
+    //Consultar categ productos 
     producto.getAllCategories(function (data) {
         if(data.success) {
             lista_categ = data.data
@@ -470,3 +483,16 @@ function mostrar_ayuda(){
 function añadir_producto_entradas(){
     vista.anadir_seccion( "fila_productos_entradas_desktop", "tbody_productos_entradas");
 }
+
+function cerrar_modal_confirmacion(){
+    vista.cambiar_clases('modal', lista_clases_modal_confirmacion);
+}
+
+function cerrar_modal_error(){
+    vista.cambiar_clases('modal_error', lista_clases_modal_error);
+}
+
+function cerrar_modal_exito(){
+    vista.cambiar_clases('modal_exito', lista_clases_modal_exito);
+}
+

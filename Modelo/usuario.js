@@ -10,7 +10,7 @@ class Usuario extends Connect{
         this.estado_usuario = '';
     }
 
-    asignarDatos( data ){
+    setData(data){
         this.id_usuario = data.id_usuario;
         this.nombre_usuario = data.nombre_usuario;
         this.id_rol = data.id_rol;
@@ -20,7 +20,7 @@ class Usuario extends Connect{
         this.estado_usuario = data.estado_usuario;
     }
 
-    obtenerDatos (){
+    getData(){
         return{
             id_usuario: this.id_usuario,
             nombre_usuario: this.nombre_usuario,
@@ -48,9 +48,15 @@ class Usuario extends Connect{
 
     // Metodo para registrar los perfiles
     registerPerfil( dataRequest, registerPerfilCallback ){
-        const endpoint = 'usuarios/perfiles';
+        const endpoint = 'usuarios/perfiles/registro';
         const method = 'POST';
         this.connect( dataRequest, endpoint, method, registerPerfilCallback );
+    }
+
+    getAllPerfil(getAllPerfilCallback ){
+        const endpoint = 'usuarios/perfiles';
+        const method = 'GET';
+        this.connect( {}, endpoint, method, getAllPerfilCallback );
     }
 
     // Metodo para actualizar el perfil
@@ -68,7 +74,7 @@ class Usuario extends Connect{
     }
 
     // Metodo para mostrar la informacion del usuario
-    getUsuario( dataRequest, getUsuarioCallback ){
+    getUsuario(getUsuarioCallback ){
         const endpoint = 'usuarios/ajustes';
         const method = 'GET';
         this.connect( {}, endpoint, method, getUsuarioCallback );

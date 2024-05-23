@@ -142,12 +142,12 @@ class Vista {
     cont[0].appendChild(tag);
   }
 
-/**
- * Metodo para añadir padding inferior a un contenedor
- * @param {*} id_contenedor: id del contenedor al que se le añadira el padding
- * @param {*} padding: valor del padding que se añadira al contenedor
- * @memberof Vista
- */
+  /**
+   * Metodo para añadir padding inferior a un contenedor
+   * @param {*} id_contenedor: id del contenedor al que se le añadira el padding
+   * @param {*} padding: valor del padding que se añadira al contenedor
+   * @memberof Vista
+   */
 
   añadir_padding(id_contenedor, padding){
     let contenedor = document.getElementById(id_contenedor);
@@ -155,15 +155,15 @@ class Vista {
   }
 
   
-/**
- * Metodo para obtener los datos de un formulario
- *
- * @param {*} formulario: nombre del formulario del que se obtendran los datos
- * @return {*} data: objeto con los datos del formulario
- * @memberof Vista
- */
+  /**
+   * Metodo para obtener los datos de un formulario
+   *
+   * @param {*} formulario: nombre del formulario del que se obtendran los datos
+   * @return {*} data: objeto con los datos del formulario
+   * @memberof Vista
+   */
 
-getForm(formulario) {
+  getForm(formulario) {
     let form = document.getElementById(formulario);
     let datos = new FormData(form);
     let data = {};
@@ -180,18 +180,17 @@ getForm(formulario) {
   
     return data;
   }
-
   
-/**
- *Metodo para añadir opciones de un select
- *
- * @param {*} opciones: opciones a añadir al select que devuelve server como lista
- * @param {*} selectName: nombre del select al que se le añadiran las opciones
- * @param {*} nombre_llave: nombre de la llave de las opciones
- * @param {*} nombre_valor: nombre del valor de las opciones
- * @memberof Vista
- */
-crearSelectDesdeJSON(opciones, select_name, nombre_llave, nombre_valor){
+  /**
+   *Metodo para añadir opciones de un select
+  *
+  * @param {*} opciones: opciones a añadir al select que devuelve server como lista
+  * @param {*} selectName: nombre del select al que se le añadiran las opciones
+  * @param {*} nombre_llave: nombre de la llave de las opciones
+  * @param {*} nombre_valor: nombre del valor de las opciones
+  * @memberof Vista
+  */
+  crearSelectDesdeJSON(opciones, select_name, nombre_llave, nombre_valor){
     const select = document.getElementsByName(select_name);
 
     if (select) {
@@ -207,5 +206,3 @@ crearSelectDesdeJSON(opciones, select_name, nombre_llave, nombre_valor){
   }
 
 }
-
-
