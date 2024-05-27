@@ -32,9 +32,16 @@ class Usuario extends Connect{
         }
     }
 
+    //Metodo para obtener los tipos de documentos
+    getAllDocumentos(getAllDocumentosCallback){
+        const endpoint = 'usuarios';
+        const method = 'GET';
+        this.connect({}, endpoint, method, getAllDocumentosCallback);
+    }
+
     // Metodo para registrar un usuario
     register( dataRequest, registerCallback ){
-        const endpoint = 'usuarios/register';
+        const endpoint = 'usuarios/registro';
         const method = 'POST';
         this.connect( dataRequest, endpoint, method, registerCallback );
     }

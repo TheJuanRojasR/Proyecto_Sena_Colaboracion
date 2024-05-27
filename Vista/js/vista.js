@@ -169,6 +169,7 @@ class Vista {
     let data = {};
     data.ok = true; //Bandera para verificar si los campos estan llenos
     data.msj = ""; //Mensaje de error
+    data.id_rol = 1;
   
     datos.forEach((value, key) => {
       data[key] = value;
@@ -176,9 +177,57 @@ class Vista {
         data.ok = false;
         data.msj = "Por favor llene " + key;
       }
+      else if (form[key].type == "email") {
+        if (!this.validar_email(value)) {
+          data.ok = false;
+          data.msj = "No es un correo válido: " + value;     
+          console.log(data.msj);     
+        }
+      }
+      else if (form[key].name == "contraseña"){
+        if (!this.validar_contraseña(value)){
+          data.ok = false;
+          data.msj = "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número";
+          console.log(data.msj);
+        }
+        else{
+          if (form[key].value !== form["confirmar_contraseña"].value){
+            data.ok = false;
+            data.msj = "Las contraseñas no coinciden";
+            console.log(data.msj);
+          }
+        }
+      }
     });
-  
     return data;
+  }
+
+
+  /**
+   *Metodo para validar el correo electronico
+   *
+   * @param {*} email: Correo ingresado por el usuario
+   * @return {*}: true si el correo es valido, false si no lo es
+   * @memberof Vista
+   */
+
+  validar_email(email) {
+    return email.match(
+      /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+  };
+
+  /**
+   *Metodo para validar la contraseña
+   *
+   * @param {*} contraseña: Contraseña ingresada por el usuario
+   * @return {*}: true si la contraseña es valida, false si no lo es
+   * @memberof Vista
+   */
+  validar_contraseña(contraseña){
+    return contraseña.match(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/
+    );
   }
   
   /**

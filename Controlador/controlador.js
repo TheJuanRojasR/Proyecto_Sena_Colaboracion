@@ -1,7 +1,9 @@
 let vista = new Vista();
 let usuario = new Usuario();
 let producto = new Producto();
-let lista_categ = []
+let lista_opciones = []
+
+
 
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
@@ -13,7 +15,7 @@ const lista_clases_nav_inf = ['navbar', 'fixed-bottom', 'nav_inf'];
 const lista_clases_modal_error_show = ['modal', 'modal--error','modal--show'];
 const lista_clases_modal_error = ['modal', 'modal--error'];
 const lista_clases_modal_exito_show = ['modal', 'modal--exito','modal--show'];
-const lista_clases_modal_exito = ['modal', 'modal--exito','modal--show'];
+const lista_clases_modal_exito = ['modal', 'modal--exito'];
 const lista_clases_modal_confirmacion_show = ['modal', 'modal--confirmacion','modal--show'];
 const lista_clases_modal_confirmacion = ['modal', 'modal--confirmacion'];
 
@@ -108,6 +110,20 @@ function mostrar_form_registro_usuario(){
         vista.mostrar_plantilla("registro_usuario_desktop", "contenedor_principal", 1);
     }
     cambio_clases();
+
+    //Consultar categ productos 
+    usuario.getAllDocumentos(function (data) {
+        if(data.success) {
+            lista_opciones = []
+            lista_opciones = data.data
+            //poblar select id_categoria
+            const categoriasObj = Object.fromEntries(
+                lista_opciones.map((obj) => [obj.id_tipo_documento.toString(), obj.tipo_documento])
+            );
+            console.log(categoriasObj)
+            vista.crearSelectDesdeJSON(categoriasObj, "tipo_documento", "id_tipo_documento", "tipo_documento")
+        }
+    });
 }
 
 function mostrar_login(){
@@ -145,12 +161,11 @@ function mostrar_form_login(){
     } else {
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
-
 }
 
 // Funciones acciones de las pantallas Registro de Usuario y Log In
 
-function mostrar_inv_vacia(){
+function mostrar_inv_vacia(){    
     if(tamañoPantalla.matches){
         vista.añadir_padding("contenedor_principal", "72.31px");
         vista.mostrar_plantilla("nav_sup","navegador_sup");
@@ -164,6 +179,24 @@ function mostrar_inv_vacia(){
         vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
         vista.remover_etiqueta("footer_inicio");
     }
+
+    data = vista.getForm("form_log_desktop")
+
+    if (data.ok) {
+        //Validar datos en la tabla clientes o empresas
+        usuario.login(data, function (data) {
+            if (data.success) {
+                if (data.cant == 0) {
+                    vista.cambiar_clases('modal_error', lista_clases_modal_error_show);
+                    return;
+                }
+            } else {
+                vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
+            }
+        });
+    }
+        
+
 }
 
 // Funciones acciones de la barra de navegacion Inferior
@@ -257,10 +290,11 @@ function mostar_form_crear_producto(){
     //Consultar categ productos 
     producto.getAllCategories(function (data) {
         if(data.success) {
-            lista_categ = data.data
+            lista_opciones = []
+            lista_opciones = data.data
             //poblar select id_categoria
             const categoriasObj = Object.fromEntries(
-                lista_categ.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
+                lista_opciones.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
             );
             console.log(categoriasObj)
             vista.crearSelectDesdeJSON(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")

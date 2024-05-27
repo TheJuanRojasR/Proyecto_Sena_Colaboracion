@@ -70,7 +70,7 @@
     <section class="modal modal--success" id="modal_exito">
         <div class="modal__container">
             <button class="btn modal__close">
-                <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+                <img src="./Assets/img/logo_cerrar_x.svg" onclick="cerrar_modal_exito()" alt="">
             </button>
             <img src="./Assets/img/logo_modal_exito.svg" alt="" class="modal__img">
             <h2 class="modal__title">Modal de éxito</h2>
@@ -1935,16 +1935,13 @@
                     </div>
                     <select class="form-select registro__select mb-1" aria-label="Default select example" name="tipo_documento">
                         <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
-                        <option class="registro__option" value="1">Cedula de Ciudadania</option>
-                        <option class="registro__option" value="2">Cedula de Extranjeria</option>
-                        <option class="registro__option" value="3">Rut</option>
                     </select>
                     <div class="registro__input mb-1">
                         <input type="number" class="form-control registro__input" placeholder="Numero de Documento" 
                             value="" name="numero_documento">
                     </div>
                     <div class="registro__input mb-1">
-                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico"  value="" name="correo_electronico">
+                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico"  value="" name="correo_electronico" required>
                     </div>
                     <div class="registro__input mb-1">
                         <input type="password" class="form-control registro__input" placeholder="Contraseña" 
@@ -1952,7 +1949,7 @@
                     </div>
                     <div class="registro__input mb-3">
                         <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña" 
-                            value="" name="contraseña">
+                            value="" name="confirmar_contraseña">
                     </div>
                 </form>
                 <button class="btn btn-general mb-3" onclick="mostrar_form_login()">Registrar</button>

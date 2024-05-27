@@ -28,13 +28,13 @@
 24. LAURA y JUAN : Revisar color de texto en los inputs y los selects                                ❗ 
 25. LAURA JUAN: Revisar funcion para regresar entre pantallas                                        
 26. Descargar svg del logo de variety vault blanco.                                                  ✔
-27. Revisar name en pantallas crear salida, entrada, e informes. 
+27. Revisar name en pantallas crear salida, entrada, e informes.                                     
 28. JUAN: Revisar pantalla editar perfiles                                                           ✔
 29. SERVIDOR: Hacer la consulta de la barra de busqueda.  
-30. JUAN: Arreglar boton de detalles del producto y alinear datos en perfiles  
+30. JUAN: Arreglar boton de detalles del producto y alinear datos en perfiles                          
 31. Colocar la navegacion de categorias en desktop                                                   ✔
-32. Laura: Hacer media query para modales en mobile
-33. Laura: colocar menu hamburgues desktop y añadirle funcion para eliminarlo en mobile
+32. Laura: Hacer media query para modales en mobileo                                                 
+33. Laura: colocar menu hamburgues desktop y añadirle funcion para eliminarlo en mobile              
 
 
 # Mejoras
