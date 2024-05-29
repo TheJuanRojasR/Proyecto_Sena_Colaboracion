@@ -876,11 +876,13 @@ a.page-link:hover {
     }
 
     /* ------------- INICIOS ------------- */
-    * {
+    /* * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-    }
+    } */
+
+    
 
     #contenedor_inicio {
         position: relative;
@@ -931,6 +933,24 @@ a.page-link:hover {
         100% {
             transform: translateY(-10) scale(1);
         }
+    }
+
+    .carousel-indicators{
+        top: 100%;
+    }
+
+    .carousel-control-prev{
+        left: -13%;
+        top: -40%;
+    }
+
+    .carousel-control-next{
+        right: -13%;
+        top: -40%;
+    }
+
+    #imagenMovil{
+        height: 40vh;
     }
 
     /* ------------- INFERIOR INICIO ------------- */
