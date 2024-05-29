@@ -6,7 +6,7 @@ class Usuario extends Connect{
         this.id_rol = '';
         this.numero_documento = '';
         this.correo_eletronico = '';
-        this.contrasena = '';
+        this.contraseña = '';
         this.estado_usuario = '';
     }
 

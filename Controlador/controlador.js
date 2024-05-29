@@ -1,6 +1,7 @@
 let vista = new Vista();
 let usuario = new Usuario();
 let producto = new Producto();
+let almacen = new Almacen();
 let lista_opciones = []
 
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
@@ -150,38 +151,52 @@ function mostrar_form_login(){
 
 // Funciones acciones de las pantallas Registro de Usuario y Log In
 
-function mostrar_inv_vacia(){    
-    if(tamañoPantalla.matches){
-        vista.añadir_padding("contenedor_principal", "72.31px");
-        vista.mostrar_plantilla("nav_sup","navegador_sup");
-        vista.limpiar_contenedor("navegador_inf",);
-        vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-        vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
-    }
-    else{
-        vista.mostrar_plantilla("nav_sup_desktop","navegador_sup");
-        vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
-        vista.remover_etiqueta("footer_inicio");
-    }
-
+function mostrar_inv_vacia(){
+    
     data = vista.getForm("form_log_desktop")
 
     if (data.ok) {
         //Validar datos en la tabla clientes o empresas
         usuario.login(data, function (data) {
             if (data.success) {
-                if (data.cant == 0) {
+                if (data.data.length == 0) {
                     vista.cambiar_clases('modal_error', lista_clases_modal_error_show);
                     return;
+                } else {
+                    usuario.setData(data.data[0]);
+                    //Consultar almacenes
+                    let id_usuario = usuario.id_usuario;
+                    almacen.getByUser(id_usuario, function (dataAlmacen) {
+                        if (dataAlmacen.success) {
+                            if (dataAlmacen.data.length == 0) {
+                                if(tamañoPantalla.matches){
+                                    vista.añadir_padding("contenedor_principal", "72.31px");
+                                    vista.mostrar_plantilla("nav_sup","navegador_sup");
+                                    vista.limpiar_contenedor("navegador_inf",);
+                                    vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
+                                    vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+                                    vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
+                                }
+                                else{
+                                    vista.mostrar_plantilla("nav_sup_desktop","navegador_sup");
+                                    vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
+                                    vista.remover_etiqueta("footer_inicio");
+                                }
+                            }else {
+                                mostrar_inventarios();
+                            }
+                        } else {
+                            vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
+                        } 
+                    });
                 }
             } else {
                 vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
             }
         });
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
-        
-
 }
 
 // Funciones acciones de la barra de navegacion Inferior
@@ -194,7 +209,9 @@ function mostrar_inventarios(){
         vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
     }
     else{
+        vista.mostrar_plantilla("nav_sup_desktop","navegador_sup",0);
         vista.mostrar_plantilla("inventarios_desktop", "contenedor_principal", 1);
+        vista.remover_etiqueta("footer_inicio");
     }
 }
 

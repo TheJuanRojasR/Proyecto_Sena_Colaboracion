@@ -19,16 +19,16 @@
 16. JUAN : Hacer mas anchos los selects en crear entrada                                             ✔
 17. LAURA y JUAN: Revision de templates para modificarlos.                                           ✔
 18. Crear metodo para borrar una seccion de codigo html cuando sea mayor a 768px                     ✔
-19. Verificar modales en desktop, para la pantalla de inicio                                         ❌   
+19. Verificar modales en desktop, para la pantalla de inicio                                         ✔   
 20. Cambiar nomres de rutas guiones por slash                                                        ✔
 21. LAURA: En el servidor crear un metodo para que el administrardo pueda ver los perfiles creados.  ✔ 
 21. Cambiar por form para los inputs/selects todos con id                                            ✔
 22. LAURA: Funcion padding main-botton                                                               ✔
 23. JUAN: Cambiar form de la barra de busqueda Desktop en el resto de templates                      ✔
-24. LAURA y JUAN : Revisar color de texto en los inputs y los selects                                ❗ 
+24. LAURA y JUAN : Revisar color de texto en los inputs y los selects                                ✔ 
 25. LAURA JUAN: Revisar funcion para regresar entre pantallas                                        
 26. Descargar svg del logo de variety vault blanco.                                                  ✔
-27. Revisar name en pantallas crear salida, entrada, e informes.                                     
+27. Revisar name en pantallas informes.                                     
 28. JUAN: Revisar pantalla editar perfiles                                                           ✔
 29. SERVIDOR: Hacer la consulta de la barra de busqueda.  
 30. JUAN: Arreglar boton de detalles del producto y alinear datos en perfiles                          

@@ -184,18 +184,19 @@ class Vista {
           console.log(data.msj);     
         }
       }
-      else if (form[key].name == "contraseña"){
+      else if (form.id == "form_registro_usuario_desktop" && form[key].name == "contraseña"){
         if (!this.validar_contraseña(value)){
           data.ok = false;
           data.msj = "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número";
           console.log(data.msj);
         }
-        else{
-          if (form[key].value !== form["confirmar_contraseña"].value){
-            data.ok = false;
-            data.msj = "Las contraseñas no coinciden";
-            console.log(data.msj);
-          }
+      }
+      else if (form.id == "form_registro_usuario_desktop" && form[key].name == "confirmar_contraseña"){
+        let password = form.elements["contraseña"].value;
+        if (value !== password) {
+          data.ok = false;
+          data.msj = "Las contraseñas no coinciden";
+          console.log(data.msj);
         }
       }
     });
