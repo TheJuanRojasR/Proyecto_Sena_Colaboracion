@@ -35,8 +35,40 @@
 <body class=" overflow-y-scroll d-flex flex-column justify-content-between">
     <!-- Barra superior -->
     <nav class="navbar navbar-expand-md" id="navegador_sup">
-        
+
     </nav>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div class="contenido_offcanvas d-flex flex-column">
+                <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
+                    <p>Menu</p>
+                </div>
+                <!-- Opciones del menu desplegable -->
+                <div class="mt-auto">
+                    <div id="term_condi">
+                        <a href="#" class="color_inherit text-decoration-none" onclick="mostrar_terminos_condiciones()">Terminos y Condiciones</a>
+                    </div>
+                    <div id="politicas_priv">
+                        <a href="#" class="color_inherit text-decoration-none" onclick="mostrar_politicas_privacidad()">Politicas de Privacidad</a>
+                    </div>
+                    <div id="ajustes_usu">
+                        <a href="#" class="color_inherit text-decoration-none" onclick="mostrar_ajustes_usuario()">Ajustes de usuario</a>
+                    </div>
+                    <div id="ayuda">
+                        <a href="#" class="color_inherit text-decoration-none" onclick="mostrar_ayuda()">Ayuda</a>
+                    </div>
+                    <div id="cerrar_ses">
+                        <a href="" class="color_inherit text-decoration-none">Cerrar Sesion</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
@@ -47,8 +79,10 @@
     <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
     </nav>
 
-    <footer id="footer_inicio" class="d-flex justify-content-center" >
+    <footer id="footer_inicio" >
     </footer>
+
+    <!-- MODALES -->
 
     <!-- Modal para Confirmacion -->
     <section class="modal modal--confirm" id="modal_confirmacion">
@@ -127,7 +161,7 @@
                         <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
                             <p>Menu</p>
                         </div>
-                        <div id="icono_usuario"> <!-- Icono del usuario -->
+                        <div class="d-flex justify-content-center" id="icono_usuario"> <!-- Icono del usuario -->
                             <img src="./Assets/img/user-user-circle.svg" alt="">
                         </div>
                         <!-- Opciones del menu hamburguesa -->
@@ -220,22 +254,25 @@
 
     <!-- Footer Pagina de Inicio -->
     <template id="footer_mobile">
-        <div class="row">
-            <div class="col-6 imagen_inicio"><img src="/Assets/img/logo_empresa_sin_fondo_blanco.svg"></img>
-            </div>
+        <div>
+            <a href="#">
+                <img class="logo_footer" src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
+            </a>
         </div>
-        <div class="row">
-            <div class="col-8">
-                <a href="#Enlace_de_navegacion">Enlace de Navegaciòn</a><br>
-                <a href="#noticias">Inicio</a><br>
-                <a href="#noticias">Noticias</a><br>
-                <a href="#noticias">Noticias</a>
-                <a href="#deportes">© 2024 Variety Vault</a><br>
-                <a href="#deportes">Deportes</a><br>
-                <a href="#deportes">Deportes</a><br>
-                <a href="#deportes">Deportes</a><br>
-                <a href="#contacto">Contacto</a>
-            </div>
+        <div class="d-flex flex-column elemento_flooter">
+            <p class="text-decoration-none color_blanco fw-bold">Enlaces de Navegación</p>
+            <a href="#" class="text-decoration-none color_blanco">Inicio</a>
+            <a href="#" class="text-decoration-none color_blanco">Contactos</a>
+            <a href="#" class="text-decoration-none color_blanco">Nosotros</a>
+        </div>
+        <div class="d-flex flex-column elemento_flooter">
+            <p class="text-decoration-none color_blanco fw-bold">Enlaces a Politicas</p>
+            <a href="#" class="text-decoration-none color_blanco">Política Privada</a>
+            <a href="#" class="text-decoration-none color_blanco">Términos y Condiciones</a>
+            <a href="#" class="text-decoration-none color_blanco">Cookies</a>
+        </div>
+        <div class="d-flex flex-column elemento_flooter">
+            <p class="text-decoration-none color_blanco fw-bold">© 2024 Variety Vault</p>
         </div>
     </template>
 
@@ -267,7 +304,7 @@
                 <span style="--i:20;"></span>
             </div>
             <div class="container d-flex flex-column justify-content-end contenedor_boton">
-                <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_form_login()">
+                <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_login()">
                     Iniciar Sesion
                 </button>
                 <button class="btn boton_claro_largo" type="button" onclick="mostrar_form_registro_usuario()">
@@ -1706,8 +1743,6 @@
         </tr>
     </template>
 
-    <!-- TEMPLATES MODALES DESKTOP -->
-
     <!-- TEMPLATES NAVEGADORES DESKTOP -->
 
     <!-- Navegador superior pagina de Inicio -->
@@ -1775,48 +1810,60 @@
         </div>
     </template>
 
-    <!-- Menu desplegable -->
-    <template id="menu_desplegable_desktop">
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-            <div class="offcanvas-header">
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                    aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <div class="contenido_offcanvas d-flex flex-column">
-                    <div id="titulo_menu_desplegable"> <!-- Titulo del menu desplegable -->
-                        <p>Menu</p>
-                    </div>
-                    <!-- Opciones del menu desplegable -->
-                    <div class="mt-auto">
-                        <div id="term_condi">
-                            <a href="#" class="color_inherit text-decoration-none" onclick="mostrar_terminos_condiciones()">Terminos y Condiciones</a>
-                        </div>
-                        <div id="politicas_priv">
-                            <a href="#" class="color_inherit text-decoration-none" onclick="mostrar_politicas_privacidad()">Politicas de Privacidad</a>
-                        </div>
-                        <div id="ajustes_usu">
-                            <a href="#" class="color_inherit text-decoration-none" onclick="mostrar_ajustes_usuario()">Ajustes de usuario</a>
-                        </div>
-                        <div id="ayuda">
-                            <a href="#" class="color_inherit text-decoration-none" onclick="mostrar_ayuda()">Ayuda</a>
-                        </div>
-                        <div id="cerrar_ses">
-                            <a href="" class="color_inherit text-decoration-none">Cerrar Sesion</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </template>
-
     <!-- TEMPLATES DESKTOP -->
 
     <!-- Pantalla de Inicio -->
     <template id="pagina_inicio_desktop">
         <div id="contenedor_desktop">
-            <div id="contenedor_inicio_desktop">
-                <div class="bubbles">
+            <div id="contenedor_inicio_desktop" class="d-flex flex-column align-items-center justify-content-around">
+                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"> <!-- Carousel de imagenes -->
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active" data-bs-interval="10000">
+                        <img src="./Assets/img/variety-vault-1.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item" data-bs-interval="2000">
+                        <img src="./Assets/img/variety-vault-2.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="./Assets/img/variety-vault-3.png" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+                <div id="text-container" > <!-- Contenedor de texto -->
+                    <h1 id="texto_inicio">Gestiona tu inventario con precisión y eficacia.</h1>
+                </div>
+                <div id="contenedor_descripciones">
+                    <div class="descripciones">
+                        <h3>Maneja todos tus Almaces</h3>
+                        <img src="" alt="">
+                    </div>
+                    <div>
+                        <h3>Crea y Maneja tus Productos</h3>
+                        <img src="./Assets/img/variety-vault-2.png" alt="">
+                    </div>
+                    <div>
+                        <h3>Crear Perfiles</h3>
+                        <img src="./Assets/img/variety-vault-3.png" alt="">
+                    </div>
+                    <div>
+                        <h3>Genera Informes de tu Inventario</h3>
+                        <img src="./Assets/img/variety-vault-1.png" alt="">
+                    </div>
+                </div>
+                <div class="bubbles"> <!-- Bubbles Animadas-->
                     <span style="--i:11;"></span>
                     <span style="--i:12;"></span>
                     <span style="--i:24;"></span>
@@ -1879,44 +1926,6 @@
                     <span style="--i:20;"></span>
                 </div>
             </div>     
-            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active" data-bs-interval="10000">
-                    <img src="" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>First slide label</h5>
-                      <p>Some representative placeholder content for the first slide.</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item" data-bs-interval="2000">
-                    <img src="" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>Second slide label</h5>
-                      <p>Some representative placeholder content for the second slide.</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <img src="" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                      <h5>Third slide label</h5>
-                      <p>Some representative placeholder content for the third slide.</p>
-                    </div>
-                  </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-            </div>
         </div>
     </template>
 
@@ -4153,9 +4162,9 @@
         </div>
     </template>
 
-    <!-- FOOTER DESKTOP -->
-    <template id="footer_desktop">
-        <div>
+    <!-- FOOTER -->
+    <template id="footer">
+        <div class="contenedor_logo_footer">
             <a href="#">
                 <img class="logo_footer" src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
             </a>
