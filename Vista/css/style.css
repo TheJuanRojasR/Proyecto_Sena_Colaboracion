@@ -931,7 +931,7 @@ a.page-link:hover {
         }
 
         100% {
-            transform: translateY(-10) scale(1);
+            transform: translateY(0) scale(1);
         }
     }
 
