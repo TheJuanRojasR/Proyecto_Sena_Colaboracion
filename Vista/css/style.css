@@ -44,12 +44,14 @@ h2 {
 }
 
 h3{
-    margin-bottom: 2rem ;
+    margin: 1rem 1rem;
     color: #000;
-    font-family: "Rubik", sans-serif;
-    font-size: 1.5rem;
+    font-family: Outfit;
+    font-size: 3.3rem;
     font-weight: 600;
-    line-height: 2rem;
+    line-height: 4.5rem;
+    text-align: start;
+    text-shadow: 0.5rem 0.5rem 3rem#E0E0FF, 0rem 0rem 1.5rem #FCAF3B, 0rem 0rem 1.8rem #FAFAFF;
 }
 
 hr {
@@ -629,7 +631,7 @@ a.page-link:hover {
 #text-container {
     position: relative;
     width: 100%;
-    margin: 4% 0%;
+    margin: 5rem 0%;
     z-index: 20;
 }
 
@@ -647,11 +649,29 @@ a.page-link:hover {
 }
 
 #contenedor_descripciones{
-    padding: 2rem;
-    background-color: #E0E0FF;
-    border-radius: 8px;
+    padding: 1.8rem;
 }
 
+.descripciones{
+    padding: 1.5rem 0;
+    margin-bottom: 3.5rem;
+}
+
+.contenedor_texto_descripcion{
+    max-width: 35%;
+}
+
+.contenedor_img_descripcion{
+    width: 45%;
+    margin: 0 2.5rem;       
+    border-radius: 1rem;
+    box-shadow:  0 .5rem 1rem #171740
+}
+
+.img_descripcion{
+    width: 100%;
+    border-radius: 1rem;
+}
 
 /* Estilos para vista de Barra lateral*/
 
@@ -986,64 +1006,6 @@ a.page-link:hover {
         margin: 0 0 0 0px !important;
     }
 
-    /* ------------- INICIOS ------------- */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    #contenedor_inicio {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-color: #475282;
-        min-height: 100%;
-    }
-
-    .bubbles {
-        position: absolute;
-        top: 0;
-        display: flex;
-        z-index: 1;
-    }
-
-    .bubbles span {
-        position: relative;
-        width: 30px;
-        height: 30px;
-        background-color: #FFF;
-        margin: 0 4px;
-        border-radius: 50%;
-        box-shadow: 0 0 0 10px #FFFFFF44,
-            0 0 50px #FFF,
-            0 0 100px #FFF;
-        animation: animate 15s linear infinite;
-        animation-duration: calc(125s / var(--i));
-    }
-
-    .bubbles span:nth-child(even) {
-        background-color: #333A56;
-        box-shadow: 0 0 0 10px #333A5644,
-            0 0 50px #333A56,
-            0 0 100px #333A56;
-    }
-
-    .container {
-        z-index: 2;
-    }
-
-    @keyframes animate {
-        0% {
-            transform: translateY(100vh) scale(0);
-        }
-
-        100% {
-            transform: translateY(-10) scale(1);
-        }
-    }
-
     /* ------------- FOOTER INICIO ------------- */
     
     .contenedor_logo_footer{
@@ -1111,7 +1073,7 @@ a.page-link:hover {
     /* ------------- MAIN GENERALES------------- */
 
     main {
-        height: 100vh;
+        height: auto;
         padding-top: 57px;
         /* padding-bottom: 72.31px; */
     }
@@ -1394,6 +1356,81 @@ a.page-link:hover {
     }
 
     /* ------------- PAGINA INICIO ------------- */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #contenedor_inicio {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #475282;
+        min-height: 100%;
+    }
+
+    .bubbles {
+        position: absolute;
+        top: 0;
+        display: flex;
+        z-index: 1;
+    }
+
+    .bubbles span {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background-color: #FFF;
+        margin: 0 4px;
+        border-radius: 50%;
+        box-shadow: 0 0 0 10px #FFFFFF44,
+            0 0 50px #FFF,
+            0 0 100px #FFF;
+        animation: animate 15s linear infinite;
+        animation-duration: calc(125s / var(--i));
+    }
+
+    .bubbles span:nth-child(even) {
+        background-color: #333A56;
+        box-shadow: 0 0 0 10px #333A5644,
+            0 0 50px #333A56,
+            0 0 100px #333A56;
+    }
+
+    .container {
+        z-index: 2;
+    }
+
+    @keyframes animate {
+        0% {
+            transform: translateY(100vh) scale(0);
+        }
+
+        100% {
+            transform: translateY(-10) scale(1);
+        }
+    }
+    
+    .carousel-indicators{
+        top: 100%;
+    }
+
+    .carousel-control-prev{
+        left: -13%;
+        top: -40%;
+    }
+
+    .carousel-control-next{
+        right: -13%;
+        top: -40%;
+    }
+
+    #imagenMovil{
+        height: 40vh;
+    }
 
     .boton_oscuro_largo {
         width: 100%;
