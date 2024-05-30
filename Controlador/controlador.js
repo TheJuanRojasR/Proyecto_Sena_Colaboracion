@@ -19,7 +19,7 @@ const lista_clases_modal_confirmacion = ['modal', 'modal--confirmacion'];
 const tamañoPantalla = window.matchMedia('(max-width: 768px)');
 
 window.addEventListener('resize', cambio_clases);
-window.addEventListener('resize', cambio_templates);
+// window.addEventListener('resize', cambio_templates);
 
 function cambio_clases(){
     if(tamañoPantalla.matches){
@@ -166,29 +166,7 @@ function mostrar_inv_vacia(){
                     usuario.setData(data.data[0]);
                     //Consultar almacenes
                     let id_usuario = usuario.id_usuario;
-                    almacen.getByUser(id_usuario, function (dataAlmacen) {
-                        if (dataAlmacen.success) {
-                            if (dataAlmacen.data.length == 0) {
-                                if(tamañoPantalla.matches){
-                                    vista.añadir_padding("contenedor_principal", "72.31px");
-                                    vista.mostrar_plantilla("nav_sup","navegador_sup");
-                                    vista.limpiar_contenedor("navegador_inf",);
-                                    vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
-                                    vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-                                    vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
-                                }
-                                else{
-                                    vista.mostrar_plantilla("nav_sup_desktop","navegador_sup");
-                                    vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
-                                    vista.remover_etiqueta("footer_inicio");
-                                }
-                            }else {
-                                mostrar_inventarios();
-                            }
-                        } else {
-                            vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
-                        } 
-                    });
+                    mostrar_inventarios(id_usuario);
                 }
             } else {
                 vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
@@ -201,18 +179,59 @@ function mostrar_inv_vacia(){
 
 // Funciones acciones de la barra de navegacion Inferior
 
-function mostrar_inventarios(){
-    if(tamañoPantalla.matches){
-        vista.limpiar_contenedor("navegador_inf");
-        vista.mostrar_plantilla("inventarios", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-        vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
-    }
-    else{
-        vista.mostrar_plantilla("nav_sup_desktop","navegador_sup",0);
-        vista.mostrar_plantilla("inventarios_desktop", "contenedor_principal", 1);
-        vista.remover_etiqueta("footer_inicio");
-    }
+function mostrar_inventarios(id_usuario){
+    almacen.getByUser(id_usuario, function(data){
+        if(data.success){
+            if(data.data.length == 0){
+                if(tamañoPantalla.matches){
+                    vista.añadir_padding("contenedor_principal", "72.31px");
+                    vista.mostrar_plantilla("nav_sup","navegador_sup");
+                    vista.limpiar_contenedor("navegador_inf",);
+                    vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+                    vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
+                }
+                else{
+                    vista.mostrar_plantilla("nav_sup_desktop","navegador_sup");
+                    vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
+                    vista.remover_etiqueta("footer_inicio");
+                }
+                cambio_clases();
+            }
+            else{
+                if(tamañoPantalla.matches){
+                    vista.limpiar_contenedor("navegador_inf");
+                    vista.mostrar_plantilla("inventarios", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+                    vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
+                }
+                else{
+                    vista.mostrar_plantilla("nav_sup_desktop","navegador_sup",0);
+                    vista.mostrar_plantilla("inventarios_desktop", "contenedor_principal", 1);
+                    vista.remover_etiqueta("footer_inicio");
+                }
+                cambio_clases();
+                // lista_almacenes = []
+                // lista_almacenes = data.data
+                // const almacenesObj = Object.fromEntries(
+                //     lista_opciones.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
+                // );
+
+                // vista.anadir_seccion("tarjeta_inventarios", "contenedor_tarjetas");
+                // lista_almacenes.forEach(almacen => vista.anadir_seccion());
+                // for (let i = 0; i < lista_almacenes.length; i++) {
+                //     vista.anadir_seccion("tarjeta_inventarios", "contenedor_tarjetas");
+                //     for (let j = 0; j < lista_almacenes.length; j++) {
+                //         vista.insertar_dato("nombre_almacen", lista_almacenes[j].nombre_almacen, i);
+                //         vista.insertar_dato("direccion_almacen", lista_almacenes[j].direccion_almacen, i);
+                //         vista.insertar_dato("descripcion_almacen", lista_almacenes[j].descripcion_almacen, i);
+                //     }
+                // }
+            }
+        }else{
+            vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
+        }
+    });
 }
 
 function mostrar_movimientos_vacia(){
@@ -299,10 +318,9 @@ function mostar_form_crear_producto(){
                 lista_opciones.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
             );
             console.log(categoriasObj)
-            vista.crearSelectDesdeJSON(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")
+            vista.insertar_opciones_select(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")
         }
     });
-
 }
 
 function mostrar_stock(){

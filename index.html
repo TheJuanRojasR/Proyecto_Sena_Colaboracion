@@ -1730,7 +1730,7 @@
         </div>
     </template>
 
-    <!-- TEMPLATES BOTONES -->
+    <!-- TEMPLATES ELEMENTOS DE PANTALLAS -->
 
     <!-- Menu de un Boton -->
     <template id="btn_uno">
@@ -1816,6 +1816,42 @@
         </tr>
     </template>
 
+    <!-- Tarjeta inventarios -->
+    <template id="tarjeta_inventarios">
+        <div class="container inventario flex-wrap col-lg-3">
+            <div class="d-flex justify-content-between">
+                <h3 class="inventario__title" id="nombre_inventario"></h3>
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="d-grid gap-2">
+                            <button class="btn d-flex align-items-center" onclick="mostrar_editar_inv()">
+                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
+                                <p>Editar</p>
+                            </button>
+                        </li>
+                        <li class="d-grid gap-2">
+                            <button class="btn  d-flex align-items-center">
+                                <img src="./Assets/img/eliminar.svg" alt="" />
+                                <p>Eliminar</p>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="inventario__paragraph" id="direccion_inventario"></p>
+            <p class="inventario__paragraph" id="descripcion_inventario"></p>
+            <div class="d-grid gap-2">
+                <button class="btn btn-general" type="button" onclick="mostrar_stock_vacia()">
+                    Ingresar
+                </button>
+            </div>
+        </div>
+    </template>
+
     <!-- TEMPLATES NAVEGADORES DESKTOP -->
 
     <!-- Navegador superior pagina de Inicio -->
@@ -1844,7 +1880,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inv_vacia()">Inicio</a>
+                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inventarios()">Inventario</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -2120,17 +2156,17 @@
                 <form id="form_crear_inventario_desktop">
                     <div class="form-floating mb-2">
                         <input type="email" class="form-control" id="floatingInputValue" placeholder="nombre-almacen"
-                            value="SENA Quirigua" name="nombre_almacen"/>
+                            name="nombre_almacen"/>
                         <label for="floatingInputValue">Nombre Inventario</label>
                     </div>
                     <div class="form-floating mb-2">
                         <input type="email" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
-                            value="Cra. 93 #80c-72" name="direccion_almacen"/>
+                            name="direccion_almacen"/>
                         <label for="floatingInputValue">Dirección Inventario</label>
                     </div>
                     <div class="form-floating mb-2">
                         <input type="email" class="form-control" id="floatingInputValue"
-                            placeholder="descripcion-almacen" value="Contiene computadores" name="descripcion_almacen"/>
+                            placeholder="descripcion-almacen" name="descripcion_almacen"/>
                         <label for="floatingInputValue">Descripción Inventario</label>
                     </div>
                 </form>
@@ -2158,43 +2194,7 @@
             <button class="btn btn-general ms-auto" onclick="mostrar_form_crear_inv()">Crear Inventario</button>
         </div>
         <hr />
-        <div class="container d-flex flex-wrap justify-content-around">
-            <div class="container inventario flex-wrap col-lg-3">
-                <div class="d-flex justify-content-between">
-                    <h3 class="inventario__title">Nombre de Inventario</h3>
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <img src="./Assets/img/menu_horizontal.svg" alt="" />
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li class="d-grid gap-2">
-                                <button class="btn d-flex align-items-center" onclick="mostrar_editar_inv()">
-                                    <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                    <p>Editar</p>
-                                </button>
-                            </li>
-                            <li class="d-grid gap-2">
-                                <button class="btn  d-flex align-items-center">
-                                    <img src="./Assets/img/eliminar.svg" alt="" />
-                                    <p>Eliminar</p>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <p class="inventario__paragraph">Dirección: XXXXX</p>
-                <p class="inventario__paragraph">
-                    Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibh
-                    malesuada, volutpat metus ac, laoreet erat.vestibulum orci. In ac
-                    nibh malesuada, volutpat metus ac, laoreet erat
-                </p>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-general" type="button" onclick="mostrar_stock_vacia()">
-                        Ingresar
-                    </button>
-                </div>
-            </div>
+        <div class="container d-flex flex-wrap justify-content-around" id="contenedor_tarjetas">
         </div>
     </template>
 

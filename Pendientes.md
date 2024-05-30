@@ -35,6 +35,14 @@
 31. Colocar la navegacion de categorias en desktop                                                   ✔
 32. Laura: Hacer media query para modales en mobile                                                  ✔
 33. Laura: colocar menu hamburgues desktop y añadirle funcion para eliminarlo en mobile              ✔
+34. Funcion para que la barra lateral se esconda al cambiar de pantalla                              ✔
+
+Acabar inventarios. 
+    Crear inventario
+    Crear tarjetas segun numero de inventarios del usuario
+        Remplazar valores de la tarjeta con la DB
+    Eliminar inventario (Actualizar el estado)
+    Editar inventario 
 
 
 # Mejoras

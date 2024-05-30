@@ -240,7 +240,7 @@ class Vista {
   * @param {*} nombre_valor: nombre del valor de las opciones
   * @memberof Vista
   */
-  crearSelectDesdeJSON(opciones, select_name, nombre_llave, nombre_valor){
+  insertar_opciones_select(opciones, select_name, nombre_llave, nombre_valor){
     const select = document.getElementsByName(select_name);
 
     if (select) {
