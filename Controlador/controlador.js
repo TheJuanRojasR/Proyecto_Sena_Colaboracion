@@ -229,12 +229,13 @@ function crear_inventario(){
     if(data.ok){
         almacen.create(data, function(data){
             if(data.success){
+                almacen.setData(data)
                 almacen.asignAlmacen(data, function(dataAlmacen){
                     if(dataAlmacen.success){
+                        vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
                         mostrar_inventarios(usuario.id_usuario);
                     }
                 });
-                vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
             }else{
                 vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
             }

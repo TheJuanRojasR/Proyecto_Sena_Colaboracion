@@ -37,6 +37,7 @@
 33. Laura: colocar menu hamburgues desktop y añadirle funcion para eliminarlo en mobile              ✔
 34. Funcion para que la barra lateral se esconda al cambiar de pantalla                              ✔
 35. JUAN: Centrar formulario crear inventario.
+36. JUAN: Mover el boton de 3 puntos de la tarjeta de inventarios. Tiene que queda mas pegado a la parte superior derecha. 
 
 Acabar inventarios. 
     Crear inventario

@@ -345,6 +345,7 @@ hr {
     font-weight: 600;
     line-height: 2rem;
     color: var(--black, #171740);
+    margin-left: 0;
 }
 
 .inventario__paragraph {
