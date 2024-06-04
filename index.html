@@ -73,7 +73,7 @@
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
-
+        
     </main>
 
     <!-- Barra Inferior -->
@@ -2734,7 +2734,7 @@
             <button class="btn btn-general ms-auto" onclick="mostar_form_crear_producto()">Crear Producto</button>
         </div>
         <hr />
-        <div class="container  table-responsive">
+        <div class="container">
             <table class="table">
                 <thead>
                     <tr>
@@ -2768,8 +2768,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
+                            <div class="td-body-tabla div_input_p_tabla">
                                 <p class="td-body-tabla_opciones espacio-izq">Categoria XXX</p>
                             </div>
                         </td>
@@ -2783,9 +2782,26 @@
                             <p class="td-body-tabla_opciones">Lapiz</p>
                         </td>
                         <td class="">
-                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_detalles_producto()">
-                                <img src="./Assets/img/logo_ingresar_detalles.svg" alt="" />
-                            </button>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="d-grid gap-2">
+                                        <button class="btn d-flex align-items-center">
+                                            <img src="./Assets/img/logo_ingresar_detalles.svg" alt="" />
+                                            <p>Detalles</p>
+                                        </button>
+                                    </li>
+                                    <li class="d-grid gap-2">
+                                        <button class="btn  d-flex align-items-center">
+                                            <img src="./Assets/img/eliminar.svg" alt="" />
+                                            <p>Eliminar</p>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -2855,8 +2871,7 @@
                 <tbody>
                     <tr>
                         <td>
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
+                            <div class="td-body-tabla div_input_p_tabla">
                                 <p class="td-body-tabla_opciones">Categoria XXX</p>
                             </div>
                         </td>
@@ -2872,7 +2887,6 @@
                     </tr>
                 </tbody>
             </table>
-            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
         </div>
     </template>
 
@@ -2947,7 +2961,7 @@
     <!-- Pantalla Categorias -->
     <template id="categorias_desktop">
         <div class="container encabezado">
-            <h1>CATEGORIA</h1>
+            <h1>Categoría</h1>
             <div class="d-flex flex-row">
                 <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
                     <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
@@ -2956,10 +2970,9 @@
                     <img src="./Assets/img/logo_lupa.svg" alt="" />
                 </button>
             </div>
-            <button class="btn btn-general ms-auto" onclick="mostrar_form_crear_categoria()">Crear Categoría</button>
         </div>
         <hr />
-        <div class="container">
+        <div class="container container_min_height position-relative">
             <table class="table">
                 <thead>
                     <tr>
@@ -2967,7 +2980,7 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="./Assets/img/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2">Categoría</span>
+                            <span class="ml-2 ">Categoría</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
@@ -2975,15 +2988,31 @@
                 <tbody>
                     <tr>
                         <th scope="row" class="d-flex">
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
+                            <div class="td-body-tabla div_input_p_tabla">
                                 <p class="td-body-tabla_opciones">Categoria XXX</p>
                             </div>
                         </th>
                         <td class="text-end">
-                            <button class="btn btn_editar_categoria" onclick="mostrar_editar_categoria()">
-                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                            </button>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="d-grid gap-2">
+                                        <button class="btn d-flex align-items-center">
+                                            <img src="./Assets/img/lapiz_editar.svg" alt="" />
+                                            <p>Editar</p>
+                                        </button>
+                                    </li>
+                                    <li class="d-grid gap-2">
+                                        <button class="btn  d-flex align-items-center">
+                                            <img src="./Assets/img/eliminar.svg" alt="" />
+                                            <p>Eliminar</p>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -3040,7 +3069,6 @@
 
     <!-- Pantalla Eliminar Categoria -->
     <template id="eliminar_categoria_desktop">
-
         <div class="container encabezado">
             <h1>Categoría</h1>
             <div class="d-flex flex-row">

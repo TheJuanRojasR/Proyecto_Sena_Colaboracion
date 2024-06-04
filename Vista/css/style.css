@@ -409,24 +409,22 @@ li>button>p {
 /* Estilos para vista de Operaciones/Entradas y Salidas con opciones*/
 
 .td-body-tabla {
-    margin: 0;
     font-family: Inter;
     font-size: 13px;
-    font-style: normal;
     font-weight: 300;
     line-height: 36px;
 }
 
-.td-body-tabla_categoria,
+/* .td-body-tabla_categoria,
 .td-body-tabla_opciones{
     margin: 0;
-    padding-left: 32px;
-}
+    padding-left: 26px;
+} */
 
-.td-body-tabla_opciones {
+/* .td-body-tabla_opciones {
     vertical-align: middle;
     margin-left: 11%;
-}
+} */
 
 /* Cambiar nombre de clases para estos estilos */
 
@@ -449,17 +447,12 @@ a.page-link:hover {
     width: 50%;
 }
 
-.form-check-input:checked {
-    border-color: #333A56;
-}
-
 /* ----------------------------------------------------------------------- */
 
 /* Estilos para vista de Stock/Categoria con opciones*/
 
 .btn_editar_categoria {
     padding: 0;
-    filter: invert(100%);
     font-family: Inter;
     font-size: 0.875rem;
     font-weight: 700;
@@ -860,10 +853,6 @@ a.page-link:hover {
     .btnGuardar-tabla img {
         width: 18px;
         height: 18px;
-    }
-
-    .table-responsible {
-        overflow-x: auto;
     }
 
     .td-body-tabla {
