@@ -181,7 +181,6 @@ function mostrar_inv_vacia(){
 // Funciones acciones de la barra de navegacion Inferior
 
 function mostrar_inventarios(id_usuario){
-    console.log(usuario)
     almacen.getByUser(id_usuario, function(data){
         if(data.success){
             if(data.data.length == 0){
@@ -229,8 +228,8 @@ function crear_inventario(){
     if(data.ok){
         almacen.create(data, function(data){
             if(data.success){
-                almacen.setData(data)
-                almacen.asignAlmacen(data, function(dataAlmacen){
+                const almacenOjt = {id_almacen:data.data, id_usuario:usuario.id_usuario};
+                almacen.asignAlmacen(almacenOjt, function(dataAlmacen){
                     if(dataAlmacen.success){
                         vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
                         mostrar_inventarios(usuario.id_usuario);
