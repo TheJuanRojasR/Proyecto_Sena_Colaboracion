@@ -2,7 +2,8 @@ let vista = new Vista();
 let usuario = new Usuario();
 let producto = new Producto();
 let almacen = new Almacen();
-let lista_opciones = []
+let lista_opciones = [];
+let lista_almacenes = []
 
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
@@ -107,7 +108,7 @@ function mostrar_form_registro_usuario(){
                 lista_opciones.map((obj) => [obj.id_tipo_documento.toString(), obj.tipo_documento])
             );
             console.log(categoriasObj)
-            vista.crearSelectDesdeJSON(categoriasObj, "tipo_documento", "id_tipo_documento", "tipo_documento")
+            vista.insertar_opciones_select(categoriasObj, "tipo_documento", "id_tipo_documento", "tipo_documento")
         }
     });
 }
@@ -180,6 +181,7 @@ function mostrar_inv_vacia(){
 // Funciones acciones de la barra de navegacion Inferior
 
 function mostrar_inventarios(id_usuario){
+    console.log(usuario)
     almacen.getByUser(id_usuario, function(data){
         if(data.success){
             if(data.data.length == 0){
@@ -211,27 +213,35 @@ function mostrar_inventarios(id_usuario){
                     vista.remover_etiqueta("footer_inicio");
                 }
                 cambio_clases();
-                // lista_almacenes = []
-                // lista_almacenes = data.data
-                // const almacenesObj = Object.fromEntries(
-                //     lista_opciones.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
-                // );
-
-                // vista.anadir_seccion("tarjeta_inventarios", "contenedor_tarjetas");
-                // lista_almacenes.forEach(almacen => vista.anadir_seccion());
-                // for (let i = 0; i < lista_almacenes.length; i++) {
-                //     vista.anadir_seccion("tarjeta_inventarios", "contenedor_tarjetas");
-                //     for (let j = 0; j < lista_almacenes.length; j++) {
-                //         vista.insertar_dato("nombre_almacen", lista_almacenes[j].nombre_almacen, i);
-                //         vista.insertar_dato("direccion_almacen", lista_almacenes[j].direccion_almacen, i);
-                //         vista.insertar_dato("descripcion_almacen", lista_almacenes[j].descripcion_almacen, i);
-                //     }
-                // }
+                lista_almacenes = data.data
+                vista.informacion_tarjeta_inventario(lista_almacenes, "contenedor_tarjetas");
             }
         }else{
             vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
         }
     });
+}
+
+function crear_inventario(){
+
+    data = vista.getForm("form_crear_inventario_desktop")
+
+    if(data.ok){
+        almacen.create(data, function(data){
+            if(data.success){
+                almacen.asignAlmacen(data, function(dataAlmacen){
+                    if(dataAlmacen.success){
+                        mostrar_inventarios(usuario.id_usuario);
+                    }
+                });
+                vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+            }else{
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }
+        });
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    }
 }
 
 function mostrar_movimientos_vacia(){

@@ -211,7 +211,6 @@ class Vista {
    * @return {*}: true si el correo es valido, false si no lo es
    * @memberof Vista
    */
-
   validar_email(email) {
     return email.match(
       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -252,6 +251,55 @@ class Vista {
       });
     } else {
       console.error('El contenedro especificado no existe')
+    }
+  }
+
+  
+/**
+ * Metodo para mostrar la informacion de los almacenes en una tarjeta
+ *
+ * @param {*} lista_almacenes: lista de almacenes a mostrar
+ * @param {*} id_contenedor: id del contenedor donde se insertarn las tarjetas
+ * @memberof Vista
+ */
+informacion_tarjeta_inventario (lista_almacenes, id_contenedor) {
+    let cont = document.getElementById(id_contenedor);
+    for (const almacen of lista_almacenes) {
+      const html = `
+      <div class="container inventario flex-wrap col-lg-3">
+              <div class="d-flex justify-content-between">
+                  <h3 class="inventario__title" id="nombre_inventario">${almacen.nombre_almacen}</h3>
+                  <div class="btn-group" role="group">
+                      <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                      </button>
+                      <ul class="dropdown-menu">
+                          <li class="d-grid gap-2">
+                              <button class="btn d-flex align-items-center" onclick="mostrar_editar_inv()">
+                                  <img src="./Assets/img/lapiz_editar.svg" alt="" />
+                                  <p>Editar</p>
+                              </button>
+                          </li>
+                          <li class="d-grid gap-2">
+                              <button class="btn  d-flex align-items-center">
+                                  <img src="./Assets/img/eliminar.svg" alt="" />
+                                  <p>Eliminar</p>
+                              </button>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+              <p class="inventario__paragraph" id="direccion_inventario">${almacen.direccion_almacen}</p>
+              <p class="inventario__paragraph" id="descripcion_inventario">${almacen.descripcion_almacen}</p>
+              <div class="d-grid gap-2">
+                  <button class="btn btn-general" type="button" onclick="mostrar_stock_vacia()">
+                      Ingresar
+                  </button>
+              </div>
+          </div>
+      `
+      cont.innerHTML += html;
     }
   }
 

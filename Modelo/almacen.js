@@ -34,6 +34,12 @@ class Almacen extends Connect{
         this.connect(dataRequest, endpoint, method, createCallback);
     }
 
+    asignAlmacen(dataRequest, asignCallback){
+        const endpoint = 'almacenes/asignar';
+        const method = 'POST';
+        this.connect(dataRequest, endpoint, method, asignCallback);
+    }
+
     // Metodo para obtener los almacenes por id de almacen
     getById(getByIdCallback){
         const endpoint = 'almacenes';
