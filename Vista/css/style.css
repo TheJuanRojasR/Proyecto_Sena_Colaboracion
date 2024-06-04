@@ -544,7 +544,7 @@ a.page-link:hover {
     box-sizing: border-box;
 }
 
-#contenedor_desktop{
+#contenedor_desktop {
     height: 100%;
     width: 100%;
 }
@@ -978,32 +978,59 @@ a.page-link:hover {
         text-decoration: none;
         color: #fff;
         background-color: #333A56;
-        padding: 0.8em 0.8em;
-        border: 1px solid;
-        border-radius: 6px;
-        display: inline-block;
-        text-align: center;
-        font-weight: 300;
-        transition: background-color .3s;
+        box-shadow: 0 0 0 10px #333A5644,
+            0 0 50px #333A56,
+            0 0 100px #333A56;
     }
-    
-    .modal__button:hover {
-        color: #333A51;
-        background-color: #fff;
+
+    .container {
+        z-index: 2;
     }
-    
-    .modal__close {
-        position: fixed;
-        top: 4%;
-        right: 2%;
+
+    @keyframes animate {
+        0% {
+            transform: translateY(100vh) scale(0);
+        }
+
+        100% {
+            transform: translateY(0) scale(1);
+        }
     }
-    
-    .form-select{
-        min-width: 10vw !important;
+
+    .carousel-item img {
+        transition: transform 0.5s ease;
+        max-width: 100%;
     }
-    
-    .espacio-izq {
-        margin: 0 0 0 0px !important;
+
+    .carousel-item.active img {
+        transform: scale(1);
+    }
+
+    .carousel-indicators {
+        top: 100%;
+    }
+
+    .carousel-control-prev {
+        left: -13%;
+        top: -40%;
+    }
+
+    .carousel-control-next {
+        right: -13%;
+        top: -40%;
+    }
+
+    #imagenMovil {
+        height: 40vh;
+        object-fit: cover;
+    }
+
+    #carruselGeneral {
+        height: 40vh;
+    }
+
+    #carouselExampleMovil {
+        height: 40vh;
     }
 
     /* ------------- FOOTER INICIO ------------- */
@@ -1012,7 +1039,8 @@ a.page-link:hover {
         width: 100%;
     }
 
-    .logo_footer{
+
+    .logo_footer {
         padding: 1em 0;
     }
 
