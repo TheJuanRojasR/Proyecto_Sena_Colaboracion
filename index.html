@@ -39,19 +39,12 @@
     <!-- Barra superior -->
     
         <nav class="navbar navbar-expand-md" id="navegador_sup">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
-                </a>
-                <div class="d-flex">
-                    </button>
-                    <button class="btn btn-general--transparent" onclick="mostrar_form_login()">Ingresar</button>
-                    </button>
-                    </button>
-                    <button class="btn btn-general" onclick="mostrar_form_registro_usuario()">Registrar</button>
-                    </button>
-                </div>
-            </div>
+            <div class="container-fluid flex-nowrap" id="contenedor_nav_sup"> <!-- Contenedor de la barra de navegacion -->
+             <div class="container-fluid justify-content-center">
+            <p class="pregunta_nav_inf" id="pregunta_nav_inf_negro">¿Ya tienes una cuenta?
+                <a href="">Inicia Sesion</a>
+            </p>
+        </div>
         </nav>
     
 
@@ -59,34 +52,103 @@
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
-        
+        <div id="contenedor_inicio"
+            class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
+            <div class="bubbles">
+                <span style="--i:11;"></span>
+                <span style="--i:12;"></span>
+                <span style="--i:24;"></span>
+                <span style="--i:10;"></span>
+                <span style="--i:17;"></span>
+                <span style="--i:6;"></span>
+                <span style="--i:23;"></span>
+                <span style="--i:9;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:22;"></span>
+                <span style="--i:27;"></span>
+                <span style="--i:14;"></span>
+                <span style="--i:21;"></span>
+                <span style="--i:7;"></span>
+                <span style="--i:16;"></span>
+                <span style="--i:19;"></span>
+                <span style="--i:25;"></span>
+                <span style="--i:26;"></span>
+                <span style="--i:15;"></span>
+                <span style="--i:20;"></span>
+            </div>
+            <div class="container d-flex flex-column justify-content-end contenedor_boton">
+                <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_form_login()">
+                    Iniciar Sesion
+                </button>
+                <button class="btn boton_claro_largo" type="button" onclick="mostrar_form_registro_usuario()">
+                    Registrarse
+                </button>
+            </div>
+            <div id="text-container"> <!-- Contenedor de texto -->
+                <h1 id="texto_inicio">Gestiona tu inventario con precisión y eficacia.</h1>
+            </div>
+            <div id="contenedor_descripciones">
+                <div class="descripciones d-flex flex-row justify-content-around align-items-center">
+                    <div class="contenedor_texto_descripcion">
+                        <h3>Personaliza todos tus Almaces</h3>
+                    </div>
+                    <div class="contenedor_img_descripcion">
+                        <img class="img_descripcion" src="./Assets/img/variety-vault-1.png" alt="">
+                    </div>
+                </div>
+                <div class="descripciones d-flex flex-row justify-content-around align-items-center">
+                    <div class="contenedor_img_descripcion">
+                        <img class="img_descripcion" src="./Assets/img/variety-vault-2.png" alt="">
+                    </div>
+                    <div class="contenedor_texto_descripcion">
+                        <h3>Crea, Maneja y Personaliza tus Productos</h3>
+
+                    </div>
+                </div>
+                <div class="descripciones d-flex flex-row justify-content-around align-items-center">
+                    <div class="contenedor_texto_descripcion">
+                        <h3>Crea los perfiles que quieras</h3>
+
+                    </div>
+                    <div class="contenedor_img_descripcion">
+                        <img class="img_descripcion" src="./Assets/img/variety-vault-3.png" alt="">
+                    </div>
+                </div>
+                <div class="descripciones d-flex flex-row justify-content-around align-items-center">
+                    <div class="contenedor_img_descripcion">
+                        <img class="img_descripcion" src="./Assets/img/variety-vault-1.png" alt="">
+                    </div>
+                    <div class="contenedor_texto_descripcion">
+                        <h3>Genera Informes de tu Inventario</h3>
+
+                    </div>
+                </div>
+            </div>
+        </div>        
     </main>
 
     <!-- Navegador Inferior -->
     <footer class="d-flex justify-content-center">
-            <div>
-                <a href="#">
-                    <img class="logo_footer" src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
-                </a>
+        <div class="row">
+            <div class="col-6 imagen_inicio"><img src="/Assets/img/logo_empresa_sin_fondo_blanco.svg">
             </div>
-            <div class="d-flex flex-column elemento_flooter">
-                <p class="text-decoration-none color_blanco fw-bold">Enlaces de Navegación</p>
-                <a href="" class="text-decoration-none color_blanco">Inicio</a>
-                <a href="" class="text-decoration-none color_blanco">Contactos</a>
-                <a href="" class="text-decoration-none color_blanco">Nosotros</a>
+        </div> 
+        <div class="row">
+            <div class="col-8">
+                <a href="#Enlace_de_navegacion">Enlace de Navegaciòn</a><br>
+                <a href="#noticias">Inicio</a><br>
+                <a href="#noticias">Noticias</a><br>
+                <a href="#noticias">Noticias</a>
+                <a href="#deportes">© 2024 Variety Vault</a><br>
+                <a href="#deportes">Deportes</a><br>
+                <a href="#deportes">Deportes</a><br>
+                <a href="#deportes">Deportes</a><br>
+                <a href="#contacto">Contacto</a>
             </div>
-            <div class="d-flex flex-column elemento_flooter">
-                <p class="text-decoration-none color_blanco fw-bold">Enlaces a Politicas</p>
-                <a href="" class="text-decoration-none color_blanco">Política Privada</a>
-                <a href="" class="text-decoration-none color_blanco">Términos y Condiciones</a>
-                <a href="" class="text-decoration-none color_blanco">Cookies</a>
-            </div>
-            <div class="d-flex flex-column elemento_flooter">
-                <p class="text-decoration-none color_blanco fw-bold">© 2024 Variety Vault</p>
-            </div>
-        </footer>
+        </div>
+    </footer>
 
-    <!-- TEMPLATES BARRAS SUP E INF MOBILE-->
+    <!-- TEMPLATES BARRAS SUPERIOR E INFERIOR MOBILE-->
 
     <!-- Navegador Superior sin menu -->
     <template id="nav_sup_inicio">
@@ -321,7 +383,7 @@
         <footer id="footer_inicio"
             class=" rectangulo-inferior d-flex flex-wrap justify-content-between align-items-center">
             <div class="row">
-                <div class="col-6 imagen_inicio"><img src="/Assets/img/logo_empresa_sin_fondo_blanco.svg"></img>
+                <div class="col-6 imagen_inicio"><img src="/Assets/img/logo_empresa_sin_fondo_blanco.svg">
                 </div>
             </div>
             <div class="row">
