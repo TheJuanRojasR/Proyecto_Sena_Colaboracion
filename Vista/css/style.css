@@ -43,17 +43,6 @@ h2 {
     line-height: 32px;
 }
 
-h3{
-    margin: 1rem 1rem;
-    color: #000;
-    font-family: Outfit;
-    font-size: 3.3rem;
-    font-weight: 600;
-    line-height: 4.5rem;
-    text-align: start;
-    text-shadow: 0.5rem 0.5rem 3rem#E0E0FF, 0rem 0rem 1.5rem #FCAF3B, 0rem 0rem 1.8rem #FAFAFF;
-}
-
 hr {
     stroke-width: 2px;
     height: 2px;
@@ -659,6 +648,17 @@ a.page-link:hover {
 
 .contenedor_texto_descripcion{
     max-width: 35%;
+}
+
+.texto_descripcion{
+    margin: 1rem 1rem;
+    color: #000;
+    font-family: Outfit;
+    font-size: 3.3rem;
+    font-weight: 600;
+    line-height: 4.5rem;
+    text-align: start;
+    text-shadow: 0.5rem 0.5rem 3rem#E0E0FF, 0rem 0rem 1.5rem #FCAF3B, 0rem 0rem 1.8rem #FAFAFF;
 }
 
 .contenedor_img_descripcion{
