@@ -895,6 +895,12 @@ a.page-link:hover {
         min-height: 100%;
     }
 
+    
+    
+    .container {
+        z-index: 2;
+    }
+    
     .bubbles {
         position: absolute;
         top: 0;
@@ -923,9 +929,6 @@ a.page-link:hover {
             0 0 100px #333A56;
     }
 
-    .container {
-        z-index: 2;
-    }
 
     @keyframes animate {
         0% {
@@ -1044,7 +1047,7 @@ a.page-link:hover {
 
     main {
         min-height: 100vh;
-        padding-top: 57px;
+        /* padding-top: 57px; */
         /* padding-bottom: 72.31px; */
     }
 
