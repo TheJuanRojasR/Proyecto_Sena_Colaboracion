@@ -31,12 +31,12 @@
 27. Revisar name en pantallas informes.                                     
 28. JUAN: Revisar pantalla editar perfiles                                                           ✔
 29. SERVIDOR: Hacer la consulta de la barra de busqueda.  
-30. JUAN: Arreglar boton de detalles del producto y alinear datos en perfiles                          
+30. JUAN: Arreglar boton de detalles del producto y alinear datos en perfiles                        ✔ 
 31. Colocar la navegacion de categorias en desktop                                                   ✔
 32. Laura: Hacer media query para modales en mobile                                                  ✔
 33. Laura: colocar menu hamburgues desktop y añadirle funcion para eliminarlo en mobile              ✔
 34. Funcion para que la barra lateral se esconda al cambiar de pantalla                              ✔
-35. JUAN: Centrar formulario crear inventario.
+35. JUAN: Centrar formulario crear inventario.                                                       ✔
 36. JUAN: Mover el boton de 3 puntos de la tarjeta de inventarios. Tiene que queda mas pegado a la parte superior derecha. 
 
 Acabar inventarios. 

@@ -416,16 +416,9 @@ li>button>p {
     line-height: 36px;
 }
 
-/* .td-body-tabla_categoria,
-.td-body-tabla_opciones{
-    margin: 0;
-    padding-left: 26px;
-} */
-
-/* .td-body-tabla_opciones {
-    vertical-align: middle;
-    margin-left: 11%;
-} */
+.td-body-tabla_opciones {
+    margin: 0px 0px 0px 4em;
+}
 
 /* Cambiar nombre de clases para estos estilos */
 
@@ -446,25 +439,6 @@ a.page-link:hover {
 #th_input_nombreCategoria {
     margin-left: 30px;
     width: 50%;
-}
-
-/* ----------------------------------------------------------------------- */
-
-/* Estilos para vista de Stock/Categoria con opciones*/
-
-.btn_editar_categoria {
-    padding: 0;
-    font-family: Inter;
-    font-size: 0.875rem;
-    font-weight: 700;
-    line-height: 1.125rem;
-}
-
-.div_input_p_tabla {
-    position: relative;
-    display: flex;
-    margin-left: 7.5px;
-    align-items: center;
 }
 
 /* ----------------------------------------------------------------------- */
