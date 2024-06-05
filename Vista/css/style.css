@@ -10,15 +10,16 @@ nav {
 }
 
 main {
-    height: 80vh;
+    height: auto;
 }
 
 footer {
+    width: 100%;
+    min-height: auto;
+    padding: 1.5rem 10rem;
     background-color: #1F2535;
     display: flex;
-    width: 100%;
-    min-height: 248px;
-    padding: 5rem 10rem;
+    justify-content: center;
     align-items: flex-start;
     gap: 5rem;
 }
@@ -42,6 +43,17 @@ h2 {
     line-height: 32px;
 }
 
+h3{
+    margin: 1rem 1rem;
+    color: #000;
+    font-family: Outfit;
+    font-size: 3.3rem;
+    font-weight: 600;
+    line-height: 4.5rem;
+    text-align: start;
+    text-shadow: 0.5rem 0.5rem 3rem#E0E0FF, 0rem 0rem 1.5rem #FCAF3B, 0rem 0rem 1.8rem #FAFAFF;
+}
+
 hr {
     stroke-width: 2px;
     height: 2px;
@@ -52,7 +64,6 @@ hr {
 .color_blanco {
     color: #FAFAFF;
 }
-
 
 .elemento_flooter {
     height: 100%;
@@ -121,7 +132,7 @@ hr {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 85%;
+    height: 70vh;
 }
 
 /* ----------------------------------------------------------------------- */
@@ -190,11 +201,18 @@ hr {
     border-radius: 10px;
     background: #333a56;
     padding: 44px 90px;
+    overflow-y: auto;
+}
+
+.registro__container::-webkit-scrollbar,
+.ingreso__container::-webkit-scrollbar {
+    width: 0;  /* Ancho de la barra de desplazamiento a cero */
+    display: none; /* Oculta la barra de desplazamiento */
 }
 
 .ingreso__container {
     padding: 0;
-    max-height: 100%;
+    max-height: 90%;
 }
 
 /* Estilos para el título del formulario de registro */
@@ -205,7 +223,6 @@ hr {
     font-weight: 400;
     line-height: 1.0;
     letter-spacing: -0.8px;
-    margin-bottom: 20px;
 }
 
 /* Estilos para el placeholder de los inputs dentro del formulario de registro */
@@ -363,7 +380,7 @@ li>button>p {
 }
 
 .btn-tabla-icono {
-    padding: 0;
+    padding: 0.45rem 0.45rem;
     color: var(--black, #171740);
     font-family: Inter;
     font-size: 0.875em;
@@ -382,14 +399,9 @@ li>button>p {
 
 /* Estilos para vista de Operaciones/Crear Entradas y Salidas*/
 
-#btnGuardar-tabla {
-    padding: 0.45rem 0.45rem;
-    background-color: #333A56;
-    color: white;
-}
-
-#btnGuardar-tabla img {
-    filter: invert(100%);
+.btnGuardar-tabla,
+.btnGuardar-tabla:hover {
+    background-color: #333A56 ;
 }
 
 /* ----------------------------------------------------------------------- */
@@ -406,13 +418,14 @@ li>button>p {
 }
 
 .td-body-tabla_categoria,
-.td-body-tabla_opciones {
+.td-body-tabla_opciones{
     margin: 0;
     padding-left: 32px;
 }
 
 .td-body-tabla_opciones {
     vertical-align: middle;
+    margin-left: 11%;
 }
 
 /* Cambiar nombre de clases para estos estilos */
@@ -427,7 +440,6 @@ a.page-link:hover {
     border: none;
 }
 
-
 /* ----------------------------------------------------------------------- */
 
 /* Estilos para vista de Stock/Crear Producto*/
@@ -438,12 +450,10 @@ a.page-link:hover {
 }
 
 .form-check-input:checked {
-    background-color: #333A56;
     border-color: #333A56;
 }
 
 /* ----------------------------------------------------------------------- */
-
 
 /* Estilos para vista de Stock/Categoria con opciones*/
 
@@ -461,10 +471,6 @@ a.page-link:hover {
     display: flex;
     margin-left: 7.5px;
     align-items: center;
-}
-
-.espacion-izq {
-    margin: 0 0 0 12px;
 }
 
 /* ----------------------------------------------------------------------- */
@@ -493,7 +499,6 @@ a.page-link:hover {
     font-family: Inter;
     font-size: 13px;
     font-weight: 700;
-    line-height: 18px;
 }
 
 .texto_error {
@@ -559,17 +564,18 @@ a.page-link:hover {
     position: relative;
     width: 100%;
     height: 100%;
+    padding: 2.5rem;
     overflow: hidden;
     background-color: #475282;
     min-height: 100%;
-    z-index: -1;
+    z-index: 0;
 }
 
 .bubbles {
     position: absolute;
-    top: 0;
+    top: 0%;
     display: flex;
-    z-index: 10;
+    z-index: 1;
 }
 
 .bubbles span {
@@ -593,7 +599,6 @@ a.page-link:hover {
         0 0 100px #333A56;
 }
 
-
 @keyframes animate {
     0% {
         transform: translateY(100vh) scale(0);
@@ -604,15 +609,9 @@ a.page-link:hover {
     }
 }
 
-#contenedor_inicio_desktop {}
-
 #carouselExampleDark {
-    position: absolute;
-    z-index: 4;
-    top: 20%;
-    left: 55%;
-    width: 38%;
-    height: 38%;
+    z-index: 2;
+    width: 60%;
 }
 
 .carousel-inner {
@@ -621,22 +620,18 @@ a.page-link:hover {
 
 .carousel-control-prev {
     left: -4%;
-    bottom: -41%;
+    bottom: -5%;
 }
 
 .carousel-control-next {
     right: -4%;
-    bottom: -41%;
-}
-
-.carousel-indicators {
-    bottom: -44%;
+    bottom: -5%;
 }
 
 #text-container {
     position: relative;
-    width: 50%;
-    left: 3%;
+    width: 100%;
+    margin: 5rem 0%;
     z-index: 20;
 }
 
@@ -646,12 +641,37 @@ a.page-link:hover {
 }
 
 #texto_inicio {
+    padding: 0%;
     font-family: "Rubik", sans-serif;
     color: #ffffff;
     text-align: center;
     line-height: 110%
 }
 
+#contenedor_descripciones{
+    padding: 1.8rem;
+}
+
+.descripciones{
+    padding: 1.5rem 0;
+    margin-bottom: 3.5rem;
+}
+
+.contenedor_texto_descripcion{
+    max-width: 35%;
+}
+
+.contenedor_img_descripcion{
+    width: 45%;
+    margin: 0 2.5rem;       
+    border-radius: 1rem;
+    box-shadow:  0 .5rem 1rem #171740
+}
+
+.img_descripcion{
+    width: 100%;
+    border-radius: 1rem;
+}
 
 /* Estilos para vista de Barra lateral*/
 
@@ -727,16 +747,16 @@ a.page-link:hover {
     display: flex;
     opacity: 0;
     pointer-events: none;
-    transition: opacity .6s .9s;
+    transition: opacity .2s .2s;
     background-color: #111111aa;
 }
 
 .modal--show {
     opacity: 1;
     pointer-events: unset;
-    transition: opacity .6s;
+    transition: opacity .3s;
     --transform: translateY(0);
-    --transition: transform .8s .8s;
+    --transition: transform .3s .3s;
 }
 
 .modal__container {
@@ -795,6 +815,14 @@ a.page-link:hover {
     right: 2%;
 }
 
+.form-select{
+    min-width: 10vw !important;
+}
+
+.espacio-izq {
+    margin: 0 0 0 0px !important;
+}
+
 /* MEDIAS */
 
 @media screen and (max-width: 1200px) {
@@ -818,17 +846,18 @@ a.page-link:hover {
 
     .form-control {
         font-size: 0.8em;
+        height: 100%;
     }
 
     .form-select {
         font-size: 0.7em;
     }
 
-    #btnGuardar-tabla {
+    .btnGuardar-tabla {
         padding: 0.3rem;
     }
 
-    #btnGuardar-tabla img {
+    .btnGuardar-tabla img {
         width: 18px;
         height: 18px;
     }
@@ -877,52 +906,83 @@ a.page-link:hover {
         gap: 1.78rem;
     }
 
-    /* ------------- INICIOS ------------- */
-    /* * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    } */
+    /* ------------- MODALES ------------- */
 
-
-
-    #contenedor_inicio {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-color: #475282;
-        min-height: 100%;
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .2s .2s;
+        background-color: #111111aa;
     }
-
     
+    .modal--show {
+        opacity: 1;
+        
     
     .container {
         z-index: 2;
     }
     
-    .bubbles {
-        position: absolute;
-        top: 0;
+    pointer-events: unset;
+        transition: opacity .3s;
+        --transform: translateY(0);
+        --transition: transform .3s .3s;
+    }
+    
+    .modal__container {
+        position: fixed;
+        top: 10%;
+        /* Ajusta este valor según la posición vertical deseada */
+        left: 50%;
+        transform: translateX(-50%);
+        /* Centra horizontalmente */
+        margin: auto;
+        width: 90%;
+        max-width: 450px;
+        max-height: 55%;
+        background-color: #ffffff;
+        border-radius: 6px;
+        padding: 1.9em 1.9em;
+        display: grid;
+        gap: 1em;
+        place-items: center;
+        grid-auto-columns: 100%;
+    }
+    
+    .modal__title {
+        font-size: 1.5rem;
+    }
+    
+    .modal__paragraph {
+        margin-bottom: 10px;
+        font-size: 0.8rem;
+    }
+    
+    .modal__img {
+        width: 15%;
+        max-width: 300px;
+    }
+
+    .modal__buttons{
+        width: 100%;
+        height: 100%;
         display: flex;
-        z-index: 1;
+        justify-content: center;
+        gap: 1rem;
     }
-
-    .bubbles span {
-        position: relative;
-        width: 30px;
-        height: 30px;
-        background-color: #FFF;
-        margin: 0 4px;
-        border-radius: 50%;
-        box-shadow: 0 0 0 10px #FFFFFF44,
-            0 0 50px #FFF,
-            0 0 100px #FFF;
-        animation: animate 15s linear infinite;
-        animation-duration: calc(125s / var(--i));
-    }
-
-    .bubbles span:nth-child(even) {
+    
+    .modal__button {
+        width: 10em;
+        height: 100%;
+        font-size: 0.8rem;
+        text-decoration: none;
+        color: #fff;
         background-color: #333A56;
         box-shadow: 0 0 0 10px #333A5644,
             0 0 50px #333A56,
@@ -976,17 +1036,16 @@ a.page-link:hover {
         height: 40vh;
     }
 
-    /* ------------- INFERIOR INICIO ------------- */
-
-
+    /* ------------- FOOTER INICIO ------------- */
+    
     .contenedor_logo_footer{
         width: 100%;
     }
 
-    .logo_footer{
+
+    .logo_footer {
         padding: 1em 0;
     }
-
 
 
     /* ------------- NAVEGADOR SUP  Y OFF CANVAS ------------- */
@@ -1006,7 +1065,7 @@ a.page-link:hover {
     }
 
     .offcanvas.offcanvas-end {
-        width: 88%;
+        width: 19em;
         padding-bottom: 72.31px;
         border-radius: 10px 0px 0px 10px;
         background-color: #333A56;
@@ -1076,6 +1135,7 @@ a.page-link:hover {
         margin-bottom: 5px;
         border-radius: 8px;
         background-color: #333A56;
+        color: #E0E0FF;
     }
 
     .form-control::placeholder {
@@ -1083,11 +1143,16 @@ a.page-link:hover {
         font-family: Inter;
         font-style: normal;
         font-weight: 400;
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .form-control:hover {
         background-color: #333A56;
+        color: #E0E0FF;
+    }
+
+    .form-control:disabled{
+        background-color: #6574ad;
         color: #E0E0FF;
     }
 
@@ -1324,6 +1389,81 @@ a.page-link:hover {
 
     /* ------------- PAGINA INICIO ------------- */
 
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    #contenedor_inicio {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #475282;
+        min-height: 100%;
+    }
+
+    .bubbles {
+        position: absolute;
+        top: 0;
+        display: flex;
+        z-index: 1;
+    }
+
+    .bubbles span {
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background-color: #FFF;
+        margin: 0 4px;
+        border-radius: 50%;
+        box-shadow: 0 0 0 10px #FFFFFF44,
+            0 0 50px #FFF,
+            0 0 100px #FFF;
+        animation: animate 15s linear infinite;
+        animation-duration: calc(125s / var(--i));
+    }
+
+    .bubbles span:nth-child(even) {
+        background-color: #333A56;
+        box-shadow: 0 0 0 10px #333A5644,
+            0 0 50px #333A56,
+            0 0 100px #333A56;
+    }
+
+    .container {
+        z-index: 2;
+    }
+
+    @keyframes animate {
+        0% {
+            transform: translateY(100vh) scale(0);
+        }
+
+        100% {
+            transform: translateY(-10) scale(1);
+        }
+    }
+    
+    .carousel-indicators{
+        top: 100%;
+    }
+
+    .carousel-control-prev{
+        left: -13%;
+        top: -40%;
+    }
+
+    .carousel-control-next{
+        right: -13%;
+        top: -40%;
+    }
+
+    #imagenMovil{
+        height: 40vh;
+    }
+
     .boton_oscuro_largo {
         width: 100%;
         height: 50px;
@@ -1379,33 +1519,6 @@ a.page-link:hover {
         border-radius: 4px 0px 0px 4px;
     }
 
-    /* ------------- CREAR INVENTARIO ------------- */
-
-    .nombre_inventario,
-    .direccion,
-    .descripcion {
-        background-color: #333A56;
-        border-radius: 8px;
-        padding-left: 12px;
-        margin-bottom: 4px;
-    }
-
-    .input_oscuro {
-        height: 50px;
-        border-radius: 0px 8px 8px 0px;
-        padding-left: 10px;
-        background-color: #333A56;
-        border: none;
-    }
-
-    .input_oscuro::placeholder {
-        color: #E0E0FF;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-    }
-
     /* ------------- CREAR ENTRADA/SALIDA ------------- */
 
     .referencia {
@@ -1436,7 +1549,9 @@ a.page-link:hover {
         margin-bottom: 5px;
         border: 1px solid #D5D8DE;
         background-color: #FFF;
-        color: #6c757d;
+        color: #666;
+        font-family: Inter;
+        font-size: 14px;
     }
 
     .input_claro_mov {
@@ -1447,6 +1562,8 @@ a.page-link:hover {
         margin-bottom: 5px;
         border: 1px solid #D5D8DE;
         background-color: #FFF;
+        font-family: Inter;
+        font-size: 14px;
     }
 
     .boton_add_producto_movimientos {
@@ -1608,9 +1725,7 @@ a.page-link:hover {
 
     /* MENU CIRCULAR */
 
-    .menu_un_btn,
-    .menu_dos_btn,
-    .menu_tres_btn {
+    .menu_circular {
         display: flex;
         flex-direction: column;
         justify-content: end;
