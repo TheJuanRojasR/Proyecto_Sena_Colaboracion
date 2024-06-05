@@ -976,6 +976,26 @@ a.page-link:hover {
         height: 40vh;
     }
 
+    #imagen-con-texto {
+        position: relative; 
+        width: 44vh; 
+        height: 17vh; 
+    }
+    
+    #imagen-con-texto img {
+        width: 100%; /* Ajusta la imagen al ancho del contenedor */
+        height: 100%; /* Ajusta la imagen a la altura del contenedor */
+    }
+    
+    .texto-imagen {
+        position: absolute; /* Posiciona el texto de forma absoluta dentro del contenedor */
+        bottom: 20px; /* Ajusta la posición vertical del texto desde abajo */
+        left: 20px; /* Ajusta la posición horizontal del texto desde la izquierda */
+        color: white; /* Color de texto blanco */
+        padding: 10px; /* Agrega padding al texto */
+        font-size: 16px; /* Ajusta el tamaño de la fuente */
+    }
+
     /* ------------- INFERIOR INICIO ------------- */
 
 
