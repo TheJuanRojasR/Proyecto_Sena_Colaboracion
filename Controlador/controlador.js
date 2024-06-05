@@ -2,7 +2,9 @@ let vista = new Vista();
 let usuario = new Usuario();
 let producto = new Producto();
 let almacen = new Almacen();
-let lista_opciones = []
+let lista_opciones = [];
+let lista_almacenes = []
+let idAlmacen = null; //Varialbe para guardar el id del almacen
 
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
@@ -107,7 +109,7 @@ function mostrar_form_registro_usuario(){
                 lista_opciones.map((obj) => [obj.id_tipo_documento.toString(), obj.tipo_documento])
             );
             console.log(categoriasObj)
-            vista.crearSelectDesdeJSON(categoriasObj, "tipo_documento", "id_tipo_documento", "tipo_documento")
+            vista.insertar_opciones_select(categoriasObj, "tipo_documento", "id_tipo_documento", "tipo_documento")
         }
     });
 }
@@ -151,6 +153,11 @@ function mostrar_form_login(){
 
 // Funciones acciones de las pantallas Registro de Usuario y Log In
 
+function mostrar_inventarios_nav(){
+    let id_usuario = usuario.id_usuario;
+    mostrar_inventarios(id_usuario);
+}
+
 function mostrar_inv_vacia(){
     
     data = vista.getForm("form_log_desktop")
@@ -176,7 +183,6 @@ function mostrar_inv_vacia(){
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
 }
-
 // Funciones acciones de la barra de navegacion Inferior
 
 function mostrar_inventarios(id_usuario){
@@ -192,7 +198,7 @@ function mostrar_inventarios(id_usuario){
                     vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
                 }
                 else{
-                    vista.mostrar_plantilla("nav_sup_desktop","navegador_sup");
+                    vista.mostrar_plantilla("nav_sup_desktop_inv","navegador_sup");
                     vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
                     vista.remover_etiqueta("footer_inicio");
                 }
@@ -206,32 +212,99 @@ function mostrar_inventarios(id_usuario){
                     vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
                 }
                 else{
-                    vista.mostrar_plantilla("nav_sup_desktop","navegador_sup",0);
+                    vista.mostrar_plantilla("nav_sup_desktop_inv","navegador_sup",0);
                     vista.mostrar_plantilla("inventarios_desktop", "contenedor_principal", 1);
-                    vista.remover_etiqueta("footer_inicio");
+                    const footer = document.getElementById("footer_inicio")
+                    if(footer){
+                        vista.remover_etiqueta("footer_inicio");
+                    }
                 }
                 cambio_clases();
-                // lista_almacenes = []
-                // lista_almacenes = data.data
-                // const almacenesObj = Object.fromEntries(
-                //     lista_opciones.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
-                // );
-
-                // vista.anadir_seccion("tarjeta_inventarios", "contenedor_tarjetas");
-                // lista_almacenes.forEach(almacen => vista.anadir_seccion());
-                // for (let i = 0; i < lista_almacenes.length; i++) {
-                //     vista.anadir_seccion("tarjeta_inventarios", "contenedor_tarjetas");
-                //     for (let j = 0; j < lista_almacenes.length; j++) {
-                //         vista.insertar_dato("nombre_almacen", lista_almacenes[j].nombre_almacen, i);
-                //         vista.insertar_dato("direccion_almacen", lista_almacenes[j].direccion_almacen, i);
-                //         vista.insertar_dato("descripcion_almacen", lista_almacenes[j].descripcion_almacen, i);
-                //     }
-                // }
+                lista_almacenes = data.data
+                vista.informacion_tarjeta_inventario(lista_almacenes, "contenedor_tarjetas");
             }
         }else{
             vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
         }
     });
+}
+
+function crear_inventario(){
+
+    data = vista.getForm("form_crear_inventario_desktop")
+
+    if(data.ok){
+        almacen.create(data, function(data){
+            if(data.success){
+                const almacenOjt = {id_almacen:data.data, id_usuario:usuario.id_usuario};
+                almacen.asignAlmacen(almacenOjt, function(dataAlmacen){
+                    if(dataAlmacen.success){
+                        vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                        mostrar_inventarios(usuario.id_usuario);
+                    }
+                });
+            }else{
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }
+        });
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    }
+}
+
+function borrar_tarjeta(btnEliminar){
+    idAlmacen = parseInt(btnEliminar.getAttribute("data-eliminar"));
+    vista.añadir_evento_click("btn_aceptar", eliminar_inventario);
+    vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)
+}
+
+function eliminar_inventario(){
+    numero_almacen = {id_almacen:idAlmacen}
+    almacen.deleteAlmacen(numero_almacen, function(data){
+        if(data.success){
+            mostrar_inventarios(usuario.id_usuario);
+            vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion);
+        }else{
+            vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
+        }
+    })
+}
+
+function mostrar_editar_inv(btnEditar){
+    idAlmacen = parseInt(btnEditar.getAttribute("data-editar"));
+    almacen.getById(idAlmacen, function(data){
+        if(data.success){
+            if(tamañoPantalla.matches){
+                vista.mostrar_plantilla("editar_inventario", "contenedor_principal", 1);
+            }
+            else{
+                vista.mostrar_plantilla("editar_inventario_desktop", "contenedor_principal", 1);
+            }
+            cambio_clases();
+            almacen_mostrar = data.data;
+            vista.informacion_editar_inventario(almacen_mostrar, "contenedor_editar_inventario");
+        }else{
+            vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
+        }
+    });
+}
+
+function guardar_editar_inventario(){
+    data = vista.getForm("form_editar_inventario_desktop")
+    data.id_almacen = idAlmacen
+    if(data.ok){
+        console.log(almacen);
+        almacen.updateAlmacen(data, function(data){
+            if(data.success){
+                vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                mostrar_inventarios(usuario.id_usuario);
+            }else{
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }
+        });
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    }
 }
 
 function mostrar_movimientos_vacia(){
@@ -244,15 +317,36 @@ function mostrar_movimientos_vacia(){
     }
 }
 
-function mostrar_stock_vacia(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("stock_vacia", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_tres","contenedor_boton_circular");
-        vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf");
-    }
-    else{
-        vista.mostrar_plantilla("stock_vacia_desktop", "contenedor_principal", 1);
-    }
+function mostrar_stock_vacia(btnIngresar){
+    idAlmacen = parseInt(btnIngresar.getAttribute("data-ingresar"));
+    data.id_almacen = idAlmacen
+    producto.getAllProduct(data, function(data){
+        if(data.success){
+            if(data.data.length == 0){
+                if(tamañoPantalla.matches){
+                    vista.mostrar_plantilla("stock_vacia", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_tres","contenedor_boton_circular");
+                    vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf");
+                }
+                else{
+                    vista.mostrar_plantilla("nav_sup_desktop","navegador_sup",0);
+                    vista.mostrar_plantilla("stock_vacia_desktop", "contenedor_principal", 1);
+                }
+                cambio_clases();
+            }else{
+                if(tamañoPantalla.matches){
+                    vista.mostrar_plantilla("stock", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_tres","contenedor_boton_circular");
+                    vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf")
+                }
+                else{
+                    vista.mostrar_plantilla("stock_desktop", "contenedor_principal", 1);
+                }   
+            }
+        }
+    })
+
+
 }
 
 function mostrar_seleccionar_informe(){
@@ -286,15 +380,6 @@ function mostrar_form_crear_inv(){
     }
 }
 
-function mostrar_editar_inv(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("editar_inventario", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("editar_inventario_desktop", "contenedor_principal", 1);
-    }
-}
-
 // Funciones acciones de la pantalla de Stock
 
 function mostar_form_crear_producto(){
@@ -321,17 +406,6 @@ function mostar_form_crear_producto(){
             vista.insertar_opciones_select(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")
         }
     });
-}
-
-function mostrar_stock(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("stock", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_tres","contenedor_boton_circular");
-        vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf")
-    }
-    else{
-        vista.mostrar_plantilla("stock_desktop", "contenedor_principal", 1);
-    }
 }
 
 function mostrar_detalles_producto(){
@@ -538,8 +612,13 @@ function añadir_producto_entradas(){
     vista.anadir_seccion( "fila_productos_entradas_desktop", "tbody_productos_entradas");
 }
 
+function mostrar_modal_confirmacion(evento_click){
+    vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)    
+    vista.añadir_evento_click("btn_aceptar", evento_click)
+}
+
 function cerrar_modal_confirmacion(){
-    vista.cambiar_clases('modal', lista_clases_modal_confirmacion);
+    vista.cambiar_clases('modal_confirmacion', lista_clases_modal_confirmacion);
 }
 
 function cerrar_modal_error(){

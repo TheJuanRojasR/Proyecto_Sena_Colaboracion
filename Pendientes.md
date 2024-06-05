@@ -31,19 +31,24 @@
 27. Revisar name en pantallas informes.                                     
 28. JUAN: Revisar pantalla editar perfiles                                                           ✔
 29. SERVIDOR: Hacer la consulta de la barra de busqueda.  
-30. JUAN: Arreglar boton de detalles del producto y alinear datos en perfiles                          
+30. JUAN: Arreglar boton de detalles del producto y alinear datos en perfiles                        ✔ 
 31. Colocar la navegacion de categorias en desktop                                                   ✔
 32. Laura: Hacer media query para modales en mobile                                                  ✔
 33. Laura: colocar menu hamburgues desktop y añadirle funcion para eliminarlo en mobile              ✔
 34. Funcion para que la barra lateral se esconda al cambiar de pantalla                              ✔
+35. JUAN: Centrar formulario crear inventario.                                                       ✔
+36. JUAN: Mover el boton de 3 puntos de la tarjeta de inventarios. Tiene que queda mas pegado a la parte superior derecha. 
+37. LAURA: Mover funcion del evento click al controlador, y añadirle eliminar el evento anterior
+38. JUAN: Añadir flex al contendor de las tarjetas de inventarios
 
-Acabar inventarios. 
-    Crear inventario
-    Crear tarjetas segun numero de inventarios del usuario
-        Remplazar valores de la tarjeta con la DB
-    Eliminar inventario (Actualizar el estado)
-    Editar inventario 
-
+Hacer productos
+    si tiene productos mostrarlos en stock, si no mostrar stock vacio
+        si stock muestra productos, mostrar los productos en lista
+            acceder a detalles del producto
+                eliminar y editar productos
+        si stock no muestra productos
+            crear producto
+            mostar stock con productos
 
 # Mejoras
 1. Tener un solo modal

@@ -100,51 +100,62 @@
                     <div class="contenedor_img_descripcion">
                         <img class="img_descripcion" src="./Assets/img/variety-vault-2.png" alt="">
                     </div>
-                    <div class="contenedor_texto_descripcion">
-                        <h3>Crea, Maneja y Personaliza tus Productos</h3>
-
-                    </div>
-                </div>
-                <div class="descripciones d-flex flex-row justify-content-around align-items-center">
-                    <div class="contenedor_texto_descripcion">
-                        <h3>Crea los perfiles que quieras</h3>
-
-                    </div>
-                    <div class="contenedor_img_descripcion">
-                        <img class="img_descripcion" src="./Assets/img/variety-vault-3.png" alt="">
-                    </div>
-                </div>
-                <div class="descripciones d-flex flex-row justify-content-around align-items-center">
-                    <div class="contenedor_img_descripcion">
-                        <img class="img_descripcion" src="./Assets/img/variety-vault-1.png" alt="">
-                    </div>
-                    <div class="contenedor_texto_descripcion">
-                        <h3>Genera Informes de tu Inventario</h3>
-
-                    </div>
                 </div>
             </div>
-        </div>        
+        </div>
+    </div>
+
+    <!-- Contenido de la pagina -->
+    <main id="contenedor_principal" class="container-fluid container_main ">
+        
     </main>
 
-    <!-- Navegador Inferior -->
-    <footer class="d-flex justify-content-center">
-        <div class="row">
-            <div class="col-6 imagen_inicio"><img src="/Assets/img/logo_empresa_sin_fondo_blanco.svg">
+    <!-- Barra Inferior -->
+    <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
+    </nav>
+
+    <footer id="footer_inicio" >
+    </footer>
+
+    <!-- MODALES -->
+
+    <!-- Modal para Confirmacion -->
+    <section class="modal modal--confirm" id="modal_confirmacion">
+        <div class="modal__container">
+            <button class="btn modal__close" onclick="cerrar_modal_confirmacion()">
+                <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+            </button>
+            <img src="./Assets/img/logo_modal_confirmacion.svg" alt="" class="modal__img">
+            <h2 class="modal__title">Modal de confirmación</h2>
+            <p class="modal__paragraph">¿Estás seguro de realizar esta acción?</p>
+            <div class="modal__buttons">
+                <button class="modal__button" id="btn_aceptar">Aceptar</button>
+                <button class="modal__button">Cancelar</button>
             </div>
-        </div> 
-        <div class="row">
-            <div class="col-8">
-                <a href="#Enlace_de_navegacion">Enlace de Navegaciòn</a><br>
-                <a href="#noticias">Inicio</a><br>
-                <a href="#noticias">Noticias</a><br>
-                <a href="#noticias">Noticias</a>
-                <a href="#deportes">© 2024 Variety Vault</a><br>
-                <a href="#deportes">Deportes</a><br>
-                <a href="#deportes">Deportes</a><br>
-                <a href="#deportes">Deportes</a><br>
-                <a href="#contacto">Contacto</a>
-            </div>
+        </div>
+    </section>
+
+    <!-- Modal para Exito -->
+    <section class="modal modal--success" id="modal_exito">
+        <div class="modal__container">
+            <button class="btn modal__close" onclick="cerrar_modal_exito()">
+                <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+            </button>
+            <img src="./Assets/img/logo_modal_exito.svg" alt="" class="modal__img">
+            <h2 class="modal__title">Modal de éxito</h2>
+            <p class="modal__paragraph">¡La acción se ha realizado con éxito!</p>
+        </div>
+    </section>
+
+    <!-- Modal para Error -->
+    <section class="modal modal--error" id="modal_error">
+        <div class="modal__container">
+            <button class="btn modal__close" onclick="cerrar_modal_error()">
+                <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+            </button>
+            <img src="./Assets/img/logo_modal_error.svg" alt="" class="modal__img">
+            <h2 class="modal__title">Error</h2>
+            <p class="modal__paragraph" id="modal__mensaje"></p>
         </div>
     </footer>
 
@@ -1983,6 +1994,21 @@
         </div>
     </template>
 
+    <!-- Navegador superior Inventarios -->
+    <template id="nav_sup_desktop_inv">
+        <div class="container-fluid d-flex justify-content-between">
+            <a class="navbar-brand" href="#">
+                <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+            </a>
+            <div class="collapse navbar-collapse d-flex justify-content-end">
+                <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img src="./Assets/img/user.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </template>
+
     <!-- Navegador superior -->
     <template id="nav_sup_desktop">
         <div class="container-fluid">
@@ -1992,7 +2018,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inventarios()">Inventario</a>
+                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inventarios_nav()">Inventarios</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -2474,81 +2500,41 @@
                         </div>
                     </template>
 
-                    <!-- Pantalla Crear Inventario -->
-                    <template id="crear_inventario_desktop">
-                        <div class="container">
-                            <div class="encabezado">
-                                <h1>INVENTARIO</h1>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="container d-flex">
-                            <div class="container col-lg-4 registro-inventario">
-                                <form id="form_crear_inventario_desktop">
-                                    <div class="form-floating mb-2">
-                                        <input type="email" class="form-control" id="floatingInputValue"
-                                            placeholder="nombre-almacen" value="SENA Quirigua" name="nombre_almacen" />
-                                        <label for="floatingInputValue">Nombre Inventario</label>
-                                    </div>
-                                    <div class="form-floating mb-2">
-                                        <input type="email" class="form-control" id="floatingInputValue"
-                                            placeholder="direccion-almacen" value="Cra. 93 #80c-72"
-                                            name="direccion_almacen" />
-                                        <label for="floatingInputValue">Dirección Inventario</label>
-                                    </div>
-                                    <div class="form-floating mb-2">
-                                        <input type="email" class="form-control" id="floatingInputValue"
-                                            placeholder="descripcion-almacen" value="Contiene computadores"
-                                            name="descripcion_almacen" />
-                                        <label for="floatingInputValue">Descripción Inventario</label>
-                                    </div>
-                                </form>
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-general" type="button" onclick="mostrar_inventarios()">
-                                        Crear Inventario
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container">
-                            <div class="encabezado">
-                                <h1>INVENTARIO</h1>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="container d-flex">
-                            <div class="container col-lg-4 registro-inventario">
-                                <div>
-                                    <form class="form-floating mb-2">
-                                        <input type="email" class="form-control" id="floatingInputValue"
-                                            placeholder="nombre-almacen" value="SENA Quirigua" name="nombre_almacen" />
-                                        <label for="floatingInputValue">Nombre Inventario</label>
-                                    </form>
-
-                                    <form class="form-floating mb-2">
-                                        <input type="email" class="form-control" id="floatingInputValue"
-                                            placeholder="direccion-almacen" value="Cra. 93 #80c-72"
-                                            name="direccion_almacen" />
-                                        <label for="floatingInputValue">Dirección Inventario</label>
-                                    </form>
-
-                                    <form class="form-floating mb-2">
-                                        <input type="email" class="form-control" id="floatingInputValue"
-                                            placeholder="descripcion-almacen" value="Contiene computadores"
-                                            name="descripcion_almacen" />
-                                        <label for="floatingInputValue">Descripción Inventario</label>
-                                    </form>
-                                </div>
-
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-general" type="button">
-                                        Crear Inventario
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </template>
+    <!-- Pantalla Crear Inventario -->
+    <template id="crear_inventario_desktop">
+        <div class="container">
+            <div class="encabezado">
+                <h1>INVENTARIO</h1>
+            </div>
+        </div>
+        <hr />
+        <div class="container d-flex justify-content-center">
+            <div class="container col-lg-4 registro-inventario">
+                <form id="form_crear_inventario_desktop">
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="floatingInputValue" placeholder="nombre-almacen"
+                            name="nombre_almacen"/>
+                        <label for="floatingInputValue">Nombre Inventario</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                            name="direccion_almacen"/>
+                        <label for="floatingInputValue">Dirección Inventario</label>
+                    </div>
+                    <div class="form-floating mb-2">
+                        <input type="text" class="form-control" id="floatingInputValue"
+                            placeholder="descripcion-almacen" name="descripcion_almacen"/>
+                        <label for="floatingInputValue">Descripción Inventario</label>
+                    </div>
+                </form>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-general" type="button" onclick="crear_inventario()">
+                        Crear Inventario
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
 
                     <!-- Pantalla de Inventarios -->
                     <template id="inventarios_desktop">
@@ -2661,72 +2647,23 @@
                         </div>
                     </template>
 
-                    <!-- Pantalla Editar Inventarios -->
-                    <template id="editar_inventario_desktop">
-                        <div class="container encabezado">
-                            <h1>INVENTARIO</h1>
-                            <div class="d-flex flex-row">
-                                <form action="#" method="get" class="search-form encabezado__search-form"
-                                    id="form_busqueda_desktop">
-                                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                                </form>
-                                <button class="encabezado__search-button" type="button">
-                                    <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="container d-flex flex-wrap justify-content-around">
-                            <div class="container inventario flex-wrap col-lg-3">
-                                <form action="" id="form_editar_inventario_desktop">
-                                    <input type="text" class="form-control mb-3"
-                                        aria-label="Text input with dropdown button" value="Nombre de Inventario"
-                                        placeholder="Editar título" name="nombre_almacen" />
-                                    <input type="text" class="form-control mb-3 "
-                                        aria-label="Text input with dropdown button" value="Dirección: XXXXX"
-                                        placeholder="Editar Dirección" name="direccion_almacen" />
-                                    <textarea class="form-control mb-3 min-height-100" rows="6">Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibhmalesuada, volutpat metus ac, laoreet erat.vestibulum orci. In acnibh malesuada.
-                    </textarea>
-                                </form>
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-general" type="button" onclick="mostrar_inventarios()">
-                                        Guardar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container encabezado">
-                            <h1>INVENTARIO</h1>
-                            <div>
-                                <form action="#" method="get" class="search-form encabezado__search-form">
-                                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                                    <button class="encabezado__search-button" type="button">
-                                        <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                    </button>
-                                </form>
-                            </div>
-                            <button class="btn btn-general ms-auto">Crear Inventario</button>
-                        </div>
-                        <hr />
-                        <div class="container d-flex flex-wrap justify-content-around">
-                            <div class="container inventario flex-wrap col-lg-3">
-                                <input type="text" class="form-control mb-3"
-                                    aria-label="Text input with dropdown button" value="Nombre de Inventario"
-                                    placeholder="Editar título" name="nombre_almacen" />
-                                <input type="text" class="form-control mb-3 "
-                                    aria-label="Text input with dropdown button" value="Dirección: XXXXX"
-                                    placeholder="Editar Dirección" name="direccion_almacen" />
-                                <textarea class="form-control mb-3 min-height-100" rows="6">Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibhmalesuada, volutpat metus ac, laoreet erat.vestibulum orci. In acnibh malesuada.
-                </textarea>
-                                <div class="d-grid gap-2">
-                                    <button class="btn btn-general" type="button">
-                                        Guardar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </template>
+    <!-- Pantalla Editar Inventarios -->
+    <template id="editar_inventario_desktop">
+        <div class="container encabezado">
+            <h1>INVENTARIO</h1>
+            <div class="d-flex flex-row">
+                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                </form>
+                <button class="encabezado__search-button" type="button">
+                    <img src="./Assets/img/logo_lupa.svg" alt="" />
+                </button>
+            </div>
+        </div>
+        <hr />
+        <div class="container d-flex flex-wrap justify-content-around" id="contenedor_editar_inventario">
+        </div>
+    </template>
 
                     <!-- Pantalla Movimientos vacia -->
                     <template id="movimientos_vacia_desktop">
@@ -3734,324 +3671,110 @@
                         </div>
                     </template>
 
-                    <!-- Pantalla Stock -->
-                    <template id="stock_desktop">
-                        <div class="container encabezado">
-                            <h1>STOCK</h1>
-                            <div class="d-flex flex-row">
-                                <form action="#" method="get" class="search-form encabezado__search-form"
-                                    id="form_busqueda_desktop">
-                                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                                </form>
-                                <button class="encabezado__search-button" type="button">
-                                    <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                </button>
+    <!-- Pantalla Stock -->
+    <template id="stock_desktop">
+        <div class="container encabezado">
+            <h1>STOCK</h1>
+            <div class="d-flex flex-row">
+                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                </form>
+                <button class="encabezado__search-button" type="button">
+                    <img src="./Assets/img/logo_lupa.svg" alt="" />
+                </button>
+            </div>
+            <button class="btn btn-general ms-auto" onclick="mostar_form_crear_producto()">Crear Producto</button>
+        </div>
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Categoría</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="td-body-tabla">
+                                <p class="td-body-tabla_opciones">Categoria XXX</p>
                             </div>
-                            <button class="btn btn-general ms-auto" onclick="mostar_form_crear_producto()">Crear
-                                Producto</button>
-                        </div>
-                        <hr />
-                        <div class="container  table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">
-                                            <button class="btn btn-tabla-icono">
-                                                <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg"
-                                                    alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Producto</span>
-                                        </th>
-                                        <th scope="col">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Referencia</span>
-                                        </th>
-                                        <th scope="col">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Categoria</span>
-                                        </th>
-                                        <th scope="col">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                                        </th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="td-body-tabla_opciones espacio-izq">Categoria XXX</p>
-                                            </div>
-                                        </td>
-                                        <th scope="row" class="td-body-tabla">
-                                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                                        </th>
-                                        <td class="td-body-tabla">
-                                            <p class="td-body-tabla_opciones">05/03/2024</p>
-                                        </td>
-                                        <td class="td-body-tabla">
-                                            <p class="td-body-tabla_opciones">Lapiz</p>
-                                        </td>
-                                        <td class="">
-                                            <button class="btn btn-tabla-icono btnGuardar-tabla"
-                                                onclick="mostrar_detalles_producto()">
-                                                <img src="./Assets/img/logo_ingresar_detalles.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div aria-label="Page navigation example"
-                                class="position-absolute bottom-0 start-50 translate-middle-x">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">
-                                            <img src="./Assets/img/logo_flecha_izq.svg" alt="" />
-                                        </a>
+                        </td>
+                        <th scope="row" class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Ref 0001</p>
+                        </th>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">05/03/2024</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Lapiz</p>
+                        </td>
+                        <td class="">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="d-grid gap-2">
+                                        <button class="btn d-flex align-items-center">
+                                            <img src="./Assets/img/logo_ingresar_detalles.svg" alt="" />
+                                            <p>Detalles</p>
+                                        </button>
                                     </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">
-                                            <img src="./Assets/img/logo_flecha_der.svg" alt="" />
-                                        </a>
+                                    <li class="d-grid gap-2">
+                                        <button class="btn  d-flex align-items-center">
+                                            <img src="./Assets/img/eliminar.svg" alt="" />
+                                            <p>Eliminar</p>
+                                        </button>
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-
-                        <div class="container encabezado">
-                            <h1>STOCK</h1>
-                            <div>
-                                <form action="#" method="get" class="search-form encabezado__search-form">
-                                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                                    <button class="encabezado__search-button" type="button">
-                                        <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                    </button>
-                                </form>
-                            </div>
-                            <button class="btn btn-general ms-auto">Crear Producto</button>
-                        </div>
-                        <hr />
-                        <div class="container  table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">
-                                            <button class="btn btn-tabla-icono">
-                                                <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg"
-                                                    alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Producto</span>
-                                        </th>
-                                        <th scope="col">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Referencia</span>
-                                        </th>
-                                        <th scope="col">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Categoria</span>
-                                        </th>
-                                        <th scope="col">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                                        </th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="espacion-izq">Categoria XXX</p>
-                                            </div>
-                                        </td>
-                                        <th scope="row" class="td-body-tabla">
-                                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                                        </th>
-                                        <td class="td-body-tabla">
-                                            <p class="td-body-tabla_opciones">05/03/2024</p>
-                                        </td>
-                                        <td class="td-body-tabla">
-                                            <p class="td-body-tabla_opciones">Lapiz</p>
-                                        </td>
-                                        <td class="">
-                                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
-                                                <img src="./Assets/img/logo_ingresar_detalles.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div aria-label="Page navigation example"
-                                class="position-absolute bottom-0 start-50 translate-middle-x">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">
-                                            <img src="./Assets/img/logo_flecha_izq.svg" alt="" />
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#">
-                                            <img src="./Assets/img/logo_flecha_der.svg" alt="" />
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </template>
-
-                    <!-- Pantalla Eliminar Producto -->
-                    <template id="eliminar_producto_desktop">
-                        <div class="container encabezado">
-                            <h1>STOCK</h1>
-                            <div class="d-flex flex-row">
-                                <form action="#" method="get" class="search-form encabezado__search-form"
-                                    id="form_busqueda_desktop">
-                                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                                </form>
-                                <button class="encabezado__search-button" type="button">
-                                    <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="container container_min_height table-responsive position-relative">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="">
-                                            <button class="btn btn-tabla-icono">
-                                                <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg"
-                                                    alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Producto</span>
-                                        </th>
-                                        <th scope="col" class="">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Referencia</span>
-                                        </th>
-                                        <th scope="col">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Categoria</span>
-                                        </th>
-                                        <th scope="col">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="td-body-tabla_opciones">Categoria XXX</p>
-                                            </div>
-                                        </td>
-                                        <th scope="row" class="td-body-tabla">
-                                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                                        </th>
-                                        <td class="td-body-tabla">
-                                            <p class="td-body-tabla_opciones">05/03/2024</p>
-                                        </td>
-                                        <td class="td-body-tabla">
-                                            <p class="td-body-tabla_opciones">Lapiz</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
-                        </div>
-
-                        <div class="container encabezado">
-                            <h1>STOCK</h1>
-                            <div>
-                                <form action="#" method="get" class="search-form encabezado__search-form">
-                                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                                    <button class="encabezado__search-button" type="button">
-                                        <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="container container_min_height table-responsive position-relative">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="">
-                                            <button class="btn btn-tabla-icono">
-                                                <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg"
-                                                    alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Producto</span>
-                                        </th>
-                                        <th scope="col" class="">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Referencia</span>
-                                        </th>
-                                        <th scope="col">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Categoria</span>
-                                        </th>
-                                        <th scope="col">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                                        </th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="espacion-izq">Categoria XXX</p>
-                                            </div>
-                                        </td>
-                                        <th scope="row" class="td-body-tabla">
-                                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                                        </th>
-                                        <td class="td-body-tabla">
-                                            <p class="td-body-tabla_opciones">05/03/2024</p>
-                                        </td>
-                                        <td class="td-body-tabla">
-                                            <p class="td-body-tabla_opciones">Lapiz</p>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
-                        </div>
-                    </template>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="./Assets/img/logo_flecha_izq.svg" alt="" />
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">
+                            <img src="./Assets/img/logo_flecha_der.svg" alt="" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </template>
 
                     <!-- Pantalla Categorias vacia -->
                     <template id="categorias_vacia_desktop">
@@ -4141,372 +3864,114 @@
                         </div>
                     </template>
 
-                    <!-- Pantalla Categorias -->
-                    <template id="categorias_desktop">
-                        <div class="container encabezado">
-                            <h1>CATEGORIA</h1>
-                            <div class="d-flex flex-row">
-                                <form action="#" method="get" class="search-form encabezado__search-form"
-                                    id="form_busqueda_desktop">
-                                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                                </form>
-                                <button class="encabezado__search-button" type="button">
-                                    <img src="./Assets/img/logo_lupa.svg" alt="" />
+    <!-- Pantalla Categorias -->
+    <template id="categorias_desktop">
+        <div class="container encabezado">
+            <h1>Categoría</h1>
+            <div class="d-flex flex-row">
+                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                </form>
+                <button class="encabezado__search-button" type="button">
+                    <img src="./Assets/img/logo_lupa.svg" alt="" />
+                </button>
+            </div>
+        </div>
+        <hr />
+        <div class="container container_min_height position-relative">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Categoría</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="d-flex">
+                            <div class="td-body-tabla">
+                                <p class="td-body-tabla_opciones">Categoria XXX</p>
+                            </div>
+                        </th>
+                        <td class="text-end">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="./Assets/img/menu_horizontal.svg" alt="" />
                                 </button>
+                                <ul class="dropdown-menu">
+                                    <li class="d-grid gap-2">
+                                        <button class="btn d-flex align-items-center">
+                                            <img src="./Assets/img/lapiz_editar.svg" alt="" />
+                                            <p>Editar</p>
+                                        </button>
+                                    </li>
+                                    <li class="d-grid gap-2">
+                                        <button class="btn  d-flex align-items-center">
+                                            <img src="./Assets/img/eliminar.svg" alt="" />
+                                            <p>Eliminar</p>
+                                        </button>
+                                    </li>
+                                </ul>
                             </div>
-                            <button class="btn btn-general ms-auto" onclick="mostrar_form_crear_categoria()">Crear
-                                Categoría</button>
-                        </div>
-                        <hr />
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2">Categoría</span>
-                                        </th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row" class="d-flex">
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="td-body-tabla_opciones">Categoria XXX</p>
-                                            </div>
-                                        </th>
-                                        <td class="text-end">
-                                            <button class="btn btn_editar_categoria"
-                                                onclick="mostrar_editar_categoria()">
-                                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
 
-                        <div class="container encabezado">
-                            <h1>CATEGORIA</h1>
-                            <div>
-                                <form action="#" method="get" class="search-form encabezado__search-form">
-                                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                                    <button class="encabezado__search-button" type="button">
-                                        <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                    </button>
-                                </form>
-                            </div>
-                            <button class="btn btn-general ms-auto">Crear Categoría</button>
-                        </div>
-                        <hr />
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2">Categoría</span>
-                                        </th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-
-                                    <tr>
-                                        <th scope="row" class="d-flex">
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="espacion-izq">Categoria XXX</p>
-                                            </div>
-                                        </th>
-                                        <td class="text-end">
-                                            <button class="btn btn_editar_categoria">
-                                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th scope="row" class="d-flex">
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="espacion-izq">Categoria XXX</p>
-                                            </div>
-                                        </th>
-                                        <td class="text-end">
-                                            <button class="btn btn_editar_categoria">
-                                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th scope="row" class="d-flex">
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="espacion-izq">Categoria XXX</p>
-                                            </div>
-                                        </th>
-                                        <td class="text-end">
-                                            <button class="btn btn_editar_categoria">
-                                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </template>
-
-                    <!-- Pantalla Editar Categoria -->
-                    <template id="editar_categoria_desktop">
-                        <div class="container encabezado">
-                            <h1>CATEGORIA</h1>
-                            <div class="d-flex flex-row">
-                                <form action="#" method="get" class="search-form encabezado__search-form"
-                                    id="form_busqueda_desktop">
-                                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                                </form>
-                                <button class="encabezado__search-button" type="button">
-                                    <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 ">Categoría</span>
-                                        </th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <form action="" id="form_editar_categoria_desktop">
-                                            <th scope="row" class="d-flex align-items-center">
-                                                <input type="text" id="th_input_nombreCategoria" class="form-control"
-                                                    aria-label="Text input with dropdown button"
-                                                    placeholder="Ingreso nuevo nombre de Categoria"
-                                                    name="nombre_categoria" />
-                                            </th>
-                                        </form>
-                                        <td class="text-end">
-                                            <button class="btn btn-tabla-icono btnGuardar-tabla"
-                                                onclick="mostrar_categorias()">
-                                                <img src="./Assets/img/guardar.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <div class="container encabezado">
-                            <h1>CATEGORIA</h1>
-                            <div>
-                                <form action="#" method="get" class="search-form encabezado__search-form">
-                                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                                    <button class="encabezado__search-button" type="button">
-                                        <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="container">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 ">Categoría</span>
-                                        </th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-                                    <tr>
-                                        <th scope="row" class="d-flex align-items-center">
-                                            <input type="text" id="th_input_nombreCategoria" class="form-control"
-                                                aria-label="Text input with dropdown button"
-                                                placeholder="Ingreso nuevo nombre de Categoria" />
-                                        </th>
-                                        <td class="text-end">
-                                            <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
-                                                <img src="./Assets/img/guardar.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </template>
-
-                    <!-- Pantalla Eliminar Categoria -->
-                    <template id="eliminar_categoria_desktop">
-
-                        <div class="container encabezado">
-                            <h1>Categoría</h1>
-                            <div class="d-flex flex-row">
-                                <form action="#" method="get" class="search-form encabezado__search-form"
-                                    id="form_busqueda_desktop">
-                                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                                </form>
-                                <button class="encabezado__search-button" type="button">
-                                    <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                </button>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="container container_min_height position-relative">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 ">Categoría</span>
-                                        </th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row" class="d-flex">
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="td-body-tabla_opciones">Categoria XXX</p>
-                                            </div>
-                                        </th>
-                                        <td class="text-end">
-                                            <button class="btn btn_editar_categoria">
-                                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="d-flex">
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="td-body-tabla_opciones">Categoria XXX</p>
-                                            </div>
-                                        </th>
-                                        <td class="text-end">
-                                            <button class="btn btn_editar_categoria">
-                                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="d-flex">
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="td-body-tabla_opciones">Categoria XXX</p>
-                                            </div>
-                                        </th>
-                                        <td class="text-end">
-                                            <button class="btn btn_editar_categoria">
-                                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
-                        </div>
-
-                        <div class="container encabezado">
-                            <h1>Categoría</h1>
-                            <div>
-                                <form action="#" method="get" class="search-form encabezado__search-form">
-                                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                                    <button class="encabezado__search-button" type="button">
-                                        <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                        <hr />
-                        <div class="container container_min_height position-relative">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th scope="col" class="">
-                                            <button class="btn btn-tabla-icono">
-                                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                            </button>
-                                            <span class="ml-2 ">Categoría</span>
-                                        </th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-
-                                    <tr>
-                                        <th scope="row" class="d-flex">
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="espacion-izq">Categoria XXX</p>
-                                            </div>
-                                        </th>
-                                        <td class="text-end">
-                                            <button class="btn btn_editar_categoria">
-                                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th scope="row" class="d-flex">
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="espacion-izq">Categoria XXX</p>
-                                            </div>
-                                        </th>
-                                        <td class="text-end">
-                                            <button class="btn btn_editar_categoria">
-                                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <th scope="row" class="d-flex">
-                                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                                <input class="form-check-input" type="checkbox" value="">
-                                                <p class="espacion-izq">Categoria XXX</p>
-                                            </div>
-                                        </th>
-                                        <td class="text-end">
-                                            <button class="btn btn_editar_categoria">
-                                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
-                        </div>
-                    </template>
+    <!-- Pantalla Editar Categoria -->
+    <template id="editar_categoria_desktop">
+        <div class="container encabezado">
+            <h1>CATEGORIA</h1>
+            <div class="d-flex flex-row">
+                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                </form>
+                <button class="encabezado__search-button" type="button">
+                    <img src="./Assets/img/logo_lupa.svg" alt="" />
+                </button>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 ">Categoría</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <form action="" id="form_editar_categoria_desktop">
+                            <th scope="row" class="d-flex align-items-center">
+                                <input type="text" id="th_input_nombreCategoria" class="form-control"
+                                    aria-label="Text input with dropdown button"
+                                    placeholder="Ingreso nuevo nombre de Categoria" name="nombre_categoria"/>
+                            </th>
+                        </form>
+                        <td class="text-end">
+                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_categorias()">
+                                <img src="./Assets/img/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
 
                     <!-- Pantalla Abastecimiento -->
                     <template id="abastecimiento_desktop">
@@ -5685,355 +5150,133 @@
                                     </div>
                                 </template>
 
-                                <!-- Pantalla Perfiles -->
-                                <template id="perfiles_con_inf_desktop">
-                                    <div class="container encabezado">
-                                        <h1>Perfíles</h1>
-                                        <div class="d-flex flex-row">
-                                            <form action="#" method="get" class="search-form encabezado__search-form"
-                                                id="form_busqueda_desktop">
-                                                <input class="encabezado__search-input" type="text" name=""
-                                                    placeholder="Buscar" />
-                                            </form>
-                                            <button class="encabezado__search-button" type="button">
-                                                <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                            </button>
-                                        </div>
-                                        <button class="btn btn-general ms-auto"
-                                            onclick="mostrar_form_crear_perfil()">Crear Perfil</button>
-                                    </div>
-                                    <hr />
-                                    <div class="container">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col" class="">
-                                                        <button class="btn btn-tabla-icono">
-                                                            <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                                        </button>
-                                                        <span class="ml-2 ">Nombre Perfil</span>
-                                                    </th>
-                                                    <th scope="col" class="">
-                                                        <button class="btn btn-tabla-icono">
-                                                            <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                                        </button>
-                                                        <span class="ml-2 ">Rol</span>
-                                                    </th>
-                                                    <th scope="col"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row" class="d-flex">
-                                                        <div class="form-check td-body-tabla div_input_p_tabla">
-                                                            <input class="form-check-input espacio-izq" type="checkbox"
-                                                                value="">
-                                                            <p class="td-body-tabla_opciones">Pepito Perez</p>
-                                                        </div>
-                                                    </th>
-                                                    <td class="td-body-tabla">
-                                                        <p class="td-body-tabla_opciones espacio-izq">Administrador</p>
-                                                    </td>
-                                                    <td class="text-end">
-                                                        <button class="btn btn_editar_categoria"
-                                                            onclick="mostrar_editar_perfiles()">
-                                                            <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+    <!-- Pantalla Perfiles -->
+    <template id="perfiles_con_inf_desktop">
+        <div class="container encabezado">
+            <h1>Perfíles</h1>
+            <div class="d-flex flex-row">
+                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                </form>
+                <button class="encabezado__search-button" type="button">
+                    <img src="./Assets/img/logo_lupa.svg" alt="" />
+                </button>
+            </div>
+            <button class="btn btn-general ms-auto" onclick="mostrar_form_crear_perfil()">Crear Perfil</button>
+        </div>
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Nombre Perfil</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 btn-tabla-icono">Rol</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Pepito Perez</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Administrador</p>
+                        </td>
+                        <td class="text-end">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="d-grid gap-2">
+                                        <button class="btn d-flex align-items-center">
+                                            <img src="./Assets/img/lapiz_editar.svg" alt="" />
+                                            <p>Editar</p>
+                                        </button>
+                                    </li>
+                                    <li class="d-grid gap-2">
+                                        <button class="btn  d-flex align-items-center">
+                                            <img src="./Assets/img/eliminar.svg" alt="" />
+                                            <p>Eliminar</p>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
 
-                                    <div class="container encabezado">
-                                        <h1>Perfíles</h1>
-                                        <div>
-                                            <form action="#" method="get" class="search-form encabezado__search-form">
-                                                <input class="encabezado__search-input" type="text" name=""
-                                                    placeholder="Buscar" />
-                                                <button class="encabezado__search-button" type="button">
-                                                    <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                                </button>
-                                            </form>
-                                        </div>
-                                        <button class="btn btn-general ms-auto">Crear Perfil</button>
-                                    </div>
-                                    <hr />
-                                    <div class="container">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col" class="">
-                                                        <button class="btn btn-tabla-icono">
-                                                            <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                                        </button>
-                                                        <span class="ml-2 ">Nombre Perfil</span>
-                                                    </th>
-                                                    <th scope="col" class="">
-                                                        <button class="btn btn-tabla-icono">
-                                                            <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                                        </button>
-                                                        <span class="ml-2 ">Rol</span>
-                                                    </th>
-                                                    <th scope="col"></th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-
-                                                <tr>
-                                                    <th scope="row" class="d-flex">
-                                                        <div class="form-check td-body-tabla div_input_p_tabla">
-                                                            <input class="form-check-input" type="checkbox" value="">
-                                                            <p class="espacion-izq">Pepito Perez</p>
-                                                        </div>
-                                                    </th>
-                                                    <td class="td-body-tabla">
-                                                        <p class="td-body-tabla_opciones">Administrador</p>
-                                                    </td>
-                                                    <td class="text-end">
-                                                        <button class="btn btn_editar_categoria">
-                                                            <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                                        </button>
-                                                    </td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </template>
-
-                                <!-- Pantalla Editar Perfiles -->
-                                <template id="editar_perfiles_desktop">
-                                    <div class="container encabezado">
-                                        <h1>Perfíles</h1>
-                                        <div class="d-flex flex-row">
-                                            <form action="#" method="get" class="search-form encabezado__search-form"
-                                                id="form_busqueda_desktop">
-                                                <input class="encabezado__search-input" type="text" name=""
-                                                    placeholder="Buscar" />
-                                            </form>
-                                            <button class="encabezado__search-button" type="button">
-                                                <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="container">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col" class="">
-                                                        <button class="btn btn-tabla-icono">
-                                                            <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                                        </button>
-                                                        <span class="ml-2 ">Nombre Perfil</span>
-                                                    </th>
-                                                    <th scope="col" class="">
-                                                        <button class="btn btn-tabla-icono">
-                                                            <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                                        </button>
-                                                        <span class="ml-2 ">Rol</span>
-                                                    </th>
-                                                    <th scope="col"></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <form id="form_editar_perfiles_desktop">
-                                                        <th scope="row" class="td-body-tabla">
-                                                            <input id="input_modificado"
-                                                                class="form-control form-select_modificado" type="text"
-                                                                class="form-control"
-                                                                aria-label="Text input with dropdown button"
-                                                                placeholder="Nuevo nombre de Perfil"
-                                                                name="nombre_usuario" />
-                                                        </th>
-                                                        <th scope="row" class="td-body-tabla">
-                                                            <select class="form-select form-select_modificado"
-                                                                aria-label="Default select example" name="id_rol">
-                                                                <option selected>Escoger Tipo de Rol</option>
-                                                            </select>
-                                                        </th>
-                                                    </form>
-                                                    <td class="text-end align-middle">
-                                                        <button class="btn btn-tabla-icono btnGuardar-tabla"
-                                                            onclick="mostrar_perfiles()">
-                                                            <img src="./Assets/img/guardar.svg" alt="" />
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                    <div class="container encabezado">
-                                        <h1>Perfíles</h1>
-                                        <div>
-                                            <form action="#" method="get" class="search-form encabezado__search-form">
-                                                <input class="encabezado__search-input" type="text" name=""
-                                                    placeholder="Buscar" />
-                                                <button class="encabezado__search-button" type="button">
-                                                    <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="container">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col" class="">
-                                                        <button class="btn btn-tabla-icono">
-                                                            <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                                        </button>
-                                                        <span class="ml-2 ">Nombre Perfil</span>
-                                                    </th>
-                                                    <th scope="col" class="">
-                                                        <button class="btn btn-tabla-icono">
-                                                            <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                                        </button>
-                                                        <span class="ml-2 ">Rol</span>
-                                                    </th>
-                                                    <th scope="col"></th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row" class="td-body-tabla">
-                                                        <input id="input_modificado"
-                                                            class="form-control form-select_modificado" type="text"
-                                                            class="form-control"
-                                                            aria-label="Text input with dropdown button"
-                                                            placeholder="Nuevo nombre de Perfil"
-                                                            name="nombre_usuario" />
-                                                    </th>
-                                                    <th scope="row" class="td-body-tabla">
-                                                        <select class="form-select form-select_modificado"
-                                                            aria-label="Default select example" name="id_rol">
-                                                            <option selected>Escoger Tipo de Rol</option>
-                                                            <option value="1">Rol 01</option>
-                                                            <option value="2">Rol 02</option>
-                                                            <option value="3">Rol 03</option>
-                                                        </select>
-                                                    </th>
-                                                    <td class="text-end align-middle">
-                                                        <button class="btn btn-tabla-icono" id="btnGuardar-tabla">
-                                                            <img src="./Assets/img/guardar.svg" alt="" />
-                                                        </button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </template>
-
-                                <!-- Pantalla Eliminar Perfiles -->
-                                <template id="eliminar_perfiles_desktop">
-                                    <div class="container encabezado">
-                                        <h1>Perfíles</h1>
-                                        <div class="d-flex flex-row">
-                                            <form action="#" method="get" class="search-form encabezado__search-form"
-                                                id="form_busqueda_desktop">
-                                                <input class="encabezado__search-input" type="text" name=""
-                                                    placeholder="Buscar" />
-                                            </form>
-                                            <button class="encabezado__search-button" type="button">
-                                                <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="container container_min_height position-relative">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col" class="">
-                                                        <button class="btn btn-tabla-icono">
-                                                            <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                                        </button>
-                                                        <span class="ml-2 ">Nombre Perfil</span>
-                                                    </th>
-                                                    <th scope="col" class="">
-                                                        <button class="btn btn-tabla-icono">
-                                                            <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                                        </button>
-                                                        <span class="ml-2 ">Rol</span>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row" class="d-flex">
-                                                        <div class="form-check td-body-tabla div_input_p_tabla">
-                                                            <input class="form-check-input" type="checkbox" value="">
-                                                            <p class="td-body-tabla_opciones">Pepito Perez</p>
-                                                        </div>
-                                                    </th>
-                                                    <td class="td-body-tabla">
-                                                        <p class="td-body-tabla_opciones">Administrador</p>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <button
-                                            class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
-                                    </div>
-
-                                    <div class="container encabezado">
-                                        <h1>Perfíles</h1>
-                                        <div>
-                                            <form action="#" method="get" class="search-form encabezado__search-form">
-                                                <input class="encabezado__search-input" type="text" name=""
-                                                    placeholder="Buscar" />
-                                                <button class="encabezado__search-button" type="button">
-                                                    <img src="./Assets/img/logo_lupa.svg" alt="" />
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <hr />
-                                    <div class="container container_min_height position-relative">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col" class="">
-                                                        <button class="btn btn-tabla-icono">
-                                                            <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                                        </button>
-                                                        <span class="ml-2 ">Nombre Perfil</span>
-                                                    </th>
-                                                    <th scope="col" class="">
-                                                        <button class="btn btn-tabla-icono">
-                                                            <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                                        </button>
-                                                        <span class="ml-2 ">Rol</span>
-                                                    </th>
-                                                </tr>
-                                            </thead>
-
-                                            <tbody>
-
-                                                <tr>
-                                                    <th scope="row" class="d-flex">
-                                                        <div class="form-check td-body-tabla div_input_p_tabla">
-                                                            <input class="form-check-input" type="checkbox" value="">
-                                                            <p class="espacion-izq">Pepito Perez</p>
-                                                        </div>
-                                                    </th>
-                                                    <td class="td-body-tabla">
-                                                        <p class="td-body-tabla_opciones">Administrador</p>
-                                                    </td>
-                                                </tr>
-
-                                            </tbody>
-                                        </table>
-                                        <button
-                                            class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
-                                    </div>
-                                </template>
+    <!-- Pantalla Editar Perfiles -->
+    <template id="editar_perfiles_desktop">
+        <div class="container encabezado">
+            <h1>Perfíles</h1>
+            <div class="d-flex flex-row">
+                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                </form>
+                <button class="encabezado__search-button" type="button">
+                    <img src="./Assets/img/logo_lupa.svg" alt="" />
+                </button>
+            </div>
+        </div>
+        <hr />
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 ">Nombre Perfil</span>
+                        </th>
+                        <th scope="col" class="">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
+                            <span class="ml-2 ">Rol</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <form id="form_editar_perfiles_desktop">
+                            <th scope="row" class="td-body-tabla">
+                                <input id="input_modificado" class="form-control form-select_modificado" type="text"
+                                    class="form-control" aria-label="Text input with dropdown button"
+                                    placeholder="Nuevo nombre de Perfil" name="nombre_usuario"/>
+                            </th>
+                            <th scope="row" class="td-body-tabla">
+                                <select class="form-select form-select_modificado" aria-label="Default select example" name="id_rol">
+                                    <option selected>Escoger Tipo de Rol</option>
+                                </select>
+                            </th>
+                        </form> 
+                        <td class="text-end align-middle">
+                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_perfiles()">
+                                <img src="./Assets/img/guardar.svg" alt="" />
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </template>
 
                                 <!-- Pantalla Terminos y Condiciones -->
                                 <template id="terminos_condiciones_desktop">

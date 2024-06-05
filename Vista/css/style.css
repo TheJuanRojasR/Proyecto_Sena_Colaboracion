@@ -334,6 +334,7 @@ hr {
     font-weight: 600;
     line-height: 2rem;
     color: var(--black, #171740);
+    margin-left: 0;
 }
 
 .inventario__paragraph {
@@ -398,23 +399,14 @@ li>button>p {
 /* Estilos para vista de Operaciones/Entradas y Salidas con opciones*/
 
 .td-body-tabla {
-    margin: 0;
     font-family: Inter;
     font-size: 13px;
-    font-style: normal;
     font-weight: 300;
     line-height: 36px;
 }
 
-.td-body-tabla_categoria,
-.td-body-tabla_opciones{
-    margin: 0;
-    padding-left: 32px;
-}
-
 .td-body-tabla_opciones {
-    vertical-align: middle;
-    margin-left: 11%;
+    margin: 0px 0px 0px 4em;
 }
 
 /* Cambiar nombre de clases para estos estilos */
@@ -436,30 +428,6 @@ a.page-link:hover {
 #th_input_nombreCategoria {
     margin-left: 30px;
     width: 50%;
-}
-
-.form-check-input:checked {
-    border-color: #333A56;
-}
-
-/* ----------------------------------------------------------------------- */
-
-/* Estilos para vista de Stock/Categoria con opciones*/
-
-.btn_editar_categoria {
-    padding: 0;
-    filter: invert(100%);
-    font-family: Inter;
-    font-size: 0.875rem;
-    font-weight: 700;
-    line-height: 1.125rem;
-}
-
-.div_input_p_tabla {
-    position: relative;
-    display: flex;
-    margin-left: 7.5px;
-    align-items: center;
 }
 
 /* ----------------------------------------------------------------------- */
@@ -860,10 +828,6 @@ a.page-link:hover {
     .btnGuardar-tabla img {
         width: 18px;
         height: 18px;
-    }
-
-    .table-responsible {
-        overflow-x: auto;
     }
 
     .td-body-tabla {
