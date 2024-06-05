@@ -284,7 +284,7 @@ class Vista {
                 <p class="inventario__paragraph" id="direccion_inventario">${almacen.direccion_almacen}</p>
                 <p class="inventario__paragraph" id="descripcion_inventario">${almacen.descripcion_almacen}</p>
                 <div class="d-grid gap-2">
-                    <button class="btn btn-general" type="button" onclick="mostrar_stock_vacia()">
+                    <button class="btn btn-general" type="button" onclick="mostrar_stock_vacia(this)" data-ingresar="${almacen.id_almacen}">
                         Ingresar
                     </button>
                 </div>

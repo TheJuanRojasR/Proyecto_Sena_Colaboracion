@@ -153,6 +153,11 @@ function mostrar_form_login(){
 
 // Funciones acciones de las pantallas Registro de Usuario y Log In
 
+function mostrar_inventarios_nav(){
+    let id_usuario = usuario.id_usuario;
+    mostrar_inventarios(id_usuario);
+}
+
 function mostrar_inv_vacia(){
     
     data = vista.getForm("form_log_desktop")
@@ -178,7 +183,6 @@ function mostrar_inv_vacia(){
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
 }
-
 // Funciones acciones de la barra de navegacion Inferior
 
 function mostrar_inventarios(id_usuario){
@@ -194,7 +198,7 @@ function mostrar_inventarios(id_usuario){
                     vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
                 }
                 else{
-                    vista.mostrar_plantilla("nav_sup_desktop","navegador_sup");
+                    vista.mostrar_plantilla("nav_sup_desktop_inv","navegador_sup");
                     vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
                     vista.remover_etiqueta("footer_inicio");
                 }
@@ -208,7 +212,7 @@ function mostrar_inventarios(id_usuario){
                     vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
                 }
                 else{
-                    vista.mostrar_plantilla("nav_sup_desktop","navegador_sup",0);
+                    vista.mostrar_plantilla("nav_sup_desktop_inv","navegador_sup",0);
                     vista.mostrar_plantilla("inventarios_desktop", "contenedor_principal", 1);
                     const footer = document.getElementById("footer_inicio")
                     if(footer){
@@ -313,15 +317,36 @@ function mostrar_movimientos_vacia(){
     }
 }
 
-function mostrar_stock_vacia(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("stock_vacia", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_tres","contenedor_boton_circular");
-        vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf");
-    }
-    else{
-        vista.mostrar_plantilla("stock_vacia_desktop", "contenedor_principal", 1);
-    }
+function mostrar_stock_vacia(btnIngresar){
+    idAlmacen = parseInt(btnIngresar.getAttribute("data-ingresar"));
+    data.id_almacen = idAlmacen
+    producto.getAllProduct(data, function(data){
+        if(data.success){
+            if(data.data.length == 0){
+                if(tamañoPantalla.matches){
+                    vista.mostrar_plantilla("stock_vacia", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_tres","contenedor_boton_circular");
+                    vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf");
+                }
+                else{
+                    vista.mostrar_plantilla("nav_sup_desktop","navegador_sup",0);
+                    vista.mostrar_plantilla("stock_vacia_desktop", "contenedor_principal", 1);
+                }
+                cambio_clases();
+            }else{
+                if(tamañoPantalla.matches){
+                    vista.mostrar_plantilla("stock", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_tres","contenedor_boton_circular");
+                    vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf")
+                }
+                else{
+                    vista.mostrar_plantilla("stock_desktop", "contenedor_principal", 1);
+                }   
+            }
+        }
+    })
+
+
 }
 
 function mostrar_seleccionar_informe(){
@@ -381,17 +406,6 @@ function mostar_form_crear_producto(){
             vista.insertar_opciones_select(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")
         }
     });
-}
-
-function mostrar_stock(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("stock", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_tres","contenedor_boton_circular");
-        vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf")
-    }
-    else{
-        vista.mostrar_plantilla("stock_desktop", "contenedor_principal", 1);
-    }
 }
 
 function mostrar_detalles_producto(){

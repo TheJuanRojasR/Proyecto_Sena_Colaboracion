@@ -1871,6 +1871,21 @@
         </div>
     </template>
 
+    <!-- Navegador superior Inventarios -->
+    <template id="nav_sup_desktop_inv">
+        <div class="container-fluid d-flex justify-content-between">
+            <a class="navbar-brand" href="#">
+                <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+            </a>
+            <div class="collapse navbar-collapse d-flex justify-content-end">
+                <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img src="./Assets/img/user.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </template>
+
     <!-- Navegador superior -->
     <template id="nav_sup_desktop">
         <div class="container-fluid">
@@ -1880,7 +1895,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inventarios()">Inventario</a>
+                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inventarios_nav()">Inventarios</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"

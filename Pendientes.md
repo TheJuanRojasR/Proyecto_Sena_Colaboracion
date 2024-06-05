@@ -41,9 +41,14 @@
 37. LAURA: Mover funcion del evento click al controlador, y añadirle eliminar el evento anterior
 38. JUAN: Añadir flex al contendor de las tarjetas de inventarios
 
-Acabar inventarios. 
-
-
+Hacer productos
+    si tiene productos mostrarlos en stock, si no mostrar stock vacio
+        si stock muestra productos, mostrar los productos en lista
+            acceder a detalles del producto
+                eliminar y editar productos
+        si stock no muestra productos
+            crear producto
+            mostar stock con productos
 
 # Mejoras
 1. Tener un solo modal
