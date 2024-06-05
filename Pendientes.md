@@ -38,11 +38,13 @@
 34. Funcion para que la barra lateral se esconda al cambiar de pantalla                              ✔
 35. JUAN: Centrar formulario crear inventario.                                                       ✔
 36. JUAN: Mover el boton de 3 puntos de la tarjeta de inventarios. Tiene que queda mas pegado a la parte superior derecha. 
+37. LAURA: Mover funcion del evento click al controlador, y añadirle eliminar el evento anterior
 
 Acabar inventarios. 
-    Crear inventario
-        Debe tener un get form para que no deje crear el inventario si no tiene todos los campos.
     Eliminar inventario (Actualizar el estado)
+        mostrar modal para confirmar que lo va a eliminar
+        metodo generico para ocultar elementos que tengan estado 0 
+        ocultar la tarjeta del almacen que se elimino al confirmar en el modal
     Editar inventario 
 
 

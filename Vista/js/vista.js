@@ -8,7 +8,6 @@ class Vista {
    * @param {*} contenedor: id del contenedor a limpiar
    * @memberof Vista
    */
-
   limpiar_contenedor(contenedor) {
     let cont = document.getElementById(contenedor);
     cont.innerHTML = "";
@@ -22,7 +21,6 @@ class Vista {
    * @returns none
    * @memberof Vista
    */
-
   mostrar_plantilla(plantilla, contenedor, pila) {
     let cont = document.getElementById(contenedor);
     cont.innerHTML = "";
@@ -43,7 +41,6 @@ class Vista {
    * @param {*} funcion: funcion a ejecutar al hacer click
    * @memberof Vista
    */
-
   añadir_evento_click(plantilla, funcion) {
     let elemento = document.getElementById(plantilla);
     //Falta eliminar posibles manejadores anteriores
@@ -65,7 +62,6 @@ class Vista {
    * @param {*} none: no recibe parametros
    * @memberof Vista
    */
-
   regresar_pantalla() {
     let plantilla = this.stack_pantallas.pop(); //Saca el ultimo elemento de la pila
     if (this.stack_pantallas.length > 0) {
@@ -93,7 +89,6 @@ class Vista {
    * @param {*} lista_clases: lista de clases que se modificaran del contenedor
    * @memberof Vista
    */
-
   cambiar_clases(contenedor_etiqueta, lista_clases){
     let contenedor = document.getElementById(contenedor_etiqueta);
     contenedor.className = "";
@@ -108,7 +103,6 @@ class Vista {
    * @param {*} contenedor_id: id del contenedor donde se insertara el template 
    * @memberof Vista
    */
-
   anadir_seccion(template_id, contenedor_id){
     const template_insertar = document.getElementById(template_id);
     const contenedor = document.getElementById(contenedor_id);
@@ -121,7 +115,6 @@ class Vista {
    * @param {*} etiqueta: id de la etiqueta a remover
    * @memberof Vista
    */
-
   remover_etiqueta(etiqueta){
     const elemento = document.getElementById(etiqueta);
     elemento.remove();
@@ -134,7 +127,6 @@ class Vista {
    * @param {*} id_etiqueta: id de la etiqueta que se va a añadir
    * @memberof Vista
    */
-
   añadir_etiqueta(etiqueta, contenedor, id_etiqueta){
     const tag = document.createElement(etiqueta);
     tag.id = id_etiqueta;
@@ -148,7 +140,6 @@ class Vista {
    * @param {*} padding: valor del padding que se añadira al contenedor
    * @memberof Vista
    */
-
   añadir_padding(id_contenedor, padding){
     let contenedor = document.getElementById(id_contenedor);
     contenedor.style.paddingBottom = padding;
@@ -162,7 +153,6 @@ class Vista {
    * @return {*} data: objeto con los datos del formulario
    * @memberof Vista
    */
-
   getForm(formulario) {
     let form = document.getElementById(formulario);
     let datos = new FormData(form);
@@ -255,52 +245,56 @@ class Vista {
   }
 
   
-/**
- * Metodo para mostrar la informacion de los almacenes en una tarjeta
- *
- * @param {*} lista_almacenes: lista de almacenes a mostrar
- * @param {*} id_contenedor: id del contenedor donde se insertarn las tarjetas
- * @memberof Vista
- */
-informacion_tarjeta_inventario (lista_almacenes, id_contenedor) {
+  /**
+   * Metodo para mostrar la informacion de los almacenes en una tarjeta
+   *
+   * @param {*} lista_almacenes: lista de almacenes a mostrar
+   * @param {*} id_contenedor: id del contenedor donde se insertarn las tarjetas
+   * @memberof Vista
+   */
+  informacion_tarjeta_inventario (lista_almacenes, id_contenedor) {
     let cont = document.getElementById(id_contenedor);
-    for (const almacen of lista_almacenes) {
-      const html = `
-      <div class="container inventario flex-wrap col-lg-3">
-              <div class="d-flex justify-content-between">
-                  <h3 class="inventario__title" id="nombre_inventario">${almacen.nombre_almacen}</h3>
-                  <div class="btn-group" role="group">
-                      <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                          aria-expanded="false">
-                          <img src="./Assets/img/menu_horizontal.svg" alt="" />
-                      </button>
-                      <ul class="dropdown-menu">
-                          <li class="d-grid gap-2">
-                              <button class="btn d-flex align-items-center" onclick="mostrar_editar_inv()">
-                                  <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                  <p>Editar</p>
-                              </button>
-                          </li>
-                          <li class="d-grid gap-2">
-                              <button class="btn  d-flex align-items-center">
-                                  <img src="./Assets/img/eliminar.svg" alt="" />
-                                  <p>Eliminar</p>
-                              </button>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-              <p class="inventario__paragraph" id="direccion_inventario">${almacen.direccion_almacen}</p>
-              <p class="inventario__paragraph" id="descripcion_inventario">${almacen.descripcion_almacen}</p>
-              <div class="d-grid gap-2">
-                  <button class="btn btn-general" type="button" onclick="mostrar_stock_vacia()">
-                      Ingresar
-                  </button>
-              </div>
-          </div>
-      `
-      cont.innerHTML += html;
+    for (const almacen of lista_almacenes){
+      if(almacen.estado_almacen == 1){
+        const html = `
+        <div class="container inventario flex-wrap col-lg-3">
+                <div class="d-flex justify-content-between">
+                    <h3 class="inventario__title" id="nombre_inventario">${almacen.nombre_almacen}</h3>
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="d-grid gap-2">
+                                <button class="btn d-flex align-items-center" onclick="mostrar_editar_inv()">
+                                    <img src="./Assets/img/lapiz_editar.svg" alt="" />
+                                    <p>Editar</p>
+                                </button>
+                            </li>
+                            <li class="prueba d-grid gap-2">
+                                <button class="btn  d-flex align-items-center" onclick="prueba(this)" data-id="${almacen.id_almacen}">
+                                    <img src="./Assets/img/eliminar.svg" alt="" />
+                                    <p>Eliminar</p>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <p class="inventario__paragraph" id="direccion_inventario">${almacen.direccion_almacen}</p>
+                <p class="inventario__paragraph" id="descripcion_inventario">${almacen.descripcion_almacen}</p>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-general" type="button" onclick="mostrar_stock_vacia()">
+                        Ingresar
+                    </button>
+                </div>
+            </div>
+        `
+        cont.innerHTML += html;
+      }
     }
   }
+
+
 
 }

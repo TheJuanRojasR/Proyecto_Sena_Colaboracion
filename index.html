@@ -88,14 +88,14 @@
     <!-- Modal para Confirmacion -->
     <section class="modal modal--confirm" id="modal_confirmacion">
         <div class="modal__container">
-            <button class="btn modal__close">
+            <button class="btn modal__close" onclick="cerrar_modal_confirmacion()">
                 <img src="./Assets/img/logo_cerrar_x.svg" alt="">
             </button>
             <img src="./Assets/img/logo_modal_confirmacion.svg" alt="" class="modal__img">
             <h2 class="modal__title">Modal de confirmación</h2>
             <p class="modal__paragraph">¿Estás seguro de realizar esta acción?</p>
             <div class="modal__buttons">
-                <button class="modal__button">Aceptar</button>
+                <button class="modal__button" id="btn_aceptar">Aceptar</button>
                 <button class="modal__button">Cancelar</button>
             </div>
         </div>
@@ -104,8 +104,8 @@
     <!-- Modal para Exito -->
     <section class="modal modal--success" id="modal_exito">
         <div class="modal__container">
-            <button class="btn modal__close">
-                <img src="./Assets/img/logo_cerrar_x.svg" onclick="cerrar_modal_exito()" alt="">
+            <button class="btn modal__close" onclick="cerrar_modal_exito()">
+                <img src="./Assets/img/logo_cerrar_x.svg" alt="">
             </button>
             <img src="./Assets/img/logo_modal_exito.svg" alt="" class="modal__img">
             <h2 class="modal__title">Modal de éxito</h2>
