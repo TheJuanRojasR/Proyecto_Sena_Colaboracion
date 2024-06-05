@@ -41,8 +41,8 @@ class Almacen extends Connect{
     }
 
     // Metodo para obtener los almacenes por id de almacen
-    getById(getByIdCallback){
-        const endpoint = 'almacenes';
+    getById(id_almacen, getByIdCallback){
+        const endpoint = `almacenes?id_almacen=${id_almacen}`;
         const method = 'GET';
         this.connect({}, endpoint, method, getByIdCallback);
     }
@@ -62,7 +62,7 @@ class Almacen extends Connect{
     }
 
     // Metodo para editar un almacen
-    updateAlamacen(dataRequest, updateCallback){
+    updateAlmacen(dataRequest, updateCallback){
         const endpoint = 'almacenes/editar';
         const method = 'PUT';
         this.connect(dataRequest, endpoint, method, updateCallback);

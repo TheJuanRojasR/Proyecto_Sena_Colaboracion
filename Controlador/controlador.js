@@ -4,6 +4,7 @@ let producto = new Producto();
 let almacen = new Almacen();
 let lista_opciones = [];
 let lista_almacenes = []
+let idAlmacen = null; //Varialbe para guardar el id del almacen
 
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
@@ -246,23 +247,60 @@ function crear_inventario(){
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
 }
-let idAlmacen = null;
 
-function prueba(btnEliminar){
-    idAlmacen = parseInt(btnEliminar.getAttribute("data-id"));
+function borrar_tarjeta(btnEliminar){
+    idAlmacen = parseInt(btnEliminar.getAttribute("data-eliminar"));
     vista.añadir_evento_click("btn_aceptar", eliminar_inventario);
     vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)
 }
 
 function eliminar_inventario(){
-    data = {id_almacen:idAlmacen}
-    almacen.deleteAlmacen(data, function(){
+    numero_almacen = {id_almacen:idAlmacen}
+    almacen.deleteAlmacen(numero_almacen, function(data){
         if(data.success){
             mostrar_inventarios(usuario.id_usuario);
+            vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion);
         }else{
             vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
         }
     })
+}
+
+function mostrar_editar_inv(btnEditar){
+    idAlmacen = parseInt(btnEditar.getAttribute("data-editar"));
+    almacen.getById(idAlmacen, function(data){
+        if(data.success){
+            if(tamañoPantalla.matches){
+                vista.mostrar_plantilla("editar_inventario", "contenedor_principal", 1);
+            }
+            else{
+                vista.mostrar_plantilla("editar_inventario_desktop", "contenedor_principal", 1);
+            }
+            cambio_clases();
+            almacen_mostrar = data.data;
+            vista.informacion_editar_inventario(almacen_mostrar, "contenedor_editar_inventario");
+        }else{
+            vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
+        }
+    });
+}
+
+function guardar_editar_inventario(){
+    data = vista.getForm("form_editar_inventario_desktop")
+    data.id_almacen = idAlmacen
+    if(data.ok){
+        console.log(almacen);
+        almacen.updateAlmacen(data, function(data){
+            if(data.success){
+                vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                mostrar_inventarios(usuario.id_usuario);
+            }else{
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }
+        });
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    }
 }
 
 function mostrar_movimientos_vacia(){
@@ -314,15 +352,6 @@ function mostrar_form_crear_inv(){
     }
     else{
         vista.mostrar_plantilla("crear_inventario_desktop", "contenedor_principal", 1);
-    }
-}
-
-function mostrar_editar_inv(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("editar_inventario", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("editar_inventario_desktop", "contenedor_principal", 1);
     }
 }
 

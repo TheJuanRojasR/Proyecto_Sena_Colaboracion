@@ -267,13 +267,13 @@ class Vista {
                         </button>
                         <ul class="dropdown-menu">
                             <li class="d-grid gap-2">
-                                <button class="btn d-flex align-items-center" onclick="mostrar_editar_inv()">
+                                <button class="btn d-flex align-items-center" onclick="mostrar_editar_inv(this)" data-editar="${almacen.id_almacen}">
                                     <img src="./Assets/img/lapiz_editar.svg" alt="" />
                                     <p>Editar</p>
                                 </button>
                             </li>
                             <li class="prueba d-grid gap-2">
-                                <button class="btn  d-flex align-items-center" onclick="prueba(this)" data-id="${almacen.id_almacen}">
+                                <button class="btn  d-flex align-items-center" onclick="borrar_tarjeta(this)" data-eliminar="${almacen.id_almacen}">
                                     <img src="./Assets/img/eliminar.svg" alt="" />
                                     <p>Eliminar</p>
                                 </button>
@@ -295,6 +295,27 @@ class Vista {
     }
   }
 
-
+  informacion_editar_inventario(almacen, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    almacen.forEach((almacen_editar) => {
+      const html = `
+      <div class="container inventario flex-wrap col-lg-3">
+        <form action="" id="form_editar_inventario_desktop">
+            <input type="text" class="form-control mb-3" aria-label="Text input with dropdown button"
+                value="${almacen_editar.nombre_almacen}" name="nombre_almacen"></input>
+            <input type="text" class="form-control mb-3 " aria-label="Text input with dropdown button"
+                value="${almacen_editar.direccion_almacen}" name="direccion_almacen"></input>
+            <textarea class="form-control mb-3 min-height-100" rows="6" name="descripcion_almacen">${almacen_editar.descripcion_almacen}</textarea>
+        </form>
+        <div class="d-grid gap-2">
+            <button class="btn btn-general" type="button" onclick="guardar_editar_inventario()">
+                Guardar
+            </button>
+        </div>
+      </div>
+      `
+      cont.innerHTML += html;
+    });
+  }
 
 }
