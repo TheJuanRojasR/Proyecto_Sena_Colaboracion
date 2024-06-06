@@ -73,65 +73,7 @@
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
-        <div id="contenedor_inicio"
-        class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
-        <div class="bubbles">
-            <span style="--i:11;"></span>
-            <span style="--i:12;"></span>
-            <span style="--i:24;"></span>
-            <span style="--i:10;"></span>
-            <span style="--i:17;"></span>
-            <span style="--i:6;"></span>
-            <span style="--i:23;"></span>
-            <span style="--i:9;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:22;"></span>
-            <span style="--i:27;"></span>
-            <span style="--i:14;"></span>
-            <span style="--i:21;"></span>
-            <span style="--i:7;"></span>
-            <span style="--i:16;"></span>
-            <span style="--i:19;"></span>
-            <span style="--i:25;"></span>
-            <span style="--i:26;"></span>
-            <span style="--i:15;"></span>
-            <span style="--i:20;"></span>
-        </div>
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-              <div id="carruselGeneral" class="carousel-item active">
-                <img id="imagenMovil" src="./Assets/img/variety-vault-movil-1.png" class="d-block w-100" alt="...">
-              </div>
-              <div id="carruselGeneral" class="carousel-item">
-                <img id="imagenMovil" src="./Assets/img/variety-vault-movil-2.png" class="d-block w-100" alt="...">
-              </div>
-              <div id="carruselGeneral" class="carousel-item">
-                <img id="imagenMovil" src="./Assets/img/variety-vault-movil-3.png" class="d-block w-100" alt="...">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        <div class="container d-flex flex-column justify-content-end contenedor_boton">
-            <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_form_login()">
-                Iniciar Sesion
-            </button>
-            <button class="btn boton_claro_largo" type="button" onclick="mostrar_form_registro_usuario()">
-                Registrarse
-            </button>
-        </div>
-    </div>
+        
     </main>
 
     <!-- Barra Inferior -->
@@ -146,14 +88,14 @@
     <!-- Modal para Confirmacion -->
     <section class="modal modal--confirm" id="modal_confirmacion">
         <div class="modal__container">
-            <button class="btn modal__close">
+            <button class="btn modal__close" onclick="cerrar_modal_confirmacion()">
                 <img src="./Assets/img/logo_cerrar_x.svg" alt="">
             </button>
             <img src="./Assets/img/logo_modal_confirmacion.svg" alt="" class="modal__img">
             <h2 class="modal__title">Modal de confirmación</h2>
             <p class="modal__paragraph">¿Estás seguro de realizar esta acción?</p>
             <div class="modal__buttons">
-                <button class="modal__button">Aceptar</button>
+                <button class="modal__button" id="btn_aceptar">Aceptar</button>
                 <button class="modal__button">Cancelar</button>
             </div>
         </div>
@@ -162,8 +104,8 @@
     <!-- Modal para Exito -->
     <section class="modal modal--success" id="modal_exito">
         <div class="modal__container">
-            <button class="btn modal__close">
-                <img src="./Assets/img/logo_cerrar_x.svg" onclick="cerrar_modal_exito()" alt="">
+            <button class="btn modal__close" onclick="cerrar_modal_exito()">
+                <img src="./Assets/img/logo_cerrar_x.svg" alt="">
             </button>
             <img src="./Assets/img/logo_modal_exito.svg" alt="" class="modal__img">
             <h2 class="modal__title">Modal de éxito</h2>
@@ -1884,6 +1826,21 @@
         </div>
     </template>
 
+    <!-- Navegador superior Inventarios -->
+    <template id="nav_sup_desktop_inv">
+        <div class="container-fluid d-flex justify-content-between">
+            <a class="navbar-brand" href="#">
+                <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+            </a>
+            <div class="collapse navbar-collapse d-flex justify-content-end">
+                <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img src="./Assets/img/user.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </template>
+
     <!-- Navegador superior -->
     <template id="nav_sup_desktop">
         <div class="container-fluid">
@@ -1893,7 +1850,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inventarios()">Inventario</a>
+                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inventarios_nav()">Inventarios</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -2161,27 +2118,27 @@
             </div>
         </div>
         <hr />
-        <div class="container d-flex">
+        <div class="container d-flex justify-content-center">
             <div class="container col-lg-4 registro-inventario">
                 <form id="form_crear_inventario_desktop">
                     <div class="form-floating mb-2">
-                        <input type="email" class="form-control" id="floatingInputValue" placeholder="nombre-almacen"
+                        <input type="text" class="form-control" id="floatingInputValue" placeholder="nombre-almacen"
                             name="nombre_almacen"/>
                         <label for="floatingInputValue">Nombre Inventario</label>
                     </div>
                     <div class="form-floating mb-2">
-                        <input type="email" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
+                        <input type="text" class="form-control" id="floatingInputValue" placeholder="direccion-almacen"
                             name="direccion_almacen"/>
                         <label for="floatingInputValue">Dirección Inventario</label>
                     </div>
                     <div class="form-floating mb-2">
-                        <input type="email" class="form-control" id="floatingInputValue"
+                        <input type="text" class="form-control" id="floatingInputValue"
                             placeholder="descripcion-almacen" name="descripcion_almacen"/>
                         <label for="floatingInputValue">Descripción Inventario</label>
                     </div>
                 </form>
                 <div class="d-grid gap-2">
-                    <button class="btn btn-general" type="button" onclick="mostrar_inventarios()">
+                    <button class="btn btn-general" type="button" onclick="crear_inventario()">
                         Crear Inventario
                     </button>
                 </div>
@@ -2222,22 +2179,7 @@
             </div>
         </div>
         <hr />
-        <div class="container d-flex flex-wrap justify-content-around">
-            <div class="container inventario flex-wrap col-lg-3">
-                <form action="" id="form_editar_inventario_desktop">
-                    <input type="text" class="form-control mb-3" aria-label="Text input with dropdown button"
-                        value="Nombre de Inventario" placeholder="Editar título" name="nombre_almacen"/>
-                    <input type="text" class="form-control mb-3 " aria-label="Text input with dropdown button"
-                        value="Dirección: XXXXX" placeholder="Editar Dirección" name="direccion_almacen"/>
-                    <textarea class="form-control mb-3 min-height-100" rows="6">Nam in velit malesuada, porta erat a, vestibulum orci. In ac nibhmalesuada, volutpat metus ac, laoreet erat.vestibulum orci. In acnibh malesuada.
-                    </textarea>
-                </form>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-general" type="button" onclick="mostrar_inventarios()">
-                        Guardar
-                    </button>
-                </div>
-            </div>
+        <div class="container d-flex flex-wrap justify-content-around" id="contenedor_editar_inventario">
         </div>
     </template>
 
@@ -2744,7 +2686,7 @@
             <button class="btn btn-general ms-auto" onclick="mostar_form_crear_producto()">Crear Producto</button>
         </div>
         <hr />
-        <div class="container  table-responsive">
+        <div class="container">
             <table class="table">
                 <thead>
                     <tr>
@@ -2764,7 +2706,7 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="./Assets/img/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 btn-tabla-icono">Categoria</span>
+                            <span class="ml-2 btn-tabla-icono">Categoría</span>
                         </th>
                         <th scope="col">
                             <button class="btn btn-tabla-icono">
@@ -2778,9 +2720,8 @@
                 <tbody>
                     <tr>
                         <td>
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <p class="td-body-tabla_opciones espacio-izq">Categoria XXX</p>
+                            <div class="td-body-tabla">
+                                <p class="td-body-tabla_opciones">Categoria XXX</p>
                             </div>
                         </td>
                         <th scope="row" class="td-body-tabla">
@@ -2793,9 +2734,26 @@
                             <p class="td-body-tabla_opciones">Lapiz</p>
                         </td>
                         <td class="">
-                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_detalles_producto()">
-                                <img src="./Assets/img/logo_ingresar_detalles.svg" alt="" />
-                            </button>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="d-grid gap-2">
+                                        <button class="btn d-flex align-items-center">
+                                            <img src="./Assets/img/logo_ingresar_detalles.svg" alt="" />
+                                            <p>Detalles</p>
+                                        </button>
+                                    </li>
+                                    <li class="d-grid gap-2">
+                                        <button class="btn  d-flex align-items-center">
+                                            <img src="./Assets/img/eliminar.svg" alt="" />
+                                            <p>Eliminar</p>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -2815,74 +2773,6 @@
                     </li>
                 </ul>
             </div>
-        </div>
-    </template>
-
-    <!-- Pantalla Eliminar Producto -->
-    <template id="eliminar_producto_desktop">
-        <div class="container encabezado">
-            <h1>STOCK</h1>
-            <div class="d-flex flex-row">
-                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
-                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                </form>
-                <button class="encabezado__search-button" type="button">
-                    <img src="./Assets/img/logo_lupa.svg" alt="" />
-                </button>
-            </div>
-        </div>
-        <hr />
-        <div class="container container_min_height table-responsive position-relative">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Producto</span>
-                        </th>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Referencia</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Categoria</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <p class="td-body-tabla_opciones">Categoria XXX</p>
-                            </div>
-                        </td>
-                        <th scope="row" class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                        </th>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">05/03/2024</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Lapiz</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
         </div>
     </template>
 
@@ -2957,7 +2847,7 @@
     <!-- Pantalla Categorias -->
     <template id="categorias_desktop">
         <div class="container encabezado">
-            <h1>CATEGORIA</h1>
+            <h1>Categoría</h1>
             <div class="d-flex flex-row">
                 <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
                     <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
@@ -2966,18 +2856,17 @@
                     <img src="./Assets/img/logo_lupa.svg" alt="" />
                 </button>
             </div>
-            <button class="btn btn-general ms-auto" onclick="mostrar_form_crear_categoria()">Crear Categoría</button>
         </div>
         <hr />
-        <div class="container">
+        <div class="container container_min_height position-relative">
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col" class="">
                             <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2">Categoría</span>
+                            <span class="ml-2 btn-tabla-icono">Categoría</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
@@ -2985,15 +2874,31 @@
                 <tbody>
                     <tr>
                         <th scope="row" class="d-flex">
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
+                            <div class="td-body-tabla">
                                 <p class="td-body-tabla_opciones">Categoria XXX</p>
                             </div>
                         </th>
                         <td class="text-end">
-                            <button class="btn btn_editar_categoria" onclick="mostrar_editar_categoria()">
-                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                            </button>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="d-grid gap-2">
+                                        <button class="btn d-flex align-items-center">
+                                            <img src="./Assets/img/lapiz_editar.svg" alt="" />
+                                            <p>Editar</p>
+                                        </button>
+                                    </li>
+                                    <li class="d-grid gap-2">
+                                        <button class="btn  d-flex align-items-center">
+                                            <img src="./Assets/img/eliminar.svg" alt="" />
+                                            <p>Eliminar</p>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -3045,80 +2950,6 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </template>
-
-    <!-- Pantalla Eliminar Categoria -->
-    <template id="eliminar_categoria_desktop">
-
-        <div class="container encabezado">
-            <h1>Categoría</h1>
-            <div class="d-flex flex-row">
-                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
-                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                </form>
-                <button class="encabezado__search-button" type="button">
-                    <img src="./Assets/img/logo_lupa.svg" alt="" />
-                </button>
-            </div>
-        </div>
-        <hr />
-        <div class="container container_min_height position-relative">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 ">Categoría</span>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" class="d-flex">
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <p class="td-body-tabla_opciones">Categoria XXX</p>
-                            </div>
-                        </th>
-                        <td class="text-end">
-                            <button class="btn btn_editar_categoria">
-                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="d-flex">
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <p class="td-body-tabla_opciones">Categoria XXX</p>
-                            </div>
-                        </th>
-                        <td class="text-end">
-                            <button class="btn btn_editar_categoria">
-                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="d-flex">
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <p class="td-body-tabla_opciones">Categoria XXX</p>
-                            </div>
-                        </th>
-                        <td class="text-end">
-                            <button class="btn btn_editar_categoria">
-                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
         </div>
     </template>
 
@@ -3702,36 +3533,50 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col" class="">
+                        <th scope="col">
                             <button class="btn btn-tabla-icono">
                                 <img src="./Assets/img/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 ">Nombre Perfil</span>
+                            <span class="ml-2 btn-tabla-icono">Nombre Perfil</span>
                         </th>
-                        <th scope="col" class="">
+                        <th scope="col">
                             <button class="btn btn-tabla-icono">
                                 <img src="./Assets/img/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 ">Rol</span>
+                            <span class="ml-2 btn-tabla-icono">Rol</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row" class="d-flex">
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input espacio-izq" type="checkbox" value="">
-                                <p class="td-body-tabla_opciones">Pepito Perez</p>
-                            </div>
-                        </th>
                         <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones espacio-izq">Administrador</p>
+                            <p class="td-body-tabla_opciones">Pepito Perez</p>
+                        </td>
+                        <td class="td-body-tabla">
+                            <p class="td-body-tabla_opciones">Administrador</p>
                         </td>
                         <td class="text-end">
-                            <button class="btn btn_editar_categoria" onclick="mostrar_editar_perfiles()">
-                                <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                            </button>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="d-grid gap-2">
+                                        <button class="btn d-flex align-items-center">
+                                            <img src="./Assets/img/lapiz_editar.svg" alt="" />
+                                            <p>Editar</p>
+                                        </button>
+                                    </li>
+                                    <li class="d-grid gap-2">
+                                        <button class="btn  d-flex align-items-center">
+                                            <img src="./Assets/img/eliminar.svg" alt="" />
+                                            <p>Eliminar</p>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -3794,56 +3639,6 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </template>
-
-    <!-- Pantalla Eliminar Perfiles -->
-    <template id="eliminar_perfiles_desktop">
-        <div class="container encabezado">
-            <h1>Perfíles</h1>
-            <div class="d-flex flex-row">
-                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
-                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
-                </form>
-                <button class="encabezado__search-button" type="button">
-                    <img src="./Assets/img/logo_lupa.svg" alt="" />
-                </button>
-            </div>
-        </div>
-        <hr />
-        <div class="container container_min_height position-relative">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 ">Nombre Perfil</span>
-                        </th>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 ">Rol</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" class="d-flex">
-                            <div class="form-check td-body-tabla div_input_p_tabla">
-                                <input class="form-check-input" type="checkbox" value="">
-                                <p class="td-body-tabla_opciones">Pepito Perez</p>
-                            </div>
-                        </th>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Administrador</p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <button class="btn btn-general position-absolute bottom-0 end-0">Eliminar</button>
         </div>
     </template>
 

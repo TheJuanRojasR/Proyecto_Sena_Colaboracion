@@ -44,10 +44,10 @@ class Producto extends Connect{
     }
 
     //Metodo para mostrar los productos
-    getAllProduct(dataRequest, getAllProductCallback){
-        const endpoint = "productos"
+    getAllProduct(id_almacen, getAllProductCallback){
+        const endpoint = `productos?id_almacen=${id_almacen}`
         const method = "GET"
-        this.connect(dataRequest, endpoint, method, getAllProductCallback);
+        this.connect({}, endpoint, method, getAllProductCallback);
     }
 
     getAllCategories(getAllCategoriesCallback){
