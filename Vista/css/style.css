@@ -1037,9 +1037,8 @@ a.page-link:hover {
     /* ------------- MAIN GENERALES------------- */
 
     main {
-        height: auto;
+        height: 100vh;
         padding-top: 57px;
-        /* padding-bottom: 72.31px; */
     }
 
     .contenedor_main {
@@ -1059,6 +1058,7 @@ a.page-link:hover {
     .contenedor_boton {
         min-width: 296px;
         max-width: 323px;
+        height: auto;
         padding: 0px 25px;
     }
 
@@ -1270,6 +1270,15 @@ a.page-link:hover {
         width: 100%;
         height: 50px;
         padding-left: 12px;
+        border-radius: 4px;
+        border: 1px solid #D5D8DE;
+        background-color: #FFF;
+    }
+
+    .textarea_claro {
+        width: 100%;
+        height: 100px;
+        padding: 10px 0px 0px 12px;
         border-radius: 4px;
         border: 1px solid #D5D8DE;
         background-color: #FFF;

@@ -60,20 +60,20 @@ function cambio_templates(){
 //     cerrarPantalla("offcanvasNavbar");
 // }
 
-// window.onload = function(){
-//     if(tamañoPantalla.matches){
-//         vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
-//         vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
-//         vista.mostrar_plantilla("footer", "footer_inicio");
-//     }
-//     else{
-//         vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
-//         vista.mostrar_plantilla("pagina_inicio_desktop", "contenedor_principal");
-//         vista.mostrar_plantilla("footer", "footer_inicio");
-//     }
-//     cambio_clases();
-//     remover_nav_inf();
-// }
+window.onload = function(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
+        vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+        vista.mostrar_plantilla("footer", "footer_inicio");
+    }
+    else{
+        vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
+        vista.mostrar_plantilla("pagina_inicio_desktop", "contenedor_principal");
+        vista.mostrar_plantilla("footer", "footer_inicio");
+    }
+    cambio_clases();
+    remover_nav_inf();
+}
 
 function regresar_pantalla(){
     vista.regresar_pantalla();
@@ -116,6 +116,7 @@ function mostrar_form_registro_usuario(){
 
 function mostrar_login(){
     if(tamañoPantalla.matches){
+        vista.añadir_padding("contenedor_principal", "72.31px");
         vista.mostrar_plantilla("log_in", "contenedor_principal", 0);
         vista.remover_etiqueta("footer_inicio");
         vista.añadir_etiqueta("nav", "body", "navegador_inf");
@@ -132,7 +133,7 @@ function mostrar_form_login(){
 
     //Verificacion de form y registro de usuario
 
-    data = vista.getForm("form_registro_usuario_desktop")
+    data = vista.getForm("form_registro_usuario")
 
     if(data.ok){
         usuario.register(data, function(data){
@@ -160,7 +161,7 @@ function mostrar_inventarios_nav(){
 
 function mostrar_inv_vacia(){
     
-    data = vista.getForm("form_log_desktop")
+    data = vista.getForm("form_login")
 
     if (data.ok) {
         //Validar datos en la tabla clientes o empresas
@@ -220,8 +221,9 @@ function mostrar_inventarios(id_usuario){
                     }
                 }
                 cambio_clases();
+                pantalla = tamañoPantalla.matches
                 lista_almacenes = data.data
-                vista.informacion_tarjeta_inventario(lista_almacenes, "contenedor_tarjetas");
+                vista.informacion_tarjeta_inventario(pantalla, lista_almacenes, "contenedor_tarjetas");
             }
         }else{
             vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
@@ -281,8 +283,9 @@ function mostrar_editar_inv(btnEditar){
                 vista.mostrar_plantilla("editar_inventario_desktop", "contenedor_principal", 1);
             }
             cambio_clases();
+            pantalla = tamañoPantalla.matches
             almacen_mostrar = data.data;
-            vista.informacion_editar_inventario(almacen_mostrar, "contenedor_editar_inventario");
+            vista.informacion_editar_inventario(pantalla, almacen_mostrar, "contenedor_editar_inventario");
         }else{
             vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
         }
@@ -290,7 +293,7 @@ function mostrar_editar_inv(btnEditar){
 }
 
 function guardar_editar_inventario(){
-    data = vista.getForm("form_editar_inventario_desktop")
+    data = vista.getForm("form_editar_inventario")
     data.id_almacen = idAlmacen
     if(data.ok){
         console.log(almacen);

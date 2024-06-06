@@ -332,8 +332,8 @@
             </button>
           </div>
         <div class="container d-flex flex-column justify-content-end contenedor_boton">
-            <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_form_login()">
-                Iniciar Sesion
+            <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_login()">
+                Ingresar
             </button>
             <button class="btn boton_claro_largo" type="button" onclick="mostrar_form_registro_usuario()">
                 Registrarse
@@ -386,15 +386,13 @@
                     <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
                 </button>
             </div>
-            <div class="d-flex flex-column align-items-start contenedor_titulo_login">
-                <!-- Contendor titulo y subtitulo -->
+            <div class="d-flex flex-column align-items-start contenedor_titulo_login"> <!-- Contendor titulo y subtitulo -->
                 <h1>Ingresar</h1>
                 <p id="subtitulo_login">Por favor ingrese para poder continuar</p>
             </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_login">
-                <!-- Contendor de form para log in -->
+            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_login"> <!-- Contendor de form para log in -->
                 <input type="text" class="form-control" placeholder="Correo Electronico" name="correo_electronico">
-                <input type="text" class="form-control" placeholder="Contraseña" name="contraseña">
+                <input type="password" class="form-control" placeholder="Contraseña" name="contraseña">
             </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor boton para log in -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv_vacia()">
@@ -454,29 +452,7 @@
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                 <p class="title_small">Inventario</p>
             </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex dropdown"> <!-- Contenedor para el dropdown -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div>
-                        Inventario 1
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Direccion</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Descripcion</p>
-                        </li>
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                onclick="mostrar_editar_inv()">Editar Inventario</a></li>
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                onclick="mostrar_stock_vacia()">Ver Inventario</a></li>
-                    </ul>
-                </div>
-            </div>
+            <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="contenedor_tarjetas"> <!-- Contenido para menu dropdown --></div>
             <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
 
             </div>
@@ -495,37 +471,9 @@
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                 <p class="title_small">Inventario</p>
             </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex flex-column dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                    <button disabled
-                        class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div>
-                        Inventario 1
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Direccion</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Descripcion</p>
-                        </li>
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                onclick="mostrar_editar_inv()">Editar Inventario</a></li>
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                onclick="mostrar_stock_vacia()">Ver Inventario</a></li>
-                    </ul>
-                    <form class="contenedor_campos_edicion" id="form_editar_inventario"> <!-- Contenedor de campos para editar inventario -->
-                        <input type="text" class="input_claro" placeholder="Nuevo Nombre de Inventario" name="nombre_almacen">
-                        <input type="text" class="input_claro" placeholder="Nueva Direccion" name="direccion_almacen">
-                        <input type="text" class="input_claro" placeholder="Nueva Descripcion" name="descripcion_almacen">
-                    </form>
-                </div>
-            </div>
+            <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="contenedor_editar_inventario"><!-- Contenido para menu dropdown --></div>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inventarios()">
+                <button class="btn boton_oscuro_corto" type="button" onclick="guardar_editar_inventario()">
                     Guardar
                 </button>
             </div>
@@ -1816,12 +1764,8 @@
                 <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
             </a>
             <div class="d-flex">
-                </button>
                 <button class="btn btn-general--transparent" onclick="mostrar_login()">Ingresar</button>
-                </button>
-                </button>
                 <button class="btn btn-general" onclick="mostrar_form_registro_usuario()">Registrar</button>
-                </button>
             </div>
         </div>
     </template>
@@ -2032,7 +1976,7 @@
                     <img src="./Assets/img/logo_cerrar_x.svg" alt="">
                 </button>
                 <h1 class="registro__titulo mb-4">Registrarse</h1>
-                <form action="" id="form_registro_usuario_desktop">
+                <form action="" id="form_registro_usuario">
                     <div class="registro__input mb-1">
                         <input type="text" class="form-control registro__input" placeholder="Nombre Completo" 
                             value="" name="nombre_usuario">
@@ -2074,7 +2018,7 @@
                     <button class="btn registro__close">
                         <img src="./Assets/img/logo_cerrar_x.svg" alt="">
                     </button>
-                    <form action="" id="form_log_desktop">
+                    <form action="" id="form_login">
                         <div class="registro__input mb-1">
                             <input type="email" class="form-control registro__input" placeholder="Correo Electronico" 
                                 value="" name="correo_electronico">
