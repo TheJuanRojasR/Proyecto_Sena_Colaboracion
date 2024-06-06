@@ -320,9 +320,13 @@ function mostrar_movimientos_vacia(){
     }
 }
 
-function mostrar_stock_vacia(btnIngresar){
+function prueba(btnIngresar){
     idAlmacen = parseInt(btnIngresar.getAttribute("data-ingresar"));
-    data.id_almacen = idAlmacen
+    mostrar_stock_vacia(idAlmacen);
+}
+
+function mostrar_stock_vacia(almacen){
+    data.id_almacen = almacen;
     producto.getAllProduct(data, function(data){
         if(data.success){
             if(data.data.length == 0){
@@ -343,13 +347,33 @@ function mostrar_stock_vacia(btnIngresar){
                     vista.mostrar_plantilla("nav_inf_con_btns","navegador_inf")
                 }
                 else{
+                    vista.mostrar_plantilla("nav_sup_desktop","navegador_sup",0);
                     vista.mostrar_plantilla("stock_desktop", "contenedor_principal", 1);
-                }   
+                }
+                cambio_clases();  
+                pantalla = tamañoPantalla.matches
+                lista_productos = data.data
+                vista.informacion_tabla_producto(pantalla, lista_productos, "fila_productos");
             }
         }
-    })
+    });
+}
 
+function crear_producto(){
+    data = vista.getForm("form_crear_producto")
 
+    if(data.ok){
+        producto.createProduct(data, function(data){
+            if(data.success){
+                vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                mostrar_stock_vacia(idAlmacen);
+            }else{
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }
+        })
+    }else{
+
+    }
 }
 
 function mostrar_seleccionar_informe(){

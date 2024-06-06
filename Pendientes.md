@@ -40,17 +40,17 @@
 36. JUAN: Mover el boton de 3 puntos de la tarjeta de inventarios. Tiene que queda mas pegado a la parte superior derecha. 
 37. LAURA: Mover funcion del evento click al controlador, y añadirle eliminar el evento anterior
 38. JUAN: Añadir flex al contendor de las tarjetas de inventarios
+39. JUAN Mover a la derecha los inputs de crear producto.
 
 Hacer productos
-    si tiene productos mostrarlos en stock, si no mostrar stock vacio
-        si stock muestra productos, mostrar los productos en lista
             acceder a detalles del producto
                 eliminar y editar productos
-        si stock no muestra productos
-            crear producto
+ stock no muestra productos
+            asignar producto al almacen donde se creo (se necesita ruta en el servidor)
             mostar stock con productos
 
 # Mejoras
 1. Tener un solo modal
 2. Pantalla recordar contraseña
 3. Check Terminos y condiciones
+4. Hacer todas las pantallas responsive, sin necesidad de tener multiples templates

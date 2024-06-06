@@ -281,65 +281,64 @@
 
     <!-- Pantalla de Inicio -->
     <template id="pagina_inicio">
-        <div id="contenedor_inicio"
-        class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
-        <div class="bubbles">
-            <span style="--i:11;"></span>
-            <span style="--i:12;"></span>
-            <span style="--i:24;"></span>
-            <span style="--i:10;"></span>
-            <span style="--i:17;"></span>
-            <span style="--i:6;"></span>
-            <span style="--i:23;"></span>
-            <span style="--i:9;"></span>
-            <span style="--i:18;"></span>
-            <span style="--i:22;"></span>
-            <span style="--i:27;"></span>
-            <span style="--i:14;"></span>
-            <span style="--i:21;"></span>
-            <span style="--i:7;"></span>
-            <span style="--i:16;"></span>
-            <span style="--i:19;"></span>
-            <span style="--i:25;"></span>
-            <span style="--i:26;"></span>
-            <span style="--i:15;"></span>
-            <span style="--i:20;"></span>
-        </div>
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <div id="contenedor_inicio" class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
+            <div class="bubbles">
+                <span style="--i:11;"></span>
+                <span style="--i:12;"></span>
+                <span style="--i:24;"></span>
+                <span style="--i:10;"></span>
+                <span style="--i:17;"></span>
+                <span style="--i:6;"></span>
+                <span style="--i:23;"></span>
+                <span style="--i:9;"></span>
+                <span style="--i:18;"></span>
+                <span style="--i:22;"></span>
+                <span style="--i:27;"></span>
+                <span style="--i:14;"></span>
+                <span style="--i:21;"></span>
+                <span style="--i:7;"></span>
+                <span style="--i:16;"></span>
+                <span style="--i:19;"></span>
+                <span style="--i:25;"></span>
+                <span style="--i:26;"></span>
+                <span style="--i:15;"></span>
+                <span style="--i:20;"></span>
             </div>
-            <div class="carousel-inner">
-              <div id="carruselGeneral" class="carousel-item active">
-                <img id="imagenMovil" src="./Assets/img/variety-vault-movil-1.png" class="d-block w-100" alt="...">
-              </div>
-              <div id="carruselGeneral" class="carousel-item">
-                <img id="imagenMovil" src="./Assets/img/variety-vault-movil-2.png" class="d-block w-100" alt="...">
-              </div>
-              <div id="carruselGeneral" class="carousel-item">
-                <img id="imagenMovil" src="./Assets/img/variety-vault-movil-3.png" class="d-block w-100" alt="...">
-              </div>
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                <div id="carruselGeneral" class="carousel-item active">
+                    <img id="imagenMovil" src="./Assets/img/variety-vault-movil-1.png" class="d-block w-100" alt="...">
+                </div>
+                <div id="carruselGeneral" class="carousel-item">
+                    <img id="imagenMovil" src="./Assets/img/variety-vault-movil-2.png" class="d-block w-100" alt="...">
+                </div>
+                <div id="carruselGeneral" class="carousel-item">
+                    <img id="imagenMovil" src="./Assets/img/variety-vault-movil-3.png" class="d-block w-100" alt="...">
+                </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-        <div class="container d-flex flex-column justify-content-end contenedor_boton">
-            <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_login()">
-                Ingresar
-            </button>
-            <button class="btn boton_claro_largo" type="button" onclick="mostrar_form_registro_usuario()">
-                Registrarse
-            </button>
+            <div class="container d-flex flex-column justify-content-end contenedor_boton">
+                <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_login()">
+                    Ingresar
+                </button>
+                <button class="btn boton_claro_largo" type="button" onclick="mostrar_form_registro_usuario()">
+                    Registrarse
+                </button>
+            </div>
         </div>
-    </div>
     </template>
 
     <!-- Pantalla Registrarse -->
@@ -744,30 +743,7 @@
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                 <p class="title_small">Stock</p>
             </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
-                        Producto 1
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el boton -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Referencia Producto</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Categoria</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Cantidad Disponible</p>
-                        </li>
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                onclick="mostrar_detalles_producto()">Detalles del Producto</a></li>
-                    </ul>
-                </div>
-            </div>
+            <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_productos"></div> <!-- Contenido para menu dropdown -->
             <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con tres opciones -->
 
             </div>
@@ -2523,95 +2499,95 @@
         </div>
         <hr />
         <div class="container  table-responsive">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Producto</span>
-                        </th>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Referencia</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Categoria</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Stock Minimo</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Costo</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Precio</span>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <form id="form_prueba">
-                            <th scope="row" class="td-body-tabla">
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="nombre_producto" />
+            <form id="form_crear_producto">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="">
+                                <button class="btn btn-tabla-icono">
+                                    <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Producto</span>
                             </th>
-                            <td>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="referencia_producto"/>
-                            </td>
-                            <td>
-                                <select class="form-select" name="id_categoria">
-                                    <option selected value="">Categoria</option>
-                                </select>
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="cantidad_producto_almacen"/>
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="stock_minimo"/>
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="promedio_costo" />
-                            </td>
-                            <td>
-                                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="precio_venta"/>
-                            </td>
-                        </form>
-                        <td class="text-end">
-                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_stock()">
-                                <img src="./Assets/img/guardar.svg" alt="" />
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            <th scope="col" class="">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Referencia</span>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Categoria</span>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Stock Minimo</span>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Costo</span>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Precio</span>
+                            </th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" class="td-body-tabla">
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" name="nombre_producto" />
+                                </th>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" name="referencia_producto"/>
+                                </td>
+                                <td>
+                                    <select class="form-select" name="id_categoria">
+                                        <option selected value="">Categoria</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" name="cantidad_producto_almacen"/>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" name="stock_minimo"/>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" name="promedio_costo" />
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                                        placeholder="" name="precio_venta"/>
+                                </td>
+                                <td class="text-end">
+                                    <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="crear_producto()">
+                                        <img src="./Assets/img/guardar.svg" alt="" />
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                </table>
+            </form>
         </div>
     </template>
 
@@ -2661,46 +2637,7 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <div class="td-body-tabla">
-                                <p class="td-body-tabla_opciones">Categoria XXX</p>
-                            </div>
-                        </td>
-                        <th scope="row" class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                        </th>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">05/03/2024</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Lapiz</p>
-                        </td>
-                        <td class="">
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <img src="./Assets/img/menu_horizontal.svg" alt="" />
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="d-grid gap-2">
-                                        <button class="btn d-flex align-items-center">
-                                            <img src="./Assets/img/logo_ingresar_detalles.svg" alt="" />
-                                            <p>Detalles</p>
-                                        </button>
-                                    </li>
-                                    <li class="d-grid gap-2">
-                                        <button class="btn  d-flex align-items-center">
-                                            <img src="./Assets/img/eliminar.svg" alt="" />
-                                            <p>Eliminar</p>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="fila_productos"></tbody>
             </table>
             <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
                 <ul class="pagination">

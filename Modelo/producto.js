@@ -37,7 +37,7 @@ class Producto extends Connect{
     }
 
     //Metodo para crear un producto
-    create(dataRequest, createCallback){
+    createProduct(dataRequest, createCallback){
         const endpoint = "productos"
         const method = "POST"
         this.connect(dataRequest, endpoint, method, createCallback);
@@ -45,7 +45,7 @@ class Producto extends Connect{
 
     //Metodo para mostrar los productos
     getAllProduct(id_almacen, getAllProductCallback){
-        const endpoint = `productos?id_almacen=${id_almacen}`
+        const endpoint = `productos?id_almacen=${id_almacen.id_almacen}` 
         const method = "GET"
         this.connect({}, endpoint, method, getAllProductCallback);
     }

@@ -174,14 +174,14 @@ class Vista {
           console.log(data.msj);     
         }
       }
-      else if (form.id == "form_registro_usuario_desktop" && form[key].name == "contraseña"){
+      else if (form.id == "form_registro_usuario" && form[key].name == "contraseña"){
         if (!this.validar_contraseña(value)){
           data.ok = false;
           data.msj = "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número";
           console.log(data.msj);
         }
       }
-      else if (form.id == "form_registro_usuario_desktop" && form[key].name == "confirmar_contraseña"){
+      else if (form.id == "form_registro_usuario" && form[key].name == "confirmar_contraseña"){
         let password = form.elements["contraseña"].value;
         if (value !== password) {
           data.ok = false;
@@ -310,7 +310,7 @@ class Vista {
                   <p class="inventario__paragraph" id="direccion_inventario">${almacen.direccion_almacen}</p>
                   <p class="inventario__paragraph" id="descripcion_inventario">${almacen.descripcion_almacen}</p>
                   <div class="d-grid gap-2">
-                      <button class="btn btn-general" type="button" onclick="mostrar_stock_vacia(this)" data-ingresar="${almacen.id_almacen}">
+                      <button class="btn btn-general" type="button" onclick="prueba(this)" data-ingresar="${almacen.id_almacen}">
                           Ver Inventario
                       </button>
                   </div>
@@ -377,6 +377,80 @@ class Vista {
               </button>
           </div>
         </div>
+        `
+        cont.innerHTML += html;
+      }
+    });
+  }
+
+  informacion_tabla_producto(tamaño_pantalla, lista_productos, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    lista_productos.forEach((producto) => {
+      if(tamaño_pantalla == true){
+        const html = `
+        <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+            <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
+                ${producto.nombre_producto}
+            </button>
+            <ul class="dropdown-menu informacion_dropdown_contenido">
+                <!-- Lista de infomacion desplegable en el boton -->
+                <li class="d-flex align-items-center texto_dropdown">
+                    <p type="text" name="" class="elementos_listas">Referencia: ${producto.referencia_producto}</p>
+                </li>
+                <li class="d-flex align-items-center texto_dropdown">
+                    <p type="text" name="" class="elementos_listas">Categoria: ${producto.nombre_categoria}</p>
+                </li>
+                <li class="d-flex align-items-center texto_dropdown">
+                    <p type="text" name="" class="elementos_listas">Cantidad: ${producto.cantidad_disponible}</p>
+                </li>
+                <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
+                        onclick="mostrar_detalles_producto()">Detalles del Producto</a></li>
+            </ul>
+        </div>
+        `
+        cont.innerHTML += html;
+      }else{
+        const html = `
+        <tr>
+          <td>
+              <div class="td-body-tabla">
+                  <p class="td-body-tabla_opciones">${producto.nombre_producto}</p>
+              </div>
+          </td>
+          <th scope="row" class="td-body-tabla">
+              <p class="td-body-tabla_opciones">${producto.referencia_producto}</p>
+          </th>
+          <td class="td-body-tabla">
+              <p class="td-body-tabla_opciones">${producto.nombre_categoria}</p>
+          </td>
+          <td class="td-body-tabla">
+              <p class="td-body-tabla_opciones">${producto.cantidad_disponible}</p>
+          </td>
+          <td class="">
+              <div class="btn-group" role="group">
+                  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                  </button>
+                  <ul class="dropdown-menu">
+                      <li class="d-grid gap-2">
+                          <button class="btn d-flex align-items-center">
+                              <img src="./Assets/img/logo_ingresar_detalles.svg" alt="" />
+                              <p>Detalles</p>
+                          </button>
+                      </li>
+                      <li class="d-grid gap-2">
+                          <button class="btn  d-flex align-items-center">
+                              <img src="./Assets/img/eliminar.svg" alt="" />
+                              <p>Eliminar</p>
+                          </button>
+                      </li>
+                  </ul>
+              </div>
+          </td>
+        </tr>
         `
         cont.innerHTML += html;
       }
