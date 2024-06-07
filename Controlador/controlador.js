@@ -137,14 +137,19 @@ function mostrar_form_login(){
 
     if(data.ok){
         usuario.register(data, function(data){
-            if(data.success){
-                //Mensaje de exito
-                //Mostar modal de registro exitoso
-                vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-                mostrar_login();
+            if(data.data.message == "El usuario ya existe"){
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
             }
             else{
-                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                if(data.success){
+                    //Mensaje de exito
+                    //Mostar modal de registro exitoso
+                    vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                    mostrar_login();
+                }
+                else{
+                    vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                }
             }
         });
     } else {
@@ -364,15 +369,26 @@ function crear_producto(){
 
     if(data.ok){
         producto.createProduct(data, function(data){
-            if(data.success){
-                vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-                mostrar_stock_vacia(idAlmacen);
+            if(data.data.message == "El producto ya existe"){
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }
+            else if ( data.success ){
+                producto.asignProduct(data, function(data){
+                    if(data.success){
+                        vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                        mostrar_stock_vacia(idAlmacen);
+                    }
+                    else{
+                        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                    } 
+                }
+            );
             }else{
                 vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
             }
-        })
+        });
     }else{
-
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
 }
 
