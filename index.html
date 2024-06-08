@@ -220,7 +220,7 @@
             <ul class="navbar-nav flex-row justify-content-around flex-wrap" id="lista_nav_inf">
                 <!-- Lista de Navegacion -->
                 <li class="nav-item" id="home">
-                    <button class="btn" type="button" onclick="mostrar_inv_vacia()">
+                    <button class="btn" type="button" onclick="mostrar_inventarios_nav()">
                         <img src="./Assets/img/home.svg" alt="">
                     </button>
                     <p class="text_nav_inf">Inventario</p>
@@ -1036,8 +1036,7 @@
                     Nombre del Producto
                 </h1>
             </div>
-            <div class="container d-flex" id="contenedor_detalles_producto">
-                <!-- Contenedor para la lista de detalles del producto -->
+            <div class="container d-flex" id="contenedor_detalles_producto"> <!-- Contenedor para la lista de detalles del producto -->
                 <ul> <!-- Lista de detalles del producto -->
                     <li>Referencia</li>
                     <li>Ubicacion</li>
@@ -1789,7 +1788,7 @@
                             Stock
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" onclick="mostrar_stock_vacia()">Stock</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="mostrar_stock_nav()">Stock</a></li>
                             <li><a class="dropdown-item" href="#" onclick="mostrar_categorias_vacia()">Categoria</a></li>
                             <li><a class="dropdown-item" href="#" onclick="mostrar_abastecimiento()">Abastecimiento</a></li>
                         </ul>
@@ -2579,15 +2578,13 @@
                                     <input type="number" class="form-control" aria-label="Text input with dropdown button"
                                         placeholder="" name="precio_venta"/>
                                 </td>
-                                <td class="text-end">
-                                    <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="crear_producto()">
-                                        <img src="./Assets/img/guardar.svg" alt="" />
-                                    </button>
-                                </td>
                             </tr>
                         </tbody>
                 </table>
             </form>
+            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="crear_producto()">
+                <img src="./Assets/img/guardar.svg" alt="" />
+            </button>
         </div>
     </template>
 

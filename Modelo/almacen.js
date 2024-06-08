@@ -1,4 +1,4 @@
-class Almacen extends Connect{
+    class Almacen extends Connect{
     constructor()
     {
         super();

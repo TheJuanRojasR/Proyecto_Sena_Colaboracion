@@ -244,7 +244,6 @@ class Vista {
     }
   }
 
-  
   /**
    * Metodo para mostrar la informacion de los almacenes en una tarjeta
    * @param {*} tamaño_pantalla: tamaño de la pantalla para mostrar una tarjeta u otra
@@ -266,16 +265,16 @@ class Vista {
                     <ul class="dropdown-menu informacion_dropdown_contenido">
                         <!-- Lista de infomacion desplegable en el dropdown -->
                         <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">${almacen.direccion_almacen}</p>
+                            <p type="text" name="" class="elementos_listas">Direccion: ${almacen.direccion_almacen}</p>
                         </li>
                         <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">${almacen.descripcion_almacen}</p>
+                            <p type="text" name="" class="elementos_listas">Descripcion: ${almacen.descripcion_almacen}</p>
                         </li>
                         <li class="d-flex accion_dropdown align-items-center justify-content-center">
                             <a href="#" onclick="mostrar_editar_inv(this)" data-editar="${almacen.id_almacen}">Editar Inventario</a>
                         </li>
                         <li class="d-flex accion_dropdown align-items-center justify-content-center">
-                            <a href="#" onclick="mostrar_stock_vacia(this)" data-ingresar="${almacen.id_almacen}">Ver Inventario</a>
+                            <a href="#" onclick="ingresar_inventario(this)" data-ingresar="${almacen.id_almacen}">Ver Inventario</a>
                         </li>
                     </ul>
                 </div>
@@ -298,7 +297,7 @@ class Vista {
                                       <p>Editar</p>
                                   </button>
                               </li>
-                              <li class="prueba d-grid gap-2">
+                              <li class="d-grid gap-2">
                                   <button class="btn  d-flex align-items-center" onclick="borrar_tarjeta(this)" data-eliminar="${almacen.id_almacen}">
                                       <img src="./Assets/img/eliminar.svg" alt="" />
                                       <p>Eliminar</p>
@@ -310,7 +309,7 @@ class Vista {
                   <p class="inventario__paragraph" id="direccion_inventario">${almacen.direccion_almacen}</p>
                   <p class="inventario__paragraph" id="descripcion_inventario">${almacen.descripcion_almacen}</p>
                   <div class="d-grid gap-2">
-                      <button class="btn btn-general" type="button" onclick="prueba(this)" data-ingresar="${almacen.id_almacen}">
+                      <button class="btn btn-general" type="button" onclick="ingresar_inventario(this)" data-ingresar="${almacen.id_almacen}">
                           Ver Inventario
                       </button>
                   </div>
@@ -382,7 +381,13 @@ class Vista {
       }
     });
   }
-
+  
+  /**
+   * Metodo para mostrar la informacion de los productos en una tabla o tarjetas
+   * @param {*} tamaño_pantalla: tamaño de la pantalla para mostrar una tabla o tarjetas 
+   * @param {*} lista_productos: lista de productos a mostrar
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion 
+   */
   informacion_tabla_producto(tamaño_pantalla, lista_productos, id_contenedor){
     let cont = document.getElementById(id_contenedor);
     lista_productos.forEach((producto) => {
@@ -406,7 +411,8 @@ class Vista {
                     <p type="text" name="" class="elementos_listas">Cantidad: ${producto.cantidad_disponible}</p>
                 </li>
                 <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                        onclick="mostrar_detalles_producto()">Detalles del Producto</a></li>
+                        onclick="mostrar_detalles_producto()">Detalles del Producto</a>
+                </li>
             </ul>
         </div>
         `
@@ -442,7 +448,8 @@ class Vista {
                           </button>
                       </li>
                       <li class="d-grid gap-2">
-                          <button class="btn  d-flex align-items-center">
+                          <button class="btn  d-flex align-items-center" onclick = "borrar_producto(this)" data-eliminar
+                          ="${producto.id_producto}">
                               <img src="./Assets/img/eliminar.svg" alt="" />
                               <p>Eliminar</p>
                           </button>

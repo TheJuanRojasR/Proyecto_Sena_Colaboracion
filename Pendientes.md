@@ -41,13 +41,14 @@
 37. LAURA: Mover funcion del evento click al controlador, y añadirle eliminar el evento anterior
 38. JUAN: Añadir flex al contendor de las tarjetas de inventarios
 39. JUAN Mover a la derecha los inputs de crear producto.
+40. Revisar evenlistener para mantener elementos clickeados, posibe cambio de templates
+41. Revisar como poner registros en varias pantallas (productos)
+42. JUAN LAURA: Añadir a detalles del producto Categoria del producto
 
 Hacer productos
             acceder a detalles del producto
-                eliminar y editar productos
- stock no muestra productos
-            asignar producto al almacen donde se creo (se necesita ruta en el servidor)
-            mostar stock con productos
+                editar productos
+
 
 # Mejoras
 1. Tener un solo modal

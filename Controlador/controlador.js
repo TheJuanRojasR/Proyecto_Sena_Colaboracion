@@ -3,8 +3,9 @@ let usuario = new Usuario();
 let producto = new Producto();
 let almacen = new Almacen();
 let lista_opciones = [];
-let lista_almacenes = []
+let lista_almacenes = [];
 let idAlmacen = null; //Varialbe para guardar el id del almacen
+let idProducto = null; //Variable para guardar el id del producto
 
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
@@ -213,6 +214,7 @@ function mostrar_inventarios(id_usuario){
             else{
                 if(tamañoPantalla.matches){
                     vista.limpiar_contenedor("navegador_inf");
+                    vista.mostrar_plantilla("nav_sup","navegador_sup");
                     vista.mostrar_plantilla("inventarios", "contenedor_principal", 1);
                     vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
                     vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
@@ -315,6 +317,11 @@ function guardar_editar_inventario(){
     }
 }
 
+function ingresar_inventario(btnIngresar){
+    idAlmacen = parseInt(btnIngresar.getAttribute("data-ingresar"));
+    mostrar_stock_vacia(idAlmacen);
+}
+
 function mostrar_movimientos_vacia(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
@@ -323,11 +330,6 @@ function mostrar_movimientos_vacia(){
     else{
         vista.mostrar_plantilla("movimientos_vacia_desktop", "contenedor_principal", 1);
     }
-}
-
-function prueba(btnIngresar){
-    idAlmacen = parseInt(btnIngresar.getAttribute("data-ingresar"));
-    mostrar_stock_vacia(idAlmacen);
 }
 
 function mostrar_stock_vacia(almacen){
@@ -364,32 +366,79 @@ function mostrar_stock_vacia(almacen){
     });
 }
 
+function mostrar_stock_nav(){
+    mostrar_stock_vacia(idAlmacen);
+}
+
+function mostar_form_crear_producto(){
+    
+    //Mostrar plantilla para crear un producto
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("crear_producto", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("crear_producto_desktop", "contenedor_principal", 1);
+    }
+    cambio_clases();
+    
+    //Consultar categ productos 
+    producto.getCategory(idAlmacen, function (data) {
+        if(data.success) {
+            lista_opciones = []
+            lista_opciones = data.data.res
+            //poblar select id_categoria
+            const categoriasObj = Object.fromEntries(
+                lista_opciones.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
+            );
+            console.log(categoriasObj)
+            vista.insertar_opciones_select(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")
+        }
+    });
+}
+
 function crear_producto(){
     data = vista.getForm("form_crear_producto")
 
     if(data.ok){
+        let cantidad = parseInt(data.cantidad_producto_almacen);
+        data.id_almacen = idAlmacen;
         producto.createProduct(data, function(data){
             if(data.data.message == "El producto ya existe"){
                 vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
-            }
-            else if ( data.success ){
-                producto.asignProduct(data, function(data){
-                    if(data.success){
-                        vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-                        mostrar_stock_vacia(idAlmacen);
-                    }
-                    else{
-                        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
-                    } 
-                }
-            );
             }else{
-                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                data.id_producto = data.data;
+                // data.id_almacen = idAlmacen;
+                data.cantidad_producto_almacen = cantidad;
+                console.log(data);
+                if(data.success){
+                    vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                    mostrar_stock_vacia(idAlmacen);
+                }else{
+                    vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                }
             }
         });
     }else{
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
+}
+
+function borrar_producto(btnEliminarProducto){
+    idProducto = parseInt(btnEliminarProducto.getAttribute("data-eliminar"));
+    vista.añadir_evento_click("btn_aceptar", eliminar_producto);
+    vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)
+}
+
+function eliminar_producto(){
+    inf_producto = {id_producto:idProducto, id_almacen:idAlmacen}
+    producto.deleteProduct(inf_producto, function(data){
+        if(data.success){
+            mostrar_stock_vacia(idAlmacen);
+            vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion);
+        }else{
+            vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
+        }
+    })
 }
 
 function mostrar_seleccionar_informe(){
@@ -424,32 +473,6 @@ function mostrar_form_crear_inv(){
 }
 
 // Funciones acciones de la pantalla de Stock
-
-function mostar_form_crear_producto(){
-    
-    //Mostrar plantilla para crear un producto
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("crear_producto", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("crear_producto_desktop", "contenedor_principal", 1);
-    }
-    cambio_clases();
-    
-    //Consultar categ productos 
-    producto.getAllCategories(function (data) {
-        if(data.success) {
-            lista_opciones = []
-            lista_opciones = data.data
-            //poblar select id_categoria
-            const categoriasObj = Object.fromEntries(
-                lista_opciones.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
-            );
-            console.log(categoriasObj)
-            vista.insertar_opciones_select(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")
-        }
-    });
-}
 
 function mostrar_detalles_producto(){
     if(tamañoPantalla.matches){
