@@ -2,7 +2,8 @@ let vista = new Vista();
 let usuario = new Usuario();
 let producto = new Producto();
 let almacen = new Almacen();
-let lista_opciones = [];
+let lista_categorias = []
+let lista_productos = [];
 let lista_almacenes = [];
 let idAlmacen = null; //Varialbe para guardar el id del almacen
 let idProducto = null; //Variable para guardar el id del producto
@@ -334,7 +335,7 @@ function mostrar_movimientos_vacia(){
 
 function mostrar_stock_vacia(almacen){
     data.id_almacen = almacen;
-    producto.getAllProduct(data, function(data){
+    producto.getAllProductbyStore(data, function(data){
         if(data.success){
             if(data.data.length == 0){
                 if(tamañoPantalla.matches){
@@ -381,17 +382,21 @@ function mostar_form_crear_producto(){
     }
     cambio_clases();
     
-    //Consultar categ productos 
+    //Consultar categ productos
     producto.getCategory(idAlmacen, function (data) {
         if(data.success) {
-            lista_opciones = []
-            lista_opciones = data.data.res
+            lista_categorias = data.data.res
             //poblar select id_categoria
             const categoriasObj = Object.fromEntries(
-                lista_opciones.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
+                lista_categorias.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
             );
             console.log(categoriasObj)
             vista.insertar_opciones_select(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")
+            producto.getAllProduct(function(data){
+                lista_productos = data.data;
+                console.log(lista_productos);
+                vista.insertar_opciones_select(lista_productos, "id_producto", "id_producto", "nombre_producto")
+            });
         }
     });
 }
@@ -441,6 +446,32 @@ function eliminar_producto(){
     })
 }
 
+function detalles_producto(btnDetallesProducto){
+    idProducto = parseInt(btnDetallesProducto.getAttribute("data-detalles"));
+    mostrar_detalles_producto(idProducto);
+
+}
+
+function mostrar_detalles_producto(id_producto){
+    producto_info = {id_producto:id_producto, id_almacen:idAlmacen}
+    producto.getDetails(producto_info, function(data){
+        if(data.success){
+            if(tamañoPantalla.matches){
+                vista.mostrar_plantilla("detalles_producto", "contenedor_principal", 1);
+            }
+            else{
+                vista.mostrar_plantilla("detalles_producto_desktop", "contenedor_principal", 1);
+            }
+            cambio_clases();
+            pantalla = tamañoPantalla.matches
+            producto = data.data
+            vista.informacion_detalles_producto(pantalla, producto, "contenedor_detalles_producto");
+        }
+    })
+
+
+}
+
 function mostrar_seleccionar_informe(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("seleccionar_informe", "contenedor_principal", 1);
@@ -473,15 +504,6 @@ function mostrar_form_crear_inv(){
 }
 
 // Funciones acciones de la pantalla de Stock
-
-function mostrar_detalles_producto(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("detalles_producto", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("detalles_producto_desktop", "contenedor_principal", 1);
-    }
-}
 
 function mostrar_categorias_vacia(){
     if(tamañoPantalla.matches){

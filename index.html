@@ -1021,7 +1021,7 @@
 
     <!-- Pantalla Detalles del Producto -->
     <template id="detalles_producto">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
+        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main" id="contenedor_detalles_producto">
             <!-- Contenedor principal -->
             <div class="contenedor_flecha_back"> <!-- Contendor de la flecha de retroceso -->
                 <button class="btn" onclick="regresar_pantalla()">
@@ -1036,7 +1036,7 @@
                     Nombre del Producto
                 </h1>
             </div>
-            <div class="container d-flex" id="contenedor_detalles_producto"> <!-- Contenedor para la lista de detalles del producto -->
+            <div class="container d-flex" id="lista_detalles_producto"> <!-- Contenedor para la lista de detalles del producto -->
                 <ul> <!-- Lista de detalles del producto -->
                     <li>Referencia</li>
                     <li>Ubicacion</li>
@@ -2550,8 +2550,7 @@
                         <tbody>
                             <tr>
                                 <th scope="row" class="td-body-tabla">
-                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                        placeholder="" name="nombre_producto" />
+                                    <select class="form-control" aria-label="Text input with dropdown button" name="nombre_producto" id=""></select>
                                 </th>
                                 <td>
                                     <input type="text" class="form-control" aria-label="Text input with dropdown button"
@@ -2959,56 +2958,7 @@
             </div>
         </div>
         <hr />
-        <div class="container sin-opciones">
-            <div class="d-flex flex-column">
-                <h1>Nombre del Producto</h1>
-                <div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Referencia</td>
-                                <td>Ref xxx</td>
-                            </tr>
-                            <tr>
-                                <td>Ubicación</td>
-                                <td>Lugar A</td>
-                            </tr>
-                            <tr>
-                                <td>Cantidad</td>
-                                <td>20</td>
-                            </tr>
-                            <tr>
-                                <td>Stock Mínimo</td>
-                                <td>10</td>
-                            </tr>
-                            <tr>
-                                <td>Costo</td>
-                                <td>1.000</td>
-                            </tr>
-                            <tr>
-                                <td>Precio de Venta</td>
-                                <td>2.000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div>
-                    <button class="btn btn-general--contenido" onclick="mostrar_mov_del_producto()">Ver Movimientos</button>
-                    <button class="btn btn-general--secundario" onclick="mostrar_editar_producto()">Editar Descripción</button>
-                </div>
-            </div>
-            <div class="">
-                <figure class="contenedor-imagen">
-                    <img class="img-fluid" src="./Assets/img/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
-                </figure>
-            </div>
-        </div>
+        <div class="container sin-opciones" id="contenedor_detalles_producto"></div>
     </template>
 
     <!-- Pantalla Editar Producto -->

@@ -442,7 +442,7 @@ class Vista {
                   </button>
                   <ul class="dropdown-menu">
                       <li class="d-grid gap-2">
-                          <button class="btn d-flex align-items-center">
+                          <button class="btn d-flex align-items-center" onclick="detalles_producto(this)" data-detalles ="${producto.id_producto}">
                               <img src="./Assets/img/logo_ingresar_detalles.svg" alt="" />
                               <p>Detalles</p>
                           </button>
@@ -462,6 +462,91 @@ class Vista {
         cont.innerHTML += html;
       }
     });
+  }
+
+  informacion_detalles_producto(tamaño, producto, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    producto.forEach((producto) => {
+      if(tamaño == true){
+        const html = `
+            <div class="conedor_nombre_producto_titulo"> <!-- Contenedor Nombre del producto como Titulo -->
+                <h1 id="nombre_producto_titulo">${producto.nombre_producto}</h1>
+            </div>
+            <div class="container d-flex" id="contenedor_detalles_producto"> <!-- Contenedor para la lista de detalles del producto -->
+                <ul> <!-- Lista de detalles del producto -->
+                    <li>Referencia: ${producto.referencia_producto}</li>
+                    <li>Cantidad: ${producto.cantidad_producto_almacen}</li>
+                    <li>Stock Minimo: ${producto.stock_minimo}</li>
+                    <li>Costo: ${producto.promedio_costo}</li>
+                    <li>Precio de Venta ${producto.precio_venta}</li>
+                </ul>
+            </div>
+            <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
+                <!-- Contenedor de botones -->
+                <button class="btn boton_largo_oscuro" type="button" onclick="mostrar_mov_del_producto()">
+                    <!-- Boton para ver movimientos -->
+                    Ver Movimientos
+                </button>
+                <button class="btn boton_largo_claro" type="button" onclick="mostrar_editar_producto()">
+                    <!-- Boton para editar el producto -->
+                    Editar Producto
+                </button>
+            </div>
+            <div class="container d-flex align-items-center justify-content-center">
+                <!-- Contenedor de la imagen del producto -->
+                <img src="./Assets/img/image-1.png" alt="" id="imagen_producto">
+            </div>
+        `
+      }else{
+        const html = `
+            <div class="d-flex flex-column">
+                <h1>${producto.nombre_producto}</h1>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Referencia</td>
+                                <td>${producto.referencia_producto}</td>
+                            </tr>
+                            <tr>
+                                <td>Cantidad</td>
+                                <td>${producto.Cantidad}</td>
+                            </tr>
+                            <tr>
+                                <td>Stock Mínimo</td>
+                                <td>${producto.stock_minimo}</td>
+                            </tr>
+                            <tr>
+                                <td>Costo</td>
+                                <td>${producto.Costo}</td>
+                            </tr>
+                            <tr>
+                                <td>Precio de Venta</td>
+                                <td>${producto.Precio}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <button class="btn btn-general--contenido" onclick="mostrar_mov_del_producto()">Ver Movimientos</button>
+                    <button class="btn btn-general--secundario" onclick="mostrar_editar_producto()">Editar Descripción</button>
+                </div>
+            </div>
+            <div class="">
+                <figure class="contenedor-imagen">
+                    <img class="img-fluid" src="./Assets/img/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
+                </figure>
+            </div>
+            `
+            cont.innerHTML += html;
+      }
+    })
   }
 
 }

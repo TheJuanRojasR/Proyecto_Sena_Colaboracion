@@ -44,11 +44,31 @@
 40. Revisar evenlistener para mantener elementos clickeados, posibe cambio de templates
 41. Revisar como poner registros en varias pantallas (productos)
 42. JUAN LAURA: Añadir a detalles del producto Categoria del producto
+43. Borrar Cambios de BD del viernes
+
+Cambiar Template para crear producto
+    Cambiar ordern a: Categorias, producto, referencia....
+    Cambiar a selects Producto
+    Permitir que si el select es 0 que pueda escribir el nuevo producto
+    Verificar que funcione el cliente hasta productos
 
 Hacer productos
             acceder a detalles del producto
                 editar productos
 
+
+
+Hacer categorias
+    Mostrar categorias
+        Si no tiene categorias mostrar categorias vacia.
+    Crear categoria
+        Tiene que ingresar datos validos.
+        El nombre de la categoria no puede estar repetido.
+        Se tiene que volver a llamar al template de mostrar categorias ya actualizado.
+    Editar categoria
+        Al editar categorias tiene que editar la categoria actual
+    Eliminar categoria
+        si elimina la categoria no tiene que mostrarse de nuevo en ese almacen.
 
 # Mejoras
 1. Tener un solo modal
