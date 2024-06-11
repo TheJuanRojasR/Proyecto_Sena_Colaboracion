@@ -23,6 +23,7 @@ const lista_clases_modal_confirmacion = ['modal', 'modal--confirmacion'];
 const tamañoPantalla = window.matchMedia('(max-width: 768px)');
 
 window.addEventListener('resize', cambio_clases);
+
 // window.addEventListener('resize', cambio_templates);
 
 function cambio_clases(){
@@ -334,8 +335,7 @@ function mostrar_movimientos_vacia(){
 }
 
 function mostrar_stock_vacia(almacen){
-    data.id_almacen = almacen;
-    producto.getAllProductbyStore(data, function(data){
+    producto.getAllProductbyStore(almacen, function(data){
         if(data.success){
             if(data.data.length == 0){
                 if(tamañoPantalla.matches){
@@ -383,9 +383,9 @@ function mostar_form_crear_producto(){
     cambio_clases();
     
     //Consultar categ productos
-    producto.getCategory(idAlmacen, function (data) {
+    producto.getCategory(function (data) {
         if(data.success) {
-            lista_categorias = data.data.res
+            lista_categorias = data.data
             //poblar select id_categoria
             const categoriasObj = Object.fromEntries(
                 lista_categorias.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
@@ -395,9 +395,40 @@ function mostar_form_crear_producto(){
             producto.getAllProduct(function(data){
                 lista_productos = data.data;
                 console.log(lista_productos);
-                vista.insertar_opciones_select(lista_productos, "id_producto", "id_producto", "nombre_producto")
+                vista.insertar_opciones_select(lista_productos, "nombre_producto", "id_producto", "nombre_producto", "true")
             });
         }
+    });
+
+    document.getElementById('select_id_categoria').addEventListener('change', function() {
+        const categoriaSeleccionada = this.value;
+        const selectProductos = document.getElementById('select_nombre_producto');
+        const opciones = selectProductos.querySelectorAll('option');
+
+        opciones.forEach(opcion => {
+            if (opcion.getAttribute('data-categoria') === categoriaSeleccionada || opcion.value === "") {
+                opcion.style.display = '';
+            } else {
+                opcion.style.display = 'none';
+            }
+        });
+    });
+    document.getElementById('select_nombre_producto').addEventListener('change', function() {
+        const productoSeleccionado = this.value;
+        const inputReferencia = document.getElementById('referencia_producto');
+        const inputCantidad = document.getElementById('cantidad_producto');
+        const inputStockMinimo = document.getElementById('stock_minimo_producto');
+        const inputCosto = document.getElementById('costo_producto');
+        const inputPrecio = document.getElementById('precio_venta_producto');	
+        const opciones = selectProductos.querySelectorAll('option');
+
+        opciones.forEach(opcion => {
+            if (opcion.getAttribute('data-categoria') === categoriaSeleccionada || opcion.value === "") {
+                opcion.style.display = '';
+            } else {
+                opcion.style.display = 'none';
+            }
+        });
     });
 }
 
@@ -464,8 +495,8 @@ function mostrar_detalles_producto(id_producto){
             }
             cambio_clases();
             pantalla = tamañoPantalla.matches
-            producto = data.data
-            vista.informacion_detalles_producto(pantalla, producto, "contenedor_detalles_producto");
+            producto_detalles = data.data
+            vista.informacion_detalles_producto(pantalla, producto_detalles, "contenedor_detalles_producto");
         }
     })
 

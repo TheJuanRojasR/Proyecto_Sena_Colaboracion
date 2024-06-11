@@ -1761,7 +1761,7 @@
     </template>
 
     <!-- Navegador superior -->
-    <template id="nav_sup_desktop">
+    <template id="nav_sup_desktop"> 
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
@@ -2502,6 +2502,12 @@
                 <table class="table">
                     <thead>
                         <tr>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Categoria</span>
+                            </th>
                             <th scope="col" class="">
                                 <button class="btn btn-tabla-icono">
                                     <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg" alt="" />
@@ -2513,12 +2519,6 @@
                                     <img src="./Assets/img/flechas_filtrar.svg" alt="" />
                                 </button>
                                 <span class="ml-2 btn-tabla-icono">Referencia</span>
-                            </th>
-                            <th scope="col">
-                                <button class="btn btn-tabla-icono">
-                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                </button>
-                                <span class="ml-2 btn-tabla-icono">Categoria</span>
                             </th>
                             <th scope="col">
                                 <button class="btn btn-tabla-icono">
@@ -2549,33 +2549,30 @@
                     </thead>
                         <tbody>
                             <tr>
-                                <th scope="row" class="td-body-tabla">
-                                    <select class="form-control" aria-label="Text input with dropdown button" name="nombre_producto" id=""></select>
-                                </th>
                                 <td>
-                                    <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                        placeholder="" name="referencia_producto"/>
-                                </td>
-                                <td>
-                                    <select class="form-select" name="id_categoria">
+                                    <select class="form-select" name="id_categoria" id="select_id_categoria">
                                         <option selected value="">Categoria</option>
                                     </select>
                                 </td>
                                 <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                        placeholder="" name="cantidad_producto_almacen"/>
+                                    <select class="form-select" name="nombre_producto" id="select_nombre_producto">
+                                        <option selected value="">Nuevo Producto</option>
+                                    </select>
                                 </td>
                                 <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                        placeholder="" name="stock_minimo"/>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button" id="referencia_producto" name="referencia_producto"/>
                                 </td>
                                 <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                        placeholder="" name="promedio_costo" />
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="cantidad_producto" name="cantidad_producto_almacen"/>
                                 </td>
                                 <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                        placeholder="" name="precio_venta"/>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="stock_minimo_producto" name="stock_minimo"/>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="costo_producto" name="promedio_costo" />
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="precio_venta_producto" name="precio_venta"/>
                                 </td>
                             </tr>
                         </tbody>

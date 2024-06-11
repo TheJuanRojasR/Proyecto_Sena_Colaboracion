@@ -229,19 +229,38 @@ class Vista {
   * @param {*} nombre_valor: nombre del valor de las opciones
   * @memberof Vista
   */
-  insertar_opciones_select(opciones, select_name, nombre_llave, nombre_valor){
+  insertar_opciones_select(opciones, select_name, nombre_llave, nombre_valor, tipo_opcion = null){
     const select = document.getElementsByName(select_name);
 
-    if (select) {
-      Object.entries(opciones).forEach(([nombre_llave, nombre_valor]) => {
-        const option = document.createElement('option');
-        option.value = nombre_llave;
-        option.textContent = nombre_valor;
-        select[0].appendChild(option);
-      });
-    } else {
-      console.error('El contenedro especificado no existe')
+    if(tipo_opcion == null){
+      if (select) {
+        Object.entries(opciones).forEach(([nombre_llave, nombre_valor]) => {
+          const option = document.createElement('option');
+          option.value = nombre_llave;
+          option.textContent = nombre_valor;
+          select[0].appendChild(option);
+        });
+      } else {
+        console.error('El contenedro especificado no existe')
+      }
+    }else{
+      for(let i = 0; i < opciones.length; i++){
+        if (select) {
+            const option = document.createElement('option');
+            option.value = opciones[i].id_producto;
+            option.textContent = opciones[i].nombre_producto;
+            option.setAttribute('data-categoria', opciones[i].id_categoria); // Agregar atributo data-categoria
+            select[0].appendChild(option);
+        } else {
+          console.error('El contenedro especificado no existe')
+        }
+      }
     }
+
+  }
+
+
+  insertar_data_label( ){
   }
 
   /**
@@ -464,6 +483,13 @@ class Vista {
     });
   }
 
+
+  /**
+   * Metodo para mostrar los detalles de un producto
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} producto: informacion del producto a mostrar 
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion 
+   */
   informacion_detalles_producto(tamaño, producto, id_contenedor){
     let cont = document.getElementById(id_contenedor);
     producto.forEach((producto) => {
