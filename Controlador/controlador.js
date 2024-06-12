@@ -371,14 +371,34 @@ function mostrar_stock_nav(){
     mostrar_stock_vacia(idAlmacen);
 }
 
-function mostar_form_crear_producto(){
+function mostrar_form_crear_nuevo_producto(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("crear_producto", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("crear_producto_desktop", "contenedor_principal", 1);
+    }
+
+    producto.getCategory(function (data) {
+        if(data.success){
+            lista_categorias = data.data
+            const categoriasObj = Object.fromEntries(
+                lista_categorias.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
+            );
+            console.log(categoriasObj)
+            vista.insertar_opciones_select(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")
+        }
+    });
+}
+
+function mostar_form_asignar_producto(){
     
     //Mostrar plantilla para crear un producto
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("crear_producto", "contenedor_principal", 1);
     }
     else{
-        vista.mostrar_plantilla("crear_producto_desktop", "contenedor_principal", 1);
+        vista.mostrar_plantilla("asignar_producto_desktop", "contenedor_principal", 1);
     }
     cambio_clases();
     
@@ -395,7 +415,7 @@ function mostar_form_crear_producto(){
             producto.getAllProduct(function(data){
                 lista_productos = data.data;
                 console.log(lista_productos);
-                vista.insertar_opciones_select(lista_productos, "nombre_producto", "id_producto", "nombre_producto", "true")
+                vista.insertar_opciones_select(lista_productos, "id_producto", "id_producto", "nombre_producto", "true")
             });
         }
     });
@@ -428,6 +448,33 @@ function mostar_form_crear_producto(){
             });
         }
     });
+}
+
+function asignar_producto(){
+    data = vista.getForm("form_crear_producto")
+
+    if(data.ok){
+        let cantidad = parseInt(data.cantidad_producto_almacen);
+        data.id_almacen = idAlmacen;
+        producto.assignProduct(data, function(data){
+            if(data.data.message == "El producto ya existe"){
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }else{
+                data.id_producto = data.data;
+                // data.id_almacen = idAlmacen;
+                data.cantidad_producto_almacen = cantidad;
+                console.log(data);
+                if(data.success){
+                    vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                    mostrar_stock_vacia(idAlmacen);
+                }else{
+                    vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                }
+            }
+        });
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    }
 }
 
 function crear_producto(){
@@ -478,12 +525,11 @@ function eliminar_producto(){
 function detalles_producto(btnDetallesProducto){
     idProducto = parseInt(btnDetallesProducto.getAttribute("data-detalles"));
     mostrar_detalles_producto(idProducto);
-
 }
 
 function mostrar_detalles_producto(id_producto){
     producto_info = {id_producto:id_producto, id_almacen:idAlmacen}
-    producto.getDetails(producto_info, function(data){
+    producto.getDetailsProduct(producto_info, function(data){
         if(data.success){
             if(tamañoPantalla.matches){
                 vista.mostrar_plantilla("detalles_producto", "contenedor_principal", 1);
@@ -500,6 +546,59 @@ function mostrar_detalles_producto(id_producto){
 
 
 }
+
+function mostrar_editar_producto(btnEditar){
+    idProducto = parseInt(btnEditar.getAttribute("data-editar"));
+    producto_info = {id_producto:idProducto, id_almacen:idAlmacen}
+    producto.getDetailsProduct(producto_info, function(data){
+        if(data.success){
+            if(tamañoPantalla.matches){
+                vista.mostrar_plantilla("editar_producto", "contenedor_principal", 1);
+            }
+            else{
+                vista.mostrar_plantilla("editar_producto_desktop", "contenedor_principal", 1);
+            }
+            cambio_clases();
+            pantalla = tamañoPantalla.matches;
+            producto_mostrar = data.data;
+            vista.informacion_editar_producto(pantalla,producto_mostrar,"form_editar_producto")
+            producto.getCategory(function (data) {
+                if(data.success){
+                    lista_categorias = data.data
+                    const categoriasObj = Object.fromEntries(
+                        lista_categorias.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
+                    );
+                    console.log(categoriasObj)
+                    vista.insertar_opciones_select(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")
+                }
+            });
+        }else{
+            vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
+        }
+    });
+}
+
+function guardar_editar_producto(){
+    data = vista.getForm("form_editar_producto")
+    data.id_producto = idProducto;
+    if(data.ok){
+        producto.updateDetailsProduct(data, function(data){
+            if(data.data.message == "El producto ya existe"){
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }else{
+                if(data.success){
+                    vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                    mostrar_detalles_producto(idProducto);
+                }else{
+                    vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                }
+            }
+        });
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    }
+}
+
 
 function mostrar_seleccionar_informe(){
     if(tamañoPantalla.matches){
@@ -573,15 +672,6 @@ function mostrar_mov_del_producto(){
     }
     else{
         vista.mostrar_plantilla("movimientos_del_producto_desktop", "contenedor_principal", 1);
-    }
-}
-
-function mostrar_editar_producto(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("editar_producto", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("editar_producto_desktop", "contenedor_principal", 1);
     }
 }
 

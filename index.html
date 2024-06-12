@@ -1080,16 +1080,7 @@
                 <h1>Editar Producto</h1>
             </div>
             <form class="container d-flex flex-column align-items-center contenedor_form" id="form_editar_producto">
-                <!-- Contendor de form para editar un producto -->
-                <input type="text" class="form-control" placeholder="Nombre Producto" name="nombre_producto">
-                <select type="text" class="select_oscuro" name="nombre_categoria"> <!-- Select para seleccionar categoria del producto -->
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Categoria Producto</option>
-                    <option class="opciones">Categoria 1</option>
-                </select>
-                <input type="text" class="form-control" placeholder="Ubicacion" disabled>
-                <input type="text" class="form-control" placeholder="Stock minimo" name="stock_minimo">
-                <input type="text" class="form-control" placeholder="Precio" name="precio_venta">
+                
             </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
                 <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_detalles_producto()">
@@ -2478,8 +2469,113 @@
         <hr />
         <div class="container sin-opciones">
             <h2>
-                ¿No tienes productos? <a href="#" onclick="mostar_form_crear_producto()">Haz clic aquí para crear uno.</a>
+                ¿No tienes productos? 
+                <a href="#" onclick="mostar_form_crear_producto()">Haz clic aquí para crear uno.</a>
+                <br>
+                Ya tienes Productos? 
+                <a href="#" onclick="mostar_form_asignar_producto()"> Haz click aqui para asignar un producto a tu almacen</a>
             </h2>
+        </div>
+    </template>
+
+    <!-- Pantalla Asignar producto -->
+    <template id="asignar_producto_desktop">
+        <div class="container encabezado">
+            <h1>STOCK</h1>
+            <div class="d-flex flex-row">
+                <form action="#" method="get" class="search-form encabezado__search-form" id="form_busqueda_desktop">
+                    <input class="encabezado__search-input" type="text" name="" placeholder="Buscar" />
+                </form>
+                <button class="encabezado__search-button" type="button">
+                    <img src="./Assets/img/logo_lupa.svg" alt="" />
+                </button>
+            </div>
+        </div>
+        <hr />
+        <div class="container  table-responsive">
+            <form id="form_crear_producto">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Categoria</span>
+                            </th>
+                            <th scope="col" class="">
+                                <button class="btn btn-tabla-icono">
+                                    <img class="imagen-tabla-icono" src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Producto</span>
+                            </th>
+                            <th scope="col" class="">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Referencia</span>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Stock Minimo</span>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Costo</span>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 btn-tabla-icono">Precio</span>
+                            </th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <select class="form-select" name="id_categoria" id="select_id_categoria">
+                                        <option selected value="">Categoria</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-select" name="id_producto" id="select_nombre_producto">
+                                        <option selected value="">Nuevo Producto</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button" id="referencia_producto" name="referencia_producto"/>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="cantidad_producto" name="cantidad_producto_almacen"/>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="stock_minimo" name="stock_minimo"/>
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="promedio_costo" name="promedio_costo" />
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="precio_venta" name="precio_venta"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                </table>
+            </form>
+            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="asignar_producto()">
+                <img src="./Assets/img/guardar.svg" alt="" />
+            </button>
         </div>
     </template>
 
@@ -2555,9 +2651,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <select class="form-select" name="nombre_producto" id="select_nombre_producto">
-                                        <option selected value="">Nuevo Producto</option>
-                                    </select>
+                                    <input type="text" class="form-control" aria-label="Text input with dropdown button" id="select_nombre_producto" name="nombre_producto"/>
                                 </td>
                                 <td>
                                     <input type="text" class="form-control" aria-label="Text input with dropdown button" id="referencia_producto" name="referencia_producto"/>
@@ -2596,7 +2690,8 @@
                     <img src="./Assets/img/logo_lupa.svg" alt="" />
                 </button>
             </div>
-            <button class="btn btn-general ms-auto" onclick="mostar_form_crear_producto()">Crear Producto</button>
+            <button class="btn btn-general ms-auto" onclick="mostrar_form_crear_nuevo_producto()">Crear Producto</button>
+            <button class="btn btn-general ms-auto" onclick="mostar_form_asignar_producto()">Asignar Producto a Almacen</button>
         </div>
         <hr />
         <div class="container">
@@ -2970,58 +3065,12 @@
             <div class="d-flex flex-column">
                 <h1>Nombre del Producto</h1>
                 <div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <form id="form_editar_producto_desktop">
-                                <tr>
-                                    <td>Nombre producto</td>
-                                    <td>
-                                        <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                            placeholder="" name="referencia_producto"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Categoria producto</td>
-                                    <td>
-                                        <select type="text" class="select_claro_mov form-select" name="referecia_producto">
-                                            <!-- Opciones del select -->
-                                            <option selected class="opciones">Categoria</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Ubicación</td>
-                                    <td>
-                                        <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                            placeholder="" name="nombre_almacen" disabled />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Stock minimo</td>
-                                    <td>
-                                        <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                            placeholder="" name="cantidad_producto_almacen"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Precio</td>
-                                    <td>
-                                        <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                            placeholder="" name="stock_minimo"/>
-                                    </td>
-                                </tr>
-                            </form>
-                        </tbody>
-                    </table>
+                    <form id="form_editar_producto">
+                        
+                    </form>
                 </div>
                 <div class="d-flex justify-content-end">
-                    <button class="btn btn-general--contenido" onclick="mostrar_detalles_producto()">Guardar</button>
+                    <button class="btn btn-general--contenido" onclick="guardar_editar_producto()">Guardar</button>
                 </div>
             </div>
             <div class="position-relative">

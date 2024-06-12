@@ -43,6 +43,13 @@ class Producto extends Connect{
         this.connect(dataRequest, endpoint, method, createCallback);
     }
 
+    //Metodo para asignar un producto a un almacen
+    assignProduct(dataRequest, assignCallback){
+        const endpoint = "productos/asignar"
+        const method = "POST"
+        this.connect(dataRequest, endpoint, method, assignCallback);
+    }
+
     //Metodo para mostrar los productos
     getAllProductbyStore(id_almacen, getAllProductbyStoreCallback){
         const endpoint = `productos/almacen?id_almacen=${id_almacen}` 
@@ -71,7 +78,7 @@ class Producto extends Connect{
 
     //Metodo para mostrar detalles de un producto
 
-    getDetails(producto_inf, getDetailsCallback){
+    getDetailsProduct(producto_inf, getDetailsCallback){
         const endpoint = `productos/detalles?id_producto=${producto_inf.id_producto}&id_almacen=${producto_inf.id_almacen}`
         const method = "GET"
         this.connect({}, endpoint, method, getDetailsCallback);
@@ -79,7 +86,7 @@ class Producto extends Connect{
 
     //Metodo para actualizar un producto
 
-    updateDetails(dataRequest, updateDetailsCallback){
+    updateDetailsProduct(dataRequest, updateDetailsCallback){
         const endpoint = "productos"
         const method = "PUT"
         this.connect(dataRequest, endpoint, method, updateDetailsCallback);

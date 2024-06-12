@@ -155,39 +155,42 @@ class Vista {
    */
   getForm(formulario) {
     let form = document.getElementById(formulario);
-    let datos = new FormData(form);
+    let datos = Array.from(form.elements);
     let data = {};
     data.ok = true; //Bandera para verificar si los campos estan llenos
     data.msj = ""; //Mensaje de error
     data.id_rol = 1;
   
-    datos.forEach((value, key) => {
-      data[key] = value;
-      if(value === "" || (form[key].tagName === "SELECT" && value === "0")) {
-        data.ok = false;
-        data.msj = "Por favor llene " + key;
-      }
-      else if (form[key].type == "email") {
-        if (!this.validar_email(value)) {
+    datos.forEach((element) => {
+      data[element.name] = element.value;
+      if (element instanceof HTMLInputElement){
+        let value = element.value;
+        if(value === "" || (element.tagName === "SELECT" && value === "0")) {
           data.ok = false;
-          data.msj = "No es un correo válido: " + value;     
-          console.log(data.msj);     
+          data.msj = "Por favor llene " + key;
         }
-      }
-      else if (form.id == "form_registro_usuario" && form[key].name == "contraseña"){
-        if (!this.validar_contraseña(value)){
-          data.ok = false;
-          data.msj = "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número";
-          console.log(data.msj);
+        else if (element.type == "email") {
+          if (!this.validar_email(value)) {
+            data.ok = false;
+            data.msj = "No es un correo válido: " + value;     
+            console.log(data.msj);     
+          }
         }
-      }
-      else if (form.id == "form_registro_usuario" && form[key].name == "confirmar_contraseña"){
-        let password = form.elements["contraseña"].value;
-        if (value !== password) {
-          data.ok = false;
-          data.msj = "Las contraseñas no coinciden";
-          console.log(data.msj);
+        else if (form.id == "form_registro_usuario" && element.name == "contraseña"){
+          if (!this.validar_contraseña(value)){
+            data.ok = false;
+            data.msj = "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número";
+            console.log(data.msj);
+          }
         }
+        else if (form.id == "form_registro_usuario" && element.name == "confirmar_contraseña"){
+          let password = form.elements["contraseña"].value;
+          if (value !== password) {
+            data.ok = false;
+            data.msj = "Las contraseñas no coinciden";
+            console.log(data.msj);
+          }
+        }  
       }
     });
     return data;
@@ -479,98 +482,11 @@ class Vista {
     });
   }
 
-
   /**
-   * Metodo para mostrar los detalles de un producto
-   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
-   * @param {*} producto: informacion del producto a mostrar 
-   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion 
+   * Metodo para mostrar la informacion de un producto ya existente cuando se asigna un producto a un almacen
+   * @param {*} producto: informacion del producto a asignar
+   * @param {*} lista_inputs: lista de inputs donde se mostrara la informacion del producto  
    */
-  informacion_detalles_producto(tamaño, producto, id_contenedor){
-    let cont = document.getElementById(id_contenedor);
-    producto.forEach((producto) => {
-      if(tamaño == true){
-        const html = `
-            <div class="conedor_nombre_producto_titulo"> <!-- Contenedor Nombre del producto como Titulo -->
-                <h1 id="nombre_producto_titulo">${producto.nombre_producto}</h1>
-            </div>
-            <div class="container d-flex" id="contenedor_detalles_producto"> <!-- Contenedor para la lista de detalles del producto -->
-                <ul> <!-- Lista de detalles del producto -->
-                    <li>Referencia: ${producto.referencia_producto}</li>
-                    <li>Cantidad: ${producto.cantidad_producto_almacen}</li>
-                    <li>Stock Minimo: ${producto.stock_minimo}</li>
-                    <li>Costo: ${producto.promedio_costo}</li>
-                    <li>Precio de Venta ${producto.precio_venta}</li>
-                </ul>
-            </div>
-            <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
-                <!-- Contenedor de botones -->
-                <button class="btn boton_largo_oscuro" type="button" onclick="mostrar_mov_del_producto()">
-                    <!-- Boton para ver movimientos -->
-                    Ver Movimientos
-                </button>
-                <button class="btn boton_largo_claro" type="button" onclick="mostrar_editar_producto()">
-                    <!-- Boton para editar el producto -->
-                    Editar Producto
-                </button>
-            </div>
-            <div class="container d-flex align-items-center justify-content-center">
-                <!-- Contenedor de la imagen del producto -->
-                <img src="./Assets/img/image-1.png" alt="" id="imagen_producto">
-            </div>
-        `
-      }else{
-        const html = `
-            <div class="d-flex flex-column">
-                <h1>${producto.nombre_producto}</h1>
-                <div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col"></th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Referencia</td>
-                                <td>${producto.referencia_producto}</td>
-                            </tr>
-                            <tr>
-                                <td>Cantidad</td>
-                                <td>${producto.Cantidad}</td>
-                            </tr>
-                            <tr>
-                                <td>Stock Mínimo</td>
-                                <td>${producto.stock_minimo}</td>
-                            </tr>
-                            <tr>
-                                <td>Costo</td>
-                                <td>${producto.Costo}</td>
-                            </tr>
-                            <tr>
-                                <td>Precio de Venta</td>
-                                <td>${producto.Precio}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div>
-                    <button class="btn btn-general--contenido" onclick="mostrar_mov_del_producto()">Ver Movimientos</button>
-                    <button class="btn btn-general--secundario" onclick="mostrar_editar_producto()">Editar Descripción</button>
-                </div>
-            </div>
-            <div class="">
-                <figure class="contenedor-imagen">
-                    <img class="img-fluid" src="./Assets/img/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
-                </figure>
-            </div>
-            `
-            cont.innerHTML += html;
-      }
-    })
-  }
-
   informacion_inputs_productos(producto, lista_inputs){
     lista_inputs.forEach((input) => {
       const input_id = document.getElementById(input) 
@@ -584,11 +500,181 @@ class Vista {
       }
     })
   }
-
+  
+  /**
+   * Metodo para limpiar la informacion de un input
+   * @param {*} inputs: id del input a limpiar
+   */
   limpiar_inputs(inputs){
     let cont = document.getElementById(inputs)
     cont.value = "";
     cont.disabled = false
   }
 
+    /**
+   * Metodo para mostrar los detalles de un producto
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} producto: informacion del producto a mostrar 
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion 
+   */
+    informacion_detalles_producto(tamaño, producto, id_contenedor){
+      let cont = document.getElementById(id_contenedor);
+      producto.forEach((producto) => {
+        if(tamaño == true){
+          const html = `
+              <div class="conedor_nombre_producto_titulo"> <!-- Contenedor Nombre del producto como Titulo -->
+                  <h1 id="nombre_producto_titulo">${producto.nombre_producto}</h1>
+              </div>
+              <div class="container d-flex" id="contenedor_detalles_producto"> <!-- Contenedor para la lista de detalles del producto -->
+                  <ul> <!-- Lista de detalles del producto -->
+                      <li>Referencia: ${producto.referencia_producto}</li>
+                      <li>Cantidad: ${producto.cantidad_producto_almacen}</li>
+                      <li>Stock Minimo: ${producto.stock_minimo}</li>
+                      <li>Costo: ${producto.promedio_costo}</li>
+                      <li>Precio de Venta ${producto.precio_venta}</li>
+                  </ul>
+              </div>
+              <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
+                  <!-- Contenedor de botones -->
+                  <button class="btn boton_largo_oscuro" type="button" onclick="mostrar_mov_del_producto()">
+                      <!-- Boton para ver movimientos -->
+                      Ver Movimientos
+                  </button>
+                  <button class="btn boton_largo_claro" type="button" onclick="mostrar_editar_producto()">
+                      <!-- Boton para editar el producto -->
+                      Editar Producto
+                  </button>
+              </div>
+              <div class="container d-flex align-items-center justify-content-center">
+                  <!-- Contenedor de la imagen del producto -->
+                  <img src="./Assets/img/image-1.png" alt="" id="imagen_producto">
+              </div>
+          `
+        }else{
+          const html = `
+              <div class="d-flex flex-column">
+                  <h1>${producto.nombre_producto}</h1>
+                  <div>
+                      <table class="table">
+                          <thead>
+                              <tr>
+                                  <th scope="col"></th>
+                                  <th scope="col"></th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr>
+                                  <td>Categoria</td>
+                                  <td>${producto.nombre_categoria}</td>
+                              </tr>
+                              <tr>
+                                  <td>Referencia</td>
+                                  <td>${producto.referencia_producto}</td>
+                              </tr>
+                              <tr>
+                                  <td>Cantidad</td>
+                                  <td>${producto.Cantidad}</td>
+                              </tr>
+                              <tr>
+                                  <td>Stock Mínimo</td>
+                                  <td>${producto.stock_minimo}</td>
+                              </tr>
+                              <tr>
+                                  <td>Costo</td>
+                                  <td>${producto.Costo}</td>
+                              </tr>
+                              <tr>
+                                  <td>Precio de Venta</td>
+                                  <td>${producto.Precio}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+                  <div>
+                      <button class="btn btn-general--contenido" onclick="mostrar_mov_del_producto()">Ver Movimientos</button>
+                      <button class="btn btn-general--secundario" onclick="mostrar_editar_producto(this)" data-editar = ${producto.id_producto}>Editar Descripción</button>
+                  </div>
+              </div>
+              <div class="">
+                  <figure class="contenedor-imagen">
+                      <img class="img-fluid" src="./Assets/img/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
+                  </figure>
+              </div>
+              `
+              cont.innerHTML += html;
+        }
+      });
+    }
+
+    informacion_editar_producto(tamaño, producto, id_contenedor){
+        let cont = document.getElementById(id_contenedor);
+        producto.forEach((producto) => {
+            if(tamaño == true){
+                const html = `
+                    <!-- Contendor de form para editar un producto -->
+                    <input type="text" class="form-control" value="${producto.nombre_producto}" name="nombre_producto">
+                    <input type="text" class="form-control" value="${producto.referencia_producto}" name="referencia_producto">
+                    <select type="text" class="select_oscuro" name="id_categoria" id="select_id_categoria"> <!-- Select para seleccionar categoria del producto -->
+                        <!-- Opciones del select -->
+                        <option selected class="opciones">Categoria Producto</option>
+                        <option class="opciones">Categoria 1</option>
+                    </select>
+                    <input type="text" class="form-control" value="${producto.stock_minimo}"  name="stock_minimo">
+                    <input type="text" class="form-control" value="${producto.Precio}" name="precio_venta">
+                `;
+                cont.innerHTML += html;
+        }else{
+            const html = `
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nombre Producto</td>
+                            <td>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" 
+                                value="${producto.nombre_producto}"  name="nombre_producto"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Referencia Producto</td>
+                            <td>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                value="${producto.referencia_producto}"  name="referencia_producto"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Categoria producto</td>
+                            <td>
+                                <select type="text" class="select_claro_mov form-select" name="id_categoria" id="select_id_categoria">
+                                    <!-- Opciones del select -->
+                                    <option selected class="opciones">Categoria</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Stock minimo</td>
+                            <td>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                value="${producto.stock_minimo}" placeholder="" name="stock_minimo"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Precio</td>
+                            <td>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                                value="${producto.Precio}" name="precio_venta"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            `
+            cont.innerHTML += html;
+            } 
+        });
+    } 
 }

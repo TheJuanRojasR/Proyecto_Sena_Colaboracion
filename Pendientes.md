@@ -42,9 +42,10 @@
 38. JUAN: Añadir flex al contendor de las tarjetas de inventarios
 39. JUAN Mover a la derecha los inputs de crear producto.
 40. Revisar evenlistener para mantener elementos clickeados, posibe cambio de templates
-41. Revisar como poner registros en varias pantallas (productos)
+41. Revisar como poner registros en varias pantallas (productos paginacion)
 42. JUAN LAURA: Añadir a detalles del producto Categoria del producto
-43. Borrar Cambios de BD del viernes
+43. Borrar Cambios de BD del viernes                                                                  ✔
+44. JUAN: Arreglar distribucion de botones en la pantalla de stock
 
 Cambiar Template para crear producto
     Cambiar ordern a: Categorias, producto, referencia....
