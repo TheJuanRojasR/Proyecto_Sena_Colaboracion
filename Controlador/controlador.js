@@ -413,22 +413,20 @@ function mostar_form_crear_producto(){
             }
         });
     });
-    document.getElementById('select_nombre_producto').addEventListener('change', function() {
-        const productoSeleccionado = this.value;
-        const inputReferencia = document.getElementById('referencia_producto');
-        const inputCantidad = document.getElementById('cantidad_producto');
-        const inputStockMinimo = document.getElementById('stock_minimo_producto');
-        const inputCosto = document.getElementById('costo_producto');
-        const inputPrecio = document.getElementById('precio_venta_producto');	
-        const opciones = selectProductos.querySelectorAll('option');
 
-        opciones.forEach(opcion => {
-            if (opcion.getAttribute('data-categoria') === categoriaSeleccionada || opcion.value === "") {
-                opcion.style.display = '';
-            } else {
-                opcion.style.display = 'none';
-            }
-        });
+    document.getElementById('select_nombre_producto').addEventListener('change', function() {
+        const productoSeleccionado = parseInt(this.value);
+        const lista_inputs = ['referencia_producto','stock_minimo','promedio_costo','precio_venta'];
+
+        if (productoSeleccionado > 0) {
+            let inputsProducto = lista_productos.find(x => x.id_producto === productoSeleccionado);
+    
+            vista.informacion_inputs_productos  (inputsProducto, lista_inputs);
+        }else{
+            lista_inputs.forEach(input => {
+                vista.limpiar_inputs(input);
+            });
+        }
     });
 }
 

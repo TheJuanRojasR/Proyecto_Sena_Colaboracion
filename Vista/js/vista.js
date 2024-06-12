@@ -259,10 +259,6 @@ class Vista {
 
   }
 
-
-  insertar_data_label( ){
-  }
-
   /**
    * Metodo para mostrar la informacion de los almacenes en una tarjeta
    * @param {*} tamaño_pantalla: tamaño de la pantalla para mostrar una tarjeta u otra
@@ -573,6 +569,26 @@ class Vista {
             cont.innerHTML += html;
       }
     })
+  }
+
+  informacion_inputs_productos(producto, lista_inputs){
+    lista_inputs.forEach((input) => {
+      const input_id = document.getElementById(input) 
+      if (input_id){
+        for (let llave_producto in producto){
+          if ( input == llave_producto  ){ 
+            input_id.value = producto[llave_producto]
+            input_id.disabled = true;
+          }
+        }
+      }
+    })
+  }
+
+  limpiar_inputs(inputs){
+    let cont = document.getElementById(inputs)
+    cont.value = "";
+    cont.disabled = false
   }
 
 }
