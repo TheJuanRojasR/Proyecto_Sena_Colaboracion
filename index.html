@@ -220,7 +220,7 @@
             <ul class="navbar-nav flex-row justify-content-around flex-wrap" id="lista_nav_inf">
                 <!-- Lista de Navegacion -->
                 <li class="nav-item" id="home">
-                    <button class="btn" type="button" onclick="mostrar_inventarios_nav()">
+                    <button class="btn" type="button" onclick="mostrar_inv_nav()">
                         <img src="./Assets/img/home.svg" alt="">
                     </button>
                     <p class="text_nav_inf">Inventario</p>
@@ -369,7 +369,7 @@
             </form>
             <div class="container d-flex justify-content-end contenedor_boton">
                 <!-- Contendor boton para registrarse -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_form_login()">
+                <button class="btn boton_oscuro_corto" type="button" onclick="registrar_usuario()">
                     Registar
                 </button>
             </div>
@@ -394,7 +394,7 @@
                 <input type="password" class="form-control" placeholder="Contraseña" name="contraseña">
             </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor boton para log in -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv_vacia()">
+                <button class="btn boton_oscuro_corto" type="button" onclick="log_in()">
                     Ingresar
                 </button>
             </div>
@@ -437,7 +437,7 @@
                 <input type="text" placeholder="Descripcion" class="form-control name="descripcion_almacen">
             </form>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear el inventario -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inventarios()">
+                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv()">
                     Crear
                 </button>
             </div>
@@ -524,7 +524,7 @@
             </div>
             <div class="container d-flex justify-content-end contenedor_boton">
                 <!-- Boton para eliminar el inventario seleccionado -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inventarios()">
+                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv()">
                     Eliminar
                 </button>
             </div>
@@ -1760,7 +1760,7 @@
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inventarios_nav()">Inventarios</a>
+                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inv_nav()">Inventarios</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -1966,7 +1966,7 @@
                             value="" name="confirmar_contraseña">
                     </div>
                 </form>
-                <button class="btn btn-general mb-3" onclick="mostrar_form_login()">Registrar</button>
+                <button class="btn btn-general mb-3" onclick="registrar_usuario()">Registrar</button>
                 <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
             </div>
         </section>
@@ -1994,7 +1994,7 @@
                         </div>
                     </form>
                 </div>
-                <button class="btn btn-general mb-3" onclick="mostrar_inv_vacia()">Ingresar</button>
+                <button class="btn btn-general mb-3" onclick="log_in()">Ingresar</button>
             </div>
         </section>
     </template>
@@ -2048,7 +2048,7 @@
                     </div>
                 </form>
                 <div class="d-grid gap-2">
-                    <button class="btn btn-general" type="button" onclick="crear_inventario()">
+                    <button class="btn btn-general" type="button" onclick="crear_inv()">
                         Crear Inventario
                     </button>
                 </div>
@@ -2470,7 +2470,7 @@
         <div class="container sin-opciones">
             <h2>
                 ¿No tienes productos? 
-                <a href="#" onclick="mostar_form_crear_producto()">Haz clic aquí para crear uno.</a>
+                <a href="#" onclick="mostrar_form_crear_nuevo_producto()">Haz clic aquí para crear uno.</a>
                 <br>
                 Ya tienes Productos? 
                 <a href="#" onclick="mostar_form_asignar_producto()"> Haz click aqui para asignar un producto a tu almacen</a>
@@ -2488,7 +2488,7 @@
                 </form>
                 <button class="encabezado__search-button" type="button">
                     <img src="./Assets/img/logo_lupa.svg" alt="" />
-                </button>
+                </button>c
             </div>
         </div>
         <hr />

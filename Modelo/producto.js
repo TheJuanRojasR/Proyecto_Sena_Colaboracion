@@ -57,12 +57,14 @@ class Producto extends Connect{
         this.connect({}, endpoint, method, getAllProductbyStoreCallback);
     }
 
+    //Metodo para mostrar todos los productos
     getAllProduct(getAllProductCallback){
         const endpoint = `productos`
         const method = "GET"
         this.connect({}, endpoint, method, getAllProductCallback);
     }
 
+    //Metodo para mostrar todas las categorias
     getCategory(getAllCategoriesCallback){
         const endpoint = "categorias"
         const method = "GET"
@@ -77,7 +79,6 @@ class Producto extends Connect{
     }
 
     //Metodo para mostrar detalles de un producto
-
     getDetailsProduct(producto_inf, getDetailsCallback){
         const endpoint = `productos/detalles?id_producto=${producto_inf.id_producto}&id_almacen=${producto_inf.id_almacen}`
         const method = "GET"
@@ -85,7 +86,6 @@ class Producto extends Connect{
     }
 
     //Metodo para actualizar un producto
-
     updateDetailsProduct(dataRequest, updateDetailsCallback){
         const endpoint = "productos"
         const method = "PUT"
@@ -93,7 +93,6 @@ class Producto extends Connect{
     }
 
     //Metodo para mostrar los movimientos de un producto
-
     getTransactions(dataRequest, getTransactionsCallback){
         const endpoint = "productos/movimientos"
         const method = "GET"
@@ -101,7 +100,6 @@ class Producto extends Connect{
     }
 
     //Metodo para mostrar abastecimiento
-
     getProvision(dataRequest, getProvisionCallback){
         const endpoint = "productos/abastecimiento"
         const method = "GET"

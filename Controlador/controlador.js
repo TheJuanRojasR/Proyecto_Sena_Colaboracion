@@ -1,13 +1,15 @@
+//Variables globales
 let vista = new Vista();
 let usuario = new Usuario();
 let producto = new Producto();
 let almacen = new Almacen();
-let lista_categorias = []
-let lista_productos = [];
-let lista_almacenes = [];
+let lista_categorias = [] //Lista donde se guardan las categorias existentes
+let lista_productos = []; //Lista donde se guardan los productos existentes
+let lista_almacenes = []; //Lista donde se guardan los almacenes existentes
 let idAlmacen = null; //Varialbe para guardar el id del almacen
 let idProducto = null; //Variable para guardar el id del producto
 
+//Listas para cambiar de clases a contenedores
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
 const lista_clases_nav_sup_desktop = ['navbar', 'navbar-expand-md'];
@@ -20,12 +22,28 @@ const lista_clases_modal_exito = ['modal', 'modal--exito'];
 const lista_clases_modal_confirmacion_show = ['modal', 'modal--confirmacion','modal--show'];
 const lista_clases_modal_confirmacion = ['modal', 'modal--confirmacion'];
 
-const tamañoPantalla = window.matchMedia('(max-width: 768px)');
+const tamañoPantalla = window.matchMedia('(max-width: 768px)'); //Se obtiene el tamaño de la pantalla
 
-window.addEventListener('resize', cambio_clases);
+//Se escucha a la pantalla y si existe un cambio de tamaño, y ejecuta la funcion cambio_clases.
+window.addEventListener('resize', cambio_clases); 
 
 // window.addEventListener('resize', cambio_templates);
 
+/**
+ * Funcion para añadir un evento click a un elemento del HTML
+ * @param {*} plantilla: id de la etiqueta a la que se le añadira el evento
+ * @param {*} funcion: Funcion que se va a ejecutar al hacer click
+ */
+function añadir_evento_click(plantilla, funcion) {
+    let elemento = document.getElementById(plantilla); //Se obtiene el elemento
+    elemento.onclick = "" //Se elimina el evento anterior
+    elemento.onclick = funcion; //Se añade el nuevo evento
+}
+
+/**
+ * Funcion para cambiar las clases de la etiqueta main, a travez de su id
+ * utilizando una lista de clases dependiendo del tamaño de la pantalla
+ */
 function cambio_clases(){
     if(tamañoPantalla.matches){
         vista.cambiar_clases("contenedor_principal", lista_clases_main_mobile);
@@ -37,6 +55,9 @@ function cambio_clases(){
     }
 }
 
+/**
+ * Funcion para remover la etiqueta nav, que se utiliza como navegador inferior
+ */
 function remover_nav_inf(){
     if(tamañoPantalla.matches){
         vista.remover_etiqueta("navegador_inf");
@@ -46,23 +67,14 @@ function remover_nav_inf(){
     }
 }
 
-function cambio_templates(){
-    if(tamañoPantalla.matches){
-    vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
-    vista.mostrar_plantilla("nav_sup_inicio", "navegador_sup");
-    vista.mostrar_plantilla("footer", "footer_inicio");
-    }
-    else{
-    vista.mostrar_plantilla("pagina_inicio_desktop", "contenedor_principal");
-    vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
-    vista.mostrar_plantilla("footer", "footer_inicio");
-    }
-}
-
 // function cerrarVentana(){
 //     cerrarPantalla("offcanvasNavbar");
 // }
 
+/**
+ * Evento para cargar la pagina con el template de paginas de inicio 
+ * dependiendo del tamaño de la pantalla
+ */
 window.onload = function(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
@@ -78,6 +90,10 @@ window.onload = function(){
     remover_nav_inf();
 }
 
+/**
+ * Funcion para regresar entre pantallas
+ *
+ */
 function regresar_pantalla(){
     vista.regresar_pantalla();
     if(vista.stack_pantallas[vista.stack_pantallas.length-1] == "pagina_inicio"){
@@ -85,8 +101,11 @@ function regresar_pantalla(){
     };
 }
 
-// Funciones para acciones del la pantalla Inicio
+// -------- PAGINA DE INICIO ---------- \\
 
+/**
+ * Funcion para mostrar la pagina de registro de un usuario nuevo
+ */
 function mostrar_form_registro_usuario(){
 
     //Mostrar plantilla de registro de usuario
@@ -102,22 +121,27 @@ function mostrar_form_registro_usuario(){
     }
     cambio_clases();
 
-    //Consultar categ productos 
+    //Consultar categorias de los productos 
     usuario.getAllDocumentos(function (data) {
         if(data.success) {
             lista_opciones = []
             lista_opciones = data.data
-            //poblar select id_categoria
+            // Se convierte el objeto en un array con llave valor
             const categoriasObj = Object.fromEntries(
                 lista_opciones.map((obj) => [obj.id_tipo_documento.toString(), obj.tipo_documento])
-            );
-            console.log(categoriasObj)
+                );
+                console.log(categoriasObj)
+            // Se llama metodo de vista para poblar select id_categoria
             vista.insertar_opciones_select(categoriasObj, "tipo_documento", "id_tipo_documento", "tipo_documento")
         }
     });
 }
 
+/**
+ * Muestra el log in de un usuario desde el boton disponible en la barra superior
+ */
 function mostrar_login(){
+    // Cambia la pantalla a login
     if(tamañoPantalla.matches){
         vista.añadir_padding("contenedor_principal", "72.31px");
         vista.mostrar_plantilla("log_in", "contenedor_principal", 0);
@@ -132,57 +156,60 @@ function mostrar_login(){
     cambio_clases();
 }
 
-function mostrar_form_login(){
+/**
+ * Funcion para regisrtar al usuario y utilizando los datos 
+ * puestos en el form de registro, y cambio de pantalla para logeo 
+ *
+ */
+function registrar_usuario(){
 
-    //Verificacion de form y registro de usuario
-
+    //Verificacion de form
     data = vista.getForm("form_registro_usuario")
-
+    // Consulta a la base de datos
     if(data.ok){
         usuario.register(data, function(data){
             if(data.data.message == "El usuario ya existe"){
+                //Mensaje de error
                 vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
             }
             else{
                 if(data.success){
-                    //Mensaje de exito
-                    //Mostar modal de registro exitoso
+                    //Mensaje de exito y cambio de template
                     vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
                     mostrar_login();
                 }
                 else{
+                    //Mensaje de error
                     vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
                 }
             }
         });
     } else {
+        //Mensaje de error
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
 }
 
-// Funciones acciones de las pantallas Registro de Usuario y Log In
-
-function mostrar_inventarios_nav(){
-    let id_usuario = usuario.id_usuario;
-    mostrar_inventarios(id_usuario);
-}
-
-function mostrar_inv_vacia(){
-    
+/**
+ * Funcion para mostrar los inventarios de un usuario
+ */
+function log_in(){
+    //Verificacion de Form 
     data = vista.getForm("form_login")
-
     if (data.ok) {
-        //Validar datos en la tabla clientes o empresas
+        // Consulta a la base de datos la existencia de un usuario
         usuario.login(data, function (data) {
             if (data.success) {
                 if (data.data.length == 0) {
+                    // Mensaje de error si no existe
                     vista.cambiar_clases('modal_error', lista_clases_modal_error_show);
                     return;
                 } else {
+                    //Se llama el metodo setData de usuario, para guardar los datos del usuario
                     usuario.setData(data.data[0]);
-                    //Consultar almacenes
+                    //Consultar almacenes segun el id del usuario
                     let id_usuario = usuario.id_usuario;
-                    mostrar_inventarios(id_usuario);
+                    mostrar_inv(id_usuario);
                 }
             } else {
                 vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
@@ -192,19 +219,35 @@ function mostrar_inv_vacia(){
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
 }
-// Funciones acciones de la barra de navegacion Inferior
 
-function mostrar_inventarios(id_usuario){
+// -------- PAGINA DE INVENTARIOS ---------- \\
+
+/**
+ * Funcion para mostar los inventarios del usuario desde el navegador
+ */
+function mostrar_inv_nav(){
+    let id_usuario = usuario.id_usuario;
+    mostrar_inv(id_usuario);
+}
+
+/**
+ * Funcion para mostrar los inventarios de un usuario
+ *
+ * @param {*} id_usuario: Id del usuario para consultar unicamente sus inventarios
+ */
+function mostrar_inv(id_usuario){
+    //Consulta a la Base de Datos, para traer todos los inventarios de ese usuario
     almacen.getByUser(id_usuario, function(data){
         if(data.success){
             if(data.data.length == 0){
+                //Si no hay inventarios aisgnados a ese usuario, se muestra la pantalla inventarios_vacia
                 if(tamañoPantalla.matches){
                     vista.añadir_padding("contenedor_principal", "72.31px");
                     vista.mostrar_plantilla("nav_sup","navegador_sup");
                     vista.limpiar_contenedor("navegador_inf",);
                     vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
                     vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-                    vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
+                    añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
                 }
                 else{
                     vista.mostrar_plantilla("nav_sup_desktop_inv","navegador_sup");
@@ -214,12 +257,13 @@ function mostrar_inventarios(id_usuario){
                 cambio_clases();
             }
             else{
+                //Si hay inventarios, se muestra la pantalla inventarios
                 if(tamañoPantalla.matches){
                     vista.limpiar_contenedor("navegador_inf");
                     vista.mostrar_plantilla("nav_sup","navegador_sup");
                     vista.mostrar_plantilla("inventarios", "contenedor_principal", 1);
                     vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-                    vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
+                    añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
                 }
                 else{
                     vista.mostrar_plantilla("nav_sup_desktop_inv","navegador_sup",0);
@@ -230,6 +274,9 @@ function mostrar_inventarios(id_usuario){
                     }
                 }
                 cambio_clases();
+                /* Se llama el metodo de vista para crear la cantidad y tipo de targetas 
+                    de acuerdo a la cantidad traida por la DB y tamaño de la pantalla.
+                */
                 pantalla = tamañoPantalla.matches
                 lista_almacenes = data.data
                 vista.informacion_tarjeta_inventario(pantalla, lista_almacenes, "contenedor_tarjetas");
@@ -240,18 +287,36 @@ function mostrar_inventarios(id_usuario){
     });
 }
 
-function crear_inventario(){
+/**
+ *Funcion para mostrar el formulario de creacion de un inventario
+ */
+function mostrar_form_crear_inv(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("crear_inventario", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("crear_inventario_desktop", "contenedor_principal", 1);
+    }
+}
 
+/**
+ *Funcion para crear un inventario
+ */
+function crear_inv(){
+    //Verificacion del form
     data = vista.getForm("form_crear_inventario_desktop")
-
+    //Consulta a la DB para insertar informacion en almacenes
     if(data.ok){
         almacen.create(data, function(data){
             if(data.success){
+                //Se inserta el id_almacen e id_usuario al objeto almacenOjt
                 const almacenOjt = {id_almacen:data.data, id_usuario:usuario.id_usuario};
                 almacen.asignAlmacen(almacenOjt, function(dataAlmacen){
+                    //Segunda consulta a la DB para asignar el almacen al usuario actual
                     if(dataAlmacen.success){
+                        //Mensaje de exito y cambio de template
                         vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-                        mostrar_inventarios(usuario.id_usuario);
+                        mostrar_inv(usuario.id_usuario);
                     }
                 });
             }else{
@@ -263,17 +328,28 @@ function crear_inventario(){
     }
 }
 
-function borrar_tarjeta(btnEliminar){
+/**
+ * Funcion para eliminar un inventario en la vista
+ * @param {*} btnEliminar: Contendor con el id del almacen
+ */
+function eliminar_inv_vista(btnEliminar){
+    // Se convierte a INT el valor del atributo data-eliminar que trae btnEliminar y se almacena en variable global
     idAlmacen = parseInt(btnEliminar.getAttribute("data-eliminar"));
-    vista.añadir_evento_click("btn_aceptar", eliminar_inventario);
+    añadir_evento_click("btn_aceptar", eliminar_inv_db);
     vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)
 }
 
-function eliminar_inventario(){
+/**
+ *Funcion para eliminar un almacen de la DB
+ */
+function eliminar_inv_db(){
+    //Se le asigna el id del almacen al objeto numero_almacen
     numero_almacen = {id_almacen:idAlmacen}
+    //Consulta a la DB para cambiar el estado del almacen
     almacen.deleteAlmacen(numero_almacen, function(data){
         if(data.success){
-            mostrar_inventarios(usuario.id_usuario);
+            //Mensaje de exito y cambio de template
+            mostrar_inv(usuario.id_usuario);
             vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion);
         }else{
             vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
@@ -309,7 +385,7 @@ function guardar_editar_inventario(){
         almacen.updateAlmacen(data, function(data){
             if(data.success){
                 vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-                mostrar_inventarios(usuario.id_usuario);
+                mostrar_inv(usuario.id_usuario);
             }else{
                 vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
             }
@@ -506,7 +582,7 @@ function crear_producto(){
 
 function borrar_producto(btnEliminarProducto){
     idProducto = parseInt(btnEliminarProducto.getAttribute("data-eliminar"));
-    vista.añadir_evento_click("btn_aceptar", eliminar_producto);
+    añadir_evento_click("btn_aceptar", eliminar_producto);
     vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)
 }
 
@@ -613,7 +689,7 @@ function mostrar_perfiles_vacia(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("perfiles_vacia", "contenedor_principal", 1);
         vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-        vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_perfil);
+        añadir_evento_click("boton_crear_inv", mostrar_form_crear_perfil);
     }
     else{
         vista.mostrar_plantilla("perfiles_vacia_desktop", "contenedor_principal", 1);
@@ -622,14 +698,7 @@ function mostrar_perfiles_vacia(){
 
 // Funciones acciones de la pantalla de Inventario
 
-function mostrar_form_crear_inv(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("crear_inventario", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("crear_inventario_desktop", "contenedor_principal", 1);
-    }
-}
+
 
 // Funciones acciones de la pantalla de Stock
 
@@ -637,7 +706,7 @@ function mostrar_categorias_vacia(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("categorias_vacia", "contenedor_principal", 1);
         vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-        vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_categoria);
+        añadir_evento_click("boton_crear_inv", mostrar_form_crear_categoria);
     }
     else{
         vista.mostrar_plantilla("categorias_vacia_desktop", "contenedor_principal", 1);
@@ -648,7 +717,7 @@ function mostrar_categorias(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("categorias", "contenedor_principal", 1);
         vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-        vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_categoria);
+        añadir_evento_click("boton_crear_inv", mostrar_form_crear_categoria);
     }
     else{
         vista.mostrar_plantilla("categorias_desktop", "contenedor_principal", 1);
@@ -740,7 +809,7 @@ function mostrar_perfiles(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("perfiles_con_inf", "contenedor_principal", 1);
         vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-        vista.añadir_evento_click("boton_crear_inv", mostrar_form_crear_perfil);
+        añadir_evento_click("boton_crear_inv", mostrar_form_crear_perfil);
     }
     else{
         vista.mostrar_plantilla("perfiles_con_inf_desktop", "contenedor_principal", 1);
@@ -821,7 +890,7 @@ function añadir_producto_entradas(){
 
 function mostrar_modal_confirmacion(evento_click){
     vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)    
-    vista.añadir_evento_click("btn_aceptar", evento_click)
+    añadir_evento_click("btn_aceptar", evento_click)
 }
 
 function cerrar_modal_confirmacion(){

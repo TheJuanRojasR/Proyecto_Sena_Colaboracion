@@ -35,18 +35,6 @@ class Vista {
     }   
   }
 
-  /**
-   * Metodo para añadir un evento click a un elemento del HTML
-   * @param {*} plantilla: id del la etiqueta a la que se le añadira el evento
-   * @param {*} funcion: funcion a ejecutar al hacer click
-   * @memberof Vista
-   */
-  añadir_evento_click(plantilla, funcion) {
-    let elemento = document.getElementById(plantilla);
-    //Falta eliminar posibles manejadores anteriores
-    elemento.onclick = funcion;
-  }
-
   // /**
   //  * Metodo para cerrar una pantalla
   //  * @param {*} plantilla 
@@ -316,7 +304,7 @@ class Vista {
                                   </button>
                               </li>
                               <li class="d-grid gap-2">
-                                  <button class="btn  d-flex align-items-center" onclick="borrar_tarjeta(this)" data-eliminar="${almacen.id_almacen}">
+                                  <button class="btn  d-flex align-items-center" onclick="eliminar_inv_vista(this)" data-eliminar="${almacen.id_almacen}">
                                       <img src="./Assets/img/eliminar.svg" alt="" />
                                       <p>Eliminar</p>
                                   </button>
