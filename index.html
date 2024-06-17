@@ -40,7 +40,7 @@
             <a class="navbar-brand" href="#">
                 <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
             </a>
-            <div class="d-flex">
+            <div class="d-flex justify-content-evenly" id="cont_btn_inicio">
                 <button class="btn btn-general--transparent" onclick="mostrar_login()">Ingresar</button>
                 <button class="btn btn-general" onclick="mostrar_form_registro_usuario()">Registrar</button>
             </div>
@@ -88,7 +88,30 @@
                 <p id="subtitulo">Unifique sus operaciones y obtenga el panorama completo</p>
             </div>
             <div id="cont_img_desktop">
-                <img src="./Assets/img/Produtos creados.jpg" alt="" class="img-fluid" id="img_desktop">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img src="./Assets/img/Inventario con opciones.jpg" class="d-block w-100 img_desktop" alt="...">
+                          </div>
+                        <div class="carousel-item active">
+                            <img src="./Assets/img/Produtos creados.jpg" class="d-block w-100 img_desktop" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./Assets/img/Detalles del Producto.jpg" class="d-block w-100 img_desktop" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./Assets/img/Movimientos.jpg" class="d-block w-100 img_desktop" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
             </div>
         </div>
         <div class="cont_blanco" id="cont_funciones">
