@@ -36,7 +36,15 @@
 <body class=" overflow-y-scroll d-flex flex-column justify-content-between">
     <!-- Barra superior -->
     <nav class="navbar navbar-expand-md" id="navegador_sup">
-
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+            </a>
+            <div class="d-flex justify-content-evenly" id="cont_btn_inicio">
+                <button class="btn btn-general--transparent" onclick="mostrar_login()">Ingresar</button>
+                <button class="btn btn-general" onclick="mostrar_form_registro_usuario()">Registrar</button>
+            </div>
+        </div>
     </nav>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -73,14 +81,131 @@
 
     <!-- Contenido de la pagina -->
     <main id="contenedor_principal" class="container-fluid container_main ">
-        
+        <div class="particulas" id="particles-js"></div>
+        <div class="contenedor_tansparente" id="cont_titulo">
+            <div class="d-flex flex-row" id="cont_texto_sup">
+                <h2 class="titulo_claro">Gestión de inventario simplificada</h2>
+                <p id="subtitulo">Unifique sus operaciones y obtenga el panorama completo</p>
+            </div>
+            <div id="cont_img_desktop">
+                <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img src="./Assets/img/Inventario con opciones.jpg" class="d-block w-100 img_desktop" alt="...">
+                          </div>
+                        <div class="carousel-item active">
+                            <img src="./Assets/img/Produtos creados.jpg" class="d-block w-100 img_desktop" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./Assets/img/Detalles del Producto.jpg" class="d-block w-100 img_desktop" alt="...">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./Assets/img/Movimientos.jpg" class="d-block w-100 img_desktop" alt="...">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+        </div>
+        <div class="cont_blanco" id="cont_funciones">
+                <div id="cont_titulo_funciones">
+                    <h2 class="titulo_oscuro">Gestiona las existencias de tu empresa, y conoce el exito.</h2>
+                </div>
+            <div class="d-flex flex-row" id="cont_lista_inicio">
+                <ol id="lista_inicio">
+                    <li class="items_lista">Personaliza todos tus Almaces</li>
+                    <p class="parrafos_pag_inicio">
+                        Diseña y gestiona tu inventario con nuestra plataforma flexible. Configura espacios, registra ubicaciones y sigue la pista de tus existencias en tiempo real para maximizar la eficiencia de tu almacén
+                    </p>
+                    <li class="items_lista">Crea, Maneja y Personaliza tus Productos</li>
+                    <p class="parrafos_pag_inicio">
+                        Crea y define categorías de productos a tu medida. Nuestra interfaz te permite añadir y personalizar productos, asignarlos a categorías específicas y ajustar sus atributos para una gestión de inventario precisa y detallada
+                    </p>
+                    <li class="items_lista">Gestión de Perfiles con Acceso Diferenciado</li>
+                    <p class="parrafos_pag_inicio">
+                        Crea perfiles de usuario específicos para Almacenistas y Analistas con permisos restringidos, y un perfil de Administrador con acceso completo. Asegura la eficiencia operativa y la seguridad de la información con controles de acceso personalizados para cada rol dentro de tu sistema de inventario.
+                    </p>
+                    <li class="items_lista">Genera Informes de tu Inventario</li>
+                    <p class="parrafos_pag_inicio">
+                        Obtén insights valiosos y toma decisiones informadas con nuestra herramienta de informes. Genera reportes detallados sobre el estado del inventario, movimientos de stock y rendimiento operativo, todo en tiempo real y con opciones de personalización para adaptarse a tus necesidades analíticas.
+                    </p>
+                </ol>
+                <div id="cont_img_mobile">
+                    <img src="./Assets/img/Perfiles con opciones.jpg" alt="" id="img_mobile">
+                </div>
+            </div>
+        </div>
+        <div class="contenedor_tansparente d-flex flex-column align-items-center" id="cont_crea_perfil">
+            <div id="cont_text_crea_perfil">
+                <h2 class="titulo_claro" id="text_crea_perfil">No te pierdas de la oportunidad, crea tu perfil</h2>
+            </div>
+            <button type="button" class="button_crear_perfil">Crea tu Perfil</button>
+        </div>
+        <div class="cont_blanco" id="cont_acerca_de">
+            <div id="cont_titulo_acercade">
+                <h2 class="titulo_oscuro">Sobre Nosotros</h2>
+            </div>
+            <div class="d-flex flex-row justify-content-around" id="cont_mision_vision">
+                <div class="mision_vision">
+                    <h3 class="titulo_acerca_de">
+                        Misión
+                    </h3>
+                    <p class="parrafos_pag_inicio">
+                        Proveer una solución integral para la gestión de inventarios que unifique las operaciones y ofrezca una visión completa del éxito empresarial.
+                    </p>
+                </div>
+                <div class="mision_vision">
+                    <h3 class="titulo_acerca_de">
+                        Visión
+                    </h3>
+                    <p class="parrafos_pag_inicio">
+                        Convertirse en la plataforma líder para el diseño y manejo de inventarios, ofreciendo herramientas personalizables que permitan a las empresas maximizar la eficiencia y seguridad en la gestión de sus existencias y perfiles de usuario.
+                    </p>
+                </div>
+                <div class="mision_vision">
+                    <h3 class="titulo_acerca_de">
+                        Tecnologías
+                    </h3>
+                    <p class="parrafos_pag_inicio">
+                        Nuestra plataforma está diseñada con tecnologías de vanguardia que garantizan la seguridad y eficiencia de la gestión de inventarios. Utilizamos herramientas de desarrollo modernas y seguras para ofrecer una experiencia de usuario intuitiva y personalizable.
+                    </p>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Barra Inferior -->
-    <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
-    </nav>
+    <!-- <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
+    </nav> -->
 
-    <footer id="footer_inicio" >
+    <footer id="footer_inicio">
+        <div class="contenedor_logo_footer">
+            <a href="#">
+                <img class="logo_footer" src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
+            </a>
+        </div>
+        <div class="d-flex flex-column elemento_flooter">
+            <p class="text-decoration-none color_blanco fw-bold">Enlaces de Navegación</p>
+            <a href="" class="text-decoration-none color_blanco">Inicio</a>
+            <a href="" class="text-decoration-none color_blanco">Contactos</a>
+            <a href="" class="text-decoration-none color_blanco">Nosotros</a>
+        </div>
+        <div class="d-flex flex-column elemento_flooter">
+            <p class="text-decoration-none color_blanco fw-bold">Enlaces a Politicas</p>
+            <a href="" class="text-decoration-none color_blanco">Política Privada</a>
+            <a href="" class="text-decoration-none color_blanco">Términos y Condiciones</a>
+            <a href="" class="text-decoration-none color_blanco">Cookies</a>
+        </div>
+        <div class="d-flex flex-column elemento_flooter">
+            <p class="text-decoration-none color_blanco fw-bold">© 2024 Variety Vault</p>
+        </div>
     </footer>
 
     <!-- MODALES -->
@@ -3958,6 +4083,7 @@
     </template>
 
     <!-- Enlaces a JS -->
+    <script src="./Vista/js/particles.min.js"></script>
     <script src="./Vista/js/vista.js"></script>
     <script src="./Modelo/connect.js"></script>
     <script src="./Modelo/almacen.js"></script>
