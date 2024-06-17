@@ -24,6 +24,8 @@ const tamañoPantalla = window.matchMedia('(max-width: 768px)');
 
 window.addEventListener('resize', cambio_clases);
 
+
+
 // window.addEventListener('resize', cambio_templates);
 
 function cambio_clases(){

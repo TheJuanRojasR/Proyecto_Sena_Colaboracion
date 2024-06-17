@@ -30,6 +30,7 @@
         rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300&display=swap" rel="stylesheet">
+    
 
 </head>
 
@@ -1812,135 +1813,83 @@
 
     <!-- Pantalla de Inicio -->
     <template id="pagina_inicio_desktop">
-        <div id="contenedor_desktop">
-            <div id="contenedor_inicio_desktop" class="d-flex flex-column align-items-center justify-content-around">
-                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"> <!-- Carousel de imagenes -->
+        <section class="section-prueba azul_oscuro">
+            <div  id="contenedor_inicio_prueba">
+                <h1 id="titulo_inicio"  >Gestión de inventario simplificada: Unifique sus operaciones y obtenga el panorama completo</h1>
+                <p id="parrafo_inicio" class="mt-4">Controle su almacén desde cualquier lugar: Acceda a su información de inventario y gestione sus niveles de stock desde cualquier dispositivo, en cualquier momento.</p>
+                <button class="mt-2 ms-0 me-auto btn btn-general--secundario " >
+                    Quiero Registrarme
+                </button>
+            </div>
+        </section>
+        <section class="container-card">
+            <div class="card">
+                <figure>
+                    <img src="./Assets/img/imagen_ejemplo.png" alt="">
+                </figure>
+                <h3 class="title-cards" >Análisis Localizado y Modernización Empresarial</h3>
+                <p>Explora cómo nuestra plataforma en la nube puede optimizar tus operaciones comerciales y mejorar la interacción con tus clientes.</p>
+                <hr>
+            </div>
+            <div class="card">
+                <figure>
+                    <img src="./Assets/img/imagen_ejemplo.png" alt="">
+                </figure>
+                <h3 class="title-cards" >Análisis Localizado y Modernización Empresarial</h3>
+                <p>Explora cómo nuestra plataforma en la nube puede optimizar tus operaciones comerciales y mejorar la interacción con tus clientes.</p>
+                <hr>
+            </div>
+            <div class="card">
+                <figure>
+                    <img src="./Assets/img/imagen_ejemplo.png" alt="">
+                </figure>
+                <h3 class="title-cards" >Análisis Localizado y Modernización Empresarial</h3>
+                <p>Explora cómo nuestra plataforma en la nube puede optimizar tus operaciones comerciales y mejorar la interacción con tus clientes.</p>
+                <hr>
+            </div>
+            <div class="card">
+                <figure>
+                    <img src="./Assets/img/imagen_ejemplo.png" alt="">
+                </figure>
+                <h3 class="title-cards" >Análisis Localizado y Modernización Empresarial</h3>
+                <p>Explora cómo nuestra plataforma en la nube puede optimizar tus operaciones comerciales y mejorar la interacción con tus clientes.</p>
+                <hr>
+            </div>
+        </section>
+        <section class="section-prueba azul_oscuro d-flex justify-content-center align-items-center">
+            <div id="contenedor_inicio_desktop">
+                <!-- Carousel de imagenes -->
+                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"> 
                     <div class="carousel-indicators">
-                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
-                      <div class="carousel-item active" data-bs-interval="10000">
+                        <div class="carousel-item active" data-bs-interval="10000">
                         <img src="./Assets/img/variety-vault-1.png" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item" data-bs-interval="2000">
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
                         <img src="./Assets/img/variety-vault-2.png" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
+                        </div>
+                        <div class="carousel-item">
                         <img src="./Assets/img/variety-vault-3.png" class="d-block w-100" alt="...">
-                      </div>
+                        </div>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Previous</span>
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="visually-hidden">Next</span>
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                <div id="text-container" > <!-- Contenedor de texto -->
-                    <h1 id="texto_inicio">Gestiona tu inventario con precisión y eficacia.</h1>
-                </div>
-                <div id="contenedor_descripciones">
-                    <div class="descripciones d-flex flex-row justify-content-around align-items-center">
-                        <div class="contenedor_texto_descripcion">
-                            <h3 class="texto_descripcion">Personaliza todos tus Almaces</h3>
-                        </div>
-                        <div class="contenedor_img_descripcion">
-                            <img class="img_descripcion" src="./Assets/img/variety-vault-1.png" alt="">
-                        </div>                            
-                    </div>
-                    <div class="descripciones d-flex flex-row justify-content-around align-items-center">
-                        <div class="contenedor_img_descripcion">
-                            <img class="img_descripcion" src="./Assets/img/variety-vault-2.png" alt="">
-                        </div>
-                        <div class="contenedor_texto_descripcion">
-                            <h3 class="texto_descripcion">Crea, Maneja y Personaliza tus Productos</h3>
-                        </div>
-                    </div>
-                    <div class="descripciones d-flex flex-row justify-content-around align-items-center">
-                        <div class="contenedor_texto_descripcion">
-                            <h3 class="texto_descripcion">Crea los perfiles que quieras</h3>
-                        </div>
-                        <div class="contenedor_img_descripcion">
-                            <img class="img_descripcion" src="./Assets/img/variety-vault-3.png" alt="">
-                        </div>
-                    </div>
-                    <div class="descripciones d-flex flex-row justify-content-around align-items-center">
-                        <div class="contenedor_img_descripcion">
-                            <img class="img_descripcion" src="./Assets/img/variety-vault-1.png" alt="">
-                        </div>
-                        <div class="contenedor_texto_descripcion">
-                            <h3 class="texto_descripcion">Genera Informes de tu Inventario</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="bubbles"> <!-- Bubbles Animadas-->
-                    <span style="--i:11;"></span>
-                    <span style="--i:12;"></span>
-                    <span style="--i:24;"></span>
-                    <span style="--i:10;"></span>
-                    <span style="--i:17;"></span>
-                    <span style="--i:6;"></span>
-                    <span style="--i:23;"></span>
-                    <span style="--i:9;"></span>
-                    <span style="--i:18;"></span>
-                    <span style="--i:22;"></span>
-                    <span style="--i:27;"></span>
-                    <span style="--i:14;"></span>
-                    <span style="--i:21;"></span>
-                    <span style="--i:7;"></span>
-                    <span style="--i:16;"></span>
-                    <span style="--i:19;"></span>
-                    <span style="--i:25;"></span>
-                    <span style="--i:26;"></span>
-                    <span style="--i:15;"></span>
-                    <span style="--i:20;"></span>
-                    <span style="--i:11;"></span>
-                    <span style="--i:12;"></span>
-                    <span style="--i:24;"></span>
-                    <span style="--i:10;"></span>
-                    <span style="--i:17;"></span>
-                    <span style="--i:6;"></span>
-                    <span style="--i:23;"></span>
-                    <span style="--i:9;"></span>
-                    <span style="--i:18;"></span>
-                    <span style="--i:22;"></span>
-                    <span style="--i:27;"></span>
-                    <span style="--i:14;"></span>
-                    <span style="--i:21;"></span>
-                    <span style="--i:7;"></span>
-                    <span style="--i:16;"></span>
-                    <span style="--i:19;"></span>
-                    <span style="--i:25;"></span>
-                    <span style="--i:26;"></span>
-                    <span style="--i:15;"></span>
-                    <span style="--i:20;"></span>
-                    <span style="--i:11;"></span>
-                    <span style="--i:12;"></span>
-                    <span style="--i:24;"></span>
-                    <span style="--i:10;"></span>
-                    <span style="--i:17;"></span>
-                    <span style="--i:6;"></span>
-                    <span style="--i:23;"></span>
-                    <span style="--i:9;"></span>
-                    <span style="--i:18;"></span>
-                    <span style="--i:22;"></span>
-                    <span style="--i:27;"></span>
-                    <span style="--i:14;"></span>
-                    <span style="--i:21;"></span>
-                    <span style="--i:7;"></span>
-                    <span style="--i:16;"></span>
-                    <span style="--i:19;"></span>
-                    <span style="--i:25;"></span>
-                    <span style="--i:26;"></span>
-                    <span style="--i:15;"></span>
-                    <span style="--i:20;"></span>
-                </div>
-            </div>     
-        </div>
+            </div> 
+        </section>
+        <section class="section-prueba" >
+
+        </section>
     </template>
 
     <!-- Pantalla Registrarse -->
@@ -3909,13 +3858,127 @@
     </template>
 
     <!-- Enlaces a JS -->
+    <!-- <script src="./Assets/particlesJs/particles.min.js"></script>
+    <script>
+        particlesJS(
+            {
+                "particles": {
+                    "number": {
+                        "value": 85,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#000000"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                        "polygon": {
+                            "nb_sides": 5
+                        },
+                        "image": {
+                            "src": "img/github.svg",
+                            "width": 100,
+                            "height": 100
+                        }
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false,
+                        "anim": {
+                            "enable": false,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#000000",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 11.22388442605866,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                        "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                        }
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": false,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "grab": {
+                            "distance": 400,
+                            "line_linked": {
+                                "opacity": 1
+                            }
+                        },
+                        "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                        },
+                        "repulse": {
+                            "distance": 200,
+                            "duration": 0.4
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        },
+                        "remove": {
+                            "particles_nb": 2
+                        }
+                    }
+                },
+                "retina_detect": true
+            }
+        )
+    </script> -->
     <script src="./Vista/js/vista.js"></script>
     <script src="./Modelo/connect.js"></script>
     <script src="./Modelo/almacen.js"></script>
     <script src="./Modelo/usuario.js"></script>
     <script src="./Modelo/producto.js"></script>
     <script src="./Controlador/controlador.js"></script>
-
 </body>
 
 </html>
@@ -4026,6 +4089,7 @@
     </template> -->
 
 <!-- <template id="Estadisticas/Estadistica 3 con grafico"> // Falta realizar los graficos
+
         <div class="container">
             <div class="encabezado">
                 <h1>Estadísticas</h1>
@@ -4076,3 +4140,73 @@
 
         </div>
     </template> -->
+
+<template>
+    <div id="contenedor_inicio_desktop">
+        <!-- Carousel de imagenes -->
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel"> 
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                <img src="./Assets/img/variety-vault-1.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                <img src="./Assets/img/variety-vault-2.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img src="./Assets/img/variety-vault-3.png" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- Contenedor de texto -->
+        <div id="text-container" > 
+            <h1 id="texto_inicio">Gestiona tu inventario con precisión y eficacia.</h1>
+        </div>
+        <div id="contenedor_descripciones">
+            <div class="descripciones d-flex flex-row justify-content-around align-items-center">
+                <div class="contenedor_texto_descripcion">
+                    <h3 class="texto_descripcion">Personaliza todos tus Almaces</h3>
+                </div>
+                <div class="contenedor_img_descripcion">
+                    <img class="img_descripcion" src="./Assets/img/variety-vault-1.png" alt="">
+                </div>                            
+            </div>
+            <div class="descripciones d-flex flex-row justify-content-around align-items-center">
+                <div class="contenedor_img_descripcion">
+                    <img class="img_descripcion" src="./Assets/img/variety-vault-2.png" alt="">
+                </div>
+                <div class="contenedor_texto_descripcion">
+                    <h3 class="texto_descripcion">Crea, Maneja y Personaliza tus Productos</h3>
+                </div>
+            </div>
+            <div class="descripciones d-flex flex-row justify-content-around align-items-center">
+                <div class="contenedor_texto_descripcion">
+                    <h3 class="texto_descripcion">Crea los perfiles que quieras</h3>
+                </div>
+                <div class="contenedor_img_descripcion">
+                    <img class="img_descripcion" src="./Assets/img/variety-vault-3.png" alt="">
+                </div>
+            </div>
+            <div class="descripciones d-flex flex-row justify-content-around align-items-center">
+                <div class="contenedor_img_descripcion">
+                    <img class="img_descripcion" src="./Assets/img/variety-vault-1.png" alt="">
+                </div>
+                <div class="contenedor_texto_descripcion">
+                    <h3 class="texto_descripcion">Genera Informes de tu Inventario</h3>
+                </div>
+            </div>
+        </div>
+    </div>     
+</template> 

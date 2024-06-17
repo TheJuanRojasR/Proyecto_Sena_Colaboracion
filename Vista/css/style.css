@@ -1,4 +1,9 @@
 /* Estilos modificando directamente las etiquetas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
 
 body {
     background: var(--Base, #F7F5E6);
@@ -506,65 +511,115 @@ a.page-link:hover {
 /* ----------------------------------------------------------------------- */
 
 /* ------------------------------------INICIO DESTOCK BUBBLES----------------------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+
+.section-prueba{
+    width: auto;
+    height: 80vh;
 }
 
-#contenedor_desktop{
+.azul_oscuro{
+    background-color: #1F2535;
+}
+
+#contenedor_inicio_prueba{
+    width: 50%;
     height: 100%;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 5rem;
+}
+
+#titulo_inicio{
+    color: #ffffff;
+    font-size: 3.5rem;
+    line-height: 4rem;
+}
+
+#parrafo_inicio{
+    color: #ffffff;
+    font-family: Inter;
+    font-size: 1.2rem;
+}
+
+.container-card {
+    width: 100%; /* La anchura del contenedor ocupa el 100% del elemento padre */
+    height: 80vh; /* La altura del contenedor es el 80% de la altura de la ventana gráfica (viewport) */
+    display: flex; /* Se utiliza flexbox para alinear y distribuir los elementos hijos */
+    justify-content: center; /* Centra horizontalmente los elementos hijos dentro del contenedor */
+    align-items: center; /* Centra verticalmente los elementos hijos dentro del contenedor */
+    max-width: 1100px; /* La anchura máxima del contenedor es de 1100px */
+    margin: auto; /* Centra el contenedor horizontalmente dentro de su contenedor padre */
+}
+
+.card {
+    width: 100%; /* La anchura de la tarjeta ocupa el 100% del contenedor padre */
+    height: 70%; /* La altura de la tarjeta es el 70% de la altura del contenedor padre */
+    margin: 20px; /* Espacio de 20px alrededor de la tarjeta */
+    border-radius: 6px; /* Bordes redondeados de 6px */
+    overflow: hidden; /* Oculta el contenido desbordado */
+    background: #fff; /* Fondo blanco */
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil alrededor de la tarjeta */
+    transition: all 400ms ease-out; /* Transiciones suaves de 400ms para todas las propiedades */
+    cursor: default; /* El cursor por defecto cuando está sobre la tarjeta */
+    padding: 1rem; /* Espacio interno de 1rem alrededor del contenido */
+}
+
+.card:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4); /* Sombra más intensa al pasar el ratón */
+    transform: translateY(-3%); /* Mueve la tarjeta hacia arriba un 3% */
+}
+
+.card img {
+    width: 100%; /* La imagen ocupa el 100% del ancho de su contenedor padre */
+    height: 100%; /* La imagen ocupa el 100% de la altura de su contenedor padre */
+}
+
+.card .contenido-card {
+    padding: 15px; /* Espacio interno de 15px alrededor del contenido */
+    text-align: center; /* Texto centrado */
+}
+
+.card .contenido-card h3 {
+    margin-bottom: 15px; /* Espacio de 15px debajo del encabezado */
+    color: #7a7a7a; /* Color de texto gris */
+}
+
+.card .contenido-card p {
+    line-height: 1.8; /* Altura de línea para mejorar la legibilidad */
+    color: #6a6a6a; /* Color de texto gris */
+    font-size: 14px; /* Tamaño de fuente de 14px */
+    margin-bottom: 5px; /* Espacio de 5px debajo del párrafo */
+}
+
+.card .contenido-card a {
+    display: inline-block; /* Se comporta como un bloque en línea */
+    padding: 10px; /* Espacio interno de 10px alrededor del enlace */
+    margin-top: 10px; /* Espacio de 10px encima del enlace */
+    text-decoration: none; /* Sin subrayado en el texto del enlace */
+    color: #2fb4cc; /* Color del texto del enlace */
+    border: 1px solid #2fb4cc; /* Borde del enlace del mismo color que el texto */
+    border-radius: 4px; /* Bordes redondeados de 4px */
+    transition: all 400ms ease; /* Transiciones suaves de 400ms para todas las propiedades */
+    margin-bottom: 5px; /* Espacio de 5px debajo del enlace */
+}
+
+.card .contenido-card a:hover {
+    background: #2fb4cc; /* Fondo del enlace cambia a azul claro al pasar el ratón */
+    color: #fff; /* Color del texto cambia a blanco al pasar el ratón */
 }
 
 #contenedor_inicio_desktop {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 2.5rem;
     overflow: hidden;
-    background-color: #475282;
-    min-height: 100%;
     z-index: 0;
 }
 
-.bubbles {
-    position: absolute;
-    top: 0%;
-    display: flex;
-    z-index: 1;
-}
-
-.bubbles span {
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background-color: #FFF;
-    margin: 0 4px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 10px #FFFFFF44,
-        0 0 50px #FFF,
-        0 0 100px #FFF;
-    animation: animate 15s linear infinite;
-    animation-duration: calc(125s / var(--i));
-}
-
-.bubbles span:nth-child(even) {
-    background-color: #333A56;
-    box-shadow: 0 0 0 10px #333A5644,
-        0 0 50px #333A56,
-        0 0 100px #333A56;
-}
-
-@keyframes animate {
-    0% {
-        transform: translateY(100vh) scale(0);
-    }
-
-    100% {
-        transform: translateY(-10) scale(1);
-    }
-}
 
 #carouselExampleDark {
     z-index: 2;
@@ -572,7 +627,7 @@ a.page-link:hover {
 }
 
 .carousel-inner {
-    border-radius: 1.5%;
+    border-radius: 10px;
 }
 
 .carousel-control-prev {
@@ -793,7 +848,7 @@ a.page-link:hover {
 
 /* MEDIAS */
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1217px) {
     .btn-tabla-icono {
         font-size: 0.8em;
     }
@@ -803,6 +858,11 @@ a.page-link:hover {
         margin-left: 0;
         width: 100%;
         margin-top: 0.5rem;
+    }
+
+    #titulo_inicio{
+        font-size: 2.8rem;
+        line-height: 3rem;
     }
 
 }
@@ -840,6 +900,16 @@ a.page-link:hover {
 
     .element-with-padding {
         padding: 0 3rem;
+    }
+
+    #titulo_inicio{
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+
+    #parrafo_inicio{
+        line-height: 1rem;
+        font-size: 1rem;
     }
 
 }
