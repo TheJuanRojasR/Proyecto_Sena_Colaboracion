@@ -93,10 +93,10 @@ class Producto extends Connect{
     }
 
     //Metodo para mostrar abastecimiento
-    getProvision(dataRequest, getProvisionCallback){
-        const endpoint = "productos/abastecimiento"
+    getProvision(id_almacen, getProvisionCallback){
+        const endpoint = `productos/abastecimiento?id_almacen=${id_almacen}`
         const method = "GET"
-        this.connect(dataRequest, endpoint, method, getProvisionCallback);
+        this.connect({}, endpoint, method, getProvisionCallback);
     }
 
     //Metodo para crear una categoria

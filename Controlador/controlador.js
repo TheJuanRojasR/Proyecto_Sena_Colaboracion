@@ -748,6 +748,21 @@ function guardar_editar_producto(){
     }
 }
 
+function mostrar_abastecimiento(){
+    producto.getProvision(idAlmacen, function(data){
+        if(data.success){
+            if(tamañoPantalla.matches){
+                vista.mostrar_plantilla("abastecimiento", "contenedor_principal", 1);
+            }
+            else{
+                vista.mostrar_plantilla("abastecimiento_desktop", "contenedor_principal", 1);
+            }
+        }else{
+            vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
+        }
+    });
+}
+
 function mostrar_movimientos_vacia(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
@@ -763,7 +778,7 @@ function mostrar_movimientos_vacia(){
 /**
  * Funcion para mostrar las categorias
  */
-function mostrar_categorias_vacia(){
+function mostrar_categorias(){
     //Consulta a la DB para traer las categorias existentes
     producto.getCategory(function(data){
         if(data.success){
@@ -807,6 +822,9 @@ function mostrar_form_crear_categoria(){
     }    
 }
 
+/**
+ * Funcion para crear una categoria
+ */
 function crear_categoria(){
     //Verificacion del form
     data = vista.getForm("form_crear_categoria")
@@ -815,7 +833,7 @@ function crear_categoria(){
         producto.createCategory(data, function(data){
             if(data.success){
                 vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-                mostrar_categorias_vacia(); //Se vuelve a mostrar la informacion de las categorias
+                mostrar_categorias(); //Se vuelve a mostrar la informacion de las categorias
             }else{
                 vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
             }
@@ -855,7 +873,7 @@ function guardar_editar_categoria(){
     if(data.ok){
         producto.updateCategory(data, function(data){
             if(data.success){
-                mostrar_categorias_vacia(); //Se vuelve a mostrar la informacion de las categorias
+                mostrar_categorias(); //Se vuelve a mostrar la informacion de las categorias
             }else{
                 vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
             }
@@ -865,17 +883,36 @@ function guardar_editar_categoria(){
     }
 }
 
-
-
-
-function mostrar_seleccionar_informe(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("seleccionar_informe", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("seleccionar_informe_desktop", "contenedor_principal", 1);
-    }
+/**
+ * Funcion para eliminar una categoria de la vista
+ * @param {*} btnEliminar: Id de la categoria
+ */
+function elimiar_catg_vista(btnEliminar){
+    idCategoria = parseInt(btnEliminar.getAttribute("data-eliminar"))
+    añadir_evento_click("btn_aceptar", eliminar_catg_db);
+    vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)
 }
+
+/**
+ * Funcion para eliminar una categoria de la DB
+ */
+function eliminar_catg_db(){
+    //Se le agrega el id de la categoria al objeto numero_categoria
+    numero_categoria = {id_categoria:idCategoria}
+    //Consulta a la DB para eliminar la categoria
+    producto.deleteCategory(numero_categoria, function(data){
+        if(data.success){
+            mostrar_categorias()
+            vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion);
+        }else{
+            vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
+        }
+    })
+}
+
+
+//----------------- PAGINA DE MOVIMIENTOS -----------------\\
+
 
 function mostrar_perfiles_vacia(){
     if(tamañoPantalla.matches){
@@ -888,6 +925,16 @@ function mostrar_perfiles_vacia(){
     }
 }
 
+function mostrar_seleccionar_informe(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("seleccionar_informe", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("seleccionar_informe_desktop", "contenedor_principal", 1);
+    }
+}
+
+
 // Funciones acciones de la pantalla de Inventario
 
 
@@ -895,25 +942,6 @@ function mostrar_perfiles_vacia(){
 // Funciones acciones de la pantalla de Stock
 
 
-function mostrar_categorias(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("categorias", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-        añadir_evento_click("boton_crear_inv", mostrar_form_crear_categoria);
-    }
-    else{
-        vista.mostrar_plantilla("categorias_desktop", "contenedor_principal", 1);
-    }
-}
-
-function mostrar_abastecimiento(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("abastecimiento", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("abastecimiento_desktop", "contenedor_principal", 1);
-    }
-}
 
 // Funciones para cambiar plantillas desde la pantalla de Detalles Producto
 

@@ -831,7 +831,7 @@ class Vista {
                                 </button>
                             </li>
                             <li class="d-grid gap-2">
-                                <button class="btn d-flex align-items-center">
+                                <button class="btn d-flex align-items-center" data-eliminar="${categoria.id_categoria}" onclick="elimiar_catg_vista(this)">
                                     <img src="./Assets/img/eliminar.svg" alt="" />
                                     <p>Eliminar</p>
                                 </button>
@@ -891,5 +891,27 @@ class Vista {
     });
   }
 
+  informacion_tabla_abastecimiento(tamaño, lista_productos, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    lista_productos.forEach((producto) => {
+        if(tamaño == true){
+            if(producto.cantidad_producto_almacen == producto.stock_minimo){
+
+            }else{
+                
+            }
+            const html = ``
+            cont.innerHTML += html;
+        }else{
+            if(){
+
+            }else{
+                
+            }
+            const html = ``
+            cont.innerHTML += html;
+        }
+    })
+  }
 
 }
