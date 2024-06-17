@@ -8,6 +8,7 @@ let lista_productos = []; //Lista donde se guardan los productos existentes
 let lista_almacenes = []; //Lista donde se guardan los almacenes existentes
 let idAlmacen = null; //Varialbe para guardar el id del almacen
 let idProducto = null; //Variable para guardar el id del producto
+let idCategoria = null; //Variable para guardar el id de la categoria
 
 //Listas para cambiar de clases a contenedores
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
@@ -616,39 +617,24 @@ function asignar_producto(){
 }
 
 /**
- *Funcion para eliminar un producto de un almacen
+ *Funcion para obtener el id del producto a eliminar
  *
- * @param {*} btnEliminarProducto
+ * @param {*} btnEliminarProducto: Contenedor con el id del producto
  */
 function borrar_producto(btnEliminarProducto){
+    // Se convierte a INT el valor del atributo data-eliminar que trae btnEliminarProducto y se almacena en variable global
     idProducto = parseInt(btnEliminarProducto.getAttribute("data-eliminar"));
     añadir_evento_click("btn_aceptar", eliminar_producto);
     vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)
 }
 
-function mostrar_movimientos_vacia(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
-    }
-    else{
-        vista.mostrar_plantilla("movimientos_vacia_desktop", "contenedor_principal", 1);
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * Funcion para eliminar un producto de un almacen
+ */
 function eliminar_producto(){
+    //Se le asigna el id del producto al objeto inf_producto
     inf_producto = {id_producto:idProducto, id_almacen:idAlmacen}
+    //Consulta a la DB para eliminar un producto
     producto.deleteProduct(inf_producto, function(data){
         if(data.success){
             mostrar_stock_vacia(idAlmacen);
@@ -659,13 +645,24 @@ function eliminar_producto(){
     });
 }
 
+/**
+ * Funcion para mostrar los detalles de un producto en especifico
+ * @param {*} btnDetallesProducto: Contenedor con el id del producto
+ */
 function detalles_producto(btnDetallesProducto){
+    // Se convierte a INT el valor del atributo data-detalles que trae btnDetallesProducto y se almacena en variable global
     idProducto = parseInt(btnDetallesProducto.getAttribute("data-detalles"));
     mostrar_detalles_producto(idProducto);
 }
 
+/**
+ * Funcion para mostrar los detalles de un producto en especifico
+ * @param {*} id_producto: Id del producto a mostrar
+ */
 function mostrar_detalles_producto(id_producto){
+    //Se le asigna el id del producto al objeto producto_info
     producto_info = {id_producto:id_producto, id_almacen:idAlmacen}
+    //Consulta a la DB para traer la informacion de un producto
     producto.getDetailsProduct(producto_info, function(data){
         if(data.success){
             if(tamañoPantalla.matches){
@@ -677,6 +674,7 @@ function mostrar_detalles_producto(id_producto){
             cambio_clases();
             pantalla = tamañoPantalla.matches
             producto_detalles = data.data
+            //Se llama el metodo de vista para mostrar la informacion del producto
             vista.informacion_detalles_producto(pantalla, producto_detalles, "contenedor_detalles_producto");
         }
     })
@@ -684,9 +682,15 @@ function mostrar_detalles_producto(id_producto){
 
 }
 
+/**
+ * Funcion para mostrar el formulario de edicion de un producto
+ * @param {*} btnEditar: Contenedor con el id del producto
+ */
 function mostrar_editar_producto(btnEditar){
+    // Se convierte a INT el valor del atributo data-editar que trae btnEditar y se almacena en variable global
     idProducto = parseInt(btnEditar.getAttribute("data-editar"));
     producto_info = {id_producto:idProducto, id_almacen:idAlmacen}
+    //Consulta a la DB para traer la informacion de un producto
     producto.getDetailsProduct(producto_info, function(data){
         if(data.success){
             if(tamañoPantalla.matches){
@@ -698,9 +702,12 @@ function mostrar_editar_producto(btnEditar){
             cambio_clases();
             pantalla = tamañoPantalla.matches;
             producto_mostrar = data.data;
+            //Se llama el metodo de vista para mostrar la informacion del producto
             vista.informacion_editar_producto(pantalla,producto_mostrar,"form_editar_producto")
+            //Consulta a la DB para traer las categorias existentes
             producto.getCategory(function (data) {
                 if(data.success){
+                    //Se convierte el objeto en un array con llave valor y se llama el metodo de vista para poblar el select id_categoria
                     lista_categorias = data.data
                     const categoriasObj = Object.fromEntries(
                         lista_categorias.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
@@ -715,17 +722,22 @@ function mostrar_editar_producto(btnEditar){
     });
 }
 
+/**
+ * Funcion para guardar la edicion de un producto
+ */
 function guardar_editar_producto(){
+    //Verificacion del form
     data = vista.getForm("form_editar_producto")
     data.id_producto = idProducto;
     if(data.ok){
+        //Consulta a la DB para actualizar la informacion de un producto
         producto.updateDetailsProduct(data, function(data){
             if(data.data.message == "El producto ya existe"){
                 vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
             }else{
                 if(data.success){
                     vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-                    mostrar_detalles_producto(idProducto);
+                    mostrar_detalles_producto(idProducto); //Se vuele a mostrar la informacion del producto
                 }else{
                     vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
                 }
@@ -735,6 +747,125 @@ function guardar_editar_producto(){
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
 }
+
+function mostrar_movimientos_vacia(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
+        vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
+    }
+    else{
+        vista.mostrar_plantilla("movimientos_vacia_desktop", "contenedor_principal", 1);
+    }
+}
+
+// -------- PAGINA DE CATEGORIAS ---------- \\
+
+/**
+ * Funcion para mostrar las categorias
+ */
+function mostrar_categorias_vacia(){
+    //Consulta a la DB para traer las categorias existentes
+    producto.getCategory(function(data){
+        if(data.success){
+            if(data.data.length == 0){
+                if(tamañoPantalla.matches){
+                    vista.mostrar_plantilla("categorias_vacia", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+                    añadir_evento_click("boton_crear_inv", mostrar_form_crear_categoria);
+                }
+                else{
+                    vista.mostrar_plantilla("categorias_vacia_desktop", "contenedor_principal", 1);
+                }
+            }else{
+                if(tamañoPantalla.matches){
+                    vista.mostrar_plantilla("categorias", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+                    añadir_evento_click("boton_crear_inv", mostrar_form_crear_categoria);
+                }
+                else{
+                    vista.mostrar_plantilla("categorias_desktop", "contenedor_principal", 1);
+                }
+                cambio_clases();
+                pantalla = tamañoPantalla.matches
+                lista_categorias = data.data //Se almacenan las categorias en una variable global
+                //Se llama el metodo de vista para mostrar la informacion de las categorias
+                vista.informacion_tabla_categoria(pantalla, lista_categorias, "fila_categorias");
+            }
+        }
+    });
+}
+
+/**
+ * Funcion para mostrar el formulario de creacion de una categoria
+ */
+function mostrar_form_crear_categoria(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("crear_categoria", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("crear_categoria_desktop", "contenedor_principal", 1);
+    }    
+}
+
+function crear_categoria(){
+    //Verificacion del form
+    data = vista.getForm("form_crear_categoria")
+    if(data.ok){
+        //Consulta a la DB para insertar una categoria
+        producto.createCategory(data, function(data){
+            if(data.success){
+                vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                mostrar_categorias_vacia(); //Se vuelve a mostrar la informacion de las categorias
+            }else{
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }
+        });
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    }
+
+}
+
+/**
+ * Funcion para mostrar formulario par editar una categoria
+ * @param {*} btnEditar: Contenedor con el id de la categoria
+ */
+function mostrar_editar_categoria(btnEditar){
+    idCategoria = parseInt(btnEditar.getAttribute("data-editar"));
+
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("editar_categoria", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("editar_categoria_desktop", "contenedor_principal", 1);
+    }
+    cambio_clases();
+    pantalla = tamañoPantalla.matches;
+    lista_categorias = lista_categorias.filter(x => x.id_categoria == idCategoria);
+    vista.informacion_editar_categoria(pantalla, lista_categorias, "contenedor_editar_categoria");
+}
+
+/**
+ * Funcion para guardar la edicion de una categoria
+ */
+function guardar_editar_categoria(){
+    //Verificacion del form
+    data = vista.getForm("form_editar_categoria")
+    data.id_categoria = idCategoria; //Se le asigna el id de la categoria al objeto data
+    if(data.ok){
+        producto.updateCategory(data, function(data){
+            if(data.success){
+                mostrar_categorias_vacia(); //Se vuelve a mostrar la informacion de las categorias
+            }else{
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }
+        });
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    }
+}
+
+
 
 
 function mostrar_seleccionar_informe(){
@@ -763,16 +894,6 @@ function mostrar_perfiles_vacia(){
 
 // Funciones acciones de la pantalla de Stock
 
-function mostrar_categorias_vacia(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("categorias_vacia", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-        añadir_evento_click("boton_crear_inv", mostrar_form_crear_categoria);
-    }
-    else{
-        vista.mostrar_plantilla("categorias_vacia_desktop", "contenedor_principal", 1);
-    }
-}
 
 function mostrar_categorias(){
     if(tamañoPantalla.matches){
@@ -806,24 +927,6 @@ function mostrar_mov_del_producto(){
 }
 
 // Funciones para cambiar plantillas desde la pantalla de Categorias
-
-function mostrar_editar_categoria(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("editar_categoria", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("editar_categoria_desktop", "contenedor_principal", 1);
-    }
-}
-
-function mostrar_form_crear_categoria(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("crear_categoria", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("crear_categoria_desktop", "contenedor_principal", 1);
-    }    
-}
 
 // Funciones para cambiar plantillas desde la pantalla de Movimientos
 

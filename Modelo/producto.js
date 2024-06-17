@@ -64,13 +64,6 @@ class Producto extends Connect{
         this.connect({}, endpoint, method, getAllProductCallback);
     }
 
-    //Metodo para mostrar todas las categorias
-    getCategory(getAllCategoriesCallback){
-        const endpoint = "categorias"
-        const method = "GET"
-        this.connect({}, endpoint, method, getAllCategoriesCallback);
-    }
-
     //Metodo para eliminar un producto
     deleteProduct(dataRequest, deleteCallback){
         const endpoint = "productos/eliminar"
@@ -105,4 +98,33 @@ class Producto extends Connect{
         const method = "GET"
         this.connect(dataRequest, endpoint, method, getProvisionCallback);
     }
+
+    //Metodo para crear una categoria
+    createCategory(dataRequest, createCategoryCallback){
+        const endpoint = "categorias"
+        const method = "POST"
+        this.connect(dataRequest, endpoint, method, createCategoryCallback);
+    }
+
+    //Metodo para mostrar todas las categorias
+    getCategory(getAllCategoriesCallback){
+        const endpoint = "categorias"
+        const method = "GET"
+        this.connect({}, endpoint, method, getAllCategoriesCallback);
+    }
+
+    //Metodo para eliminar una categoria
+    deleteCategory(dataRequest, deleteCategoryCallback){
+        const endpoint = "categorias/eliminar"
+        const method = "PUT"
+        this.connect(dataRequest, endpoint, method, deleteCategoryCallback);
+    }
+
+    //Metodo para actualizar una categoria
+    updateCategory(dataRequest, updateCategoryCallback){
+        const endpoint = "categorias"
+        const method = "PUT"
+        this.connect(dataRequest, endpoint, method, updateCategoryCallback);
+    }
+
 }

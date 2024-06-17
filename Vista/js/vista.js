@@ -245,7 +245,6 @@ class Vista {
     let contenedor = document.getElementById(id_contenedor);
     contenedor.style.paddingBottom = padding;
   }
-
   
   /**
    * Metodo para obtener los datos de un formulario
@@ -296,7 +295,6 @@ class Vista {
     });
     return data;
   }
-
 
   /**
    *Metodo para validar el correo electronico
@@ -612,170 +610,286 @@ class Vista {
     cont.disabled = false
   }
 
-    /**
-   * Metodo para mostrar los detalles de un producto
-   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
-   * @param {*} producto: informacion del producto a mostrar 
-   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion 
-   */
-    informacion_detalles_producto(tamaño, producto, id_contenedor){
-      let cont = document.getElementById(id_contenedor);
-      producto.forEach((producto) => {
-        if(tamaño == true){
-          const html = `
-              <div class="conedor_nombre_producto_titulo"> <!-- Contenedor Nombre del producto como Titulo -->
-                  <h1 id="nombre_producto_titulo">${producto.nombre_producto}</h1>
-              </div>
-              <div class="container d-flex" id="contenedor_detalles_producto"> <!-- Contenedor para la lista de detalles del producto -->
-                  <ul> <!-- Lista de detalles del producto -->
-                      <li>Referencia: ${producto.referencia_producto}</li>
-                      <li>Cantidad: ${producto.cantidad_producto_almacen}</li>
-                      <li>Stock Minimo: ${producto.stock_minimo}</li>
-                      <li>Costo: ${producto.promedio_costo}</li>
-                      <li>Precio de Venta ${producto.precio_venta}</li>
-                  </ul>
-              </div>
-              <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
-                  <!-- Contenedor de botones -->
-                  <button class="btn boton_largo_oscuro" type="button" onclick="mostrar_mov_del_producto()">
-                      <!-- Boton para ver movimientos -->
-                      Ver Movimientos
-                  </button>
-                  <button class="btn boton_largo_claro" type="button" onclick="mostrar_editar_producto()">
-                      <!-- Boton para editar el producto -->
-                      Editar Producto
-                  </button>
-              </div>
-              <div class="container d-flex align-items-center justify-content-center">
-                  <!-- Contenedor de la imagen del producto -->
-                  <img src="./Assets/img/image-1.png" alt="" id="imagen_producto">
-              </div>
-          `
-        }else{
-          const html = `
-              <div class="d-flex flex-column">
-                  <h1>${producto.nombre_producto}</h1>
-                  <div>
-                      <table class="table">
-                          <thead>
-                              <tr>
-                                  <th scope="col"></th>
-                                  <th scope="col"></th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td>Categoria</td>
-                                  <td>${producto.nombre_categoria}</td>
-                              </tr>
-                              <tr>
-                                  <td>Referencia</td>
-                                  <td>${producto.referencia_producto}</td>
-                              </tr>
-                              <tr>
-                                  <td>Cantidad</td>
-                                  <td>${producto.Cantidad}</td>
-                              </tr>
-                              <tr>
-                                  <td>Stock Mínimo</td>
-                                  <td>${producto.stock_minimo}</td>
-                              </tr>
-                              <tr>
-                                  <td>Costo</td>
-                                  <td>${producto.Costo}</td>
-                              </tr>
-                              <tr>
-                                  <td>Precio de Venta</td>
-                                  <td>${producto.Precio}</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-                  <div>
-                      <button class="btn btn-general--contenido" onclick="mostrar_mov_del_producto()">Ver Movimientos</button>
-                      <button class="btn btn-general--secundario" onclick="mostrar_editar_producto(this)" data-editar = ${producto.id_producto}>Editar Descripción</button>
-                  </div>
-              </div>
-              <div class="">
-                  <figure class="contenedor-imagen">
-                      <img class="img-fluid" src="./Assets/img/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
-                  </figure>
-              </div>
-              `
-              cont.innerHTML += html;
-        }
-      });
-    }
-
-    informacion_editar_producto(tamaño, producto, id_contenedor){
-        let cont = document.getElementById(id_contenedor);
-        producto.forEach((producto) => {
-            if(tamaño == true){
-                const html = `
-                    <!-- Contendor de form para editar un producto -->
-                    <input type="text" class="form-control" value="${producto.nombre_producto}" name="nombre_producto">
-                    <input type="text" class="form-control" value="${producto.referencia_producto}" name="referencia_producto">
-                    <select type="text" class="select_oscuro" name="id_categoria" id="select_id_categoria"> <!-- Select para seleccionar categoria del producto -->
-                        <!-- Opciones del select -->
-                        <option selected class="opciones">Categoria Producto</option>
-                        <option class="opciones">Categoria 1</option>
-                    </select>
-                    <input type="text" class="form-control" value="${producto.stock_minimo}"  name="stock_minimo">
-                    <input type="text" class="form-control" value="${producto.Precio}" name="precio_venta">
-                `;
-                cont.innerHTML += html;
-        }else{
-            const html = `
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col"></th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Nombre Producto</td>
-                            <td>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button" 
-                                value="${producto.nombre_producto}"  name="nombre_producto"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Referencia Producto</td>
-                            <td>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                value="${producto.referencia_producto}"  name="referencia_producto"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Categoria producto</td>
-                            <td>
-                                <select type="text" class="select_claro_mov form-select" name="id_categoria" id="select_id_categoria">
-                                    <!-- Opciones del select -->
-                                    <option selected class="opciones">Categoria</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Stock minimo</td>
-                            <td>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                value="${producto.stock_minimo}" placeholder="" name="stock_minimo"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Precio</td>
-                            <td>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                value="${producto.Precio}" name="precio_venta"/>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+  /**
+ * Metodo para mostrar los detalles de un producto
+ * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+ * @param {*} producto: informacion del producto a mostrar 
+ * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion 
+ */
+  informacion_detalles_producto(tamaño, producto, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    producto.forEach((producto) => {
+      if(tamaño == true){
+        const html = `
+            <div class="conedor_nombre_producto_titulo"> <!-- Contenedor Nombre del producto como Titulo -->
+                <h1 id="nombre_producto_titulo">${producto.nombre_producto}</h1>
+            </div>
+            <div class="container d-flex" id="contenedor_detalles_producto"> <!-- Contenedor para la lista de detalles del producto -->
+                <ul> <!-- Lista de detalles del producto -->
+                    <li>Referencia: ${producto.referencia_producto}</li>
+                    <li>Cantidad: ${producto.cantidad_producto_almacen}</li>
+                    <li>Stock Minimo: ${producto.stock_minimo}</li>
+                    <li>Costo: ${producto.promedio_costo}</li>
+                    <li>Precio de Venta ${producto.precio_venta}</li>
+                </ul>
+            </div>
+            <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
+                <!-- Contenedor de botones -->
+                <button class="btn boton_largo_oscuro" type="button" onclick="mostrar_mov_del_producto()">
+                    <!-- Boton para ver movimientos -->
+                    Ver Movimientos
+                </button>
+                <button class="btn boton_largo_claro" type="button" onclick="mostrar_editar_producto()">
+                    <!-- Boton para editar el producto -->
+                    Editar Producto
+                </button>
+            </div>
+            <div class="container d-flex align-items-center justify-content-center">
+                <!-- Contenedor de la imagen del producto -->
+                <img src="./Assets/img/image-1.png" alt="" id="imagen_producto">
+            </div>
+        `
+      }else{
+        const html = `
+            <div class="d-flex flex-column">
+                <h1>${producto.nombre_producto}</h1>
+                <div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Categoria</td>
+                                <td>${producto.nombre_categoria}</td>
+                            </tr>
+                            <tr>
+                                <td>Referencia</td>
+                                <td>${producto.referencia_producto}</td>
+                            </tr>
+                            <tr>
+                                <td>Cantidad</td>
+                                <td>${producto.Cantidad}</td>
+                            </tr>
+                            <tr>
+                                <td>Stock Mínimo</td>
+                                <td>${producto.stock_minimo}</td>
+                            </tr>
+                            <tr>
+                                <td>Costo</td>
+                                <td>${producto.Costo}</td>
+                            </tr>
+                            <tr>
+                                <td>Precio de Venta</td>
+                                <td>${producto.Precio}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <button class="btn btn-general--contenido" onclick="mostrar_mov_del_producto()">Ver Movimientos</button>
+                    <button class="btn btn-general--secundario" onclick="mostrar_editar_producto(this)" data-editar = ${producto.id_producto}>Editar Descripción</button>
+                </div>
+            </div>
+            <div class="">
+                <figure class="contenedor-imagen">
+                    <img class="img-fluid" src="./Assets/img/imagen_ejemplo.png" alt="" id="imagen_ej_ddp">
+                </figure>
+            </div>
             `
             cont.innerHTML += html;
-            } 
-        });
-    } 
+      }
+    });
+  }
+
+  /**
+   * Funcion para mostrar la informacion de un producto en form editar producto
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} producto: informacion del producto a mostrar
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion
+   */
+  informacion_editar_producto(tamaño, producto, id_contenedor){
+      let cont = document.getElementById(id_contenedor);
+      producto.forEach((producto) => {
+          if(tamaño == true){
+              const html = `
+                  <!-- Contendor de form para editar un producto -->
+                  <input type="text" class="form-control" value="${producto.nombre_producto}" name="nombre_producto">
+                  <input type="text" class="form-control" value="${producto.referencia_producto}" name="referencia_producto">
+                  <select type="text" class="select_oscuro" name="id_categoria" id="select_id_categoria"> <!-- Select para seleccionar categoria del producto -->
+                      <!-- Opciones del select -->
+                      <option selected class="opciones">Categoria Producto</option>
+                      <option class="opciones">Categoria 1</option>
+                  </select>
+                  <input type="text" class="form-control" value="${producto.stock_minimo}"  name="stock_minimo">
+                  <input type="text" class="form-control" value="${producto.Precio}" name="precio_venta">
+              `;
+              cont.innerHTML += html;
+      }else{
+          const html = `
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Nombre Producto</td>
+                          <td>
+                              <input type="text" class="form-control" aria-label="Text input with dropdown button" 
+                              value="${producto.nombre_producto}"  name="nombre_producto"/>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Referencia Producto</td>
+                          <td>
+                              <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                              value="${producto.referencia_producto}"  name="referencia_producto"/>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Categoria producto</td>
+                          <td>
+                              <select type="text" class="select_claro_mov form-select" name="id_categoria" id="select_id_categoria">
+                                  <!-- Opciones del select -->
+                                  <option selected class="opciones">Categoria</option>
+                              </select>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Stock minimo</td>
+                          <td>
+                              <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                              value="${producto.stock_minimo}" placeholder="" name="stock_minimo"/>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Precio</td>
+                          <td>
+                              <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                              value="${producto.Precio}" name="precio_venta"/>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          `
+          cont.innerHTML += html;
+          } 
+      });
+  }
+
+  /**
+   * Funcion para mostrar la informacion de una categoria en una tabla o tarjetas
+   * @param {*} tamaño_pantalla: tamaño de la pantalla para mostrar una tabla o tarjetas
+   * @param {*} lista_categorias: lista de categorias a mostrar
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion
+   */
+  informacion_tabla_categoria(tamaño_pantalla, lista_categorias, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    lista_categorias.forEach((categoria) => {
+        if(tamaño_pantalla == true){
+            const html = `
+            <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
+                    ${categoria.nombre_categoria}
+                </button>
+                <ul class="dropdown-menu informacion_dropdown_contenido">
+                    <!-- Lista de infomacion desplegable en el dropdown -->
+                    <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                        <a href="#" onclick="mostrar_editar_categoria(this)" data-editar="${categoria.id_categoria}">Editar Categoria</a>
+                    </li>
+                </ul>
+            </div>
+            `
+            cont.innerHTML += html;
+        }else{
+            const html = `
+            <tr>
+                <th scope="row" class="d-flex">
+                    <div class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${categoria.nombre_categoria}</p>
+                    </div>
+                </th>
+                <td class="text-end">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="d-grid gap-2">
+                                <button class="btn d-flex align-items-center" onclick="mostrar_editar_categoria(this)" data-editar="${categoria.id_categoria}">
+                                    <img src="./Assets/img/lapiz_editar.svg" alt="" />
+                                    <p>Editar</p>
+                                </button>
+                            </li>
+                            <li class="d-grid gap-2">
+                                <button class="btn d-flex align-items-center">
+                                    <img src="./Assets/img/eliminar.svg" alt="" />
+                                    <p>Eliminar</p>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            `
+            cont.innerHTML += html;
+        }
+    })
+  }
+
+  informacion_editar_categoria(tamaño, lista_categorias, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    lista_categorias.forEach((categoria) => {
+        if(tamaño == true){
+            const html = `
+            <div class="d-flex flex-column dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                <button disabled
+                    class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="color_lateral" id="lateral_oscuro"></div>
+                    ${categoria.nombre_categoria}
+                </button>
+                <ul class="dropdown-menu informacion_dropdown_contenido">
+                    <!-- Lista de infomacion desplegable en el dropdown -->
+                    <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                        <a href="#" onclick="mostrar_editar_categoria()">Editar Categoria</a>
+                    </li>
+                </ul>
+                <form class="d-flex flex-column contenedor_campos_edicion" id="form_editar_categoria">
+                    <!-- Contenedor de campos para editar categoria -->
+                    <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Categoria" name="nombre_categoria">
+                </form>
+            </div>
+            `;
+            cont.innerHTML += html;
+        }else{
+            const html = `
+            <tr>
+                <th scope="row" class="d-flex align-items-center">
+                    <input type="text" id="th_input_nombreCategoria" class="form-control"
+                        aria-label="Text input with dropdown button"
+                        value=${categoria.nombre_categoria} name="nombre_categoria"/>
+                </th>
+                <td class="text-end">
+                    <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="guardar_editar_categoria()">
+                        <img src="./Assets/img/guardar.svg" alt="" />
+                    </button>
+                </td>
+            </tr>
+            `;
+            cont.innerHTML += html;   
+        }
+    });
+  }
+
+
 }

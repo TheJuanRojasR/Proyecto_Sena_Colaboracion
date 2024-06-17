@@ -856,21 +856,7 @@
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                 <p class="title_small">Categorias</p>
             </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
-                        Categoria 1
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                onclick="mostrar_editar_categoria()">Editar Categoria</a></li>
-                    </ul>
-                </div>
-            </div>
+            <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_categorias"><!-- Contenido para menu dropdown --></div>
             <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
 
             </div>
@@ -888,29 +874,9 @@
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                 <p class="title_small">Categorias</p>
             </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex flex-column dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                    <button disabled
-                        class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div>
-                        Categoria 1
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center">
-                            <a href="#" onclick="mostrar_editar_categoria()">Editar Categoria</a>
-                        </li>
-                    </ul>
-                    <form class="d-flex flex-column contenedor_campos_edicion" id="form_editar_categoria">
-                        <!-- Contenedor de campos para editar categoria -->
-                        <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Categoria" name="nombre_categoria">
-                    </form>
-                </div>
-            </div>
+            <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="contenedor_editar_categoria"><!-- Contenido para menu dropdown --></div>
             <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_categorias()">
+                <button class="btn boton_oscuro_corto" type="button" onclick="guardar_editar_categoria()">
                     Guardar
                 </button>
             </div>
@@ -2745,35 +2711,35 @@
         </div>
         <hr />
         <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 ">Categoría</span>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <form action="" id="form_crear_categoria_desktop">
+            <form action="" id="form_crear_categoria"></form>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 ">Categoría</span>
+                            </th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr>
                             <th scope="row" class="d-flex align-items-center">
                                 <input type="text" id="th_input_nombreCategoria" class="form-control"
                                     aria-label="Text input with dropdown button"
                                     placeholder="Ingreso nombre de Categoria" name="nombre_categoria"/>
                             </th>
-                        </form>
-                        <td class="text-end">
-                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_categorias()">
-                                <img src="./Assets/img/guardar.svg" alt="" />
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            <td class="text-end">
+                                <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_categorias()">
+                                    <img src="./Assets/img/guardar.svg" alt="" />
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
         </div>
     </template>
 
@@ -2789,6 +2755,7 @@
                     <img src="./Assets/img/logo_lupa.svg" alt="" />
                 </button>
             </div>
+            <button class="btn btn-general ms-auto" onclick="mostrar_form_crear_categoria()">Crear Categoria</button>
         </div>
         <hr />
         <div class="container container_min_height position-relative">
@@ -2804,37 +2771,7 @@
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" class="d-flex">
-                            <div class="td-body-tabla">
-                                <p class="td-body-tabla_opciones">Categoria XXX</p>
-                            </div>
-                        </th>
-                        <td class="text-end">
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <img src="./Assets/img/menu_horizontal.svg" alt="" />
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="d-grid gap-2">
-                                        <button class="btn d-flex align-items-center">
-                                            <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                            <p>Editar</p>
-                                        </button>
-                                    </li>
-                                    <li class="d-grid gap-2">
-                                        <button class="btn  d-flex align-items-center">
-                                            <img src="./Assets/img/eliminar.svg" alt="" />
-                                            <p>Eliminar</p>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="fila_categorias"></tbody>
             </table>
         </div>
     </template>
@@ -2854,35 +2791,22 @@
         </div>
         <hr />
         <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 ">Categoría</span>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <form action="" id="form_editar_categoria_desktop">
-                            <th scope="row" class="d-flex align-items-center">
-                                <input type="text" id="th_input_nombreCategoria" class="form-control"
-                                    aria-label="Text input with dropdown button"
-                                    placeholder="Ingreso nuevo nombre de Categoria" name="nombre_categoria"/>
+            <form id="form_editar_categoria">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 ">Categoría</span>
                             </th>
-                        </form>
-                        <td class="text-end">
-                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_categorias()">
-                                <img src="./Assets/img/guardar.svg" alt="" />
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="contenedor_editar_categoria"></tbody>
+                </table>
+            </form>
         </div>
     </template>
 
