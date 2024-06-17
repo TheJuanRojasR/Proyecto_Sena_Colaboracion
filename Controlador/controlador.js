@@ -357,8 +357,15 @@ function eliminar_inv_db(){
     })
 }
 
+/**
+ *Funcion para mostar el form de edicion de un inventario seleccionado por el usuario
+ *
+ * @param {*} btnEditar: Id del almacen que se va a editar.
+ */
 function mostrar_editar_inv(btnEditar){
+    //Se convierte a INT el valor del atributo data-editar que trae btnEditar y se almacena en variable global
     idAlmacen = parseInt(btnEditar.getAttribute("data-editar"));
+    //Consulta a la DB para traer la informacion del almacen
     almacen.getById(idAlmacen, function(data){
         if(data.success){
             if(tamañoPantalla.matches){
@@ -370,6 +377,7 @@ function mostrar_editar_inv(btnEditar){
             cambio_clases();
             pantalla = tamañoPantalla.matches
             almacen_mostrar = data.data;
+            //Se llama el metodo de vista para mostrar la informacion del almacen
             vista.informacion_editar_inventario(pantalla, almacen_mostrar, "contenedor_editar_inventario");
         }else{
             vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
@@ -377,15 +385,21 @@ function mostrar_editar_inv(btnEditar){
     });
 }
 
+/**
+ *Funcion para guardar la edicion de un almacen
+ *
+ */
 function guardar_editar_inventario(){
+    //Verificacion del form
     data = vista.getForm("form_editar_inventario")
-    data.id_almacen = idAlmacen
+    data.id_almacen = idAlmacen  //Se le asigna el id del almacen al objeto data
     if(data.ok){
         console.log(almacen);
+        //Consulta a la DB para actualizar la informacion del almacen
         almacen.updateAlmacen(data, function(data){
             if(data.success){
                 vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-                mostrar_inv(usuario.id_usuario);
+                mostrar_inv(usuario.id_usuario); //Mensaje de exito y cambio de template
             }else{
                 vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
             }
@@ -395,24 +409,26 @@ function guardar_editar_inventario(){
     }
 }
 
+/**
+ *Funcion para obtener el id del almacen y mostrar el stock de ese almacen
+ * @param {*} btnIngresar
+ */
 function ingresar_inventario(btnIngresar){
     idAlmacen = parseInt(btnIngresar.getAttribute("data-ingresar"));
     mostrar_stock_vacia(idAlmacen);
 }
 
-function mostrar_movimientos_vacia(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
-    }
-    else{
-        vista.mostrar_plantilla("movimientos_vacia_desktop", "contenedor_principal", 1);
-    }
-}
+// -------- PAGINA DE STOCK ---------- \\
 
+/**
+ *Funcion para mostrar el stock de un almacen de acuerdo al id del almacen
+ * @param {*} almacen: Id del almacen al que se quiere ingresar
+ */
 function mostrar_stock_vacia(almacen){
+    //Consulta a la DB para traer todos los productos de ese almacen
     producto.getAllProductbyStore(almacen, function(data){
         if(data.success){
+            //Si no hay productos en el almacen, se muestra la plantilla stock_vacia
             if(data.data.length == 0){
                 if(tamañoPantalla.matches){
                     vista.mostrar_plantilla("stock_vacia", "contenedor_principal", 1);
@@ -424,6 +440,7 @@ function mostrar_stock_vacia(almacen){
                     vista.mostrar_plantilla("stock_vacia_desktop", "contenedor_principal", 1);
                 }
                 cambio_clases();
+            //Si hay productos en el almacen, se muestra la plantilla stock
             }else{
                 if(tamañoPantalla.matches){
                     vista.mostrar_plantilla("stock", "contenedor_principal", 1);
@@ -437,16 +454,24 @@ function mostrar_stock_vacia(almacen){
                 cambio_clases();  
                 pantalla = tamañoPantalla.matches
                 lista_productos = data.data
+                //Se llama el metodo de vista para mostrar la informacion de los productos
                 vista.informacion_tabla_producto(pantalla, lista_productos, "fila_productos");
             }
         }
     });
 }
 
+/**
+ *Funcion para mostrar el stock de un almacen de acuerdo al id del almacen
+ *desde el navegador superior
+ */
 function mostrar_stock_nav(){
     mostrar_stock_vacia(idAlmacen);
 }
 
+/**
+ *Funcion para mostrar el formulario de creacion de un producto
+ */
 function mostrar_form_crear_nuevo_producto(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("crear_producto", "contenedor_principal", 1);
@@ -454,19 +479,51 @@ function mostrar_form_crear_nuevo_producto(){
     else{
         vista.mostrar_plantilla("crear_producto_desktop", "contenedor_principal", 1);
     }
-
+    //Consulta a la DB para traer las categorias existentes
     producto.getCategory(function (data) {
         if(data.success){
+            //Se convierte el objeto en un array con llave valor
             lista_categorias = data.data
             const categoriasObj = Object.fromEntries(
                 lista_categorias.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
             );
+            //Se llama el metodo de vista para poblar el select id_categoria
             console.log(categoriasObj)
             vista.insertar_opciones_select(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")
         }
     });
 }
 
+/**
+ *Funcion para crear un producto
+ */
+function crear_producto(){
+    //Verificacion del form
+    data = vista.getForm("form_crear_producto")
+
+    if(data.ok){
+        data.id_almacen = idAlmacen; //Se le asigna el id del almacen al objeto data
+        //Consulta a la DB para insertar un producto
+        producto.createProduct(data, function(data){
+            if(data.data.message == "El producto ya existe"){
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }else{
+                if(data.success){
+                    vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                    mostrar_stock_vacia(idAlmacen); //Llamado para mostrar nuevamente el stock del almacen
+                }else{
+                    vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                }
+            }
+        });
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    }
+}
+
+/**
+ *Funcion para mostrar el formulario de asignacion de un producto ya existente a un almacen
+ */
 function mostar_form_asignar_producto(){
     
     //Mostrar plantilla para crear un producto
@@ -478,17 +535,20 @@ function mostar_form_asignar_producto(){
     }
     cambio_clases();
     
-    //Consultar categ productos
+    //Consulta a la DB para traer las categorias existentes
     producto.getCategory(function (data) {
         if(data.success) {
             lista_categorias = data.data
-            //poblar select id_categoria
+            // Se convierte el objeto en un array con llave valor
             const categoriasObj = Object.fromEntries(
                 lista_categorias.map((obj) => [obj.id_categoria.toString(), obj.nombre_categoria])
             );
+            // Se llama metodo de vista para poblar select id_categoria
             console.log(categoriasObj)
             vista.insertar_opciones_select(categoriasObj, "id_categoria", "id_categoria", "nombre_categoria")
+            //Consulta a la DB para traer los productos existentes
             producto.getAllProduct(function(data){
+                //Se insertan los productos en el select id_producto
                 lista_productos = data.data;
                 console.log(lista_productos);
                 vista.insertar_opciones_select(lista_productos, "id_producto", "id_producto", "nombre_producto", "true")
@@ -526,23 +586,25 @@ function mostar_form_asignar_producto(){
     });
 }
 
+/**
+ *Funcion para asignar un producto a un almacen
+ *
+ */
 function asignar_producto(){
+    //Verificacion del form
     data = vista.getForm("form_crear_producto")
 
     if(data.ok){
-        let cantidad = parseInt(data.cantidad_producto_almacen);
+        //Se le asigna el id del almacen al objeto data
         data.id_almacen = idAlmacen;
+        //Consulta a la DB para asignar un producto a un almacen
         producto.assignProduct(data, function(data){
             if(data.data.message == "El producto ya existe"){
                 vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
             }else{
-                data.id_producto = data.data;
-                // data.id_almacen = idAlmacen;
-                data.cantidad_producto_almacen = cantidad;
-                console.log(data);
                 if(data.success){
                     vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-                    mostrar_stock_vacia(idAlmacen);
+                    mostrar_stock_vacia(idAlmacen); //Llamado para mostrar nuevamente el stock del almacen
                 }else{
                     vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
                 }
@@ -553,38 +615,37 @@ function asignar_producto(){
     }
 }
 
-function crear_producto(){
-    data = vista.getForm("form_crear_producto")
-
-    if(data.ok){
-        let cantidad = parseInt(data.cantidad_producto_almacen);
-        data.id_almacen = idAlmacen;
-        producto.createProduct(data, function(data){
-            if(data.data.message == "El producto ya existe"){
-                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
-            }else{
-                data.id_producto = data.data;
-                // data.id_almacen = idAlmacen;
-                data.cantidad_producto_almacen = cantidad;
-                console.log(data);
-                if(data.success){
-                    vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-                    mostrar_stock_vacia(idAlmacen);
-                }else{
-                    vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
-                }
-            }
-        });
-    }else{
-        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
-    }
-}
-
+/**
+ *Funcion para eliminar un producto de un almacen
+ *
+ * @param {*} btnEliminarProducto
+ */
 function borrar_producto(btnEliminarProducto){
     idProducto = parseInt(btnEliminarProducto.getAttribute("data-eliminar"));
     añadir_evento_click("btn_aceptar", eliminar_producto);
     vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)
 }
+
+function mostrar_movimientos_vacia(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
+        vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
+    }
+    else{
+        vista.mostrar_plantilla("movimientos_vacia_desktop", "contenedor_principal", 1);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 function eliminar_producto(){
     inf_producto = {id_producto:idProducto, id_almacen:idAlmacen}
@@ -595,7 +656,7 @@ function eliminar_producto(){
         }else{
             vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
         }
-    })
+    });
 }
 
 function detalles_producto(btnDetallesProducto){
