@@ -1,3 +1,116 @@
+// particlesJS(
+//     {
+//     "particles": {
+//       "number": {
+//         "value": 100,
+//         "density": {
+//           "enable": true,
+//           "value_area": 800
+//         }
+//       },
+//       "color": {
+//         "value": "#ffffff"
+//       },
+//       "shape": {
+//         "type": "circle",
+//         "stroke": {
+//           "width": 0,
+//           "color": "#000000"
+//         },
+//         "polygon": {
+//           "nb_sides": 5
+//         },
+//         "image": {
+//           "src": "img/github.svg",
+//           "width": 100,
+//           "height": 100
+//         }
+//       },
+//       "opacity": {
+//         "value": 0.5,
+//         "random": false,
+//         "anim": {
+//           "enable": false,
+//           "speed": 1,
+//           "opacity_min": 0.1,
+//           "sync": false
+//         }
+//       },
+//       "size": {
+//         "value": 3,
+//         "random": true,
+//         "anim": {
+//           "enable": false,
+//           "speed": 40,
+//           "size_min": 0.1,
+//           "sync": false
+//         }
+//       },
+//       "line_linked": {
+//         "enable": true,
+//         "distance": 150,
+//         "color": "#ffffff",
+//         "opacity": 0.4,
+//         "width": 1
+//       },
+//       "move": {
+//         "enable": true,
+//         "speed": 6,
+//         "direction": "none",
+//         "random": false,
+//         "straight": false,
+//         "out_mode": "out",
+//         "bounce": false,
+//         "attract": {
+//           "enable": false,
+//           "rotateX": 600,
+//           "rotateY": 1200
+//         }
+//       }
+//     },
+//     "interactivity": {
+//       "detect_on": "canvas",
+//       "events": {
+//         "onhover": {
+//           "enable": false,
+//           "mode": "repulse"
+//         },
+//         "onclick": {
+//           "enable": false,
+//           "mode": "push"
+//         },
+//         "resize": true
+//       },
+//       "modes": {
+//         "grab": {
+//           "distance": 400,
+//           "line_linked": {
+//             "opacity": 1
+//           }
+//         },
+//         "bubble": {
+//           "distance": 400,
+//           "size": 40,
+//           "duration": 2,
+//           "opacity": 8,
+//           "speed": 3
+//         },
+//         "repulse": {
+//           "distance": 200,
+//           "duration": 0.4
+//         },
+//         "push": {
+//           "particles_nb": 4
+//         },
+//         "remove": {
+//           "particles_nb": 2
+//         }
+//       }
+//     },
+//     "retina_detect": true
+//   }
+// )
+
 class Vista {
   constructor() {
     this.stack_pantallas = []; //Contiene el historial de navegacion de pantallas
@@ -33,18 +146,6 @@ class Vista {
     if(pila){
         this.stack_pantallas.push(plantilla);
     }   
-  }
-
-  /**
-   * Metodo para añadir un evento click a un elemento del HTML
-   * @param {*} plantilla: id del la etiqueta a la que se le añadira el evento
-   * @param {*} funcion: funcion a ejecutar al hacer click
-   * @memberof Vista
-   */
-  añadir_evento_click(plantilla, funcion) {
-    let elemento = document.getElementById(plantilla);
-    //Falta eliminar posibles manejadores anteriores
-    elemento.onclick = funcion;
   }
 
   // /**
@@ -144,7 +245,6 @@ class Vista {
     let contenedor = document.getElementById(id_contenedor);
     contenedor.style.paddingBottom = padding;
   }
-
   
   /**
    * Metodo para obtener los datos de un formulario
@@ -155,44 +255,46 @@ class Vista {
    */
   getForm(formulario) {
     let form = document.getElementById(formulario);
-    let datos = new FormData(form);
+    let datos = Array.from(form.elements);
     let data = {};
     data.ok = true; //Bandera para verificar si los campos estan llenos
     data.msj = ""; //Mensaje de error
     data.id_rol = 1;
   
-    datos.forEach((value, key) => {
-      data[key] = value;
-      if(value === "" || (form[key].tagName === "SELECT" && value === "0")) {
-        data.ok = false;
-        data.msj = "Por favor llene " + key;
-      }
-      else if (form[key].type == "email") {
-        if (!this.validar_email(value)) {
+    datos.forEach((element) => {
+      data[element.name] = element.value;
+      if (element instanceof HTMLInputElement){
+        let value = element.value;
+        if(value === "" || (element.tagName === "SELECT" && value === "0")) {
           data.ok = false;
-          data.msj = "No es un correo válido: " + value;     
-          console.log(data.msj);     
+          data.msj = "Por favor llene " + key;
         }
-      }
-      else if (form.id == "form_registro_usuario" && form[key].name == "contraseña"){
-        if (!this.validar_contraseña(value)){
-          data.ok = false;
-          data.msj = "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número";
-          console.log(data.msj);
+        else if (element.type == "email") {
+          if (!this.validar_email(value)) {
+            data.ok = false;
+            data.msj = "No es un correo válido: " + value;     
+            console.log(data.msj);     
+          }
         }
-      }
-      else if (form.id == "form_registro_usuario" && form[key].name == "confirmar_contraseña"){
-        let password = form.elements["contraseña"].value;
-        if (value !== password) {
-          data.ok = false;
-          data.msj = "Las contraseñas no coinciden";
-          console.log(data.msj);
+        else if (form.id == "form_registro_usuario" && element.name == "contraseña"){
+          if (!this.validar_contraseña(value)){
+            data.ok = false;
+            data.msj = "La contraseña debe tener al menos 8 caracteres, una letra mayúscula, una letra minúscula y un número";
+            console.log(data.msj);
+          }
         }
+        else if (form.id == "form_registro_usuario" && element.name == "confirmar_contraseña"){
+          let password = form.elements["contraseña"].value;
+          if (value !== password) {
+            data.ok = false;
+            data.msj = "Las contraseñas no coinciden";
+            console.log(data.msj);
+          }
+        }  
       }
     });
     return data;
   }
-
 
   /**
    *Metodo para validar el correo electronico
@@ -259,10 +361,6 @@ class Vista {
 
   }
 
-
-  insertar_data_label( ){
-  }
-
   /**
    * Metodo para mostrar la informacion de los almacenes en una tarjeta
    * @param {*} tamaño_pantalla: tamaño de la pantalla para mostrar una tarjeta u otra
@@ -317,7 +415,7 @@ class Vista {
                                   </button>
                               </li>
                               <li class="d-grid gap-2">
-                                  <button class="btn  d-flex align-items-center" onclick="borrar_tarjeta(this)" data-eliminar="${almacen.id_almacen}">
+                                  <button class="btn  d-flex align-items-center" onclick="eliminar_inv_vista(this)" data-eliminar="${almacen.id_almacen}">
                                       <img src="./Assets/img/eliminar.svg" alt="" />
                                       <p>Eliminar</p>
                                   </button>
@@ -483,13 +581,41 @@ class Vista {
     });
   }
 
+  /**
+   * Metodo para mostrar la informacion de un producto ya existente cuando se asigna un producto a un almacen
+   * @param {*} producto: informacion del producto a asignar
+   * @param {*} lista_inputs: lista de inputs donde se mostrara la informacion del producto  
+   */
+  informacion_inputs_productos(producto, lista_inputs){
+    lista_inputs.forEach((input) => {
+      const input_id = document.getElementById(input) 
+      if (input_id){
+        for (let llave_producto in producto){
+          if ( input == llave_producto  ){ 
+            input_id.value = producto[llave_producto]
+            input_id.disabled = true;
+          }
+        }
+      }
+    })
+  }
+  
+  /**
+   * Metodo para limpiar la informacion de un input
+   * @param {*} inputs: id del input a limpiar
+   */
+  limpiar_inputs(inputs){
+    let cont = document.getElementById(inputs)
+    cont.value = "";
+    cont.disabled = false
+  }
 
   /**
-   * Metodo para mostrar los detalles de un producto
-   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
-   * @param {*} producto: informacion del producto a mostrar 
-   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion 
-   */
+ * Metodo para mostrar los detalles de un producto
+ * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+ * @param {*} producto: informacion del producto a mostrar 
+ * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion 
+ */
   informacion_detalles_producto(tamaño, producto, id_contenedor){
     let cont = document.getElementById(id_contenedor);
     producto.forEach((producto) => {
@@ -537,6 +663,10 @@ class Vista {
                         </thead>
                         <tbody>
                             <tr>
+                                <td>Categoria</td>
+                                <td>${producto.nombre_categoria}</td>
+                            </tr>
+                            <tr>
                                 <td>Referencia</td>
                                 <td>${producto.referencia_producto}</td>
                             </tr>
@@ -561,7 +691,7 @@ class Vista {
                 </div>
                 <div>
                     <button class="btn btn-general--contenido" onclick="mostrar_mov_del_producto()">Ver Movimientos</button>
-                    <button class="btn btn-general--secundario" onclick="mostrar_editar_producto()">Editar Descripción</button>
+                    <button class="btn btn-general--secundario" onclick="mostrar_editar_producto(this)" data-editar = ${producto.id_producto}>Editar Descripción</button>
                 </div>
             </div>
             <div class="">
@@ -572,6 +702,215 @@ class Vista {
             `
             cont.innerHTML += html;
       }
+    });
+  }
+
+  /**
+   * Funcion para mostrar la informacion de un producto en form editar producto
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} producto: informacion del producto a mostrar
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion
+   */
+  informacion_editar_producto(tamaño, producto, id_contenedor){
+      let cont = document.getElementById(id_contenedor);
+      producto.forEach((producto) => {
+          if(tamaño == true){
+              const html = `
+                  <!-- Contendor de form para editar un producto -->
+                  <input type="text" class="form-control" value="${producto.nombre_producto}" name="nombre_producto">
+                  <input type="text" class="form-control" value="${producto.referencia_producto}" name="referencia_producto">
+                  <select type="text" class="select_oscuro" name="id_categoria" id="select_id_categoria"> <!-- Select para seleccionar categoria del producto -->
+                      <!-- Opciones del select -->
+                      <option selected class="opciones">Categoria Producto</option>
+                      <option class="opciones">Categoria 1</option>
+                  </select>
+                  <input type="text" class="form-control" value="${producto.stock_minimo}"  name="stock_minimo">
+                  <input type="text" class="form-control" value="${producto.Precio}" name="precio_venta">
+              `;
+              cont.innerHTML += html;
+      }else{
+          const html = `
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td>Nombre Producto</td>
+                          <td>
+                              <input type="text" class="form-control" aria-label="Text input with dropdown button" 
+                              value="${producto.nombre_producto}"  name="nombre_producto"/>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Referencia Producto</td>
+                          <td>
+                              <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                              value="${producto.referencia_producto}"  name="referencia_producto"/>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Categoria producto</td>
+                          <td>
+                              <select type="text" class="select_claro_mov form-select" name="id_categoria" id="select_id_categoria">
+                                  <!-- Opciones del select -->
+                                  <option selected class="opciones">Categoria</option>
+                              </select>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Stock minimo</td>
+                          <td>
+                              <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                              value="${producto.stock_minimo}" placeholder="" name="stock_minimo"/>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>Precio</td>
+                          <td>
+                              <input type="text" class="form-control" aria-label="Text input with dropdown button"
+                              value="${producto.Precio}" name="precio_venta"/>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          `
+          cont.innerHTML += html;
+          } 
+      });
+  }
+
+  /**
+   * Funcion para mostrar la informacion de una categoria en una tabla o tarjetas
+   * @param {*} tamaño_pantalla: tamaño de la pantalla para mostrar una tabla o tarjetas
+   * @param {*} lista_categorias: lista de categorias a mostrar
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion
+   */
+  informacion_tabla_categoria(tamaño_pantalla, lista_categorias, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    lista_categorias.forEach((categoria) => {
+        if(tamaño_pantalla == true){
+            const html = `
+            <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
+                    ${categoria.nombre_categoria}
+                </button>
+                <ul class="dropdown-menu informacion_dropdown_contenido">
+                    <!-- Lista de infomacion desplegable en el dropdown -->
+                    <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                        <a href="#" onclick="mostrar_editar_categoria(this)" data-editar="${categoria.id_categoria}">Editar Categoria</a>
+                    </li>
+                </ul>
+            </div>
+            `
+            cont.innerHTML += html;
+        }else{
+            const html = `
+            <tr>
+                <th scope="row" class="d-flex">
+                    <div class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${categoria.nombre_categoria}</p>
+                    </div>
+                </th>
+                <td class="text-end">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="d-grid gap-2">
+                                <button class="btn d-flex align-items-center" onclick="mostrar_editar_categoria(this)" data-editar="${categoria.id_categoria}">
+                                    <img src="./Assets/img/lapiz_editar.svg" alt="" />
+                                    <p>Editar</p>
+                                </button>
+                            </li>
+                            <li class="d-grid gap-2">
+                                <button class="btn d-flex align-items-center" data-eliminar="${categoria.id_categoria}" onclick="elimiar_catg_vista(this)">
+                                    <img src="./Assets/img/eliminar.svg" alt="" />
+                                    <p>Eliminar</p>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            `
+            cont.innerHTML += html;
+        }
+    })
+  }
+
+  informacion_editar_categoria(tamaño, lista_categorias, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    lista_categorias.forEach((categoria) => {
+        if(tamaño == true){
+            const html = `
+            <div class="d-flex flex-column dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                <button disabled
+                    class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="color_lateral" id="lateral_oscuro"></div>
+                    ${categoria.nombre_categoria}
+                </button>
+                <ul class="dropdown-menu informacion_dropdown_contenido">
+                    <!-- Lista de infomacion desplegable en el dropdown -->
+                    <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                        <a href="#" onclick="mostrar_editar_categoria()">Editar Categoria</a>
+                    </li>
+                </ul>
+                <form class="d-flex flex-column contenedor_campos_edicion" id="form_editar_categoria">
+                    <!-- Contenedor de campos para editar categoria -->
+                    <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Categoria" name="nombre_categoria">
+                </form>
+            </div>
+            `;
+            cont.innerHTML += html;
+        }else{
+            const html = `
+            <tr>
+                <th scope="row" class="d-flex align-items-center">
+                    <input type="text" id="th_input_nombreCategoria" class="form-control"
+                        aria-label="Text input with dropdown button"
+                        value=${categoria.nombre_categoria} name="nombre_categoria"/>
+                </th>
+                <td class="text-end">
+                    <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="guardar_editar_categoria()">
+                        <img src="./Assets/img/guardar.svg" alt="" />
+                    </button>
+                </td>
+            </tr>
+            `;
+            cont.innerHTML += html;   
+        }
+    });
+  }
+
+  informacion_tabla_abastecimiento(tamaño, lista_productos, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    lista_productos.forEach((producto) => {
+        if(tamaño == true){
+            if(producto.cantidad_producto_almacen == producto.stock_minimo){
+
+            }else{
+                
+            }
+            const html = ``
+            cont.innerHTML += html;
+        }else{
+            if(){
+
+            }else{
+                
+            }
+            const html = ``
+            cont.innerHTML += html;
+        }
     })
   }
 

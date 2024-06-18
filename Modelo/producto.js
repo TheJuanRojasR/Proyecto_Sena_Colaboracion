@@ -43,6 +43,13 @@ class Producto extends Connect{
         this.connect(dataRequest, endpoint, method, createCallback);
     }
 
+    //Metodo para asignar un producto a un almacen
+    assignProduct(dataRequest, assignCallback){
+        const endpoint = "productos/asignar"
+        const method = "POST"
+        this.connect(dataRequest, endpoint, method, assignCallback);
+    }
+
     //Metodo para mostrar los productos
     getAllProductbyStore(id_almacen, getAllProductbyStoreCallback){
         const endpoint = `productos/almacen?id_almacen=${id_almacen}` 
@@ -50,16 +57,11 @@ class Producto extends Connect{
         this.connect({}, endpoint, method, getAllProductbyStoreCallback);
     }
 
+    //Metodo para mostrar todos los productos
     getAllProduct(getAllProductCallback){
         const endpoint = `productos`
         const method = "GET"
         this.connect({}, endpoint, method, getAllProductCallback);
-    }
-
-    getCategory(getAllCategoriesCallback){
-        const endpoint = "categorias"
-        const method = "GET"
-        this.connect({}, endpoint, method, getAllCategoriesCallback);
     }
 
     //Metodo para eliminar un producto
@@ -70,23 +72,20 @@ class Producto extends Connect{
     }
 
     //Metodo para mostrar detalles de un producto
-
-    getDetails(producto_inf, getDetailsCallback){
+    getDetailsProduct(producto_inf, getDetailsCallback){
         const endpoint = `productos/detalles?id_producto=${producto_inf.id_producto}&id_almacen=${producto_inf.id_almacen}`
         const method = "GET"
         this.connect({}, endpoint, method, getDetailsCallback);
     }
 
     //Metodo para actualizar un producto
-
-    updateDetails(dataRequest, updateDetailsCallback){
+    updateDetailsProduct(dataRequest, updateDetailsCallback){
         const endpoint = "productos"
         const method = "PUT"
         this.connect(dataRequest, endpoint, method, updateDetailsCallback);
     }
 
     //Metodo para mostrar los movimientos de un producto
-
     getTransactions(dataRequest, getTransactionsCallback){
         const endpoint = "productos/movimientos"
         const method = "GET"
@@ -94,10 +93,38 @@ class Producto extends Connect{
     }
 
     //Metodo para mostrar abastecimiento
-
-    getProvision(dataRequest, getProvisionCallback){
-        const endpoint = "productos/abastecimiento"
+    getProvision(id_almacen, getProvisionCallback){
+        const endpoint = `productos/abastecimiento?id_almacen=${id_almacen}`
         const method = "GET"
-        this.connect(dataRequest, endpoint, method, getProvisionCallback);
+        this.connect({}, endpoint, method, getProvisionCallback);
     }
+
+    //Metodo para crear una categoria
+    createCategory(dataRequest, createCategoryCallback){
+        const endpoint = "categorias"
+        const method = "POST"
+        this.connect(dataRequest, endpoint, method, createCategoryCallback);
+    }
+
+    //Metodo para mostrar todas las categorias
+    getCategory(getAllCategoriesCallback){
+        const endpoint = "categorias"
+        const method = "GET"
+        this.connect({}, endpoint, method, getAllCategoriesCallback);
+    }
+
+    //Metodo para eliminar una categoria
+    deleteCategory(dataRequest, deleteCategoryCallback){
+        const endpoint = "categorias/eliminar"
+        const method = "PUT"
+        this.connect(dataRequest, endpoint, method, deleteCategoryCallback);
+    }
+
+    //Metodo para actualizar una categoria
+    updateCategory(dataRequest, updateCategoryCallback){
+        const endpoint = "categorias"
+        const method = "PUT"
+        this.connect(dataRequest, endpoint, method, updateCategoryCallback);
+    }
+
 }
