@@ -896,22 +896,153 @@ class Vista {
     lista_productos.forEach((producto) => {
         if(tamaño == true){
             if(producto.cantidad_producto_almacen == producto.stock_minimo){
-
+                const html = `
+                <div class="d-flex flex-column dropdown"> <!-- Contenedor para el dropdown -->
+                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="color_lateral" id="lateral_amarillo"></div> <!-- Color lateral del boton -->
+                        ${producto.nombre_producto}
+                    </button>
+                    <ul class="dropdown-menu informacion_dropdown_contenido">
+                        <!-- Lista de infomacion desplegable en el dropdown -->
+                        <li class="d-flex align-items-center texto_dropdown">
+                            <p type="text" name="" class="elementos_listas">Referencia: ${producto.referencia_producto}</p>
+                        </li>
+                        <li class="d-flex align-items-center texto_dropdown">
+                            <p type="text" name="" class="elementos_listas">Cantidad disponible: ${producto.cantidad_producto_almacen}</p>
+                        </li>
+                        <li class="d-flex align-items-center texto_dropdown">
+                            <p type="text" name="" class="elementos_listas">Stock Minimo: ${producto.stock_minimo}</p>
+                        </li>
+                    </ul>
+                </div>
+                `
+                cont.innerHTML += html;
             }else{
-                
+                const html = `
+                <div class="d-flex flex-column dropdown"> <!-- Contenedor para el dropdown -->
+                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="color_lateral" id="lateral_rojo"></div> <!-- Color lateral del boton -->
+                        ${producto.nombre_producto}
+                    </button>
+                    <ul class="dropdown-menu informacion_dropdown_contenido">
+                        <!-- Lista de infomacion desplegable en el dropdown -->
+                        <li class="d-flex align-items-center texto_dropdown">
+                            <p type="text" name="" class="elementos_listas">Referencia: ${producto.referencia_producto}</p>
+                        </li>
+                        <li class="d-flex align-items-center texto_dropdown">
+                            <p type="text" name="" class="elementos_listas">Cantidad disponible: ${producto.cantidad_producto_almacen}</p>
+                        </li>
+                        <li class="d-flex align-items-center texto_dropdown">
+                            <p type="text" name="" class="elementos_listas">Stock minimo: ${producto.stock_minimo}</p>
+                        </li>
+                    </ul>
+                </div>
+                `
+                cont.innerHTML += html;
             }
-            const html = ``
-            cont.innerHTML += html;
         }else{
-            if(){
-
+            if(producto.cantidad_producto_almacen == producto.stock_minimo){
+                const html = `
+                <tr>
+                    <td class="p-0" id="abastecimiento_columna_aviso_advertencia"></td>
+                    <th scope="row" class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${producto.nombre_producto}</p>
+                    </th>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${producto.referencia_producto}</p>
+                    </td>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${producto.nombre_categoria}</p>
+                    </td>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones texto_advertencia">${producto.cantidad_producto_almacen}</p>
+                    </td>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones texto_advertencia">${producto.stock_minimo}</p>
+                    </td>
+                </tr>
+                `
+                cont.innerHTML += html;
             }else{
-                
+                const html = `
+                <tr>
+                    <td class="p-0" id="abastecimiento_columna_aviso_error"></td>
+                    <th scope="row" class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${producto.nombre_producto}</p>
+                    </th>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${producto.referencia_producto}</p>
+                    </td>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${producto.nombre_categoria}</p>
+                    </td>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones texto_error">${producto.cantidad_producto_almacen}</p>
+                    </td>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones texto_error">${producto.stock_minimo}</p>
+                    </td>
+                </tr>
+                `
+                cont.innerHTML += html;
             }
-            const html = ``
-            cont.innerHTML += html;
         }
     })
+  }
+
+  informacion_tabla_movimientos(tamaño, lista_movimientos, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    lista_movimientos.forEach((movimiento) => {
+        if(tamaño == true){
+            const html = `
+            <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
+                    ${movimiento.referencia}
+                </button>
+                <ul class="dropdown-menu informacion_dropdown_contenido">
+                    <!-- Lista de infomacion desplegable en el boton -->
+                    <li class="d-flex align-items-center texto_dropdown">
+                        <p type="text" name="" class="elementos_listas">Fecha: ${movimiento.fecha_hora}</p>
+                    </li>
+                    <li class="d-flex align-items-center texto_dropdown">
+                        <p type="text" name="" class="elementos_listas">${movimiento.nombre_producto}</p>
+                    </li>
+                    <li class="d-flex align-items-center texto_dropdown">
+                    <p type="text" name="" class="elementos_listas">Cantidad: ${movimiento.cantidad}</p>
+                    </li>
+                    <li class="d-flex align-items-center texto_dropdown">
+                        <p type="text" name="" class="elementos_listas">Origen/Destino: ${movimiento.origen/destino}</p>
+                    </li>
+                </ul>
+            </div>
+            ` 
+        }else{
+            const html = `
+            <tr>
+                <th scope="row" class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.referencia}</p>
+                </th>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.fecha_hora}</p>
+                </td>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.nombre_producto}</p>
+                </td>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.cantidad}</p>
+                </td>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.origen/destino}</p>
+                </td>
+                <td></td>
+            </tr>
+            `
+        }
+    });
   }
 
 }

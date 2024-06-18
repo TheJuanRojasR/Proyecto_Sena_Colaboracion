@@ -648,31 +648,7 @@
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                 <p class="title_small">Entradas y Salidas</p>
             </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
-                        Referencia xxxxxx
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el boton -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Producto</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Fecha y Hora</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Origen</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Destino</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_movimientos"><!-- Contenido para menu dropdown --></div>
             <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con dos opciones -->
 
             </div>
@@ -936,47 +912,7 @@
             <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                 <p class="title_small">Abastecimiento</p>
             </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex flex-column dropdown"> <!-- Contenedor para el dropdown -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_rojo"></div> <!-- Color lateral del boton -->
-                        Producto 1
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Referencia</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Stock minimo 20</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Cantidad disponible 0</p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="d-flex flex-column dropdown"> <!-- Contenedor para el dropdown -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_amarillo"></div> <!-- Color lateral del boton -->
-                        Producto 2
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Referencia</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Stock minimo 20</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Cantidad disponible 20</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_abastecimientos"><!-- Contenido para menu dropdown --></div>
         </div>
     </template>
 
@@ -2330,18 +2266,12 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="./Assets/img/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 btn-tabla-icono">Origen</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Destino</span>
+                            <span class="ml-2 btn-tabla-icono">Origen/Destino</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="fila_movimientos">
                     <tr>
                         <th scope="row" class="td-body-tabla">
                             <p class="td-body-tabla_opciones">Ref 0001</p>
@@ -2851,12 +2781,6 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="./Assets/img/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 btn-tabla-icono">Ubicacion</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
                             <span class="ml-2 btn-tabla-icono">Cantidad</span>
                         </th>
                         <th scope="col">
@@ -2867,50 +2791,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="p-0" id="abastecimiento_columna_aviso_error"></td>
-                        <th scope="row" class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Lapiz</p>
-                        </th>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Papeleria</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Destino A</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones texto_error">0</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones texto_error">10</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-0" id="abastecimiento_columna_aviso_advertencia"></td>
-                        <th scope="row" class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Lapiz</p>
-                        </th>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Papeleria</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Destino A</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones texto_advertencia">10</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones texto_advertencia">10</p>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="fila_abastecimientos"></tbody>
             </table>
             <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
                 <ul class="pagination">

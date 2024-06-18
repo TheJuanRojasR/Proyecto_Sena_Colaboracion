@@ -99,6 +99,8 @@ class Producto extends Connect{
         this.connect({}, endpoint, method, getProvisionCallback);
     }
 
+    //------------------------------------METODOS PARA CATEGORIAS------------------------------------\\
+
     //Metodo para crear una categoria
     createCategory(dataRequest, createCategoryCallback){
         const endpoint = "categorias"
@@ -125,6 +127,29 @@ class Producto extends Connect{
         const endpoint = "categorias"
         const method = "PUT"
         this.connect(dataRequest, endpoint, method, updateCategoryCallback);
+    }
+
+    //------------------------------------METODOS PARA MOVIMIENTOS------------------------------------\\
+    
+    //Metodo para mostrar las entradas y salidas
+    getOperations(fechas, getEntradasSalidasCallback){
+        const endpoint = `productos/entradas_salidas?fecha_inicio=${fechas.fecha_inicio}&fecha_fin=${fechas.fecha_fin}`
+        const method = "GET"
+        this.connect({}, endpoint, method, getEntradasSalidasCallback);
+    }
+
+    //Metodo para crear una entrada
+    createEntrada(dataRequest, createEntradaCallback){
+        const endpoint = "productos/entradas"
+        const method = "POST"
+        this.connect(dataRequest, endpoint, method, createEntradaCallback);
+    }
+
+    //Metodo para crear una salida
+    createSalida(dataRequest, createSalidaCallback){
+        const endpoint = "productos/salidas"
+        const method = "POST"
+        this.connect(dataRequest, endpoint, method, createSalidaCallback);
     }
 
 }

@@ -6,6 +6,7 @@ let almacen = new Almacen();
 let lista_categorias = [] //Lista donde se guardan las categorias existentes
 let lista_productos = []; //Lista donde se guardan los productos existentes
 let lista_almacenes = []; //Lista donde se guardan los almacenes existentes
+let lista_movimientos = []; //Lista donde se guardan los movimientos de un producto/almacen
 let idAlmacen = null; //Varialbe para guardar el id del almacen
 let idProducto = null; //Variable para guardar el id del producto
 let idCategoria = null; //Variable para guardar el id de la categoria
@@ -748,9 +749,14 @@ function guardar_editar_producto(){
     }
 }
 
+/**
+ * Funcion para mostrar la pagina de abastecimiento del almacen
+ */
 function mostrar_abastecimiento(){
+    //Consulta a la DB para traer los productos del almacen
     producto.getProvision(idAlmacen, function(data){
         if(data.success){
+            //Cambio de pantalla
             if(tamañoPantalla.matches){
                 vista.mostrar_plantilla("abastecimiento", "contenedor_principal", 1);
             }
@@ -760,17 +766,12 @@ function mostrar_abastecimiento(){
         }else{
             vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
         }
+        cambio_clases();
+        pantalla = tamañoPantalla.matches
+        lista_productos = data.data
+        //Se llama el metodo de vista para mostrar la informacion de los productos
+        vista.informacion_tabla_abastecimiento(pantalla, lista_productos, "fila_abastecimientos");
     });
-}
-
-function mostrar_movimientos_vacia(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
-    }
-    else{
-        vista.mostrar_plantilla("movimientos_vacia_desktop", "contenedor_principal", 1);
-    }
 }
 
 // -------- PAGINA DE CATEGORIAS ---------- \\
@@ -913,6 +914,47 @@ function eliminar_catg_db(){
 
 //----------------- PAGINA DE MOVIMIENTOS -----------------\\
 
+function obtener_fecha(){
+    let fechaInicio = Date.now();
+    let fechaFin = Date.now();
+    fechaInicio = new Date(fechaInicio);
+    fechaFin = new Date(fechaFin);
+    fechaFin.setDate(fechaFin.getDate() + 1);
+    fechaInicio = fechaInicio.toISOString().slice(0,10);
+    fechaFin = fechaFin.toISOString().slice(0,10);
+    console.log(fechaInicio, fechaFin, typeof(fechaInicio), typeof(fechaFin));
+    return {fecha_inicio:fechaInicio, fecha_fin: fechaFin};
+}
+
+function mostrar_movimientos_vacia(){
+    const informacion_movimietnos = obtener_fecha();
+    informacion_movimietnos.id_almacen=idAlmacen;
+    producto.getOperations(informacion_movimietnos, function(data){  
+        if(data.success){
+            if(data.length == 0){
+                if(tamañoPantalla.matches){
+                    vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
+                }
+                else{
+                    vista.mostrar_plantilla("movimientos_vacia_desktop", "contenedor_principal", 1);
+                }
+            }else{
+                if(tamañoPantalla.matches){
+                    vista.mostrar_plantilla("movimientos", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
+                }
+                else{
+                    vista.mostrar_plantilla("movimientos_desktop", "contenedor_principal", 1);
+                }
+                cambio_clases();
+                pantalla = tamañoPantalla.matches
+                lista_movimientos = data.data
+                vista.informacion_tabla_movimientos(pantalla, lista_movimientos, "fila_movimientos");
+            }
+        }
+    });
+}
 
 function mostrar_perfiles_vacia(){
     if(tamañoPantalla.matches){
@@ -973,16 +1015,6 @@ function mostrar_form_crear_salida(){
     }
     else{
         vista.mostrar_plantilla("crear_salida_desktop", "contenedor_principal", 1);
-    }
-}
-
-function mostrar_movimientos(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("movimientos", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
-    }
-    else{
-        vista.mostrar_plantilla("movimientos_desktop", "contenedor_principal", 1);
     }
 }
 
