@@ -1000,7 +1000,13 @@ function mostrar_form_crear_entrada(){
 }
 
 function agregar_producto_entrada(){
+
     producto_entrada = vista.getForm("form_crear_entrada")
+
+    let nombre_producto_entrada = lista_productos.find(x => x.id_producto == producto_entrada.id_producto);
+    console.log(nombre_producto_entrada);
+    let nombre_producto_valor = nombre_producto_entrada.nombre_producto
+    producto_entrada.nombre_producto = nombre_producto_valor
 
     if(producto_entrada.ok){
         vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
@@ -1008,9 +1014,8 @@ function agregar_producto_entrada(){
         pantalla = tamañoPantalla.matches
         vista.informacion_tabla_entradas(pantalla, producto_entrada, "tbody_productos_entradas")
     }else{
-        cambiar_clases('modal_error', lista_clases_modal_error_show)
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
-
 
 }
 

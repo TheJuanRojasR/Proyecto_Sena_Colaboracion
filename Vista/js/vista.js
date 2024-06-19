@@ -261,13 +261,14 @@ class Vista {
     data.msj = ""; //Mensaje de error
     data.id_rol = 1;
   
-    datos.forEach((element, key) => {
+    datos.forEach((element) => {
       data[element.name] = element.value;
       if (element instanceof HTMLInputElement){
         let value = element.value;
         if(value === "" || (element.tagName === "SELECT" && value === "0")) {
           data.ok = false;
-          data.msj = "Por favor llene " + key;
+          data.msj = "Por favor llene " + element.name;
+          console.log(data.msj)
         }
         else if (element.type == "email") {
           if (!this.validar_email(value)) {
