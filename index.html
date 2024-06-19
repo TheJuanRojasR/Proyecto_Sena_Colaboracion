@@ -35,7 +35,7 @@
 
 <body class=" overflow-y-scroll d-flex flex-column justify-content-between">
     <!-- Barra superior -->
-    <nav class="navbar navbar-expand-md" id="navegador_sup"></nav>
+    <nav class="navbar navbar-expand-md fixed-top" id="navegador_sup"></nav>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
@@ -70,15 +70,78 @@
     </div>
 
     <!-- Contenido de la pagina -->
-    <main id="contenedor_principal" class="container-fluid container_main "></main>
+    <main id="contenedor_principal" class="container-fluid container_main ">
+        <div class="particulas" id="particles-js"></div>
+        <div id="contenido"></div>
+    </main>
 
     <!-- Barra Inferior -->
-    <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
-    </nav>
+    <nav class="navbar fixed-bottom nav_inf" id="navegador_inf"></nav>
 
     <footer id="footer_inicio"></footer>
 
     <!-- MODALES -->
+
+    <!-- Modal Registro Usuario -->
+    <section class="modal registro" id="modal_registro">
+        <div class="registro__container text-center">
+            <button class="btn registro__close" onclick="cerrar_modal_registro()">
+                <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+            </button>
+            <h1 class="registro__titulo mb-4">Registrarse</h1>
+            <form action="" id="form_registro_usuario">
+                <div class="registro__input mb-1">
+                    <input type="text" class="form-control registro__input" placeholder="Nombre Completo" 
+                        value="" name="nombre_usuario">
+                </div>
+                <select class="form-select registro__select mb-1" aria-label="Default select example" name="tipo_documento">
+                    <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
+                </select>
+                <div class="registro__input mb-1">
+                    <input type="number" class="form-control registro__input" placeholder="Numero de Documento" 
+                        value="" name="numero_documento">
+                </div>
+                <div class="registro__input mb-1">
+                    <input type="email" class="form-control registro__input" placeholder="Correo Electronico"  value="" name="correo_electronico" required>
+                </div>
+                <div class="registro__input mb-1">
+                    <input type="password" class="form-control registro__input" placeholder="Contraseña" 
+                        value="" name="contraseña">
+                </div>
+                <div class="registro__input mb-3">
+                    <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña" 
+                        value="" name="confirmar_contraseña">
+                </div>
+            </form>
+            <button class="btn btn-general mb-3" onclick="registrar_usuario()">Registrar</button>
+            <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
+        </div>
+    </section>
+
+    <!-- Modal Login -->
+    <section class="modal ingreso" id="modal_login">
+        <div class="ingreso__container text-center">
+            <figure>
+                <img class="ingreso__img" src="./Assets/img/Imagen_Ingreso.png" alt="">
+            </figure>
+            <h1 class="registro__titulo mb-4">Ingreso</h1>
+            <div class="registro__padding">
+                <button class="btn registro__close" onclick="cerrar_modal_login()">
+                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+                </button>
+                <form action="" id="form_login">
+                    <div class="registro__input mb-1">
+                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico" 
+                            value="" name="correo_electronico">
+                    </div>
+                    <div class="registro__input mb-2">
+                        <input type="password" class="form-control registro__input" placeholder="Contraseña"  value="" name="contraseña">
+                    </div>
+                </form>
+            </div>
+            <button class="btn btn-general mb-3" onclick="log_in()">Ingresar</button>
+        </div>
+    </section>
 
     <!-- Modal para Confirmacion -->
     <section class="modal modal--confirm" id="modal_confirmacion">
@@ -1548,6 +1611,7 @@
         </div>
     </template>
 
+    <!-- Form de productos en una entrada -->
     <template id="fila_productos_entradas_desktop">
         <tr>
             <td>
@@ -1700,7 +1764,6 @@
 
     <!-- Pantalla de Inicio -->
     <template id="pagina_inicio_desktop">
-        <div class="particulas" id="particles-js"></div>
         <div class="contenedor_tansparente" id="cont_titulo">
             <div class="d-flex flex-row" id="cont_texto_sup">
                 <h2 class="titulo_claro">Gestión de inventario simplificada</h2>
@@ -1768,10 +1831,10 @@
             <button type="button" class="button_crear_perfil">Crea tu Perfil</button>
         </div>
         <div class="cont_blanco" id="cont_acerca_de">
-            <div id="cont_titulo_acercade">
+            <div id="cont_titulo_sobre_nosotros">
                 <h2 class="titulo_oscuro">Sobre Nosotros</h2>
             </div>
-            <div class="d-flex flex-row justify-content-around" id="cont_mision_vision">
+            <div class="d-flex flex-row justify-content-around" id="cont_sobre_nosotros">
                 <div class="mision_vision">
                     <h3 class="titulo_acerca_de">
                         Misión
@@ -1800,71 +1863,7 @@
         </div>
     </template>
 
-    <!-- Pantalla Registrarse -->
-    <template id="registro_usuario_desktop">
-        <section class="registro">
-            <div class="registro__container text-center">
-                <button class="btn registro__close">
-                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
-                </button>
-                <h1 class="registro__titulo mb-4">Registrarse</h1>
-                <form action="" id="form_registro_usuario">
-                    <div class="registro__input mb-1">
-                        <input type="text" class="form-control registro__input" placeholder="Nombre Completo" 
-                            value="" name="nombre_usuario">
-                    </div>
-                    <select class="form-select registro__select mb-1" aria-label="Default select example" name="tipo_documento">
-                        <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
-                    </select>
-                    <div class="registro__input mb-1">
-                        <input type="number" class="form-control registro__input" placeholder="Numero de Documento" 
-                            value="" name="numero_documento">
-                    </div>
-                    <div class="registro__input mb-1">
-                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico"  value="" name="correo_electronico" required>
-                    </div>
-                    <div class="registro__input mb-1">
-                        <input type="password" class="form-control registro__input" placeholder="Contraseña" 
-                            value="" name="contraseña">
-                    </div>
-                    <div class="registro__input mb-3">
-                        <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña" 
-                            value="" name="confirmar_contraseña">
-                    </div>
-                </form>
-                <button class="btn btn-general mb-3" onclick="registrar_usuario()">Registrar</button>
-                <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
-            </div>
-        </section>
-    </template>
-
     <!-- Pantalla Log In -->
-    <template id="log_in_desktop">
-        <section class="ingreso">
-            <div class="ingreso__container text-center">
-                <figure>
-                    <img class="ingreso__img" src="./Assets/img/Imagen_Ingreso.png" alt="">
-                </figure>
-                <h1 class="registro__titulo mb-4">Ingreso</h1>
-                <div class="registro__padding">
-                    <button class="btn registro__close">
-                        <img src="./Assets/img/logo_cerrar_x.svg" alt="">
-                    </button>
-                    <form action="" id="form_login">
-                        <div class="registro__input mb-1">
-                            <input type="email" class="form-control registro__input" placeholder="Correo Electronico" 
-                                value="" name="correo_electronico">
-                        </div>
-                        <div class="registro__input mb-2">
-                            <input type="password" class="form-control registro__input" placeholder="Contraseña"  value="" name="contraseña">
-                        </div>
-                    </form>
-                </div>
-                <button class="btn btn-general mb-3" onclick="log_in()">Ingresar</button>
-            </div>
-        </section>
-    </template>
-
     <!-- Pantalla Inventarios vacia -->
     <template id="inventarios_vacia_desktop">
         <div class="container encabezado">

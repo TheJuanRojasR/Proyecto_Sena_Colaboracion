@@ -80,7 +80,7 @@ hr {
 /* Estilos modificados para la etiqueta Main y clases usadas en ella */
 
 .container_main {
-    padding: 0;
+    padding: 73.59px 0 0 0;
     min-height: 80vh;
 }
 
@@ -239,7 +239,7 @@ hr {
 }
 
 #cont_btn_inicio{
-    width: 20% ;
+    min-width: 20% ;
 }
 
 .btn-general--transparent {
@@ -520,7 +520,7 @@ a.page-link:hover {
     width: 100%;
     height: 100%;
     background-color: #5D5DC5;
-    position: absolute;
+    position: fixed;
     z-index: -1;
 }
 
@@ -586,7 +586,7 @@ a.page-link:hover {
 }
 
 #cont_funciones{
-    bottom: 8rem;
+    bottom: 11rem;
     padding-top: 12%;
 }
 
@@ -623,6 +623,7 @@ a.page-link:hover {
 .parrafos_pag_inicio{
     text-align: justify;
     margin: 0.5rem 0 2rem 0;
+    font-size: 16px;
 }
 
 #cont_img_mobile{
@@ -646,7 +647,7 @@ a.page-link:hover {
 #cont_crea_perfil{
     margin-top: 3%;
     position: relative;
-    bottom: 4rem;
+    bottom: 6.5rem;
 }
 
 #cont_text_crea_perfil{
@@ -677,12 +678,12 @@ a.page-link:hover {
     position: relative;
 }
 
-#cont_titulo_acercade{
+#cont_titulo_sobre_nosotros{
     margin: 1rem;
     position: relative;
 }
 
-#cont_mision_vision{
+#cont_sobre_nosotros{
     margin: 1rem;
     position: relative;
 }
@@ -984,6 +985,60 @@ a.page-link:hover {
 }
 
 /* MEDIAS */
+
+@media screen and (min-width: 1596px){
+    
+    #cont_btn_inicio{
+        min-width: 15% ;
+    }
+
+    #cont_titulo{
+        margin-top: 2%;
+    }
+
+    .titulo_claro{
+        font-size: 4em;
+    }
+
+    #subtitulo{
+        padding-top: 1%;
+        font-size: 2em;
+    }
+
+    #cont_funciones{
+        bottom: 14rem;
+        padding-top: 12%;
+    }
+
+    .items_lista{
+        font-size: 2.5rem;
+    }
+
+    .parrafos_pag_inicio{
+        font-size: 20px;
+    }
+
+    #cont_img_mobile{
+        height: 44rem;
+        top: 75px;
+    }
+
+    #img_mobile{
+        height: 39rem;
+    }
+
+    #cont_text_crea_perfil{
+        width: 55rem;
+    }
+
+    .titulo_oscuro{
+        font-size: 4rem;
+    }
+    
+    .titulo_acerca_de{
+        font-size: 2.5rem;
+    }
+}
 
 @media screen and (max-width: 1200px) {
     .btn-tabla-icono {

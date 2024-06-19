@@ -14,9 +14,13 @@ let idCategoria = null; //Variable para guardar el id de la categoria
 //Listas para cambiar de clases a contenedores
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
-const lista_clases_nav_sup_desktop = ['navbar', 'navbar-expand-md'];
+const lista_clases_nav_sup_desktop = ['navbar', 'navbar-expand-md', 'fixed-top'];
 const lista_clases_nav_sup_mobile = ['navbar', 'fixed-top', 'nav_sup'];
 const lista_clases_nav_inf = ['navbar', 'fixed-bottom', 'nav_inf'];
+const lista_clases_modal_registro_show = ['modal', 'registro','modal--show'];
+const lista_clases_modal_registro = ['modal', 'registro'];
+const lista_clases_modal_login_show = ['modal', 'ingreso','modal--show'];
+const lista_clases_modal_login = ['modal', 'ingreso'];
 const lista_clases_modal_error_show = ['modal', 'modal--error','modal--show'];
 const lista_clases_modal_error = ['modal', 'modal--error'];
 const lista_clases_modal_exito_show = ['modal', 'modal--exito','modal--show'];
@@ -80,12 +84,12 @@ function remover_nav_inf(){
 window.onload = function(){
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
-        vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
+        vista.mostrar_plantilla("pagina_inicio", "contenido", 1);
         vista.mostrar_plantilla("footer", "footer_inicio");
     }
     else{
         vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
-        vista.mostrar_plantilla("pagina_inicio_desktop", "contenedor_principal");
+        vista.mostrar_plantilla("pagina_inicio_desktop", "contenido", 1);
         vista.mostrar_plantilla("footer", "footer_inicio");
     }
     cambio_clases();
@@ -119,7 +123,7 @@ function mostrar_form_registro_usuario(){
         vista.cambiar_clases("navegador_inf", lista_clases_nav_inf);
     }
     else{
-        vista.mostrar_plantilla("registro_usuario_desktop", "contenedor_principal", 1);
+        vista.cambiar_clases('modal_registro', lista_clases_modal_registro_show);
     }
     cambio_clases();
 
@@ -153,7 +157,7 @@ function mostrar_login(){
         vista.cambiar_clases("navegador_inf", lista_clases_nav_inf);
     }
     else{
-        vista.mostrar_plantilla("log_in_desktop", "contenedor_principal", 1);
+        vista.cambiar_clases('modal_login', lista_clases_modal_login_show);
     }
     cambio_clases();
 }
@@ -179,6 +183,7 @@ function registrar_usuario(){
                     //Mensaje de exito y cambio de template
                     vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
                     mostrar_login();
+                    vista.cambiar_clases('modal_registro', lista_clases_modal_registro);
                 }
                 else{
                     //Mensaje de error
@@ -211,6 +216,7 @@ function log_in(){
                     usuario.setData(data.data[0]);
                     //Consultar almacenes segun el id del usuario
                     let id_usuario = usuario.id_usuario;
+                    vista.cambiar_clases('modal_login', lista_clases_modal_login);
                     mostrar_inv(id_usuario);
                 }
             } else {
@@ -927,9 +933,9 @@ function obtener_fecha(){
 }
 
 function mostrar_movimientos_vacia(){
-    const informacion_movimietnos = obtener_fecha();
+    const informacion_movimientos = obtener_fecha();
     informacion_movimietnos.id_almacen=idAlmacen;
-    producto.getOperations(informacion_movimietnos, function(data){  
+    producto.getOperations(informacion_movimientos, function(data){  
         if(data.success){
             if(data.length == 0){
                 if(tamañoPantalla.matches){
@@ -1115,6 +1121,15 @@ function añadir_producto_entradas(){
 function mostrar_modal_confirmacion(evento_click){
     vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)    
     añadir_evento_click("btn_aceptar", evento_click)
+}
+
+function cerrar_modal_registro(){
+    vista.cambiar_clases('modal_registro', lista_clases_modal_registro);   
+}
+
+function cerrar_modal_login(){
+    vista.cambiar_clases('modal_login', lista_clases_modal_login);
+
 }
 
 function cerrar_modal_confirmacion(){
