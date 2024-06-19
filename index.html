@@ -1613,37 +1613,7 @@
 
     <!-- Form de productos en una entrada -->
     <template id="fila_productos_entradas_desktop">
-        <tr>
-            <td>
-            </td>
-            <th scope="row">
-                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" />
-            </th>
-            <td>
-                <input type="text" class="form-control disabled" aria-label="Text input with dropdown button"
-                    placeholder="Ej: Almacen 1" disabled />
-            </td>
-            <td>
-                <select class="form-select" name="referencia_producto">
-                    <option selected value=""></option>
-                    <option value="1">Referencia 1</option>
-                </select>
-            </td>
-            <td>
-                <select class="form-select" name="">
-                    <option selected value=""></option>
-                    <option value="1">Producto 1</option>
-                </select>
-            </td>
-            <td>
-                <input type="number" class="form-control" aria-label="Text input with dropdown button" placeholder="" />
-            </td>
-            <td>
-                <input type="number" class="form-control" aria-label="Text input with dropdown button" placeholder="" />
-            </td>
-            <td>
-            </td>
-        </tr>
+
     </template>
 
     <!-- Tarjeta inventarios -->
@@ -1699,9 +1669,9 @@
 
     <!-- Navegador superior Inventarios -->
     <template id="nav_sup_desktop_inv">
-        <div class="container-fluid d-flex justify-content-between">
+        <div class="container-fluid d-flex justify-content-between nav_color_morado">
             <a class="navbar-brand" href="#">
-                <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+                <img src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
             </a>
             <div class="collapse navbar-collapse d-flex justify-content-end">
                 <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
@@ -1714,17 +1684,17 @@
 
     <!-- Navegador superior -->
     <template id="nav_sup_desktop"> 
-        <div class="container-fluid">
+        <div class="container-fluid nav_color_morado">
             <a class="navbar-brand" href="#">
-                <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+                <img src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
             </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inv_nav()">Inventarios</a>
+                        <a class="nav-link color_blanco_nav" aria-current="page" href="#" onclick="mostrar_inv_nav()">Inventarios</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle color_blanco_nav" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Operaciones
                         </a>
@@ -1735,7 +1705,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle color_blanco_nav" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Stock
                         </a>
@@ -1746,10 +1716,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="mostrar_seleccionar_informe()">Informes</a>
+                        <a class="nav-link color_blanco_nav" href="#" onclick="mostrar_seleccionar_informe()">Informes</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="mostrar_perfiles_vacia()">Perfiles</a>
+                    <li class="nav-item color_blanco_nav">
+                        <a class="nav-link color_blanco_nav" href="#" onclick="mostrar_perfiles_vacia()">Perfiles</a>
                     </li>
                 </ul>
                 <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
@@ -1863,7 +1833,6 @@
         </div>
     </template>
 
-    <!-- Pantalla Log In -->
     <!-- Pantalla Inventarios vacia -->
     <template id="inventarios_vacia_desktop">
         <div class="container encabezado">
@@ -2017,6 +1986,11 @@
                 </thead>
             </table>
         </div>
+        <div class="container sin-opciones">
+            <h2>
+                <p>No tienes movimientos el dia de hoy</p>
+            </h2>
+        </div>
     </template>
 
     <!-- Pantalla Crear Entrada -->
@@ -2034,94 +2008,89 @@
         </div>
         <hr />
         <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Origen</span>
-                            </button>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Destino</span>
-                            </button>
-                        </th>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Referencia</span>
-                            </button>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Producto</span>
-                            </button>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                            </button>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Precio</span>
-                            </button>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_productos_entradas">
-                    <tr>
-                        <td>
-                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="añadir_producto_entradas()">
-                                <img src="./Assets/img/logo_suma.svg" alt="" />
-                            </button>
-                        </td>
-                        <form action="" id="form_crear_entrada_desktop">
-                            <th scope="row">
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="origen_entrada"/>
+            <form action="" id="form_crear_entrada_desktop">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Origen</span>
+                                </button>
                             </th>
-                            <td>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Destino</span>
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Producto</span>
+                                </button>
+                            </th>
+                            <th scope="col" class="">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Referencia</span>
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Precio</span>
+                                </button>
+                            </th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody_productos_entradas">
+                        <tr>
+                            <th>
+                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="añadir_producto_entradas()">
+                                    <img src="./Assets/img/logo_suma.svg" alt="" />
+                                </button>
+                            </th>
+                            <th scope="row">
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" name="origen_entrada"/>
+                            </th>
+                            <th>
                                 <input type="text" class="form-control disabled"
-                                    aria-label="Text input with dropdown button" placeholder="Ej: Almacen 1" disabled name="nombre_almacen"/>
-                            </td>
-                            <td>
-                                <select class="form-select" name="referencia_producto">
-                                    <option selected value=""></option>
-                                    <option value="1">Referencia 1</option>
+                                    aria-label="Text input with dropdown button" disabled name="nombre_almacen"id="nombre_almacen"/>
+                            </th>
+                            <th>
+                                <select class="form-select" name="nombre_producto" id="select_nombre_producto">
+                                    <option selected>Seleccionar Producto</option>
                                 </select>
-                            </td>
-                            <td>
-                                <select class="form-select" name="nombre_producto">
-                                    <option selected value=""></option>
-                                    <option value="1">Producto 1</option>
-                                </select>
-                            </td>
-                            <td>
+                            </th>
+                            <th>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" disabled name="referencia_producto" id="referencia_producto"/>
+                            </th>
+                            <th>
                                 <input type="number" class="form-control" aria-label="Text input with dropdown button"
                                     placeholder="" name="cantidad_entrada"/>
-                            </td>
-                            <td>
+                            </th>
+                            <th>
                                 <input type="number" class="form-control" aria-label="Text input with dropdown button"
                                     placeholder="" name="precio_venta" />
-                            </td>
-                        </form>
-                        <td>
-                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_movimientos()">
-                                <img src="./Assets/img/guardar.svg" alt="" />
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            </th>
+                            <th>
+                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_movimientos()">
+                                    <img src="./Assets/img/guardar.svg" alt="" />
+                                </button>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
         </div>
     </template>
 
@@ -2380,35 +2349,35 @@
                             <th scope="col"></th>
                         </tr>
                     </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <select class="form-select" name="id_categoria" id="select_id_categoria">
-                                        <option selected value="">Categoria</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select class="form-select" name="id_producto" id="select_nombre_producto">
-                                        <option selected value="">Nuevo Producto</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control" aria-label="Text input with dropdown button" id="referencia_producto" name="referencia_producto"/>
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="cantidad_producto" name="cantidad_producto_almacen"/>
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="stock_minimo" name="stock_minimo"/>
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="promedio_costo" name="promedio_costo" />
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="precio_venta" name="precio_venta"/>
-                                </td>
-                            </tr>
-                        </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <select class="form-select" name="id_categoria" id="select_id_categoria">
+                                    <option selected value="">Categoria</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" name="id_producto" id="select_nombre_producto">
+                                    <option selected value="">Nuevo Producto</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" id="referencia_producto" name="referencia_producto"/>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button" id="cantidad_producto" name="cantidad_producto_almacen"/>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button" id="stock_minimo" name="stock_minimo"/>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button" id="promedio_costo" name="promedio_costo" />
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button" id="precio_venta" name="precio_venta"/>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </form>
             <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="asignar_producto()">

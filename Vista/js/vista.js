@@ -329,6 +329,7 @@ class Vista {
   * @param {*} selectName: nombre del select al que se le añadiran las opciones
   * @param {*} nombre_llave: nombre de la llave de las opciones
   * @param {*} nombre_valor: nombre del valor de las opciones
+  * @param {*} tipo_opcion: tipo de opcion a añadir al select
   * @memberof Vista
   */
   insertar_opciones_select(opciones, select_name, nombre_llave, nombre_valor, tipo_opcion = null){
@@ -846,6 +847,14 @@ class Vista {
     })
   }
 
+  /**
+   * Metodo para mostrar el nombre actual de la categoria en un input cuando se va a editar
+   *
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} lista_categorias: informacion de la categoria a editar en un objeto
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion
+   * @memberof Vista
+   */
   informacion_editar_categoria(tamaño, lista_categorias, id_contenedor){
     let cont = document.getElementById(id_contenedor);
     lista_categorias.forEach((categoria) => {
@@ -891,6 +900,14 @@ class Vista {
     });
   }
 
+  /**
+   * Metodo para mostrar la informacion de los productos que estan por debajo o igual al stock minimo
+   *
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} lista_productos: lista de productos a mostrar
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion
+   * @memberof Vista
+   */
   informacion_tabla_abastecimiento(tamaño, lista_productos, id_contenedor){
     let cont = document.getElementById(id_contenedor);
     lista_productos.forEach((producto) => {
@@ -992,6 +1009,14 @@ class Vista {
     })
   }
 
+  /**
+   * Metodo para mostrar los movimientos del dia para un almacen en especifico
+   *
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} lista_movimientos: lista de movimientos a mostrar
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion
+   * @memberof Vista
+   */
   informacion_tabla_movimientos(tamaño, lista_movimientos, id_contenedor){
     let cont = document.getElementById(id_contenedor);
     lista_movimientos.forEach((movimiento) => {
@@ -1006,7 +1031,7 @@ class Vista {
                 <ul class="dropdown-menu informacion_dropdown_contenido">
                     <!-- Lista de infomacion desplegable en el boton -->
                     <li class="d-flex align-items-center texto_dropdown">
-                        <p type="text" name="" class="elementos_listas">Fecha: ${movimiento.fecha_hora}</p>
+                        <p type="text" name="" class="elementos_listas">Fecha: ${movimiento.fecha}</p>
                     </li>
                     <li class="d-flex align-items-center texto_dropdown">
                         <p type="text" name="" class="elementos_listas">${movimiento.nombre_producto}</p>
@@ -1028,7 +1053,7 @@ class Vista {
                     <p class="td-body-tabla_opciones">${movimiento.referencia}</p>
                 </th>
                 <td class="td-body-tabla">
-                    <p class="td-body-tabla_opciones">${movimiento.fecha_hora}</p>
+                    <p class="td-body-tabla_opciones">${movimiento.fecha}</p>
                 </td>
                 <td class="td-body-tabla">
                     <p class="td-body-tabla_opciones">${movimiento.nombre_producto}</p>
@@ -1045,6 +1070,50 @@ class Vista {
             cont.innerHTML += html;
         }
     });
+  }
+
+  form_entrada_producto(tamaño, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    if(tamaño == true){
+      const html = `
+      
+      `;
+    }else{
+      const html = `
+        <tr>
+            <th>
+                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="añadir_producto_entradas()">
+                    <img src="./Assets/img/logo_suma.svg" alt="" />
+                </button>
+            </th>
+            <th scope="row">
+                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" name="origen_entrada"/>
+            </th>
+            <th>
+                <input type="text" class="form-control disabled"
+                    aria-label="Text input with dropdown button" disabled name="nombre_almacen"id="nombre_almacen"/>
+            </th>
+            <th>
+                <select class="form-select" name="nombre_producto" id="select_nombre_producto">
+                    <option selected>Seleccionar Producto</option>
+                </select>
+            </th>
+            <th>
+                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" disabled name="referencia_producto" id="referencia_producto"/>
+            </th>
+            <th>
+                <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                    placeholder="" name="cantidad_entrada"/>
+            </th>
+            <th>
+                <input type="number" class="form-control" aria-label="Text input with dropdown button"
+                    placeholder="" name="precio_venta" />
+            </th>
+            <td></td>
+        </tr>
+      `;
+    }
+
   }
 
 }

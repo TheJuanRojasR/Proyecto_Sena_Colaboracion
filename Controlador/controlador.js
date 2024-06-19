@@ -936,7 +936,7 @@ function mostrar_movimientos_vacia(){
     informacion_movimientos.id_almacen=idAlmacen;
     producto.getOperations(informacion_movimientos, function(data){  
         if(data.success){
-            if(data.length == 0){
+            if(data.message == "No se encontraron movimientos"){
                 if(tamañoPantalla.matches){
                     vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
                     vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
@@ -957,6 +957,77 @@ function mostrar_movimientos_vacia(){
                 lista_movimientos = data.data
                 vista.informacion_tabla_movimientos(pantalla, lista_movimientos, "fila_movimientos");
             }
+        }
+    });
+}
+
+function mostrar_form_crear_entrada(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("crear_entrada", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("crear_entrada_desktop", "contenedor_principal", 1);
+    }
+    cambio_clases();
+
+    // Se convierte el objeto en un array con llave valor
+    const productosObj= Object.fromEntries(
+        lista_productos.map((obj) => [obj.id_producto.toString(), obj.nombre_producto])
+    );
+
+
+    let inpusAlmacen = lista_almacenes.find(x => x.id_almacen === idAlmacen);
+    let inputsAlmacen = ['nombre_almacen'];
+    vista.informacion_inputs_productos(inpusAlmacen, inputsAlmacen);
+
+
+    vista.insertar_opciones_select(productosObj, "nombre_producto", "id_producto", "nombre_producto")
+
+    document.getElementById('select_nombre_producto').addEventListener('change', function() {
+        const productoSeleccionado = parseInt(this.value);
+        const lista_inputs = ['referencia_producto'];
+
+        if (productoSeleccionado > 0) {
+            let inputsProducto = lista_productos.find(x => x.id_producto === productoSeleccionado);
+    
+            vista.informacion_inputs_productos  (inputsProducto, lista_inputs);
+        }else{
+            lista_inputs.forEach(input => {
+                vista.limpiar_inputs(input);
+            });
+        }
+    });
+}
+
+function añadir_producto_entradas(){
+
+    let pantalla = tamañoPantalla.matches;
+    vista.form_entrada_producto(pantalla, "tbody_productos_entradas");
+
+    const productosObj= Object.fromEntries(
+        lista_productos.map((obj) => [obj.id_producto.toString(), obj.nombre_producto])
+    );
+
+
+    let inpusAlmacen = lista_almacenes.find(x => x.id_almacen === idAlmacen);
+    let inputsAlmacen = ['nombre_almacen'];
+    vista.informacion_inputs_productos(inpusAlmacen, inputsAlmacen);
+
+
+    vista.insertar_opciones_select(productosObj, "nombre_producto", "id_producto", "nombre_producto")
+
+    document.getElementById('select_nombre_producto').addEventListener('change', function() {
+        const productoSeleccionado = parseInt(this.value);
+        const lista_inputs = ['referencia_producto'];
+
+        if (productoSeleccionado > 0) {
+            let inputsProducto = lista_productos.find(x => x.id_producto === productoSeleccionado);
+    
+            vista.informacion_inputs_productos  (inputsProducto, lista_inputs);
+        }else{
+            lista_inputs.forEach(input => {
+                vista.limpiar_inputs(input);
+            });
         }
     });
 }
@@ -1005,14 +1076,7 @@ function mostrar_mov_del_producto(){
 
 // Funciones para cambiar plantillas desde la pantalla de Movimientos
 
-function mostrar_form_crear_entrada(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("crear_entrada", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("crear_entrada_desktop", "contenedor_principal", 1);
-    }
-}
+
 
 function mostrar_form_crear_salida(){
     if(tamañoPantalla.matches){
