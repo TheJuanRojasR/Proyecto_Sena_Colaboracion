@@ -1015,11 +1015,12 @@ class Vista {
                     <p type="text" name="" class="elementos_listas">Cantidad: ${movimiento.cantidad}</p>
                     </li>
                     <li class="d-flex align-items-center texto_dropdown">
-                        <p type="text" name="" class="elementos_listas">Origen/Destino: ${movimiento.origen/destino}</p>
+                        <p type="text" name="" class="elementos_listas">Origen/Destino: ${movimiento.origen_destino}</p>
                     </li>
                 </ul>
             </div>
             ` 
+            cont.innerHTML += html;
         }else{
             const html = `
             <tr>
@@ -1036,11 +1037,12 @@ class Vista {
                     <p class="td-body-tabla_opciones">${movimiento.cantidad}</p>
                 </td>
                 <td class="td-body-tabla">
-                    <p class="td-body-tabla_opciones">${movimiento.origen/destino}</p>
+                    <p class="td-body-tabla_opciones">${movimiento.origen_destino}</p>
                 </td>
                 <td></td>
             </tr>
             `
+            cont.innerHTML += html;
         }
     });
   }

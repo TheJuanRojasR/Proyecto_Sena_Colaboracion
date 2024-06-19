@@ -926,15 +926,14 @@ function obtener_fecha(){
     fechaInicio = new Date(fechaInicio);
     fechaFin = new Date(fechaFin);
     fechaFin.setDate(fechaFin.getDate() + 1);
-    fechaInicio = fechaInicio.toISOString().slice(0,10);
-    fechaFin = fechaFin.toISOString().slice(0,10);
-    console.log(fechaInicio, fechaFin, typeof(fechaInicio), typeof(fechaFin));
+    fechaInicio = String(fechaInicio.toISOString().slice(0,10));
+    fechaFin = String(fechaFin.toISOString().slice(0,10));
     return {fecha_inicio:fechaInicio, fecha_fin: fechaFin};
 }
 
 function mostrar_movimientos_vacia(){
     const informacion_movimientos = obtener_fecha();
-    informacion_movimietnos.id_almacen=idAlmacen;
+    informacion_movimientos.id_almacen=idAlmacen;
     producto.getOperations(informacion_movimientos, function(data){  
         if(data.success){
             if(data.length == 0){

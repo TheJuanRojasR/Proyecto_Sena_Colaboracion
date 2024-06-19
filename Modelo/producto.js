@@ -133,7 +133,7 @@ class Producto extends Connect{
     
     //Metodo para mostrar las entradas y salidas
     getOperations(fechas, getEntradasSalidasCallback){
-        const endpoint = `productos/entradas_salidas?fecha_inicio=${fechas.fecha_inicio}&fecha_fin=${fechas.fecha_fin}`
+        const endpoint = `entradas_salidas?fecha_inicio=${fechas.fecha_inicio}&fecha_fin=${fechas.fecha_fin}&id_almacen=${fechas.id_almacen}`
         const method = "GET"
         this.connect({}, endpoint, method, getEntradasSalidasCallback);
     }
