@@ -261,7 +261,7 @@ class Vista {
     data.msj = ""; //Mensaje de error
     data.id_rol = 1;
   
-    datos.forEach((element) => {
+    datos.forEach((element, key) => {
       data[element.name] = element.value;
       if (element instanceof HTMLInputElement){
         let value = element.value;
@@ -1072,48 +1072,37 @@ class Vista {
     });
   }
 
-  form_entrada_producto(tamaño, id_contenedor){
+  informacion_tabla_entradas(tamaño, producto, id_contenedor){
     let cont = document.getElementById(id_contenedor);
-    if(tamaño == true){
-      const html = `
-      
-      `;
+    if(tamaño == "true"){
+        console.log('falta arreglar la vista')
     }else{
-      const html = `
+        const html = `
         <tr>
-            <th>
-                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="añadir_producto_entradas()">
-                    <img src="./Assets/img/logo_suma.svg" alt="" />
-                </button>
+            <th scope="row"></th>
+            <th scope="row" class="td-body-tabla">
+                <p>${producto.origen_entrada}</p>
             </th>
-            <th scope="row">
-                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" name="origen_entrada"/>
+            <th scope="row" class="td-body-tabla">
+                <p>${producto.nombre_almacen}</p>
             </th>
-            <th>
-                <input type="text" class="form-control disabled"
-                    aria-label="Text input with dropdown button" disabled name="nombre_almacen"id="nombre_almacen"/>
+            <th scope="row" class="td-body-tabla">
+                <p>${producto.nombre_producto}</p>
             </th>
-            <th>
-                <select class="form-select" name="nombre_producto" id="select_nombre_producto">
-                    <option selected>Seleccionar Producto</option>
-                </select>
+            <th scope="row" class="td-body-tabla">
+                <p>${producto.referencia_producto}</p>
             </th>
-            <th>
-                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" disabled name="referencia_producto" id="referencia_producto"/>
+            <th scope="row" class="td-body-tabla">
+                <p>${producto.cantidad_entrada}</p>
             </th>
-            <th>
-                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                    placeholder="" name="cantidad_entrada"/>
+            <th scope="row" class="td-body-tabla">
+                <p>${producto.precio_compra}</p>
             </th>
-            <th>
-                <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                    placeholder="" name="precio_venta" />
-            </th>
-            <td></td>
+            <th scope="row"></th>
         </tr>
-      `;
+        `
+        cont.innerHTML += html
     }
-
   }
 
 }

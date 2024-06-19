@@ -2008,7 +2008,7 @@
         </div>
         <hr />
         <div class="container">
-            <form action="" id="form_crear_entrada_desktop">
+            <form action="" id="form_crear_entrada">
                 <table class="table">
                     <thead>
                         <tr>
@@ -2052,10 +2052,10 @@
                             <th scope="col"></th>
                         </tr>
                     </thead>
-                    <tbody id="tbody_productos_entradas">
+                    <tbody>
                         <tr>
                             <th>
-                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="añadir_producto_entradas()">
+                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="agregar_producto_entrada()">
                                     <img src="./Assets/img/logo_suma.svg" alt="" />
                                 </button>
                             </th>
@@ -2064,15 +2064,15 @@
                             </th>
                             <th>
                                 <input type="text" class="form-control disabled"
-                                    aria-label="Text input with dropdown button" disabled name="nombre_almacen"id="nombre_almacen"/>
+                                    aria-label="Text input with dropdown button" disabled name="nombre_almacen" id="nombre_almacen"/>
                             </th>
                             <th>
-                                <select class="form-select" name="nombre_producto" id="select_nombre_producto">
+                                <select class="form-select" name="id_producto" id="select_nombre_producto">
                                     <option selected>Seleccionar Producto</option>
                                 </select>
                             </th>
                             <th>
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" disabled name="referencia_producto" id="referencia_producto"/>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" name="referencia_producto" id="referencia_producto"/>
                             </th>
                             <th>
                                 <input type="number" class="form-control" aria-label="Text input with dropdown button"
@@ -2080,7 +2080,7 @@
                             </th>
                             <th>
                                 <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="precio_venta" />
+                                    placeholder="" name="precio_compra" />
                             </th>
                             <th>
                                 <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_movimientos()">
@@ -2091,6 +2091,35 @@
                     </tbody>
                 </table>
             </form>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            
+                        </th>
+                        <th scope="col">
+                            <span class="ml-2 btn-tabla-icono">Origen</span>
+                        </th>
+                        <th scope="col" >
+                            <span class="ml-2 btn-tabla-icono">Destino</span>
+                        </th>
+                        <th scope="col">
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col" class="">
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                        <th scope="col">
+                            <span class="ml-2 btn-tabla-icono">Precio</span>
+                        </th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_productos_entradas"></tbody>
+            </table>
         </div>
     </template>
 

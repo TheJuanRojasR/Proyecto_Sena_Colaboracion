@@ -970,18 +970,18 @@ function mostrar_form_crear_entrada(){
     }
     cambio_clases();
 
+
+    let informacionInputAlmacen = lista_almacenes.find(x => x.id_almacen === idAlmacen);
+    let inputAlmacen = ['nombre_almacen']
+    vista.informacion_inputs_productos(informacionInputAlmacen, inputAlmacen);
+
     // Se convierte el objeto en un array con llave valor
-    const productosObj= Object.fromEntries(
+    const productosObj = Object.fromEntries(
         lista_productos.map((obj) => [obj.id_producto.toString(), obj.nombre_producto])
     );
-
-
-    let inpusAlmacen = lista_almacenes.find(x => x.id_almacen === idAlmacen);
-    let inputsAlmacen = ['nombre_almacen'];
-    vista.informacion_inputs_productos(inpusAlmacen, inputsAlmacen);
-
-
-    vista.insertar_opciones_select(productosObj, "nombre_producto", "id_producto", "nombre_producto")
+    // Se llama metodo de vista para poblar select id_categoria
+    console.log(productosObj)
+    vista.insertar_opciones_select(productosObj, "id_producto", "id_producto", "nombre_producto")
 
     document.getElementById('select_nombre_producto').addEventListener('change', function() {
         const productoSeleccionado = parseInt(this.value);
@@ -999,37 +999,19 @@ function mostrar_form_crear_entrada(){
     });
 }
 
-function añadir_producto_entradas(){
+function agregar_producto_entrada(){
+    producto_entrada = vista.getForm("form_crear_entrada")
 
-    let pantalla = tamañoPantalla.matches;
-    vista.form_entrada_producto(pantalla, "tbody_productos_entradas");
+    if(producto_entrada.ok){
+        vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
 
-    const productosObj= Object.fromEntries(
-        lista_productos.map((obj) => [obj.id_producto.toString(), obj.nombre_producto])
-    );
-
-
-    let inpusAlmacen = lista_almacenes.find(x => x.id_almacen === idAlmacen);
-    let inputsAlmacen = ['nombre_almacen'];
-    vista.informacion_inputs_productos(inpusAlmacen, inputsAlmacen);
+        pantalla = tamañoPantalla.matches
+        vista.informacion_tabla_entradas(pantalla, producto_entrada, "tbody_productos_entradas")
+    }else{
+        cambiar_clases('modal_error', lista_clases_modal_error_show)
+    }
 
 
-    vista.insertar_opciones_select(productosObj, "nombre_producto", "id_producto", "nombre_producto")
-
-    document.getElementById('select_nombre_producto').addEventListener('change', function() {
-        const productoSeleccionado = parseInt(this.value);
-        const lista_inputs = ['referencia_producto'];
-
-        if (productoSeleccionado > 0) {
-            let inputsProducto = lista_productos.find(x => x.id_producto === productoSeleccionado);
-    
-            vista.informacion_inputs_productos  (inputsProducto, lista_inputs);
-        }else{
-            lista_inputs.forEach(input => {
-                vista.limpiar_inputs(input);
-            });
-        }
-    });
 }
 
 function mostrar_perfiles_vacia(){
