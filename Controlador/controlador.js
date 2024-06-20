@@ -15,7 +15,7 @@ let idCategoria = null; //Variable para guardar el id de la categoria
 //Listas para cambiar de clases a contenedores
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
-const lista_clases_nav_sup_desktop = ['navbar', 'navbar-expand-md', 'fixed-top'];
+const lista_clases_nav_sup_desktop = ['navbar', 'fixed-top'];
 const lista_clases_nav_sup_mobile = ['navbar', 'fixed-top', 'nav_sup'];
 const lista_clases_nav_inf = ['navbar', 'fixed-bottom', 'nav_inf'];
 const lista_clases_modal_registro_show = ['modal', 'registro','modal--show'];
@@ -32,7 +32,7 @@ const lista_clases_modal_confirmacion = ['modal', 'modal--confirmacion'];
 const tamañoPantalla = window.matchMedia('(max-width: 768px)'); //Se obtiene el tamaño de la pantalla
 
 //Se escucha a la pantalla y si existe un cambio de tamaño, y ejecuta la funcion cambio_clases.
-window.addEventListener('resize', cambio_clases); 
+// window.addEventListener('resize', cambio_clases); 
 
 // window.addEventListener('resize', cambio_templates);
 
@@ -83,17 +83,11 @@ function remover_nav_inf(){
  * dependiendo del tamaño de la pantalla
  */
 window.onload = function(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
-        vista.mostrar_plantilla("pagina_inicio", "contenido", 1);
-        vista.mostrar_plantilla("footer", "footer_inicio");
-    }
-    else{
-        vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
-        vista.mostrar_plantilla("pagina_inicio_desktop", "contenido", 1);
-        vista.mostrar_plantilla("footer", "footer_inicio");
-    }
-    cambio_clases();
+
+    vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
+    vista.mostrar_plantilla("pagina_inicio_desktop", "contenido", 1);
+    vista.mostrar_plantilla("footer", "footer_inicio");
+
     remover_nav_inf();
 }
 
@@ -154,6 +148,7 @@ function mostrar_login(){
         vista.mostrar_plantilla("log_in", "contenedor_principal", 0);
         vista.remover_etiqueta("footer_inicio");
         vista.añadir_etiqueta("nav", "body", "navegador_inf");
+        vista.mostrar_plantilla("nav_sup_inicio", "navegador_sup");
         vista.mostrar_plantilla("nav_inf_login","navegador_inf");
         vista.cambiar_clases("navegador_inf", lista_clases_nav_inf);
     }

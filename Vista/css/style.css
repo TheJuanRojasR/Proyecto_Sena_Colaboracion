@@ -1,6 +1,7 @@
 /* Estilos modificando directamente las etiquetas */
 
 body {
+    min-width: 217px;
     background: var(--Base, #F7F5E6);
     caret-color: transparent;
 }
@@ -542,13 +543,13 @@ a.page-link:hover {
 .contenedor_tansparente{
     max-width: 100%;
     height: auto;
-    margin: 0% 5% 3% 5%;
+    margin: 5% 5% 3% 5%;
     position: relative;
     z-index: 2;
 }
 
-#cont_titulo{
-    margin-top: 5%;
+#cont_texto_sup{
+    flex-direction: row;
 }
 
 .titulo_claro{
@@ -585,11 +586,23 @@ a.page-link:hover {
     border-radius: 30px;
 }
 
+.carousel-control-next{
+    right: -25px;
+}
+
+.carousel-control-prev{
+    left: -25px;
+}
+
 .carousel-control-next-icon{
+    position: relative;
+    bottom: 8px;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
 
 .carousel-control-prev-icon{
+    position: relative;
+    bottom: 8px;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%2300'%3e%3cpath d='M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z'/%3e%3c/svg%3e");
 }
 
@@ -623,6 +636,7 @@ a.page-link:hover {
 #cont_lista_inicio{
     margin: 1rem;
     position: relative;
+    flex-direction: row;
 }
 
 #lista_inicio{
@@ -656,7 +670,7 @@ a.page-link:hover {
 }
 
 #img_mobile{
-    height: 36rem;
+    height: 100%;
     border-radius: 30px;
 }
 
@@ -702,6 +716,7 @@ a.page-link:hover {
 #cont_sobre_nosotros{
     margin: 1rem;
     position: relative;
+    flex-direction: row;
 }
 
 .mision_vision{
@@ -904,8 +919,9 @@ a.page-link:hover {
     }
 
     #cont_img_mobile{
+        width: 65rem;
         height: 44rem;
-        top: 75px;
+        top: 0px;
     }
 
     #img_mobile{
@@ -927,6 +943,22 @@ a.page-link:hover {
 }
 
 @media screen and (max-width: 1200px) {
+
+    /* ------------------------------------INICIO DESTOCK PARTICULAS----------------------------------- */
+
+    .carousel-control-next-icon{
+        width: 1.6rem;
+        height: 1.6rem;
+        bottom: 5px;
+    }
+    
+    .carousel-control-prev-icon{
+        width: 1.6rem;
+        height: 1.6rem;
+        bottom: 5px;
+    }
+
+
     .btn-tabla-icono {
         font-size: 0.8em;
     }
@@ -940,7 +972,66 @@ a.page-link:hover {
 
 }
 
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 1024px){
+
+    #cont_btn_inicio{
+        min-width: 30% ;
+    }
+
+    .carousel-control-next-icon{
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+    
+    .carousel-control-prev-icon{
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+}
+
+@media screen and (max-width: 991px) {    
+
+    /* ------------------------------------INICIO DESTOCK PARTICULAS----------------------------------- */
+
+    .titulo_claro{
+        font-size: 2.5em;
+    }
+
+    #subtitulo{
+        font-size: 1.3em;
+    }
+
+    #cont_funciones{
+        bottom: 8rem;
+    }
+
+    .titulo_oscuro{
+        font-size: 2rem;
+    }
+
+    .items_lista{
+        font-size: 1.5rem;
+    }
+
+    .parrafos_pag_inicio{
+        font-size: 14px;
+    }
+
+    #cont_text_crea_perfil{
+        width: 38rem;
+    }
+
+    #cont_crea_perfil{
+        bottom: 4.5rem;
+    }
+
+    .titulo_acerca_de{
+        font-size: 1.5rem;
+    }
+
+    /* ----------------------------------------------------------------------- */
+
     .btn-tabla-icono {
         font-size: 0.78em;
     }
@@ -973,6 +1064,64 @@ a.page-link:hover {
 
     .element-with-padding {
         padding: 0 3rem;
+    }
+
+}
+
+@media screen and (max-width: 849px){
+
+    .titulo_claro{
+        font-size: 2em;
+    }
+
+    #subtitulo{
+        padding-top: 2%;
+        font-size: 1.1em;
+    }
+
+    .carousel-control-next-icon{
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+    
+    .carousel-control-prev-icon{
+        width: 1.1rem;
+        height: 1.1rem;
+    }
+
+    #cont_funciones{
+        bottom: 7rem;
+        padding-top: 12%;
+    }
+
+    .titulo_oscuro{
+        font-size: 1.7rem;
+    }
+
+    .items_lista{
+        font-size: 1.2rem;
+    }
+
+    #lista_inicio{
+        padding-left: 24px;
+        margin: 3% 5% 3% 0%;
+    }
+
+    .parrafos_pag_inicio{
+        font-size: 12px;
+    }
+
+    #cont_img_mobile{
+        padding: 5%;
+        margin: 3% 0.5%;
+    }
+
+    #cont_crea_perfil{
+        bottom: 4rem;
+    }
+
+    .titulo_acerca_de{
+        font-size: 1.2rem;
     }
 
 }
@@ -1114,6 +1263,10 @@ a.page-link:hover {
     }
 
     /* ------------- NAVEGADOR SUP  Y OFF CANVAS ------------- */
+    #cont_btn_inicio{
+        min-width: 35% ;
+    }
+
     .nav_sup {
         box-shadow: 0px 4px 24px 0px rgba(9, 8, 66, 0.04), 0px 2px 4px 0px rgba(9, 8, 66, 0.08);
         padding: 0px 5px 0px 7px;
@@ -1170,11 +1323,15 @@ a.page-link:hover {
     /* ------------- MAIN GENERALES------------- */
 
     main {
-        height: 100vh;
+        height: 100%;
         padding-top: 57px;
     }
 
-    .contenedor_main {
+    .contenedor_main{
+        min-height: 100vh;
+    }
+
+    .contenedor_contenido {
         min-height: 100%;
         position: relative;
     }
@@ -1463,104 +1620,28 @@ a.page-link:hover {
 
     /* ------------- PAGINA INICIO ------------- */
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    #contenedor_inicio {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background-color: #475282;
-        min-height: 100%;
-    }
-
-    .bubbles {
-        position: absolute;
-        top: 0;
-        display: flex;
-        z-index: 1;
-    }
-
-    .bubbles span {
-        position: relative;
-        width: 30px;
-        height: 30px;
-        background-color: #FFF;
-        margin: 0 4px;
-        border-radius: 50%;
-        box-shadow: 0 0 0 10px #FFFFFF44,
-            0 0 50px #FFF,
-            0 0 100px #FFF;
-        animation: animate 15s linear infinite;
-        animation-duration: calc(125s / var(--i));
-    }
-
-    .bubbles span:nth-child(even) {
-        background-color: #333A56;
-        box-shadow: 0 0 0 10px #333A5644,
-            0 0 50px #333A56,
-            0 0 100px #333A56;
-    }
-
-    .container {
-        z-index: 2;
-    }
-
-    @keyframes animate {
-        0% {
-            transform: translateY(100vh) scale(0);
-        }
-
-        100% {
-            transform: translateY(-10) scale(1);
-        }
+    .carousel-control-next-icon{
+        width: 1.1rem;
+        height: 1.1rem;
+        bottom: 4px;
     }
     
-    .carousel-indicators{
-        top: 100%;
+    .carousel-control-prev-icon{
+        width: 1.1rem;
+        height: 1.1rem;
+        bottom: 4px;
     }
 
-    .carousel-control-prev{
-        left: -13%;
-        top: -40%;
+    #cont_img_mobile{
+        top: 135px;
     }
 
-    .carousel-control-next{
-        right: -13%;
-        top: -40%;
+    #cont_crea_perfil{
+        bottom: 3.5rem;
     }
 
-    #imagenMovil{
-        height: 40vh;
-    }
-
-    .boton_oscuro_largo {
-        width: 100%;
-        height: 50px;
-        border-radius: 8px;
-        margin-bottom: 4px;
-        background-color: #333A56;
-        color: #E0E0FF;
-        font-family: Inter;
-        font-size: 15px;
-        font-weight: 600;
-    }
-
-    .boton_claro_largo {
-        width: 100%;
-        height: 50px;
-        border-radius: 8px;
-        margin-top: 4px;
-        background-color: #FAFAFF;
-        color: #333A56;
-        font-family: Inter;
-        font-size: 15px;
-        font-weight: 600;
-        border: 1px solid #D0D5DD;
+    .titulo_acerca_de{
+        font-size: 1.2rem;
     }
 
     /* ------------- REGISTRO USUSARIO ------------- */
@@ -1879,3 +1960,134 @@ a.page-link:hover {
 
 
 }
+
+@media screen and (max-width: 425px){
+
+    body {
+        min-width: 100vh;
+        min-height: 100vh;
+    }
+    
+    .contenedor_tansparente{
+        margin: 5% 7% 3% 7%;
+    }
+
+    #cont_texto_sup{
+        margin-bottom: 5%;
+        flex-direction: column;
+    }
+
+    .titulo_claro{
+        font-size: 4em;
+    }
+    
+    #subtitulo{
+        font-size: 2em;
+    }
+
+    .cont_blanco{
+        padding: 0% 7% 3% 7%;
+    }
+
+    .titulo_oscuro{
+        font-size: 4rem;
+    }
+
+    #cont_lista_inicio{ 
+        flex-wrap: wrap;
+    }
+
+    #lista_inicio {
+        padding-left: 55px;
+    }
+
+    .items_lista{
+        font-size: 3rem;
+    }
+
+    .parrafos_pag_inicio{
+        font-size: 30px;
+    }
+
+    #cont_img_mobile{
+        width: 26rem;
+        height: 45rem;
+        padding: 5%;
+        margin: 3% 3%;
+        top: -1rem;
+        left: 8rem;
+    }
+
+    #img_mobile{
+        width: 100%;
+        height: 100%;
+        border-radius: 30px;
+    }
+
+    .button_crear_perfil{
+        width: 20rem;
+        height: 6rem;
+        margin-top: 2rem;
+        border: 1px solid #fff;
+        border-radius: 50px;
+        background-color: transparent;
+        font-size: 2.2rem;
+    }
+
+    #cont_sobre_nosotros{
+        margin: 1rem;
+        position: relative;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .titulo_acerca_de{
+        font-size: 3rem;
+    }
+
+    .mision_vision{
+        width: 100%;
+    }
+
+    /* ------------- FOOTER INICIO ------------- */
+
+    footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contenedor_logo_footer{
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: start;
+    }
+
+    .logo_footer{
+        width: 40%;
+        padding: 0;
+    }
+
+    .elemento_flooter {
+        width: 100%;
+        height: 100%;
+    }
+
+    .titulos_footer{
+        font-size: 2.5rem;
+    }
+
+    .textos_footer{
+        height: 10%;
+        font-size: 2rem;
+    }
+
+    @media screen and (max-width: 317px) {
+
+        body{
+            resize: none;
+        }
+        
+    }
+
+} 
