@@ -7,6 +7,7 @@ let lista_categorias = [] //Lista donde se guardan las categorias existentes
 let lista_productos = []; //Lista donde se guardan los productos existentes
 let lista_almacenes = []; //Lista donde se guardan los almacenes existentes
 let lista_movimientos = []; //Lista donde se guardan los movimientos de un producto/almacen
+let lista_productos_operaciones = []; //Lista donde se guardan los productos de entrada
 let idAlmacen = null; //Varialbe para guardar el id del almacen
 let idProducto = null; //Variable para guardar el id del producto
 let idCategoria = null; //Variable para guardar el id de la categoria
@@ -962,6 +963,9 @@ function mostrar_movimientos_vacia(){
 }
 
 function mostrar_form_crear_entrada(){
+    
+    lista_productos_operaciones = [];
+
     if(tamañoPantalla.matches){
         vista.mostrar_plantilla("crear_entrada", "contenedor_principal", 1);
     }
@@ -1000,13 +1004,16 @@ function mostrar_form_crear_entrada(){
 }
 
 function agregar_producto_entrada(){
+    /*
+    Modificar el server para que haga mapeo de la lista de productos
+     */
 
-    producto_entrada = vista.getForm("form_crear_entrada")
+    producto_entrada = vista.getForm("form_crear_entrada");
 
     let nombre_producto_entrada = lista_productos.find(x => x.id_producto == producto_entrada.id_producto);
-    console.log(nombre_producto_entrada);
+
     let nombre_producto_valor = nombre_producto_entrada.nombre_producto
-    producto_entrada.nombre_producto = nombre_producto_valor
+    producto_entrada.nombre_producto = nombre_producto_valor;
 
     if(producto_entrada.ok){
         vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
@@ -1016,6 +1023,27 @@ function agregar_producto_entrada(){
     }else{
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
+    cambio_clases();
+
+    let data = {
+        id_almacen: idAlmacen,
+        origen_entrada: producto_entrada.origen_entrada,
+        producto_entrada: lista_productos_operaciones
+    }
+
+    delete producto_entrada.ok;
+    delete producto_entrada.msj;
+    delete producto_entrada.nombre_producto;
+    delete producto_entrada.referencia_producto;
+    delete producto_entrada.id_rol;
+    delete producto_entrada.nombre_almacen
+    delete producto_entrada.origen_entrada;
+    delete producto_entrada[""]
+
+    //se hace push a la lista de productos
+    lista_productos_operaciones.push(producto_entrada);
+
+    console.log(data);
 
 }
 

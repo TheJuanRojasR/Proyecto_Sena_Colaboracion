@@ -1080,26 +1080,26 @@ class Vista {
     }else{
         const html = `
         <tr>
-            <th scope="row"></th>
-            <th scope="row" class="td-body-tabla">
+            <td scope="row"></td>
+            <td scope="row" class="td-body-tabla">
                 <p>${producto.origen_entrada}</p>
-            </th>
-            <th scope="row" class="td-body-tabla">
+            </td>
+            <td scope="row" class="td-body-tabla">
                 <p>${producto.nombre_almacen}</p>
-            </th>
-            <th scope="row" class="td-body-tabla">
+            </td>
+            <td scope="row" class="td-body-tabla">
                 <p>${producto.nombre_producto}</p>
-            </th>
-            <th scope="row" class="td-body-tabla">
+            </td>
+            <td scope="row" class="td-body-tabla">
                 <p>${producto.referencia_producto}</p>
-            </th>
-            <th scope="row" class="td-body-tabla">
+            </td>
+            <td scope="row" class="td-body-tabla">
                 <p>${producto.cantidad_entrada}</p>
-            </th>
-            <th scope="row" class="td-body-tabla">
+            </td>
+            <td scope="row" class="td-body-tabla">
                 <p>${producto.precio_compra}</p>
-            </th>
-            <th scope="row"></th>
+            </td>
+            <td scope="row"></td>
         </tr>
         `
         cont.innerHTML += html
