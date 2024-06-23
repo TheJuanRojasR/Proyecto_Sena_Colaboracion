@@ -1,115 +1,115 @@
-// particlesJS(
-//     {
-//     "particles": {
-//       "number": {
-//         "value": 100,
-//         "density": {
-//           "enable": true,
-//           "value_area": 800
-//         }
-//       },
-//       "color": {
-//         "value": "#ffffff"
-//       },
-//       "shape": {
-//         "type": "circle",
-//         "stroke": {
-//           "width": 0,
-//           "color": "#000000"
-//         },
-//         "polygon": {
-//           "nb_sides": 5
-//         },
-//         "image": {
-//           "src": "img/github.svg",
-//           "width": 100,
-//           "height": 100
-//         }
-//       },
-//       "opacity": {
-//         "value": 0.5,
-//         "random": false,
-//         "anim": {
-//           "enable": false,
-//           "speed": 1,
-//           "opacity_min": 0.1,
-//           "sync": false
-//         }
-//       },
-//       "size": {
-//         "value": 3,
-//         "random": true,
-//         "anim": {
-//           "enable": false,
-//           "speed": 40,
-//           "size_min": 0.1,
-//           "sync": false
-//         }
-//       },
-//       "line_linked": {
-//         "enable": true,
-//         "distance": 150,
-//         "color": "#ffffff",
-//         "opacity": 0.4,
-//         "width": 1
-//       },
-//       "move": {
-//         "enable": true,
-//         "speed": 6,
-//         "direction": "none",
-//         "random": false,
-//         "straight": false,
-//         "out_mode": "out",
-//         "bounce": false,
-//         "attract": {
-//           "enable": false,
-//           "rotateX": 600,
-//           "rotateY": 1200
-//         }
-//       }
-//     },
-//     "interactivity": {
-//       "detect_on": "canvas",
-//       "events": {
-//         "onhover": {
-//           "enable": false,
-//           "mode": "repulse"
-//         },
-//         "onclick": {
-//           "enable": false,
-//           "mode": "push"
-//         },
-//         "resize": true
-//       },
-//       "modes": {
-//         "grab": {
-//           "distance": 400,
-//           "line_linked": {
-//             "opacity": 1
-//           }
-//         },
-//         "bubble": {
-//           "distance": 400,
-//           "size": 40,
-//           "duration": 2,
-//           "opacity": 8,
-//           "speed": 3
-//         },
-//         "repulse": {
-//           "distance": 200,
-//           "duration": 0.4
-//         },
-//         "push": {
-//           "particles_nb": 4
-//         },
-//         "remove": {
-//           "particles_nb": 2
-//         }
-//       }
-//     },
-//     "retina_detect": true
-//   }
-// )
+particlesJS(
+    {
+    "particles": {
+      "number": {
+        "value": 100,
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": {
+        "value": "#ffffff"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        },
+        "polygon": {
+          "nb_sides": 5
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 100,
+          "height": 100
+        }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": {
+          "enable": false,
+          "speed": 1,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 3,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 40,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 6,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false,
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": false,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": false,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 40,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 200,
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true
+  }
+)
 
 class Vista {
   constructor() {
@@ -267,7 +267,8 @@ class Vista {
         let value = element.value;
         if(value === "" || (element.tagName === "SELECT" && value === "0")) {
           data.ok = false;
-          data.msj = "Por favor llene " + key;
+          data.msj = "Por favor llene " + element.name;
+          console.log(data.msj)
         }
         else if (element.type == "email") {
           if (!this.validar_email(value)) {
@@ -329,6 +330,7 @@ class Vista {
   * @param {*} selectName: nombre del select al que se le añadiran las opciones
   * @param {*} nombre_llave: nombre de la llave de las opciones
   * @param {*} nombre_valor: nombre del valor de las opciones
+  * @param {*} tipo_opcion: tipo de opcion a añadir al select
   * @memberof Vista
   */
   insertar_opciones_select(opciones, select_name, nombre_llave, nombre_valor, tipo_opcion = null){
@@ -846,6 +848,14 @@ class Vista {
     })
   }
 
+  /**
+   * Metodo para mostrar el nombre actual de la categoria en un input cuando se va a editar
+   *
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} lista_categorias: informacion de la categoria a editar en un objeto
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion
+   * @memberof Vista
+   */
   informacion_editar_categoria(tamaño, lista_categorias, id_contenedor){
     let cont = document.getElementById(id_contenedor);
     lista_categorias.forEach((categoria) => {
@@ -891,27 +901,209 @@ class Vista {
     });
   }
 
+  /**
+   * Metodo para mostrar la informacion de los productos que estan por debajo o igual al stock minimo
+   *
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} lista_productos: lista de productos a mostrar
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion
+   * @memberof Vista
+   */
   informacion_tabla_abastecimiento(tamaño, lista_productos, id_contenedor){
     let cont = document.getElementById(id_contenedor);
     lista_productos.forEach((producto) => {
         if(tamaño == true){
             if(producto.cantidad_producto_almacen == producto.stock_minimo){
-
+                const html = `
+                <div class="d-flex flex-column dropdown"> <!-- Contenedor para el dropdown -->
+                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="color_lateral" id="lateral_amarillo"></div> <!-- Color lateral del boton -->
+                        ${producto.nombre_producto}
+                    </button>
+                    <ul class="dropdown-menu informacion_dropdown_contenido">
+                        <!-- Lista de infomacion desplegable en el dropdown -->
+                        <li class="d-flex align-items-center texto_dropdown">
+                            <p type="text" name="" class="elementos_listas">Referencia: ${producto.referencia_producto}</p>
+                        </li>
+                        <li class="d-flex align-items-center texto_dropdown">
+                            <p type="text" name="" class="elementos_listas">Cantidad disponible: ${producto.cantidad_producto_almacen}</p>
+                        </li>
+                        <li class="d-flex align-items-center texto_dropdown">
+                            <p type="text" name="" class="elementos_listas">Stock Minimo: ${producto.stock_minimo}</p>
+                        </li>
+                    </ul>
+                </div>
+                `
+                cont.innerHTML += html;
             }else{
-                
+                const html = `
+                <div class="d-flex flex-column dropdown"> <!-- Contenedor para el dropdown -->
+                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <div class="color_lateral" id="lateral_rojo"></div> <!-- Color lateral del boton -->
+                        ${producto.nombre_producto}
+                    </button>
+                    <ul class="dropdown-menu informacion_dropdown_contenido">
+                        <!-- Lista de infomacion desplegable en el dropdown -->
+                        <li class="d-flex align-items-center texto_dropdown">
+                            <p type="text" name="" class="elementos_listas">Referencia: ${producto.referencia_producto}</p>
+                        </li>
+                        <li class="d-flex align-items-center texto_dropdown">
+                            <p type="text" name="" class="elementos_listas">Cantidad disponible: ${producto.cantidad_producto_almacen}</p>
+                        </li>
+                        <li class="d-flex align-items-center texto_dropdown">
+                            <p type="text" name="" class="elementos_listas">Stock minimo: ${producto.stock_minimo}</p>
+                        </li>
+                    </ul>
+                </div>
+                `
+                cont.innerHTML += html;
             }
-            const html = ``
-            cont.innerHTML += html;
         }else{
-            if(){
-
+            if(producto.cantidad_producto_almacen == producto.stock_minimo){
+                const html = `
+                <tr>
+                    <td class="p-0" id="abastecimiento_columna_aviso_advertencia"></td>
+                    <th scope="row" class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${producto.nombre_producto}</p>
+                    </th>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${producto.referencia_producto}</p>
+                    </td>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${producto.nombre_categoria}</p>
+                    </td>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones texto_advertencia">${producto.cantidad_producto_almacen}</p>
+                    </td>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones texto_advertencia">${producto.stock_minimo}</p>
+                    </td>
+                </tr>
+                `
+                cont.innerHTML += html;
             }else{
-                
+                const html = `
+                <tr>
+                    <td class="p-0" id="abastecimiento_columna_aviso_error"></td>
+                    <th scope="row" class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${producto.nombre_producto}</p>
+                    </th>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${producto.referencia_producto}</p>
+                    </td>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones">${producto.nombre_categoria}</p>
+                    </td>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones texto_error">${producto.cantidad_producto_almacen}</p>
+                    </td>
+                    <td class="td-body-tabla">
+                        <p class="td-body-tabla_opciones texto_error">${producto.stock_minimo}</p>
+                    </td>
+                </tr>
+                `
+                cont.innerHTML += html;
             }
-            const html = ``
-            cont.innerHTML += html;
         }
     })
+  }
+
+  /**
+   * Metodo para mostrar los movimientos del dia para un almacen en especifico
+   *
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} lista_movimientos: lista de movimientos a mostrar
+   * @param {*} id_contenedor: id del contenedor donde se mostrara la informacion
+   * @memberof Vista
+   */
+  informacion_tabla_movimientos(tamaño, lista_movimientos, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    lista_movimientos.forEach((movimiento) => {
+        if(tamaño == true){
+            const html = `
+            <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
+                    ${movimiento.referencia}
+                </button>
+                <ul class="dropdown-menu informacion_dropdown_contenido">
+                    <!-- Lista de infomacion desplegable en el boton -->
+                    <li class="d-flex align-items-center texto_dropdown">
+                        <p type="text" name="" class="elementos_listas">Fecha: ${movimiento.fecha}</p>
+                    </li>
+                    <li class="d-flex align-items-center texto_dropdown">
+                        <p type="text" name="" class="elementos_listas">${movimiento.nombre_producto}</p>
+                    </li>
+                    <li class="d-flex align-items-center texto_dropdown">
+                    <p type="text" name="" class="elementos_listas">Cantidad: ${movimiento.cantidad}</p>
+                    </li>
+                    <li class="d-flex align-items-center texto_dropdown">
+                        <p type="text" name="" class="elementos_listas">Origen/Destino: ${movimiento.origen_destino}</p>
+                    </li>
+                </ul>
+            </div>
+            ` 
+            cont.innerHTML += html;
+        }else{
+            const html = `
+            <tr>
+                <th scope="row" class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.referencia}</p>
+                </th>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.fecha}</p>
+                </td>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.nombre_producto}</p>
+                </td>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.cantidad}</p>
+                </td>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.origen_destino}</p>
+                </td>
+                <td></td>
+            </tr>
+            `
+            cont.innerHTML += html;
+        }
+    });
+  }
+
+  informacion_tabla_entradas(tamaño, producto, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    if(tamaño == "true"){
+        console.log('falta arreglar la vista')
+    }else{
+        const html = `
+        <tr>
+            <td scope="row"></td>
+            <td scope="row" class="td-body-tabla">
+                <p>${producto.origen_entrada}</p>
+            </td>
+            <td scope="row" class="td-body-tabla">
+                <p>${producto.nombre_almacen}</p>
+            </td>
+            <td scope="row" class="td-body-tabla">
+                <p>${producto.nombre_producto}</p>
+            </td>
+            <td scope="row" class="td-body-tabla">
+                <p>${producto.referencia_producto}</p>
+            </td>
+            <td scope="row" class="td-body-tabla">
+                <p>${producto.cantidad_entrada}</p>
+            </td>
+            <td scope="row" class="td-body-tabla">
+                <p>${producto.precio_compra}</p>
+            </td>
+            <td scope="row"></td>
+        </tr>
+        `
+        cont.innerHTML += html
+    }
   }
 
 }

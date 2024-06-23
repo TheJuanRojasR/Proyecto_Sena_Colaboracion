@@ -36,7 +36,7 @@
 
 <body class=" overflow-y-scroll d-flex flex-column justify-content-between">
     <!-- Barra superior -->
-    <nav class="navbar navbar-expand-md" id="navegador_sup"></nav>
+    <nav class="navbar fixed-top nav_sup" id="navegador_sup"></nav>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
@@ -71,15 +71,78 @@
     </div>
 
     <!-- Contenido de la pagina -->
-    <main id="contenedor_principal" class="container-fluid container_main "></main>
+    <main id="contenedor_principal" class="container-fluid container_main ">
+        <div class="particulas" id="particles-js"></div>
+        <div id="contenido"></div>
+    </main>
 
-    <!-- Barra Inferior -->
-    <nav class="navbar fixed-bottom nav_inf" id="navegador_inf">
-    </nav>
+    <!-- Barra Inferior --> 
+    <nav class="navbar fixed-bottom nav_inf" id="navegador_inf"></nav>
 
     <footer id="footer_inicio"></footer>
 
     <!-- MODALES -->
+
+    <!-- Modal Registro Usuario -->
+    <section class="modal registro" id="modal_registro">
+        <div class="registro__container text-center">
+            <button class="btn registro__close" onclick="cerrar_modal_registro()">
+                <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+            </button>
+            <h1 class="registro__titulo mb-4">Registrarse</h1>
+            <form action="" id="form_registro_usuario">
+                <div class="registro__input mb-1">
+                    <input type="text" class="form-control registro__input" placeholder="Nombre Completo" 
+                        value="" name="nombre_usuario">
+                </div>
+                <select class="form-select registro__select mb-1" aria-label="Default select example" name="tipo_documento">
+                    <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
+                </select>
+                <div class="registro__input mb-1">
+                    <input type="number" class="form-control registro__input" placeholder="Numero de Documento" 
+                        value="" name="numero_documento">
+                </div>
+                <div class="registro__input mb-1">
+                    <input type="email" class="form-control registro__input" placeholder="Correo Electronico"  value="" name="correo_electronico" required>
+                </div>
+                <div class="registro__input mb-1">
+                    <input type="password" class="form-control registro__input" placeholder="Contraseña" 
+                        value="" name="contraseña">
+                </div>
+                <div class="registro__input mb-3">
+                    <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña" 
+                        value="" name="confirmar_contraseña">
+                </div>
+            </form>
+            <button class="btn btn-general mb-3" onclick="registrar_usuario()">Registrar</button>
+            <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
+        </div>
+    </section>
+
+    <!-- Modal Login -->
+    <section class="modal ingreso" id="modal_login">
+        <div class="ingreso__container text-center">
+            <figure>
+                <img class="ingreso__img" src="./Assets/img/Imagen_Ingreso.png" alt="">
+            </figure>
+            <h1 class="registro__titulo mb-4">Ingreso</h1>
+            <div class="registro__padding">
+                <button class="btn registro__close" onclick="cerrar_modal_login()">
+                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
+                </button>
+                <form action="" id="form_login">
+                    <div class="registro__input mb-1">
+                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico" 
+                            value="" name="correo_electronico">
+                    </div>
+                    <div class="registro__input mb-2">
+                        <input type="password" class="form-control registro__input" placeholder="Contraseña"  value="" name="contraseña">
+                    </div>
+                </form>
+            </div>
+            <button class="btn btn-general mb-3" onclick="log_in()">Ingresar</button>
+        </div>
+    </section>
 
     <!-- Modal para Confirmacion -->
     <section class="modal modal--confirm" id="modal_confirmacion">
@@ -275,71 +338,9 @@
 
     <!-- TEMPLATES MOBILE -->
 
-    <!-- Pantalla de Inicio -->
-    <template id="pagina_inicio">
-        <div id="contenedor_inicio" class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
-            <div class="bubbles">
-                <span style="--i:11;"></span>
-                <span style="--i:12;"></span>
-                <span style="--i:24;"></span>
-                <span style="--i:10;"></span>
-                <span style="--i:17;"></span>
-                <span style="--i:6;"></span>
-                <span style="--i:23;"></span>
-                <span style="--i:9;"></span>
-                <span style="--i:18;"></span>
-                <span style="--i:22;"></span>
-                <span style="--i:27;"></span>
-                <span style="--i:14;"></span>
-                <span style="--i:21;"></span>
-                <span style="--i:7;"></span>
-                <span style="--i:16;"></span>
-                <span style="--i:19;"></span>
-                <span style="--i:25;"></span>
-                <span style="--i:26;"></span>
-                <span style="--i:15;"></span>
-                <span style="--i:20;"></span>
-            </div>
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                <div id="carruselGeneral" class="carousel-item active">
-                    <img id="imagenMovil" src="./Assets/img/variety-vault-movil-1.png" class="d-block w-100" alt="...">
-                </div>
-                <div id="carruselGeneral" class="carousel-item">
-                    <img id="imagenMovil" src="./Assets/img/variety-vault-movil-2.png" class="d-block w-100" alt="...">
-                </div>
-                <div id="carruselGeneral" class="carousel-item">
-                    <img id="imagenMovil" src="./Assets/img/variety-vault-movil-3.png" class="d-block w-100" alt="...">
-                </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            <div class="container d-flex flex-column justify-content-end contenedor_boton">
-                <button class="btn boton_oscuro_largo" type="button" onclick="mostrar_login()">
-                    Ingresar
-                </button>
-                <button class="btn boton_claro_largo" type="button" onclick="mostrar_form_registro_usuario()">
-                    Registrarse
-                </button>
-            </div>
-        </div>
-    </template>
-
     <!-- Pantalla Registrarse -->
     <template id="registro_usuario">
-        <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
+        <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_contenido">
             <!-- Contenedor principal -->
             <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
                 <button class="btn" onclick="regresar_pantalla()">
@@ -374,741 +375,723 @@
 
     <!-- Pantalla Log In -->
     <template id="log_in">
-        <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="d-flex flex-column align-items-start contenedor_titulo_login"> <!-- Contendor titulo y subtitulo -->
-                <h1>Ingresar</h1>
-                <p id="subtitulo_login">Por favor ingrese para poder continuar</p>
-            </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_login"> <!-- Contendor de form para log in -->
-                <input type="text" class="form-control" placeholder="Correo Electronico" name="correo_electronico">
-                <input type="password" class="form-control" placeholder="Contraseña" name="contraseña">
-            </form>
-            <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor boton para log in -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="log_in()">
-                    Ingresar
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="d-flex flex-column align-items-start contenedor_titulo_login"> <!-- Contendor titulo y subtitulo -->
+                    <h1>Ingresar</h1>
+                    <p id="subtitulo_login">Por favor ingrese para poder continuar</p>
+                </div>
+                <form class="container d-flex flex-column align-items-center contenedor_form" id="form_login"> <!-- Contendor de form para log in -->
+                    <input type="text" class="form-control" placeholder="Correo Electronico" name="correo_electronico">
+                    <input type="password" class="form-control" placeholder="Contraseña" name="contraseña">
+                </form>
+                <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor boton para log in -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="log_in()">
+                        Ingresar
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Inventarios vacia -->
     <template id="inventarios_vacia">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Inventario</p>
-            </div>
-            <div class="contenedor_textos"> <!-- Contenido de la pagina -->
-                <p class="message">NO TIENES INVENTARIOS</p>
-            </div>
-            <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
-
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Inventario</p>
+                </div>
+                <div class="contenedor_textos"> <!-- Contenido de la pagina -->
+                    <p class="message">NO TIENES INVENTARIOS</p>
+                </div>
+                <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
+    
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Crear Inventario -->
     <template id="crear_inventario">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Crear Inventraio</p>
-            </div>
-            <div class="titulo_creacion"> <!-- Titulo Grandes -->
-                <h1>Nuevo Inventario</h1>
-            </div>
-            <form class="contenedor_form" id="form_crear_inventario"> <!-- Contendor de form para crear un inventario -->
-                <!-- Campos para ingresar informacion -->
-                <input type="text" placeholder="Nombre Inventario" class="form-control name="nombre_almacen">
-                <input type="text" placeholder="Direccion" class="form-control name="direccion_almacen">
-                <input type="text" placeholder="Descripcion" class="form-control name="descripcion_almacen">
-            </form>
-            <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear el inventario -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv()">
-                    Crear
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Crear Inventraio</p>
+                </div>
+                <div class="titulo_creacion"> <!-- Titulo Grandes -->
+                    <h1>Nuevo Inventario</h1>
+                </div>
+                <form class="contenedor_form" id="form_crear_inventario"> <!-- Contendor de form para crear un inventario -->
+                    <!-- Campos para ingresar informacion -->
+                    <input type="text" placeholder="Nombre Inventario" class="form-control name="nombre_almacen">
+                    <input type="text" placeholder="Direccion" class="form-control name="direccion_almacen">
+                    <input type="text" placeholder="Descripcion" class="form-control name="descripcion_almacen">
+                </form>
+                <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear el inventario -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv()">
+                        Crear
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla de Inventarios -->
     <template id="inventarios">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Inventario</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="contenedor_tarjetas"> <!-- Contenido para menu dropdown --></div>
-            <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
-
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Inventario</p>
+                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="contenedor_tarjetas"> <!-- Contenido para menu dropdown --></div>
+                <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
+    
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Editar Inventarios -->
     <template id="editar_inventario">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Inventario</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="contenedor_editar_inventario"><!-- Contenido para menu dropdown --></div>
-            <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="guardar_editar_inventario()">
-                    Guardar
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Inventario</p>
+                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="contenedor_editar_inventario"><!-- Contenido para menu dropdown --></div>
+                <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="guardar_editar_inventario()">
+                        Guardar
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Eliminar Inventarios-->
     <template id="eliminar_inventario">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Inventario</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
-                    <form action="" id="form_eliminar_inventario">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    </form>
-                    <div class="d-flex flex-column dropdown"> <!-- Contenedor para el dropdown -->
-                        <button disabled
-                            class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="color_lateral" id="lateral_oscuro"></div>
-                            Inventario 1
-                        </button>
-                        <ul class="dropdown-menu informacion_dropdown_contenido">
-                            <!-- Lista de infomacion desplegable en el dropdown -->
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" id="direccion">Direccion</p>
-                            </li>
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" id="descripcion">Descripcion</p>
-                            </li>
-                            <li class="d-flex accion_dropdown align-items-center justify-content-center">
-                                <a href="#" onclick="mostrar_editar_inv()">Editar Inventario</a>
-                            </li>
-                            <li class="d-flex accion_dropdown align-items-center justify-content-center">
-                                <a href="#"onclick="mostrar_stock_vacia()">Ver Inventario</a>
-                            </li>
-                        </ul>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Inventario</p>
+                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown">
+                    <!-- Contenido para menu dropdown -->
+                    <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
+                        <form action="" id="form_eliminar_inventario">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </form>
+                        <div class="d-flex flex-column dropdown"> <!-- Contenedor para el dropdown -->
+                            <button disabled
+                                class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="color_lateral" id="lateral_oscuro"></div>
+                                Inventario 1
+                            </button>
+                            <ul class="dropdown-menu informacion_dropdown_contenido">
+                                <!-- Lista de infomacion desplegable en el dropdown -->
+                                <li class="d-flex align-items-center texto_dropdown">
+                                    <p type="text" name="" id="direccion">Direccion</p>
+                                </li>
+                                <li class="d-flex align-items-center texto_dropdown">
+                                    <p type="text" name="" id="descripcion">Descripcion</p>
+                                </li>
+                                <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                                    <a href="#" onclick="mostrar_editar_inv()">Editar Inventario</a>
+                                </li>
+                                <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                                    <a href="#"onclick="mostrar_stock_vacia()">Ver Inventario</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container d-flex justify-content-end contenedor_boton">
-                <!-- Boton para eliminar el inventario seleccionado -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv()">
-                    Eliminar
-                </button>
+                <div class="container d-flex justify-content-end contenedor_boton">
+                    <!-- Boton para eliminar el inventario seleccionado -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_inv()">
+                        Eliminar
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Movimientos vacia -->
     <template id="movimientos_vacia">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Entradas y Salidas</p>
-            </div>
-            <div class="contenedor_textos"> <!-- Contenido de la pagina -->
-                <p class="message">NO TIENES ENTRADAS/SALIDAS</p>
-            </div>
-            <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con dos opciones -->
-
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Entradas y Salidas</p>
+                </div>
+                <div class="contenedor_textos"> <!-- Contenido de la pagina -->
+                    <p class="message">NO TIENES ENTRADAS/SALIDAS</p>
+                </div>
+                <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con dos opciones -->
+    
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Crear Entrada -->
     <template id="crear_entrada">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Entradas y Salidas</p>
+                </div>
+                <div class="titulo_creacion"> <!-- Titulo Grandes -->
+                    <h1>Crear Entrada</h1>
+                    <p class="referencia">Referencia xxxxxx</p> <!-- Texto para mostrar la referencia del movimiento -->
+                </div>
+                <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_entrada">
+                    <!-- Contendor de form para crear una entrada -->
+                    <input type="text" class="form-control" placeholder="Origen" name="origen_entrada">
+                    <input disabled type="text" class="form-control" placeholder="Destino" name="nombre_almacen">
+                    <div class="linea_division"></div>
+                    <select type="text" class="select_claro_mov form-select" name="referecia_producto">
+                        <!-- Opciones del select -->
+                        <option selected class="opciones">Referencia Producto</option>
+                        <option class="opciones">REF 1</option>
+                        <option class="opciones">REF 2</option>
+                    </select>
+                    <select type="text" class="select_claro_mov form-select" name="nombre_producto">
+                        <!-- Opciones del select -->
+                        <option selected class="opciones">Producto</option>
+                        <option class="opciones">Producto 1</option>
+                        <option class="opciones">Producto 2</option>
+                    </select>
+                    <input type="number" name="" class="input_claro_mov" placeholder="Cantidad" name="cantidad_entrada">
+                    <input type="number" name="" class="input_claro_mov" placeholder="Precio" name="precio_compra">
+                    <div class="linea_division"></div>
+                </form>
+                <button class="btn boton_add_producto_movimientos" type="button">
+                    <!-- Contendor de boton para añadir producto al movimiento -->
+                    <img src="../Assets/img/edit-add-plus-circle.svg" alt="">
                 </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Entradas y Salidas</p>
-            </div>
-            <div class="titulo_creacion"> <!-- Titulo Grandes -->
-                <h1>Crear Entrada</h1>
-                <p class="referencia">Referencia xxxxxx</p> <!-- Texto para mostrar la referencia del movimiento -->
-            </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_entrada">
-                <!-- Contendor de form para crear una entrada -->
-                <input type="text" class="form-control" placeholder="Origen" name="origen_entrada">
-                <input disabled type="text" class="form-control" placeholder="Destino" name="nombre_almacen">
-                <div class="linea_division"></div>
-                <select type="text" class="select_claro_mov form-select" name="referecia_producto">
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Referencia Producto</option>
-                    <option class="opciones">REF 1</option>
-                    <option class="opciones">REF 2</option>
-                </select>
-                <select type="text" class="select_claro_mov form-select" name="nombre_producto">
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Producto</option>
-                    <option class="opciones">Producto 1</option>
-                    <option class="opciones">Producto 2</option>
-                </select>
-                <input type="number" name="" class="input_claro_mov" placeholder="Cantidad" name="cantidad_entrada">
-                <input type="number" name="" class="input_claro_mov" placeholder="Precio" name="precio_compra">
-                <div class="linea_division"></div>
-            </form>
-            <button class="btn boton_add_producto_movimientos" type="button">
-                <!-- Contendor de boton para añadir producto al movimiento -->
-                <img src="../Assets/img/edit-add-plus-circle.svg" alt="">
-            </button>
-            <div class="container d-flex justify-content-end contenedor_boton">
-                <!-- Contendor boton para crear el movimiento -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_movimientos()">
-                    Crear Entrada
-                </button>
+                <div class="container d-flex justify-content-end contenedor_boton">
+                    <!-- Contendor boton para crear el movimiento -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_movimientos()">
+                        Crear Entrada
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Crear Salida -->
     <template id="crear_salida">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back" onclick="regresar_pantalla()"> <!-- Contendor flecha back -->
-                <button class="btn">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back" onclick="regresar_pantalla()"> <!-- Contendor flecha back -->
+                    <button class="btn">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Entradas y Salidas</p>
+                </div>
+                <div class="titulo_creacion"> <!-- Titulo Grandes -->
+                    <h1>Crear Salida</h1>
+                    <p class="referencia">Referencia xxxxxx</p> <!-- Texto para mostrar la referencia del movimiento -->
+                </div>
+                <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_salida">
+                    <!-- Contendor de form para crear una salida -->
+                    <input disabled type="text" class="form-control" placeholder="Origen" name="nombre_almacen">
+                    <input type="text" class="form-control" placeholder="Destino" name="destino_salida">
+                    <div class="linea_division"></div>
+                    <select type="text" class="select_claro_mov form-select" name="referencia_producto">
+                        <!-- Opciones del select -->
+                        <option selected class="opciones">Referencia Producto</option>
+                        <option class="opciones">REF 1</option>
+                        <option class="opciones">REF 2</option>
+                    </select>
+                    <select type="text" class="select_claro_mov form-select" name="nombre_producto">
+                        <!-- Opciones del select -->
+                        <option selected class="opciones">Producto</option>
+                        <option class="opciones">Producto 1</option>
+                        <option class="opciones">Producto 2</option>
+                    </select>
+                    <input type="numer" name="" class="input_claro_mov" placeholder="Cantidad" name="cantidad_salida">
+                    <div class="linea_division"></div>
+                </form>
+                <button class="btn boton_add_producto_movimientos" type="button">
+                    <!-- Contendor de btn para añadir producto al movimiento -->
+                    <img src="../Assets/img/edit-add-plus-circle.svg" alt="">
                 </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Entradas y Salidas</p>
-            </div>
-            <div class="titulo_creacion"> <!-- Titulo Grandes -->
-                <h1>Crear Salida</h1>
-                <p class="referencia">Referencia xxxxxx</p> <!-- Texto para mostrar la referencia del movimiento -->
-            </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_salida">
-                <!-- Contendor de form para crear una salida -->
-                <input disabled type="text" class="form-control" placeholder="Origen" name="nombre_almacen">
-                <input type="text" class="form-control" placeholder="Destino" name="destino_salida">
-                <div class="linea_division"></div>
-                <select type="text" class="select_claro_mov form-select" name="referencia_producto">
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Referencia Producto</option>
-                    <option class="opciones">REF 1</option>
-                    <option class="opciones">REF 2</option>
-                </select>
-                <select type="text" class="select_claro_mov form-select" name="nombre_producto">
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Producto</option>
-                    <option class="opciones">Producto 1</option>
-                    <option class="opciones">Producto 2</option>
-                </select>
-                <input type="numer" name="" class="input_claro_mov" placeholder="Cantidad" name="cantidad_salida">
-                <div class="linea_division"></div>
-            </form>
-            <button class="btn boton_add_producto_movimientos" type="button">
-                <!-- Contendor de btn para añadir producto al movimiento -->
-                <img src="../Assets/img/edit-add-plus-circle.svg" alt="">
-            </button>
-            <div class="container d-flex justify-content-end contenedor_boton">
-                <!-- Contendor boton para crear el movimiento -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_movimientos()">
-                    Crear Salida
-                </button>
+                <div class="container d-flex justify-content-end contenedor_boton">
+                    <!-- Contendor boton para crear el movimiento -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_movimientos()">
+                        Crear Salida
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Movimientos -->
     <template id="movimientos">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Entradas y Salidas</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
-                        Referencia xxxxxx
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el boton -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Producto</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Fecha y Hora</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Origen</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Destino</p>
-                        </li>
-                    </ul>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Entradas y Salidas</p>
                 </div>
-            </div>
-            <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con dos opciones -->
-
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_movimientos"><!-- Contenido para menu dropdown --></div>
+                <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con dos opciones -->
+    
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Stock vacia -->
     <template id="stock_vacia">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Stock</p>
-            </div>
-            <div class="contenedor_textos"> <!-- Contenido de la pagina -->
-                <p class="message">NO TIENES PRODUCTOS</p>
-            </div>
-            <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con tres opciones -->
-
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Stock</p>
+                </div>
+                <div class="contenedor_textos"> <!-- Contenido de la pagina -->
+                    <p class="message">NO TIENES PRODUCTOS</p>
+                </div>
+                <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con tres opciones -->
+    
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Crear producto -->
     <template id="crear_producto">
-        <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Crear Producto</p>
-            </div>
-            <div class="titulo_creacion"> <!-- Titulo Grandes -->
-                <h1>Crear Producto</h1>
-            </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_producto">
-                <!-- Contendor de form para crear un producto -->
-                <input type="text" class="form-control" placeholder="Nombre Producto" name="nombre_producto">
-                <input type="text" class="form-control" placeholder="Referencia Producto" name="referencia_producto">
-                <select type="text" class="select_oscuro" name="id_categoria"> <!-- Select para seleccionar categoria del producto -->
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Categoria Producto</option>
-                </select>
-                <input type="number" class="form-control" placeholder="Cantidad" name="cantidad_producto_almacen">
-                <input type="number" class="form-control" placeholder="Stock minimo" name="stock_minimo">
-                <input type="number" class="form-control" placeholder="Costo" name="promedio_costo">
-                <input type="number" class="form-control" placeholder="Precio" name="precio_venta">
-            </form>
-            <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear el producto -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_stock()">
-                    Crear
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column justify-content-evenly align-items-center contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Crear Producto</p>
+                </div>
+                <div class="titulo_creacion"> <!-- Titulo Grandes -->
+                    <h1>Crear Producto</h1>
+                </div>
+                <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_producto">
+                    <!-- Contendor de form para crear un producto -->
+                    <input type="text" class="form-control" placeholder="Nombre Producto" name="nombre_producto">
+                    <input type="text" class="form-control" placeholder="Referencia Producto" name="referencia_producto">
+                    <select type="text" class="select_oscuro" name="id_categoria"> <!-- Select para seleccionar categoria del producto -->
+                        <!-- Opciones del select -->
+                        <option selected class="opciones">Categoria Producto</option>
+                    </select>
+                    <input type="number" class="form-control" placeholder="Cantidad" name="cantidad_producto_almacen">
+                    <input type="number" class="form-control" placeholder="Stock minimo" name="stock_minimo">
+                    <input type="number" class="form-control" placeholder="Costo" name="promedio_costo">
+                    <input type="number" class="form-control" placeholder="Precio" name="precio_venta">
+                </form>
+                <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear el producto -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_stock()">
+                        Crear
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Stock -->
     <template id="stock">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Stock</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_productos"></div> <!-- Contenido para menu dropdown -->
-            <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con tres opciones -->
-
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Stock</p>
+                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_productos"></div> <!-- Contenido para menu dropdown -->
+                <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con tres opciones -->
+    
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Eliminar Producto -->
     <template id="eliminar_producto">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Stock</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
-                    <form action="" id="form_eliminar_producto">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    </form>
-                    <div class="d-flex dropdown"> <!-- Contenedor para el dropdown -->
-                        <button disabled
-                            class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
-                            Producto 1
-                        </button>
-                        <ul class="dropdown-menu informacion_dropdown_contenido">
-                            <!-- Lista de infomacion desplegable en el boton -->
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Referencia Producto</p>
-                            </li>
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Categoria</p>
-                            </li>
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Cantidad Disponible</p>
-                            </li>
-                            <li class="d-flex accion_dropdown align-items-center justify-content-center">
-                                <a href="#">Detalles del Producto</a>
-                            </li>
-                        </ul>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Stock</p>
+                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown">
+                    <!-- Contenido para menu dropdown -->
+                    <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
+                        <form action="" id="form_eliminar_producto">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </form>
+                        <div class="d-flex dropdown"> <!-- Contenedor para el dropdown -->
+                            <button disabled
+                                class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto"
+                                type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
+                                Producto 1
+                            </button>
+                            <ul class="dropdown-menu informacion_dropdown_contenido">
+                                <!-- Lista de infomacion desplegable en el boton -->
+                                <li class="d-flex align-items-center texto_dropdown">
+                                    <p type="text" name="" class="elementos_listas">Referencia Producto</p>
+                                </li>
+                                <li class="d-flex align-items-center texto_dropdown">
+                                    <p type="text" name="" class="elementos_listas">Categoria</p>
+                                </li>
+                                <li class="d-flex align-items-center texto_dropdown">
+                                    <p type="text" name="" class="elementos_listas">Cantidad Disponible</p>
+                                </li>
+                                <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                                    <a href="#">Detalles del Producto</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container d-flex justify-content-end contenedor_boton">
-                <!-- Boton para eliminar el producto seleccionado -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_stock()">
-                    Eliminar
-                </button>
+                <div class="container d-flex justify-content-end contenedor_boton">
+                    <!-- Boton para eliminar el producto seleccionado -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_stock()">
+                        Eliminar
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Categorias vacia -->
     <template id="categorias_vacia">
-        <div class="container-fluid d-flex flex-column justify-content-between align-items-center contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Categorias</p>
-            </div>
-            <div class="contenedor_textos"> <!-- Contenido de la pagina -->
-                <p class="message">NO TIENES CATEGORIAS</p>
-            </div>
-            <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
-
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column justify-content-between align-items-center contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Categorias</p>
+                </div>
+                <div class="contenedor_textos"> <!-- Contenido de la pagina -->
+                    <p class="message">NO TIENES CATEGORIAS</p>
+                </div>
+                <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
+    
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Crear Categoria -->
     <template id="crear_categoria">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Categorias</p>
-            </div>
-            <div class="titulo_creacion"> <!-- Titulo Grandes -->
-                <h1>Crear Categoria</h1>
-            </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_categoria">
-                <!-- Contendor de form para crear una categoria -->
-                <input type="text" class="form-control" placeholder="Nombre Categoria" name="nombre_categoria">
-            </form>
-            <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear la categoria -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_categorias()">
-                    Crear Categoria
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Categorias</p>
+                </div>
+                <div class="titulo_creacion"> <!-- Titulo Grandes -->
+                    <h1>Crear Categoria</h1>
+                </div>
+                <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_categoria">
+                    <!-- Contendor de form para crear una categoria -->
+                    <input type="text" class="form-control" placeholder="Nombre Categoria" name="nombre_categoria">
+                </form>
+                <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para crear la categoria -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_categorias()">
+                        Crear Categoria
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Categorias -->
     <template id="categorias">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Categorias</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_categorias"><!-- Contenido para menu dropdown --></div>
-            <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
-
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Categorias</p>
+                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_categorias"><!-- Contenido para menu dropdown --></div>
+                <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
+    
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Editar Categoria -->
     <template id="editar_categoria">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Categorias</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="contenedor_editar_categoria"><!-- Contenido para menu dropdown --></div>
-            <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="guardar_editar_categoria()">
-                    Guardar
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Categorias</p>
+                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="contenedor_editar_categoria"><!-- Contenido para menu dropdown --></div>
+                <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="guardar_editar_categoria()">
+                        Guardar
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Eliminar Categoria -->
     <template id="eliminar_categoria">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Categorias</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
-                    <form action="" id="form_eliminar_categoria">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    </form>
-                    <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                        <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
-                            Categoria 1
-                        </button>
-                        <ul class="dropdown-menu informacion_dropdown_contenido">
-                            <!-- Lista de infomacion desplegable en el dropdown -->
-                            <li class="d-flex accion_dropdown align-items-center justify-content-center">
-                                <a href="#" onclick="mostrar_editar_categoria()">Editar Categoria</a>
-                            </li>
-                        </ul>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Categorias</p>
+                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown">
+                    <!-- Contenido para menu dropdown -->
+                    <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
+                        <form action="" id="form_eliminar_categoria">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </form>
+                        <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                            <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
+                                Categoria 1
+                            </button>
+                            <ul class="dropdown-menu informacion_dropdown_contenido">
+                                <!-- Lista de infomacion desplegable en el dropdown -->
+                                <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                                    <a href="#" onclick="mostrar_editar_categoria()">Editar Categoria</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="container d-flex justify-content-end contenedor_boton">
-                <!-- Boton para eliminar el inventario seleccionado -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_categorias()">
-                    Eliminar
-                </button>
+                <div class="container d-flex justify-content-end contenedor_boton">
+                    <!-- Boton para eliminar el inventario seleccionado -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_categorias()">
+                        Eliminar
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Abastecimiento -->
     <template id="abastecimiento">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Abastecimiento</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex flex-column dropdown"> <!-- Contenedor para el dropdown -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_rojo"></div> <!-- Color lateral del boton -->
-                        Producto 1
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
                     </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Referencia</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Stock minimo 20</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Cantidad disponible 0</p>
-                        </li>
-                    </ul>
                 </div>
-                <div class="d-flex flex-column dropdown"> <!-- Contenedor para el dropdown -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_amarillo"></div> <!-- Color lateral del boton -->
-                        Producto 2
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Referencia</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Stock minimo 20</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Cantidad disponible 20</p>
-                        </li>
-                    </ul>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Abastecimiento</p>
                 </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_abastecimientos"><!-- Contenido para menu dropdown --></div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Detalles del Producto -->
     <template id="detalles_producto">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main" id="contenedor_detalles_producto">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor de la flecha de retroceso -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Detalles del Producto</p>
-            </div>
-            <div class="conedor_nombre_producto_titulo"> <!-- Contenedor Nombre del producto como Titulo -->
-                <h1 id="nombre_producto_titulo">
-                    Nombre del Producto
-                </h1>
-            </div>
-            <div class="container d-flex" id="lista_detalles_producto"> <!-- Contenedor para la lista de detalles del producto -->
-                <ul> <!-- Lista de detalles del producto -->
-                    <li>Referencia</li>
-                    <li>Ubicacion</li>
-                    <li>Cantidad</li>
-                    <li>Stock Minimo</li>
-                    <li>Costo</li>
-                    <li>Precio de Venta</li>
-                </ul>
-            </div>
-            <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
-                <!-- Contenedor de botones -->
-                <button class="btn boton_largo_oscuro" type="button" onclick="mostrar_mov_del_producto()">
-                    <!-- Boton para ver movimientos -->
-                    Ver Movimientos
-                </button>
-                <button class="btn boton_largo_claro" type="button" onclick="mostrar_editar_producto()">
-                    <!-- Boton para editar el producto -->
-                    Editar Producto
-                </button>
-            </div>
-            <div class="container d-flex align-items-center justify-content-center">
-                <!-- Contenedor de la imagen del producto -->
-                <img src="./Assets/img/image-1.png" alt="" id="imagen_producto">
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido" id="contenedor_detalles_producto">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor de la flecha de retroceso -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Detalles del Producto</p>
+                </div>
+                <div class="conedor_nombre_producto_titulo"> <!-- Contenedor Nombre del producto como Titulo -->
+                    <h1 id="nombre_producto_titulo">
+                        Nombre del Producto
+                    </h1>
+                </div>
+                <div class="container d-flex" id="lista_detalles_producto"> <!-- Contenedor para la lista de detalles del producto -->
+                    <ul> <!-- Lista de detalles del producto -->
+                        <li>Referencia</li>
+                        <li>Ubicacion</li>
+                        <li>Cantidad</li>
+                        <li>Stock Minimo</li>
+                        <li>Costo</li>
+                        <li>Precio de Venta</li>
+                    </ul>
+                </div>
+                <div class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
+                    <!-- Contenedor de botones -->
+                    <button class="btn boton_largo_oscuro" type="button" onclick="mostrar_mov_del_producto()">
+                        <!-- Boton para ver movimientos -->
+                        Ver Movimientos
+                    </button>
+                    <button class="btn boton_largo_claro" type="button" onclick="mostrar_editar_producto()">
+                        <!-- Boton para editar el producto -->
+                        Editar Producto
+                    </button>
+                </div>
+                <div class="container d-flex align-items-center justify-content-center">
+                    <!-- Contenedor de la imagen del producto -->
+                    <img src="./Assets/img/image-1.png" alt="" id="imagen_producto">
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Editar Producto -->
     <template id="editar_producto">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Detalles del Producto</p>
-            </div>
-            <div class="titulo_creacion"> <!-- Titulo Grandes -->
-                <h1>Editar Producto</h1>
-            </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_editar_producto">
-                
-            </form>
-            <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_detalles_producto()">
-                    Guardar
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Detalles del Producto</p>
+                </div>
+                <div class="titulo_creacion"> <!-- Titulo Grandes -->
+                    <h1>Editar Producto</h1>
+                </div>
+                <form class="container d-flex flex-column align-items-center contenedor_form" id="form_editar_producto">
+                    
+                </form>
+                <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_detalles_producto()">
+                        Guardar
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Movimientos del Producto -->
     <template id="movimientos_del_producto">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Movimientos del Producto</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menus dropdown -->
-                <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div>
-                        Referencia xxxxxx
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
                     </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Fecha y Hora</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Origen</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Destino</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Cantidad</p>
-                        </li>
-                    </ul>
                 </div>
-                <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div>
-                        Referencia xxxxxx
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Fecha y Hora</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Origen</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Destino</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Cantidad</p>
-                        </li>
-                    </ul>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Movimientos del Producto</p>
+                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown">
+                    <!-- Contenido para menus dropdown -->
+                    <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                        <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="color_lateral" id="lateral_oscuro"></div>
+                            Referencia xxxxxx
+                        </button>
+                        <ul class="dropdown-menu informacion_dropdown_contenido">
+                            <!-- Lista de infomacion desplegable en el dropdown -->
+                            <li class="d-flex align-items-center texto_dropdown">
+                                <p type="text" name="" class="elementos_listas">Fecha y Hora</p>
+                            </li>
+                            <li class="d-flex align-items-center texto_dropdown">
+                                <p type="text" name="" class="elementos_listas">Origen</p>
+                            </li>
+                            <li class="d-flex align-items-center texto_dropdown">
+                                <p type="text" name="" class="elementos_listas">Destino</p>
+                            </li>
+                            <li class="d-flex align-items-center texto_dropdown">
+                                <p type="text" name="" class="elementos_listas">Cantidad</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                        <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="color_lateral" id="lateral_oscuro"></div>
+                            Referencia xxxxxx
+                        </button>
+                        <ul class="dropdown-menu informacion_dropdown_contenido">
+                            <!-- Lista de infomacion desplegable en el dropdown -->
+                            <li class="d-flex align-items-center texto_dropdown">
+                                <p type="text" name="" class="elementos_listas">Fecha y Hora</p>
+                            </li>
+                            <li class="d-flex align-items-center texto_dropdown">
+                                <p type="text" name="" class="elementos_listas">Origen</p>
+                            </li>
+                            <li class="d-flex align-items-center texto_dropdown">
+                                <p type="text" name="" class="elementos_listas">Destino</p>
+                            </li>
+                            <li class="d-flex align-items-center texto_dropdown">
+                                <p type="text" name="" class="elementos_listas">Cantidad</p>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1116,298 +1099,316 @@
 
     <!-- Pantalla Seleccionar Informe -->
     <template id="seleccionar_informe">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Estadisticas</p>
-            </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form" id="contenedor_seleccion_informe"> <!-- Contenedor para seleccionar el informe a mostrar-->
-                <select type="text" class="select_claro"> <!-- Select para seleccionar el informe -->
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Seleccionar Informe</option>
-                    <option class="opciones">Movimientos del Producto</option>
-                    <option class="opciones">Movimientos del Almacen</option>
-                    <option class="opciones">Movimientos en Almacen</option>
-                </select>
-            </form>
-            <div class="container d-flex justify-content-end contenedor_boton">
-                <!-- Boton para mostrar el informe seleccionado -->
-                <button class="btn boton_oscuro_corto" type="button">
-                    Siguiente
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Estadisticas</p>
+                </div>
+                <form class="container d-flex flex-column align-items-center contenedor_form" id="contenedor_seleccion_informe"> <!-- Contenedor para seleccionar el informe a mostrar-->
+                    <select type="text" class="select_claro"> <!-- Select para seleccionar el informe -->
+                        <!-- Opciones del select -->
+                        <option selected class="opciones">Seleccionar Informe</option>
+                        <option class="opciones">Movimientos del Producto</option>
+                        <option class="opciones">Movimientos del Almacen</option>
+                        <option class="opciones">Movimientos en Almacen</option>
+                    </select>
+                </form>
+                <div class="container d-flex justify-content-end contenedor_boton">
+                    <!-- Boton para mostrar el informe seleccionado -->
+                    <button class="btn boton_oscuro_corto" type="button">
+                        Siguiente
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Filtros Informe Mov Prod -->
     <template id="filtros_informe_mov_prod">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Estadisticas</p>
-            </div>
-            <div class="titulo_creacion"> <!-- Titulo Grandes -->
-                <h1>Movimientos del producto</h1>
-            </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_filtros_informe_mov_prod">
-                <!-- Contendor para seleccionar filtros del informe -->
-                <select type="text" class="select_claro" name="nombre_producto"> <!-- Select para seleccionar el producto -->
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Seleccionar Producto</option>
-                    <option class="opciones">Producto 1</option>
-                    <option class="opciones">Producto 2</option>
-                    <option class="opciones">Producto 3</option>
-                </select>
-                <input type="date" placeholder="Desde" class="input_claro_dos">
-                <input type="date" placeholder="Hasta" class="input_claro_dos">
-            </form>
-            <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor de boton generar -->
-                <button class="btn boton_oscuro_corto" type="button">
-                    Generar
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Estadisticas</p>
+                </div>
+                <div class="titulo_creacion"> <!-- Titulo Grandes -->
+                    <h1>Movimientos del producto</h1>
+                </div>
+                <form class="container d-flex flex-column align-items-center contenedor_form" id="form_filtros_informe_mov_prod">
+                    <!-- Contendor para seleccionar filtros del informe -->
+                    <select type="text" class="select_claro" name="nombre_producto"> <!-- Select para seleccionar el producto -->
+                        <!-- Opciones del select -->
+                        <option selected class="opciones">Seleccionar Producto</option>
+                        <option class="opciones">Producto 1</option>
+                        <option class="opciones">Producto 2</option>
+                        <option class="opciones">Producto 3</option>
+                    </select>
+                    <input type="date" placeholder="Desde" class="input_claro_dos">
+                    <input type="date" placeholder="Hasta" class="input_claro_dos">
+                </form>
+                <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor de boton generar -->
+                    <button class="btn boton_oscuro_corto" type="button">
+                        Generar
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Filtros Informe Categorias -->
     <template id="filtros_informe_categorias">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Estadisticas</p>
-            </div>
-            <div class="titulo_creacion"> <!-- Titulo Grandes -->
-                <h1>Categorías más vendidas</h1>
-            </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form contenedor_seleccion_filtros_informe" id="form_filtros_informe_precio_alm">
-                <!-- Contenedor para seleccionar filtros del informe-->
-                <input type="date" placeholder="Desde" class="input_claro_dos">
-                <input type="date" placeholder="Hasta" class="input_claro_dos">
-            </form>
-            <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor de boton generar -->
-                <button class="btn boton_oscuro_corto" type="button">
-                    Generar
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Estadisticas</p>
+                </div>
+                <div class="titulo_creacion"> <!-- Titulo Grandes -->
+                    <h1>Categorías más vendidas</h1>
+                </div>
+                <form class="container d-flex flex-column align-items-center contenedor_form contenedor_seleccion_filtros_informe" id="form_filtros_informe_precio_alm">
+                    <!-- Contenedor para seleccionar filtros del informe-->
+                    <input type="date" placeholder="Desde" class="input_claro_dos">
+                    <input type="date" placeholder="Hasta" class="input_claro_dos">
+                </form>
+                <div class="container d-flex justify-content-end contenedor_boton"> <!-- Contendor de boton generar -->
+                    <button class="btn boton_oscuro_corto" type="button">
+                        Generar
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Perfiles vacia -->
     <template id="perfiles_vacia">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Perfiles</p>
-            </div>
-            <div class="contenedor_textos">
-                <p class="message">NO TIENES PERFILES</p>
-            </div>
-            <div class="menu_circular" id="contenedor_boton_circular">
-
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Perfiles</p>
+                </div>
+                <div class="contenedor_textos">
+                    <p class="message">NO TIENES PERFILES</p>
+                </div>
+                <div class="menu_circular" id="contenedor_boton_circular">
+    
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Crear Perfil -->
     <template id="crear_perfil">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Crear Perfil</p>
-            </div>
-            <div class="titulo_creacion"> <!-- Titulo Grandes -->
-                <h1>Crear Perfil</h1>
-            </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_perfil">
-                <!-- Contendor de form para crear un perfil-->
-                <input type="text" class="form-control" placeholder="Nombre Completo" name="nombre_usuario">
-                <select type="text" class="select_oscuro" name="nombre_rol"> <!-- Select para seleccionar el rol del usuario -->
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Rol</option>
-                    <option class="opciones">Rol 1</option>
-                    <option class="opciones">Rol 2</option>
-                </select>
-                <select type="text" class="select_oscuro" name="tipo_documento"> <!-- Select para seleccionar el tipo de documento -->
-                    <!-- Opciones del select -->
-                    <option selected class="opciones">Tipo de Documento</option>
-                    <option class="opciones">Cedula</option>
-                    <option class="opciones">Pasaporte</option>
-                </select>
-                <input type="text" class="form-control" placeholder="Numero Documento" name="numero_documento">
-                <input type="text" class="form-control" placeholder="Correo Electronico" name="correo_electronico">
-                <input type="text" class="form-control" placeholder="Contraseña" name="contraseña">
-                <input type="text" class="form-control" placeholder="Repetir Contraseña" name="contraseña">
-            </form>
-            <div class="container d-flex justify-content-end contenedor_boton">
-                <!-- Contendor boton para crear el perfil -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_perfiles()">
-                    Crear Perfil
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Crear Perfil</p>
+                </div>
+                <div class="titulo_creacion"> <!-- Titulo Grandes -->
+                    <h1>Crear Perfil</h1>
+                </div>
+                <form class="container d-flex flex-column align-items-center contenedor_form" id="form_crear_perfil">
+                    <!-- Contendor de form para crear un perfil-->
+                    <input type="text" class="form-control" placeholder="Nombre Completo" name="nombre_usuario">
+                    <select type="text" class="select_oscuro" name="nombre_rol"> <!-- Select para seleccionar el rol del usuario -->
+                        <!-- Opciones del select -->
+                        <option selected class="opciones">Rol</option>
+                        <option class="opciones">Rol 1</option>
+                        <option class="opciones">Rol 2</option>
+                    </select>
+                    <select type="text" class="select_oscuro" name="tipo_documento"> <!-- Select para seleccionar el tipo de documento -->
+                        <!-- Opciones del select -->
+                        <option selected class="opciones">Tipo de Documento</option>
+                        <option class="opciones">Cedula</option>
+                        <option class="opciones">Pasaporte</option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="Numero Documento" name="numero_documento">
+                    <input type="text" class="form-control" placeholder="Correo Electronico" name="correo_electronico">
+                    <input type="text" class="form-control" placeholder="Contraseña" name="contraseña">
+                    <input type="text" class="form-control" placeholder="Repetir Contraseña" name="contraseña">
+                </form>
+                <div class="container d-flex justify-content-end contenedor_boton">
+                    <!-- Contendor boton para crear el perfil -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_perfiles()">
+                        Crear Perfil
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Perfiles -->
     <template id="perfiles_con_inf">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Perfiles</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menus dropdown -->
-                <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
-                        Perfil 1
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Nombre Usuario</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Rol</p>
-                        </li>
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                onclick="mostrar_editar_perfiles()">Editar Perfil</a></li>
-                    </ul>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Perfiles</p>
                 </div>
-            </div>
-            <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
-
-            </div>
-        </div>
-    </template>
-
-    <!-- Pantalla Editar Perfiles -->
-    <template id="editar_perfiles">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Perfiles</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menu dropdown -->
-                <div class="d-flex flex-column dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                    <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div>
-                        Perfil 1
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Nombre Usuario</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Rol</p>
-                        </li>
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center">
-                            <a href="#" onclick="mostrar_editar_perfiles()">Editar Perfil</a>
-                        </li>
-                    </ul>
-                    <form class="contenedor_campos_edicion" id="form_editar_perfil"> <!-- Contenedor de campos para editar perfil -->
-                        <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Usuario" name="nombre_usuario">
-                        <select type="text" class="select_edicion" name="nombre_rol"> <!-- Select para seleccionar el rol del usuario -->
-                            <!-- Opciones del select -->
-                            <option selected class="opciones">Rol</option>
-                            <option class="opciones">Rol 1</option>
-                            <option class="opciones">Rol 2</option>
-                        </select>
-                    </form>
-                </div>
-            </div>
-            <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_perfiles()">
-                    Guardar
-                </button>
-            </div>
-        </div>
-    </template>
-
-    <!-- Pantalla Eliminar Perfiles -->
-    <template id="eliminar_perfiles">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Perfiles</p>
-            </div>
-            <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                <!-- Contenido para menus dropdown -->
-                <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
-                    <form action="" id="form_eliminar_perfiles">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                    </form>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown">
+                    <!-- Contenido para menus dropdown -->
                     <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                        <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
                             Perfil 1
                         </button>
                         <ul class="dropdown-menu informacion_dropdown_contenido">
                             <!-- Lista de infomacion desplegable en el dropdown -->
                             <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="">Nombre Usuario</p>
+                                <p type="text" name="" class="elementos_listas">Nombre Usuario</p>
                             </li>
                             <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="">Rol</p>
+                                <p type="text" name="" class="elementos_listas">Rol</p>
+                            </li>
+                            <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
+                                    onclick="mostrar_editar_perfiles()">Editar Perfil</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
+    
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Pantalla Editar Perfiles -->
+    <template id="editar_perfiles">
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Perfiles</p>
+                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown">
+                    <!-- Contenido para menu dropdown -->
+                    <div class="d-flex flex-column dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                        <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="color_lateral" id="lateral_oscuro"></div>
+                            Perfil 1
+                        </button>
+                        <ul class="dropdown-menu informacion_dropdown_contenido">
+                            <!-- Lista de infomacion desplegable en el dropdown -->
+                            <li class="d-flex align-items-center texto_dropdown">
+                                <p type="text" name="" class="elementos_listas">Nombre Usuario</p>
+                            </li>
+                            <li class="d-flex align-items-center texto_dropdown">
+                                <p type="text" name="" class="elementos_listas">Rol</p>
                             </li>
                             <li class="d-flex accion_dropdown align-items-center justify-content-center">
                                 <a href="#" onclick="mostrar_editar_perfiles()">Editar Perfil</a>
                             </li>
                         </ul>
+                        <form class="contenedor_campos_edicion" id="form_editar_perfil"> <!-- Contenedor de campos para editar perfil -->
+                            <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Usuario" name="nombre_usuario">
+                            <select type="text" class="select_edicion" name="nombre_rol"> <!-- Select para seleccionar el rol del usuario -->
+                                <!-- Opciones del select -->
+                                <option selected class="opciones">Rol</option>
+                                <option class="opciones">Rol 1</option>
+                                <option class="opciones">Rol 2</option>
+                            </select>
+                        </form>
                     </div>
                 </div>
+                <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_perfiles()">
+                        Guardar
+                    </button>
+                </div>
             </div>
-            <div class="container d-flex justify-content-end contenedor_boton">
-                <!-- Boton para eliminar el perfil seleccionado -->
-                <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_stock()">
-                    Eliminar
-                </button>
+        </div>
+    </template>
+
+    <!-- Pantalla Eliminar Perfiles -->
+    <template id="eliminar_perfiles">
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Perfiles</p>
+                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown">
+                    <!-- Contenido para menus dropdown -->
+                    <div class="d-flex align-items-center form-check"> <!-- Checkbox y dropdown -->
+                        <form action="" id="form_eliminar_perfiles">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        </form>
+                        <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                            <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown_corto" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
+                                Perfil 1
+                            </button>
+                            <ul class="dropdown-menu informacion_dropdown_contenido">
+                                <!-- Lista de infomacion desplegable en el dropdown -->
+                                <li class="d-flex align-items-center texto_dropdown">
+                                    <p type="text" name="">Nombre Usuario</p>
+                                </li>
+                                <li class="d-flex align-items-center texto_dropdown">
+                                    <p type="text" name="">Rol</p>
+                                </li>
+                                <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                                    <a href="#" onclick="mostrar_editar_perfiles()">Editar Perfil</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container d-flex justify-content-end contenedor_boton">
+                    <!-- Boton para eliminar el perfil seleccionado -->
+                    <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_stock()">
+                        Eliminar
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Buscar -->
     <template id="buscar">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Buscar</p>
-            </div>
-            <div class="container contenedor_form boton_busqueda"> <!-- Contendor de form para buscar -->
-                <div class="d-flex contendor_shadow"> <!-- Contenedor de busqueda -->
-                    <form action="" id="form_buscar">
-                        <input class="input_claro_busqueda" type="text" name="" placeholder="Buscar">
-                    </form>
-                    <button class="icono_boton_busqueda" type="button"> <!-- Boton de busqueda -->
-                        <img src="./Assets/img/logo_lupa.svg" alt="" />
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
                     </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Buscar</p>
+                </div>
+                <div class="container contenedor_form boton_busqueda"> <!-- Contendor de form para buscar -->
+                    <div class="d-flex contendor_shadow"> <!-- Contenedor de busqueda -->
+                        <form action="" id="form_buscar">
+                            <input class="input_claro_busqueda" type="text" name="" placeholder="Buscar">
+                        </form>
+                        <button class="icono_boton_busqueda" type="button"> <!-- Boton de busqueda -->
+                            <img src="./Assets/img/logo_lupa.svg" alt="" />
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1415,148 +1416,158 @@
 
     <!-- Pantalla Terminos y Condiciones -->
     <template id="terminos_condiciones">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Terminos y Condiciones</p>
-            </div>
-            <div class="container d-flex flex-column align-items-center contenedor_textos contenedor_term_cond">
-                <!-- Contenedor para seleccionar el informe a mostrar-->
-                <p>
-                    Lorem ipsum dolor sit amet consectetur. Proin adipiscing id nulla iaculis id orci.
-                    Facilisis bibendum quis bibendum interdum felis dictum tincidunt. Justo sit habitant cursus semper
-                    amet ultrices pretium.
-                    Diam tempor sed quis ullamcorper imperdiet sed. Hendrerit nunc a scelerisque praesent.
-                    Leo blandit lectus lorem amet risus scelerisque aenean. Est sit ipsum augue porta nisi odio donec.
-                    Vel dui at diam facilisis in cum eu. Ut diam in orci neque molestie adipiscing.
-                </p>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Terminos y Condiciones</p>
+                </div>
+                <div class="container d-flex flex-column align-items-center contenedor_textos contenedor_term_cond">
+                    <!-- Contenedor para seleccionar el informe a mostrar-->
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur. Proin adipiscing id nulla iaculis id orci.
+                        Facilisis bibendum quis bibendum interdum felis dictum tincidunt. Justo sit habitant cursus semper
+                        amet ultrices pretium.
+                        Diam tempor sed quis ullamcorper imperdiet sed. Hendrerit nunc a scelerisque praesent.
+                        Leo blandit lectus lorem amet risus scelerisque aenean. Est sit ipsum augue porta nisi odio donec.
+                        Vel dui at diam facilisis in cum eu. Ut diam in orci neque molestie adipiscing.
+                    </p>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Politicas de Privacidad -->
     <template id="politicas_privacidad">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Politicas de Privacidad</p>
-            </div>
-            <div class="container d-flex flex-column align-items-center contenedor_textos contenedor_term_cond">
-                <!-- Contenedor para seleccionar el informe a mostrar-->
-                <p>
-                    Lorem ipsum dolor sit amet consectetur. Proin adipiscing id nulla iaculis id orci.
-                    Facilisis bibendum quis bibendum interdum felis dictum tincidunt. Justo sit habitant cursus semper
-                    amet ultrices pretium.
-                    Diam tempor sed quis ullamcorper imperdiet sed. Hendrerit nunc a scelerisque praesent.
-                    Leo blandit lectus lorem amet risus scelerisque aenean. Est sit ipsum augue porta nisi odio donec.
-                    Vel dui at diam facilisis in cum eu. Ut diam in orci neque molestie adipiscing.
-                </p>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Politicas de Privacidad</p>
+                </div>
+                <div class="container d-flex flex-column align-items-center contenedor_textos contenedor_term_cond">
+                    <!-- Contenedor para seleccionar el informe a mostrar-->
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur. Proin adipiscing id nulla iaculis id orci.
+                        Facilisis bibendum quis bibendum interdum felis dictum tincidunt. Justo sit habitant cursus semper
+                        amet ultrices pretium.
+                        Diam tempor sed quis ullamcorper imperdiet sed. Hendrerit nunc a scelerisque praesent.
+                        Leo blandit lectus lorem amet risus scelerisque aenean. Est sit ipsum augue porta nisi odio donec.
+                        Vel dui at diam facilisis in cum eu. Ut diam in orci neque molestie adipiscing.
+                    </p>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Ajustes de Usuario -->
     <template id="ajustes_usuario">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Ajustes del Usuario</p>
-            </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form contenedor_form_ajustes" id="form_ajustes_usuario">
-                <!-- Contendor de form para ajustes de usuario -->
-                <input disabled class="input_transparente" type="text" placeholder="Nombre Completo" name="nombre_usuario">
-                <input disabled class="input_transparente" type="text" placeholder="Tipo Documento" name="tipo_documento">
-                <input disabled class="input_transparente" type="text" placeholder="Numero Documento" name="numero_documento">
-                <input disabled class="input_transparente" type="text" placeholder="Correo Electronico" name="correo_electronico">
-                <input disabled class="input_transparente" type="text" placeholder="Contraseña" name="contraseña">
-            </form>
-            <div
-                class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
-                <!-- Contenedor de botones para ver movimientos y editar el producto -->
-                <button class="btn boton_largo_claro" type="button" onclick="mostrar_editar_usario()">
-                    Editar
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Ajustes del Usuario</p>
+                </div>
+                <form class="container d-flex flex-column align-items-center contenedor_form contenedor_form_ajustes" id="form_ajustes_usuario">
+                    <!-- Contendor de form para ajustes de usuario -->
+                    <input disabled class="input_transparente" type="text" placeholder="Nombre Completo" name="nombre_usuario">
+                    <input disabled class="input_transparente" type="text" placeholder="Tipo Documento" name="tipo_documento">
+                    <input disabled class="input_transparente" type="text" placeholder="Numero Documento" name="numero_documento">
+                    <input disabled class="input_transparente" type="text" placeholder="Correo Electronico" name="correo_electronico">
+                    <input disabled class="input_transparente" type="text" placeholder="Contraseña" name="contraseña">
+                </form>
+                <div
+                    class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
+                    <!-- Contenedor de botones para ver movimientos y editar el producto -->
+                    <button class="btn boton_largo_claro" type="button" onclick="mostrar_editar_usario()">
+                        Editar
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Editar Usuario -->
     <template id="editar_usuario">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Ajustes del Usuario</p>
-            </div>
-            <form class="container d-flex flex-column align-items-center contenedor_form contenedor_form_editar_ajustes" id="form_editar_usuario">
-                <!-- Contenedor para seleccionar el informe a mostrar-->
-                <input class="input_claro_ajustes" type="text" placeholder="Nombre Completo" name="nombre_usuario">
-                <input class="input_claro_ajustes" type="text" placeholder="Tipo Documento" name="tipo_documento">
-                <input class="input_claro_ajustes" type="text" placeholder="Numero Documento" name="numero_documento">
-                <input class="input_claro_ajustes" type="text" placeholder="Correo Electronico" name="correo_electronico">
-                <input class="input_claro_ajustes" type="text" placeholder="Contraseña" name="contraseña">
-                <input class="input_claro_ajustes" type="text" placeholder="Repetir Nueva Contraseña" name="contraseña">
-            </form>
-            <div
-                class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
-                <!-- Contenedor de botones para ver movimientos y editar el producto -->
-                <button class="btn boton_largo_oscuro" type="button" onclick="mostrar_ajustes_usuario()">
-                    Guardar Cambios
-                </button>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Ajustes del Usuario</p>
+                </div>
+                <form class="container d-flex flex-column align-items-center contenedor_form contenedor_form_editar_ajustes" id="form_editar_usuario">
+                    <!-- Contenedor para seleccionar el informe a mostrar-->
+                    <input class="input_claro_ajustes" type="text" placeholder="Nombre Completo" name="nombre_usuario">
+                    <input class="input_claro_ajustes" type="text" placeholder="Tipo Documento" name="tipo_documento">
+                    <input class="input_claro_ajustes" type="text" placeholder="Numero Documento" name="numero_documento">
+                    <input class="input_claro_ajustes" type="text" placeholder="Correo Electronico" name="correo_electronico">
+                    <input class="input_claro_ajustes" type="text" placeholder="Contraseña" name="contraseña">
+                    <input class="input_claro_ajustes" type="text" placeholder="Repetir Nueva Contraseña" name="contraseña">
+                </form>
+                <div
+                    class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
+                    <!-- Contenedor de botones para ver movimientos y editar el producto -->
+                    <button class="btn boton_largo_oscuro" type="button" onclick="mostrar_ajustes_usuario()">
+                        Guardar Cambios
+                    </button>
+                </div>
             </div>
         </div>
     </template>
 
     <!-- Pantalla Ayuda -->
     <template id="ayuda">
-        <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_main">
-            <!-- Contenedor principal -->
-            <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
-                <button class="btn" onclick="regresar_pantalla()">
-                    <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
-                </button>
-            </div>
-            <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
-                <p class="title_small">Ayuda</p>
-            </div>
-            <div class="container d-flex flex-column contenedor_textos">
-                <!-- Contenedor para las instrucciones en la seccion ayuda -->
-                <p id="encabezado_ayuda">Como usar la aplicacion</p> <!-- Encabezado de la seccion -->
-                <ol id="lista_instrucciones"> <!-- Lista de instrucciones -->
-                    <li>Lorem ipsum dolor sit amet consectetur. Proin adipiscing id nulla iaculis id orci.
-                        Facilisis bibendum quis bibendum interdum felis dictum tincidunt.
-                    </li>
-                    <li>Justo sit habitant cursus semper amet ultrices pretium. Diam tempor sed quis ullamcorper
-                        imperdiet sed.
-                        Hendrerit nunc a scelerisque praesent. Leo blandit lectus lorem amet risus scelerisque aenean.
-                    </li>
-                    <li>Est sit ipsum augue porta nisi odio donec. Vel dui at diam facilisis in cum eu.
-                        Ut diam in orci neque molestie adipiscing.
-                    </li>
-                    <li>
-                        At ullamcorper lacus nullam egestas. Dui eu quisque arcu quam massa mattis pellentesque sed.
-                        Gravida
-                    </li>
-                </ol>
+        <div class="contenedor_main d-flex">
+            <div class="container-fluid d-flex flex-column align-items-center justify-content-between contenedor_contenido">
+                <!-- Contenedor principal -->
+                <div class="contenedor_flecha_back"> <!-- Contendor flecha back -->
+                    <button class="btn" onclick="regresar_pantalla()">
+                        <img src="./Assets/img/arrow-arrow-left-lg.svg" alt="">
+                    </button>
+                </div>
+                <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
+                    <p class="title_small">Ayuda</p>
+                </div>
+                <div class="container d-flex flex-column contenedor_textos">
+                    <!-- Contenedor para las instrucciones en la seccion ayuda -->
+                    <p id="encabezado_ayuda">Como usar la aplicacion</p> <!-- Encabezado de la seccion -->
+                    <ol id="lista_instrucciones"> <!-- Lista de instrucciones -->
+                        <li>Lorem ipsum dolor sit amet consectetur. Proin adipiscing id nulla iaculis id orci.
+                            Facilisis bibendum quis bibendum interdum felis dictum tincidunt.
+                        </li>
+                        <li>Justo sit habitant cursus semper amet ultrices pretium. Diam tempor sed quis ullamcorper
+                            imperdiet sed.
+                            Hendrerit nunc a scelerisque praesent. Leo blandit lectus lorem amet risus scelerisque aenean.
+                        </li>
+                        <li>Est sit ipsum augue porta nisi odio donec. Vel dui at diam facilisis in cum eu.
+                            Ut diam in orci neque molestie adipiscing.
+                        </li>
+                        <li>
+                            At ullamcorper lacus nullam egestas. Dui eu quisque arcu quam massa mattis pellentesque sed.
+                            Gravida
+                        </li>
+                    </ol>
+                </div>
             </div>
         </div>
     </template>
@@ -1613,38 +1624,9 @@
         </div>
     </template>
 
+    <!-- Form de productos en una entrada -->
     <template id="fila_productos_entradas_desktop">
-        <tr>
-            <td>
-            </td>
-            <th scope="row">
-                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" />
-            </th>
-            <td>
-                <input type="text" class="form-control disabled" aria-label="Text input with dropdown button"
-                    placeholder="Ej: Almacen 1" disabled />
-            </td>
-            <td>
-                <select class="form-select" name="referencia_producto">
-                    <option selected value=""></option>
-                    <option value="1">Referencia 1</option>
-                </select>
-            </td>
-            <td>
-                <select class="form-select" name="">
-                    <option selected value=""></option>
-                    <option value="1">Producto 1</option>
-                </select>
-            </td>
-            <td>
-                <input type="number" class="form-control" aria-label="Text input with dropdown button" placeholder="" />
-            </td>
-            <td>
-                <input type="number" class="form-control" aria-label="Text input with dropdown button" placeholder="" />
-            </td>
-            <td>
-            </td>
-        </tr>
+
     </template>
 
     <!-- Tarjeta inventarios -->
@@ -1700,9 +1682,9 @@
 
     <!-- Navegador superior Inventarios -->
     <template id="nav_sup_desktop_inv">
-        <div class="container-fluid d-flex justify-content-between">
+        <div class="container-fluid d-flex justify-content-between nav_color_morado">
             <a class="navbar-brand" href="#">
-                <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+                <img src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
             </a>
             <div class="collapse navbar-collapse d-flex justify-content-end">
                 <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
@@ -1715,17 +1697,17 @@
 
     <!-- Navegador superior -->
     <template id="nav_sup_desktop"> 
-        <div class="container-fluid">
+        <div class="container-fluid nav_color_morado">
             <a class="navbar-brand" href="#">
-                <img src="./Assets/img/logo_empresa_sin_fondo.png" alt="Logo Empresa" />
+                <img src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
             </a>
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link " aria-current="page" href="#" onclick="mostrar_inv_nav()">Inventarios</a>
+                        <a class="nav-link color_blanco_nav" aria-current="page" href="#" onclick="mostrar_inv_nav()">Inventarios</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle color_blanco_nav" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Operaciones
                         </a>
@@ -1736,7 +1718,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle color_blanco_nav" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Stock
                         </a>
@@ -1747,10 +1729,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="mostrar_seleccionar_informe()">Informes</a>
+                        <a class="nav-link color_blanco_nav" href="#" onclick="mostrar_seleccionar_informe()">Informes</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" onclick="mostrar_perfiles_vacia()">Perfiles</a>
+                    <li class="nav-item color_blanco_nav">
+                        <a class="nav-link color_blanco_nav" href="#" onclick="mostrar_perfiles_vacia()">Perfiles</a>
                     </li>
                 </ul>
                 <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
@@ -1765,9 +1747,8 @@
 
     <!-- Pantalla de Inicio -->
     <template id="pagina_inicio_desktop">
-        <div class="particulas" id="particles-js"></div>
-        <div class="contenedor_tansparente" id="cont_titulo">
-            <div class="d-flex flex-row" id="cont_texto_sup">
+        <div class="contenedor_tansparente">
+            <div class="d-flex" id="cont_texto_sup">
                 <h2 class="titulo_claro">Gestión de inventario simplificada</h2>
                 <p id="subtitulo">Unifique sus operaciones y obtenga el panorama completo</p>
             </div>
@@ -1802,7 +1783,7 @@
                 <div id="cont_titulo_funciones">
                     <h2 class="titulo_oscuro">Gestiona las existencias de tu empresa, y conoce el exito.</h2>
                 </div>
-            <div class="d-flex flex-row" id="cont_lista_inicio">
+            <div class="d-flex" id="cont_lista_inicio">
                 <ol id="lista_inicio">
                     <li class="items_lista">Personaliza todos tus Almaces</li>
                     <p class="parrafos_pag_inicio">
@@ -1833,10 +1814,10 @@
             <button type="button" class="button_crear_perfil">Crea tu Perfil</button>
         </div>
         <div class="cont_blanco" id="cont_acerca_de">
-            <div id="cont_titulo_acercade">
+            <div id="cont_titulo_sobre_nosotros">
                 <h2 class="titulo_oscuro">Sobre Nosotros</h2>
             </div>
-            <div class="d-flex flex-row justify-content-around" id="cont_mision_vision">
+            <div class="d-flex justify-content-around" id="cont_sobre_nosotros">
                 <div class="mision_vision">
                     <h3 class="titulo_acerca_de">
                         Misión
@@ -1863,71 +1844,6 @@
                 </div>
             </div>
         </div>
-    </template>
-
-    <!-- Pantalla Registrarse -->
-    <template id="registro_usuario_desktop">
-        <section class="registro">
-            <div class="registro__container text-center">
-                <button class="btn registro__close">
-                    <img src="./Assets/img/logo_cerrar_x.svg" alt="">
-                </button>
-                <h1 class="registro__titulo mb-4">Registrarse</h1>
-                <form action="" id="form_registro_usuario">
-                    <div class="registro__input mb-1">
-                        <input type="text" class="form-control registro__input" placeholder="Nombre Completo" 
-                            value="" name="nombre_usuario">
-                    </div>
-                    <select class="form-select registro__select mb-1" aria-label="Default select example" name="tipo_documento">
-                        <option class="registro__option" selected disabled hidden>Tipo de Documento</option>
-                    </select>
-                    <div class="registro__input mb-1">
-                        <input type="number" class="form-control registro__input" placeholder="Numero de Documento" 
-                            value="" name="numero_documento">
-                    </div>
-                    <div class="registro__input mb-1">
-                        <input type="email" class="form-control registro__input" placeholder="Correo Electronico"  value="" name="correo_electronico" required>
-                    </div>
-                    <div class="registro__input mb-1">
-                        <input type="password" class="form-control registro__input" placeholder="Contraseña" 
-                            value="" name="contraseña">
-                    </div>
-                    <div class="registro__input mb-3">
-                        <input type="password" class="form-control registro__input" placeholder="Repetir Contraseña" 
-                            value="" name="confirmar_contraseña">
-                    </div>
-                </form>
-                <button class="btn btn-general mb-3" onclick="registrar_usuario()">Registrar</button>
-                <p class="registro__text">¿Ya eres miembro? <a href="">Inicia tu sesión</a></p>
-            </div>
-        </section>
-    </template>
-
-    <!-- Pantalla Log In -->
-    <template id="log_in_desktop">
-        <section class="ingreso">
-            <div class="ingreso__container text-center">
-                <figure>
-                    <img class="ingreso__img" src="./Assets/img/Imagen_Ingreso.png" alt="">
-                </figure>
-                <h1 class="registro__titulo mb-4">Ingreso</h1>
-                <div class="registro__padding">
-                    <button class="btn registro__close">
-                        <img src="./Assets/img/logo_cerrar_x.svg" alt="">
-                    </button>
-                    <form action="" id="form_login">
-                        <div class="registro__input mb-1">
-                            <input type="email" class="form-control registro__input" placeholder="Correo Electronico" 
-                                value="" name="correo_electronico">
-                        </div>
-                        <div class="registro__input mb-2">
-                            <input type="password" class="form-control registro__input" placeholder="Contraseña"  value="" name="contraseña">
-                        </div>
-                    </form>
-                </div>
-                <button class="btn btn-general mb-3" onclick="log_in()">Ingresar</button>
-            </div>
-        </section>
     </template>
 
     <!-- Pantalla Inventarios vacia -->
@@ -2083,6 +1999,11 @@
                 </thead>
             </table>
         </div>
+        <div class="container sin-opciones">
+            <h2>
+                <p>No tienes movimientos el dia de hoy</p>
+            </h2>
+        </div>
     </template>
 
     <!-- Pantalla Crear Entrada -->
@@ -2100,76 +2021,71 @@
         </div>
         <hr />
         <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Origen</span>
-                            </button>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Destino</span>
-                            </button>
-                        </th>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Referencia</span>
-                            </button>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Producto</span>
-                            </button>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                            </button>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Precio</span>
-                            </button>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody id="tbody_productos_entradas">
-                    <tr>
-                        <td>
-                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="añadir_producto_entradas()">
-                                <img src="./Assets/img/logo_suma.svg" alt="" />
-                            </button>
-                        </td>
-                        <form action="" id="form_crear_entrada_desktop">
-                            <th scope="row">
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="origen_entrada"/>
+            <form action="" id="form_crear_entrada">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Origen</span>
+                                </button>
                             </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Destino</span>
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Producto</span>
+                                </button>
+                            </th>
+                            <th scope="col" class="">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Referencia</span>
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Precio</span>
+                                </button>
+                            </th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="agregar_producto_entrada()">
+                                    <img src="./Assets/img/logo_suma.svg" alt="" />
+                                </button>
+                            </td>
+                            <td scope="row">
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" name="origen_entrada"/>
+                            </td>
                             <td>
                                 <input type="text" class="form-control disabled"
-                                    aria-label="Text input with dropdown button" placeholder="Ej: Almacen 1" disabled name="nombre_almacen"/>
+                                    aria-label="Text input with dropdown button" disabled name="nombre_almacen" id="nombre_almacen"/>
                             </td>
                             <td>
-                                <select class="form-select" name="referencia_producto">
-                                    <option selected value=""></option>
-                                    <option value="1">Referencia 1</option>
+                                <select class="form-select" name="id_producto" id="select_nombre_producto">
+                                    <option selected>Seleccionar Producto</option>
                                 </select>
                             </td>
                             <td>
-                                <select class="form-select" name="nombre_producto">
-                                    <option selected value=""></option>
-                                    <option value="1">Producto 1</option>
-                                </select>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" name="referencia_producto" id="referencia_producto"/>
                             </td>
                             <td>
                                 <input type="number" class="form-control" aria-label="Text input with dropdown button"
@@ -2177,16 +2093,45 @@
                             </td>
                             <td>
                                 <input type="number" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="precio_venta" />
+                                    placeholder="" name="precio_compra" />
                             </td>
-                        </form>
-                        <td>
-                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_movimientos()">
-                                <img src="./Assets/img/guardar.svg" alt="" />
-                            </button>
-                        </td>
+                            <td>
+                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_movimientos()">
+                                    <img src="./Assets/img/guardar.svg" alt="" />
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            
+                        </th>
+                        <th scope="col">
+                            <span class="ml-2 btn-tabla-icono">Origen</span>
+                        </th>
+                        <th scope="col" >
+                            <span class="ml-2 btn-tabla-icono">Destino</span>
+                        </th>
+                        <th scope="col">
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col" class="">
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                        <th scope="col">
+                            <span class="ml-2 btn-tabla-icono">Precio</span>
+                        </th>
+                        <th scope="col"></th>
                     </tr>
-                </tbody>
+                </thead>
+                <tbody id="tbody_productos_entradas"></tbody>
             </table>
         </div>
     </template>
@@ -2331,39 +2276,12 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="./Assets/img/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 btn-tabla-icono">Origen</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Destino</span>
+                            <span class="ml-2 btn-tabla-icono">Origen/Destino</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                        </th>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">05/03/2024</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Lapiz</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">10</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Destino A</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Destino B</p>
-                        </td>
-                        <td></td>
-                    </tr>
+                <tbody id="fila_movimientos">
                 </tbody>
             </table>
             <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
@@ -2473,35 +2391,35 @@
                             <th scope="col"></th>
                         </tr>
                     </thead>
-                        <tbody>
-                            <tr>
-                                <td>
-                                    <select class="form-select" name="id_categoria" id="select_id_categoria">
-                                        <option selected value="">Categoria</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <select class="form-select" name="id_producto" id="select_nombre_producto">
-                                        <option selected value="">Nuevo Producto</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control" aria-label="Text input with dropdown button" id="referencia_producto" name="referencia_producto"/>
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="cantidad_producto" name="cantidad_producto_almacen"/>
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="stock_minimo" name="stock_minimo"/>
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="promedio_costo" name="promedio_costo" />
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" aria-label="Text input with dropdown button" id="precio_venta" name="precio_venta"/>
-                                </td>
-                            </tr>
-                        </tbody>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <select class="form-select" name="id_categoria" id="select_id_categoria">
+                                    <option selected value="">Categoria</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select" name="id_producto" id="select_nombre_producto">
+                                    <option selected value="">Nuevo Producto</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" id="referencia_producto" name="referencia_producto"/>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button" id="cantidad_producto" name="cantidad_producto_almacen"/>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button" id="stock_minimo" name="stock_minimo"/>
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button" id="promedio_costo" name="promedio_costo" />
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" aria-label="Text input with dropdown button" id="precio_venta" name="precio_venta"/>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </form>
             <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="asignar_producto()">
@@ -2852,12 +2770,6 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="./Assets/img/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 btn-tabla-icono">Ubicacion</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
                             <span class="ml-2 btn-tabla-icono">Cantidad</span>
                         </th>
                         <th scope="col">
@@ -2868,50 +2780,7 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="p-0" id="abastecimiento_columna_aviso_error"></td>
-                        <th scope="row" class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Lapiz</p>
-                        </th>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Papeleria</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Destino A</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones texto_error">0</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones texto_error">10</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="p-0" id="abastecimiento_columna_aviso_advertencia"></td>
-                        <th scope="row" class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Lapiz</p>
-                        </th>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Papeleria</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Destino A</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones texto_advertencia">10</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones texto_advertencia">10</p>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="fila_abastecimientos"></tbody>
             </table>
             <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
                 <ul class="pagination">
@@ -3825,24 +3694,22 @@
     <!-- FOOTER -->
     <template id="footer">
         <div class="contenedor_logo_footer">
-            <a href="#">
-                <img class="logo_footer" src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
-            </a>
+            <img class="logo_footer" src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
         </div>
         <div class="d-flex flex-column elemento_flooter">
-            <p class="text-decoration-none color_blanco fw-bold">Enlaces de Navegación</p>
-            <a href="" class="text-decoration-none color_blanco">Inicio</a>
-            <a href="" class="text-decoration-none color_blanco">Contactos</a>
-            <a href="" class="text-decoration-none color_blanco">Nosotros</a>
+            <p class="text-decoration-none color_blanco fw-bold titulos_footer">Enlaces de Navegación</p>
+            <a href="" class="text-decoration-none color_blanco textos_footer">Inicio</a>
+            <a href="" class="text-decoration-none color_blanco textos_footer">Contactos</a>
+            <a href="" class="text-decoration-none color_blanco textos_footer">Nosotros</a>
         </div>
         <div class="d-flex flex-column elemento_flooter">
-            <p class="text-decoration-none color_blanco fw-bold">Enlaces a Politicas</p>
-            <a href="" class="text-decoration-none color_blanco">Política Privada</a>
-            <a href="" class="text-decoration-none color_blanco">Términos y Condiciones</a>
-            <a href="" class="text-decoration-none color_blanco">Cookies</a>
+            <p class="text-decoration-none color_blanco fw-bold titulos_footer">Enlaces a Politicas</p>
+            <a href="" class="text-decoration-none color_blanco textos_footer">Política Privada</a>
+            <a href="" class="text-decoration-none color_blanco textos_footer">Términos y Condiciones</a>
+            <a href="" class="text-decoration-none color_blanco textos_footer">Cookies</a>
         </div>
         <div class="d-flex flex-column elemento_flooter">
-            <p class="text-decoration-none color_blanco fw-bold">© 2024 Variety Vault</p>
+            <p class="text-decoration-none color_blanco fw-bold titulos_footer">© 2024 Variety Vault</p>
         </div>
     </template>
 

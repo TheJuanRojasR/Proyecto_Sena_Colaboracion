@@ -6,6 +6,8 @@ let almacen = new Almacen();
 let lista_categorias = [] //Lista donde se guardan las categorias existentes
 let lista_productos = []; //Lista donde se guardan los productos existentes
 let lista_almacenes = []; //Lista donde se guardan los almacenes existentes
+let lista_movimientos = []; //Lista donde se guardan los movimientos de un producto/almacen
+let lista_productos_operaciones = []; //Lista donde se guardan los productos de entrada
 let idAlmacen = null; //Varialbe para guardar el id del almacen
 let idProducto = null; //Variable para guardar el id del producto
 let idCategoria = null; //Variable para guardar el id de la categoria
@@ -13,9 +15,13 @@ let idCategoria = null; //Variable para guardar el id de la categoria
 //Listas para cambiar de clases a contenedores
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
 const lista_clases_main_mobile = ['overflow-y-scroll'];
-const lista_clases_nav_sup_desktop = ['navbar', 'navbar-expand-md'];
+const lista_clases_nav_sup_desktop = ['navbar', 'fixed-top'];
 const lista_clases_nav_sup_mobile = ['navbar', 'fixed-top', 'nav_sup'];
 const lista_clases_nav_inf = ['navbar', 'fixed-bottom', 'nav_inf'];
+const lista_clases_modal_registro_show = ['modal', 'registro','modal--show'];
+const lista_clases_modal_registro = ['modal', 'registro'];
+const lista_clases_modal_login_show = ['modal', 'ingreso','modal--show'];
+const lista_clases_modal_login = ['modal', 'ingreso'];
 const lista_clases_modal_error_show = ['modal', 'modal--error','modal--show'];
 const lista_clases_modal_error = ['modal', 'modal--error'];
 const lista_clases_modal_exito_show = ['modal', 'modal--exito','modal--show'];
@@ -26,7 +32,7 @@ const lista_clases_modal_confirmacion = ['modal', 'modal--confirmacion'];
 const tamañoPantalla = window.matchMedia('(max-width: 768px)'); //Se obtiene el tamaño de la pantalla
 
 //Se escucha a la pantalla y si existe un cambio de tamaño, y ejecuta la funcion cambio_clases.
-window.addEventListener('resize', cambio_clases); 
+// window.addEventListener('resize', cambio_clases); 
 
 
 
@@ -79,17 +85,11 @@ function remover_nav_inf(){
  * dependiendo del tamaño de la pantalla
  */
 window.onload = function(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("nav_sup_inicio","navegador_sup");
-        vista.mostrar_plantilla("pagina_inicio", "contenedor_principal", 1);
-        vista.mostrar_plantilla("footer", "footer_inicio");
-    }
-    else{
-        vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
-        vista.mostrar_plantilla("pagina_inicio_desktop", "contenedor_principal");
-        vista.mostrar_plantilla("footer", "footer_inicio");
-    }
-    cambio_clases();
+
+    vista.mostrar_plantilla("nav_sup_inicio_desktop", "navegador_sup");
+    vista.mostrar_plantilla("pagina_inicio_desktop", "contenido", 1);
+    vista.mostrar_plantilla("footer", "footer_inicio");
+
     remover_nav_inf();
 }
 
@@ -120,7 +120,7 @@ function mostrar_form_registro_usuario(){
         vista.cambiar_clases("navegador_inf", lista_clases_nav_inf);
     }
     else{
-        vista.mostrar_plantilla("registro_usuario_desktop", "contenedor_principal", 1);
+        vista.cambiar_clases('modal_registro', lista_clases_modal_registro_show);
     }
     cambio_clases();
 
@@ -150,11 +150,12 @@ function mostrar_login(){
         vista.mostrar_plantilla("log_in", "contenedor_principal", 0);
         vista.remover_etiqueta("footer_inicio");
         vista.añadir_etiqueta("nav", "body", "navegador_inf");
+        vista.mostrar_plantilla("nav_sup_inicio", "navegador_sup");
         vista.mostrar_plantilla("nav_inf_login","navegador_inf");
         vista.cambiar_clases("navegador_inf", lista_clases_nav_inf);
     }
     else{
-        vista.mostrar_plantilla("log_in_desktop", "contenedor_principal", 1);
+        vista.cambiar_clases('modal_login', lista_clases_modal_login_show);
     }
     cambio_clases();
 }
@@ -180,6 +181,7 @@ function registrar_usuario(){
                     //Mensaje de exito y cambio de template
                     vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
                     mostrar_login();
+                    vista.cambiar_clases('modal_registro', lista_clases_modal_registro);
                 }
                 else{
                     //Mensaje de error
@@ -212,6 +214,7 @@ function log_in(){
                     usuario.setData(data.data[0]);
                     //Consultar almacenes segun el id del usuario
                     let id_usuario = usuario.id_usuario;
+                    vista.cambiar_clases('modal_login', lista_clases_modal_login);
                     mostrar_inv(id_usuario);
                 }
             } else {
@@ -750,9 +753,14 @@ function guardar_editar_producto(){
     }
 }
 
+/**
+ * Funcion para mostrar la pagina de abastecimiento del almacen
+ */
 function mostrar_abastecimiento(){
+    //Consulta a la DB para traer los productos del almacen
     producto.getProvision(idAlmacen, function(data){
         if(data.success){
+            //Cambio de pantalla
             if(tamañoPantalla.matches){
                 vista.mostrar_plantilla("abastecimiento", "contenedor_principal", 1);
             }
@@ -762,17 +770,12 @@ function mostrar_abastecimiento(){
         }else{
             vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
         }
+        cambio_clases();
+        pantalla = tamañoPantalla.matches
+        lista_productos = data.data
+        //Se llama el metodo de vista para mostrar la informacion de los productos
+        vista.informacion_tabla_abastecimiento(pantalla, lista_productos, "fila_abastecimientos");
     });
-}
-
-function mostrar_movimientos_vacia(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
-    }
-    else{
-        vista.mostrar_plantilla("movimientos_vacia_desktop", "contenedor_principal", 1);
-    }
 }
 
 // -------- PAGINA DE CATEGORIAS ---------- \\
@@ -915,6 +918,131 @@ function eliminar_catg_db(){
 
 //----------------- PAGINA DE MOVIMIENTOS -----------------\\
 
+function obtener_fecha(){
+    let fechaInicio = Date.now();
+    let fechaFin = Date.now();
+    fechaInicio = new Date(fechaInicio);
+    fechaFin = new Date(fechaFin);
+    fechaFin.setDate(fechaFin.getDate() + 1);
+    fechaInicio = String(fechaInicio.toISOString().slice(0,10));
+    fechaFin = String(fechaFin.toISOString().slice(0,10));
+    return {fecha_inicio:fechaInicio, fecha_fin: fechaFin};
+}
+
+function mostrar_movimientos_vacia(){
+    const informacion_movimientos = obtener_fecha();
+    informacion_movimientos.id_almacen=idAlmacen;
+    producto.getOperations(informacion_movimientos, function(data){  
+        if(data.success){
+            if(data.message == "No se encontraron movimientos"){
+                if(tamañoPantalla.matches){
+                    vista.mostrar_plantilla("movimientos_vacia", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
+                }
+                else{
+                    vista.mostrar_plantilla("movimientos_vacia_desktop", "contenedor_principal", 1);
+                }
+            }else{
+                if(tamañoPantalla.matches){
+                    vista.mostrar_plantilla("movimientos", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
+                }
+                else{
+                    vista.mostrar_plantilla("movimientos_desktop", "contenedor_principal", 1);
+                }
+                cambio_clases();
+                pantalla = tamañoPantalla.matches
+                lista_movimientos = data.data
+                vista.informacion_tabla_movimientos(pantalla, lista_movimientos, "fila_movimientos");
+            }
+        }
+    });
+}
+
+function mostrar_form_crear_entrada(){
+    
+    lista_productos_operaciones = [];
+
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("crear_entrada", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("crear_entrada_desktop", "contenedor_principal", 1);
+    }
+    cambio_clases();
+
+
+    let informacionInputAlmacen = lista_almacenes.find(x => x.id_almacen === idAlmacen);
+    let inputAlmacen = ['nombre_almacen']
+    vista.informacion_inputs_productos(informacionInputAlmacen, inputAlmacen);
+
+    // Se convierte el objeto en un array con llave valor
+    const productosObj = Object.fromEntries(
+        lista_productos.map((obj) => [obj.id_producto.toString(), obj.nombre_producto])
+    );
+    // Se llama metodo de vista para poblar select id_categoria
+    console.log(productosObj)
+    vista.insertar_opciones_select(productosObj, "id_producto", "id_producto", "nombre_producto")
+
+    document.getElementById('select_nombre_producto').addEventListener('change', function() {
+        const productoSeleccionado = parseInt(this.value);
+        const lista_inputs = ['referencia_producto'];
+
+        if (productoSeleccionado > 0) {
+            let inputsProducto = lista_productos.find(x => x.id_producto === productoSeleccionado);
+    
+            vista.informacion_inputs_productos  (inputsProducto, lista_inputs);
+        }else{
+            lista_inputs.forEach(input => {
+                vista.limpiar_inputs(input);
+            });
+        }
+    });
+}
+
+function agregar_producto_entrada(){
+    /*
+    Modificar el server para que haga mapeo de la lista de productos
+     */
+
+    producto_entrada = vista.getForm("form_crear_entrada");
+
+    let nombre_producto_entrada = lista_productos.find(x => x.id_producto == producto_entrada.id_producto);
+
+    let nombre_producto_valor = nombre_producto_entrada.nombre_producto
+    producto_entrada.nombre_producto = nombre_producto_valor;
+
+    if(producto_entrada.ok){
+        vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+
+        pantalla = tamañoPantalla.matches
+        vista.informacion_tabla_entradas(pantalla, producto_entrada, "tbody_productos_entradas")
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    }
+    cambio_clases();
+
+    let data = {
+        id_almacen: idAlmacen,
+        origen_entrada: producto_entrada.origen_entrada,
+        producto_entrada: lista_productos_operaciones
+    }
+
+    delete producto_entrada.ok;
+    delete producto_entrada.msj;
+    delete producto_entrada.nombre_producto;
+    delete producto_entrada.referencia_producto;
+    delete producto_entrada.id_rol;
+    delete producto_entrada.nombre_almacen
+    delete producto_entrada.origen_entrada;
+    delete producto_entrada[""]
+
+    //se hace push a la lista de productos
+    lista_productos_operaciones.push(producto_entrada);
+
+    console.log(data);
+
+}
 
 function mostrar_perfiles_vacia(){
     if(tamañoPantalla.matches){
@@ -960,14 +1088,7 @@ function mostrar_mov_del_producto(){
 
 // Funciones para cambiar plantillas desde la pantalla de Movimientos
 
-function mostrar_form_crear_entrada(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("crear_entrada", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("crear_entrada_desktop", "contenedor_principal", 1);
-    }
-}
+
 
 function mostrar_form_crear_salida(){
     if(tamañoPantalla.matches){
@@ -975,16 +1096,6 @@ function mostrar_form_crear_salida(){
     }
     else{
         vista.mostrar_plantilla("crear_salida_desktop", "contenedor_principal", 1);
-    }
-}
-
-function mostrar_movimientos(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("movimientos", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
-    }
-    else{
-        vista.mostrar_plantilla("movimientos_desktop", "contenedor_principal", 1);
     }
 }
 
@@ -1085,6 +1196,15 @@ function añadir_producto_entradas(){
 function mostrar_modal_confirmacion(evento_click){
     vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)    
     añadir_evento_click("btn_aceptar", evento_click)
+}
+
+function cerrar_modal_registro(){
+    vista.cambiar_clases('modal_registro', lista_clases_modal_registro);   
+}
+
+function cerrar_modal_login(){
+    vista.cambiar_clases('modal_login', lista_clases_modal_login);
+
 }
 
 function cerrar_modal_confirmacion(){

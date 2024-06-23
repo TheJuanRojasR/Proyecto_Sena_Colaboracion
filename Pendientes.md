@@ -38,41 +38,26 @@
 34. Funcion para que la barra lateral se esconda al cambiar de pantalla                              ✔
 35. JUAN: Centrar formulario crear inventario.                                                       ✔
 36. JUAN: Mover el boton de 3 puntos de la tarjeta de inventarios. Tiene que queda mas pegado a la parte superior derecha. 
-37. LAURA: Mover funcion del evento click al controlador, y añadirle eliminar el evento anterior
+37. LAURA: Mover funcion del evento click al controlador, y añadirle eliminar el evento anterior     ✔
 38. JUAN: Añadir flex al contendor de las tarjetas de inventarios
 39. JUAN Mover a la derecha los inputs de crear producto.
-40. Revisar evenlistener para mantener elementos clickeados, posibe cambio de templates
+40. LAURA: Revisar evenlistener para mantener elementos clickeados, posibe cambio de templates
 41. Revisar como poner registros en varias pantallas (productos paginacion)
 42. JUAN LAURA: Añadir a detalles del producto Categoria del producto
 43. Borrar Cambios de BD del viernes                                                                  ✔
 44. JUAN: Arreglar distribucion de botones en la pantalla de stock
+45. Mirar como indicar que no hay productos por abastecer en abastecimientos
+46. JUAN: Arreglar posicionamiento tabla entradas productos
 
-Cambiar Template para crear producto
-    Cambiar ordern a: Categorias, producto, referencia....
-    Cambiar a selects Producto
-    Permitir que si el select es 0 que pueda escribir el nuevo producto
-    Verificar que funcione el cliente hasta productos
-
-Hacer productos
-            acceder a detalles del producto
-                editar productos
-
-
-
-Hacer categorias
-    Mostrar categorias
-        Si no tiene categorias mostrar categorias vacia.
-    Crear categoria
-        Tiene que ingresar datos validos.
-        El nombre de la categoria no puede estar repetido.
-        Se tiene que volver a llamar al template de mostrar categorias ya actualizado.
-    Editar categoria
-        Al editar categorias tiene que editar la categoria actual
-    Eliminar categoria
-        si elimina la categoria no tiene que mostrarse de nuevo en ese almacen.
+    Se guarda el producto, como registro en una tabla
+    Verificar que la informacion este correcta en los inputs
+    Leer la informacion de la tabla
+    Enviar la informacion de la tabla al server
+    Recorrer la lista en el server
 
 # Mejoras
 1. Tener un solo modal
 2. Pantalla recordar contraseña
 3. Check Terminos y condiciones
 4. Hacer todas las pantallas responsive, sin necesidad de tener multiples templates
+
