@@ -17,6 +17,7 @@ class Usuario extends Connect{
         this.numero_documento = data.numero_documento;
         this.correo_eletronico = data.correo_eletronico;
         this.contraseña = data.contraseña;
+        this.id_jefe = data.id_jefe;
         this.estado_usuario = data.estado_usuario;
     }
 
@@ -33,10 +34,16 @@ class Usuario extends Connect{
     }
 
     //Metodo para obtener los tipos de documentos
-    getAllDocumentos(getAllDocumentosCallback){
+    getAllDocuments(getAllDocumentosCallback){
         const endpoint = 'usuarios';
         const method = 'GET';
         this.connect({}, endpoint, method, getAllDocumentosCallback);
+    }
+
+    getAllRoles(getAllRolesCallback){
+        const endpoint = 'usuarios/roles';
+        const method = 'GET';
+        this.connect({}, endpoint, method, getAllRolesCallback);
     }
 
     // Metodo para registrar un usuario
@@ -54,14 +61,14 @@ class Usuario extends Connect{
     }
 
     // Metodo para registrar los perfiles
-    registerPerfil( dataRequest, registerPerfilCallback ){
+    registerProfile( dataRequest, registerPerfilCallback ){
         const endpoint = 'usuarios/perfiles/registro';
         const method = 'POST';
         this.connect( dataRequest, endpoint, method, registerPerfilCallback );
     }
 
-    getAllPerfil(getAllPerfilCallback ){
-        const endpoint = 'usuarios/perfiles';
+    getAllProfile(id_administrador,getAllPerfilCallback ){
+        const endpoint = `usuarios/perfiles?id_jefe=${id_administrador}`;
         const method = 'GET';
         this.connect( {}, endpoint, method, getAllPerfilCallback );
     }
@@ -93,4 +100,6 @@ class Usuario extends Connect{
         const method = 'PUT';
         this.connect( dataRequest, endpoint, method, updateUsuarioCallback );
     }
+
+
 }

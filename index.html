@@ -35,7 +35,19 @@
 
 <body class=" overflow-y-scroll d-flex flex-column justify-content-between">
     <!-- Barra superior -->
-    <nav class="navbar fixed-top nav_sup" id="navegador_sup"></nav>
+    <nav class="navbar fixed-top nav_sup" id="navegador_sup">
+        <div class="container-fluid d-flex justify-content-between nav_color_morado">
+            <a class="navbar-brand" href="#">
+                <img src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
+            </a>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="btn_lateral">
+                <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                    <img src="./Assets/img/user.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </nav>
 
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
@@ -1045,53 +1057,7 @@
                 <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                     <p class="title_small">Movimientos del Producto</p>
                 </div>
-                <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                    <!-- Contenido para menus dropdown -->
-                    <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                        <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="color_lateral" id="lateral_oscuro"></div>
-                            Referencia xxxxxx
-                        </button>
-                        <ul class="dropdown-menu informacion_dropdown_contenido">
-                            <!-- Lista de infomacion desplegable en el dropdown -->
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Fecha y Hora</p>
-                            </li>
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Origen</p>
-                            </li>
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Destino</p>
-                            </li>
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Cantidad</p>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                        <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="color_lateral" id="lateral_oscuro"></div>
-                            Referencia xxxxxx
-                        </button>
-                        <ul class="dropdown-menu informacion_dropdown_contenido">
-                            <!-- Lista de infomacion desplegable en el dropdown -->
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Fecha y Hora</p>
-                            </li>
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Origen</p>
-                            </li>
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Destino</p>
-                            </li>
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Cantidad</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_movimientos_producto"><!-- Contenido para menus dropdown --></div>
             </div>
         </div>
     </template>
@@ -1262,27 +1228,7 @@
                 <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                     <p class="title_small">Perfiles</p>
                 </div>
-                <div class="d-flex flex-column justify-content-center contenedor_dropdown">
-                    <!-- Contenido para menus dropdown -->
-                    <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                        <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
-                            Perfil 1
-                        </button>
-                        <ul class="dropdown-menu informacion_dropdown_contenido">
-                            <!-- Lista de infomacion desplegable en el dropdown -->
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Nombre Usuario</p>
-                            </li>
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Rol</p>
-                            </li>
-                            <li class="d-flex accion_dropdown align-items-center justify-content-center"><a href="#"
-                                    onclick="mostrar_editar_perfiles()">Editar Perfil</a></li>
-                        </ul>
-                    </div>
-                </div>
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_perfiles"><!-- Contenido para menus dropdown --></div>
                 <div class="menu_circular" id="contenedor_boton_circular"> <!-- Boton circular con una opcion -->
     
                 </div>
@@ -1685,7 +1631,7 @@
             <a class="navbar-brand" href="#">
                 <img src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
             </a>
-            <div class="collapse navbar-collapse d-flex justify-content-end">
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="btn_lateral">
                 <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
                     <img src="./Assets/img/user.svg" alt="">
@@ -1696,12 +1642,12 @@
 
     <!-- Navegador superior -->
     <template id="nav_sup_desktop"> 
-        <div class="container-fluid nav_color_morado">
+        <div class="container-fluid d-flex flex-nowrap nav_color_morado">
             <a class="navbar-brand" href="#">
                 <img src="./Assets/img/logo_empresa_sin_fondo_blanco.svg" alt="Logo Empresa" />
             </a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <div class="collapse navbar-collapse" id="opt_nav_sup">
+                <ul class="navbar-nav d-flex flex-row gap-3 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link color_blanco_nav" aria-current="page" href="#" onclick="mostrar_inv_nav()">Inventarios</a>
                     </li>
@@ -1713,7 +1659,7 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#" onclick="mostrar_movimientos_vacia()">Entradas/Salidas</a></li>
                             <li><a class="dropdown-item" href="#" onclick="mostrar_form_crear_entrada()">Entradas</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="mostrar_form_crear_salida()">Salidas</a></li>
+                            <li><a class="dropdown-item" href="#" onclick="mostar_form_crear_salida()">Salidas</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -1731,7 +1677,7 @@
                         <a class="nav-link color_blanco_nav" href="#" onclick="mostrar_seleccionar_informe()">Informes</a>
                     </li>
                     <li class="nav-item color_blanco_nav">
-                        <a class="nav-link color_blanco_nav" href="#" onclick="mostrar_perfiles_vacia()">Perfiles</a>
+                        <a class="nav-link color_blanco_nav" href="#" onclick="mostrar_perfiles()">Perfiles</a>
                     </li>
                 </ul>
                 <button class="btn btn-outline-secondary ms-2 border-0 " type="button" data-bs-toggle="offcanvas"
@@ -1876,7 +1822,7 @@
         <hr />
         <div class="container d-flex justify-content-center">
             <div class="container col-lg-4 registro-inventario">
-                <form id="form_crear_inventario_desktop">
+                <form id="form_crear_inventario">
                     <div class="form-floating mb-2">
                         <input type="text" class="form-control" id="floatingInputValue" placeholder="nombre-almacen"
                             name="nombre_almacen"/>
@@ -2067,7 +2013,7 @@
                     <tbody>
                         <tr>
                             <td>
-                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="agregar_producto_entrada()">
+                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla"  id="btn_agregar_producto" onclick="agregar_producto_entrada()">
                                     <img src="./Assets/img/logo_suma.svg" alt="" />
                                 </button>
                             </td>
@@ -2095,7 +2041,7 @@
                                     placeholder="" name="precio_compra" />
                             </td>
                             <td>
-                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_movimientos()">
+                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" id="btn_crear_entrada" onclick="crear_entrada()">
                                     <img src="./Assets/img/guardar.svg" alt="" />
                                 </button>
                             </td>
@@ -2150,81 +2096,103 @@
         </div>
         <hr />
         <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Origen</span>
-                            </button>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Destino</span>
-                            </button>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Referencia</span>
-                            </button>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Producto</span>
-                            </button>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                                <span class="ml-2 btn-tabla-icono">Cantidad</span>
-                            </button>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <button class="btn btn-tabla-icono btnGuardar-tabla">
-                                <img src="./Assets/img/logo_suma.svg" alt="" />
-                            </button>
-                        </td>
-                        <form action="" id="form_crear_salida_desktop">
-                            <th scope="row">
-                                <input type="text" class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="" name="nombre_almacen" disabled/>
+            <form action="" id="form_crear_salida">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col" class="">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Origen</span>
+                                </button>
                             </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Destino</span>
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Producto</span>
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Referencia</span>
+                                </button>
+                            </th>
+                            <th scope="col">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                    <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                                </button>
+                            </th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">
+                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="agregar_producto_salida()">
+                                    <img src="./Assets/img/logo_suma.svg" alt="" />
+                                </button>
+                            </th>
+                            <td>
+                                <input type="text" class="form-control disabled"
+                                    aria-label="Text input with dropdown button" name="nombre_almacen" id="nombre_almacen"/>
+                            </td>
                             <td>
                                 <input type="text" class="form-control disabled"
                                     aria-label="Text input with dropdown button" placeholder="" name="destino_salida"/>
                             </td>
                             <td>
-                                <select class="form-select" name="referencia_producto">
-                                    <option selected value="">Referencia</option>
+                                <select class="form-select" name="id_producto" id="select_nombre_producto">
+                                    <option selected value="">Seleccionar Producto</option>
                                 </select>
                             </td>
                             <td>
-                                <select class="form-select" name="nombre_producto">
-                                    <option selected value="">Producto</option>
-                                </select>
+                                <input type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="" name="referencia_producto" id="referencia_producto"/>
                             </td>
                             <td>
                                 <input type="number" class="form-control" aria-label="Text input with dropdown button"
                                     placeholder="" name="cantidad_salida"/>
                             </td>
-                        </form>
-                        <td>
-                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_movimientos()">
-                                <img src="./Assets/img/guardar.svg" alt="" />
-                            </button>
-                        </td>
+                            <td>
+                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="crear_salida()">
+                                    <img src="./Assets/img/guardar.svg" alt="" />
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col" class="">
+                            <span class="ml-2 btn-tabla-icono">Origen</span>                        
+                        </th>
+                        <th scope="col">
+                            <span class="ml-2 btn-tabla-icono">Destino</span>
+                        </th>
+                        <th scope="col">
+                            <span class="ml-2 btn-tabla-icono">Producto</span>
+                        </th>
+                        <th scope="col">
+                            <span class="ml-2 btn-tabla-icono">Referencia</span>
+                        </th>
+                        <th scope="col">
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
+                        </th>
+                        <th scope="col"></th>
                     </tr>
-                </tbody>
+                </thead>
+                <tbody id="tbody_productos_salidas"></tbody>
             </table>
         </div>
     </template>
@@ -2897,35 +2865,11 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="./Assets/img/flechas_filtrar.svg" alt="" />
                             </button>
-                            <span class="ml-2 btn-tabla-icono">Destino</span>
-                        </th>
-                        <th scope="col">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 btn-tabla-icono">Cantidad Disponible</span>
+                            <span class="ml-2 btn-tabla-icono">Cantidad</span>
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row" class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ref 0001</p>
-                        </th>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">05/03/2024</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ubicación A</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ubicación B</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">10</p>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="fila_movimientos_producto"></tbody>
             </table>
             <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
                 <ul class="pagination">
@@ -3107,40 +3051,43 @@
         <div class="container container_min_height d-flex justify-content-center">
             <section class="d-flex flex-column registro-perfil">
                 <h1 class="text-center mb-2">Crear Perfil</h1>
-                <form action="" id="form_crear_perfil_desktop">
+                <form action="" id="form_crear_perfil">
                     <div class="form-floating mb-2">
-                        <input type="text" class="form-control form-select_modificado" id="floatingInputValue"
+                        <input type="text" class="form-control form-select_modificado"
                             placeholder="" name="nombre_usuario"/>
                         <label for="floatingInputValue">Nombre Completo</label>
                     </div>
                     <select class="form-select form-select_modificado mb-2" aria-label="Default select example" name="tipo_documento">
                         <option selected>Tipo de Documento</option>
-                        <option value="1">Cedula de Ciudadania</option>
-                        <option value="2">Cedula de Extranjeria</option>
-                        <option value="3">Rut</option>
                     </select>
                     <div class="form-floating mb-2">
-                        <input type="number" class="form-control form-select_modificado" id="floatingInputValue"
+                        <input type="number" class="form-control form-select_modificado"
                             placeholder="" name="numero_documento"/>
                         <label for="floatingInputValue">Numero de Documento</label>
                     </div>
+                    <select id="select_roles" class="form-select form-select_modificado mb-2" aria-label="Default select example" name="id_rol">
+                        <option selected>Rol</option>
+                    </select>
+                    <select hidden id="select_almacenes" class="form-select form-select_modificado mb-2" aria-label="Default select example" name="id_almacen">
+                        <option selected>Selecione Almacen</option>
+                    </select>
                     <div class="form-floating mb-2">
-                        <input type="email" class="form-control form-select_modificado" id="floatingInputValue"
+                        <input type="email" class="form-control form-select_modificado"
                             placeholder="" name="correo_electronico"/>
                         <label for="floatingInputValue">Correo Electronico</label>
                     </div>
                     <div class="form-floating mb-2">
-                        <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
+                        <input type="password" class="form-control form-select_modificado"
                             placeholder="" name="contraseña"/>
                         <label for="floatingInputValue">Contraseña</label>
                     </div>
                     <div class="form-floating mb-2">
-                        <input type="password" class="form-control form-select_modificado" id="floatingInputValue"
+                        <input type="password" class="form-control form-select_modificado"
                             placeholder="" name="contraseña"/>
                         <label for="floatingInputValue">Repetir Contraseña</label>
                     </div>
                 </form>
-                <button class="btn btn-general" onclick="mostrar_perfiles()">Crear</button>
+                <button class="btn btn-general" onclick="crear_perfil()">Crear</button>
             </section>
         </div>
     </template>
@@ -3174,43 +3121,18 @@
                             <button class="btn btn-tabla-icono">
                                 <img src="./Assets/img/flechas_filtrar.svg" alt="" />
                             </button>
+                            <span class="ml-2 btn-tabla-icono">Correo</span>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-tabla-icono">
+                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                            </button>
                             <span class="ml-2 btn-tabla-icono">Rol</span>
                         </th>
                         <th scope="col"></th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Pepito Perez</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Administrador</p>
-                        </td>
-                        <td class="text-end">
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
-                                    <img src="./Assets/img/menu_horizontal.svg" alt="" />
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="d-grid gap-2">
-                                        <button class="btn d-flex align-items-center">
-                                            <img src="./Assets/img/lapiz_editar.svg" alt="" />
-                                            <p>Editar</p>
-                                        </button>
-                                    </li>
-                                    <li class="d-grid gap-2">
-                                        <button class="btn  d-flex align-items-center">
-                                            <img src="./Assets/img/eliminar.svg" alt="" />
-                                            <p>Eliminar</p>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="fila_perfiles"></tbody>
             </table>
         </div>
     </template>

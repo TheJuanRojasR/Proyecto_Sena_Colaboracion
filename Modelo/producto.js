@@ -86,10 +86,10 @@ class Producto extends Connect{
     }
 
     //Metodo para mostrar los movimientos de un producto
-    getTransactions(dataRequest, getTransactionsCallback){
-        const endpoint = "productos/movimientos"
+    getTransactions(producto, getTransactionsCallback){
+        const endpoint = `productos/movimientos?id_producto=${producto.id_producto}&id_almacen=${producto.id_almacen}`
         const method = "GET"
-        this.connect(dataRequest, endpoint, method, getTransactionsCallback);
+        this.connect({}, endpoint, method, getTransactionsCallback);
     }
 
     //Metodo para mostrar abastecimiento
@@ -139,15 +139,15 @@ class Producto extends Connect{
     }
 
     //Metodo para crear una entrada
-    createEntrada(dataRequest, createEntradaCallback){
-        const endpoint = "productos/entradas"
+    createEntry(dataRequest, createEntradaCallback){
+        const endpoint = "entradas"
         const method = "POST"
         this.connect(dataRequest, endpoint, method, createEntradaCallback);
     }
 
     //Metodo para crear una salida
-    createSalida(dataRequest, createSalidaCallback){
-        const endpoint = "productos/salidas"
+    createExit(dataRequest, createSalidaCallback){
+        const endpoint = "salidas"
         const method = "POST"
         this.connect(dataRequest, endpoint, method, createSalidaCallback);
     }
