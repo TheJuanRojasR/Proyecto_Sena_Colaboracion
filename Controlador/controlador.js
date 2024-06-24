@@ -1484,6 +1484,36 @@ function editar_perfiles(btnEditar){
     // Se convierte a INT el valor del atributo data-detalles que trae btnDetallesProducto y se almacena en variable global
     idPerfil = parseInt(btnEditar.getAttribute("data-editar"));
 
+    usuario.getUser(idPerfil, function(data){
+        if(data.success){
+            if(tamañoPantalla.matches){
+                vista.mostrar_plantilla("editar_perfiles", "contenedor_principal", 1);
+            }
+            else{
+                vista.mostrar_plantilla("editar_perfiles_desktop", "contenedor_principal", 1);
+            }
+            cambio_clases();
+            pantalla = tamañoPantalla.matches;
+            perfil = data.data;
+            vista.informacion_editar_perfil(pantalla, perfil, "fila_editar_perfil")
+            usuario.getAllRoles(function (data) {
+                if(data.success){
+                    perfil_actual = perfil[0].nombre_rol
+                    lista_opciones = []
+                    lista_opciones = data.data
+                    const rolesObj = Object.fromEntries(
+                        lista_opciones.filter(obj => obj.nombre_rol != perfil_actual).map((obj) => [obj.id_rol.toString(), obj.nombre_rol])
+                    );
+                    console.log(rolesObj)
+                    vista.insertar_opciones_select(rolesObj, "id_rol", "id_rol", "nombre_rol")
+                }
+            });
+        }else{
+            vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
+        }
+
+    });
+
 }
 
 function mostrar_editar_perfiles(){

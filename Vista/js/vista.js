@@ -1233,6 +1233,12 @@ class Vista {
     });
   }
 
+  /**
+   * Metodo para mostrar la informacion de los perfiles actuales en la vista
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} lista_perfiles: lista de perfiles a mostrar
+   * @param {*} id_contenedor: contenedor donde se inserta la informacion
+   */
   informacion_tabla_perfiles(tamaño, lista_perfiles, id_contenedor){
     let cont = document.getElementById(id_contenedor);
     lista_perfiles.forEach((perfil) => {
@@ -1253,7 +1259,7 @@ class Vista {
                         <p type="text" name="" class="elementos_listas">Rol: ${perfil.nombre_rol}</p>
                     </li>
                     <li class="d-flex accion_dropdown align-items-center justify-content-center">
-                    <a href="#" onclick="mostrar_editar_perfiles()">Editar  Perfil</a>
+                    <a href="#" onclick="editar_perfiles(this)" data-editar=${perfil.id_usuario}>Editar  Perfil</a>
                     </li>
                 </ul>
             </div>
@@ -1298,5 +1304,60 @@ class Vista {
             cont.innerHTML += html;
         }
     });
+  }
+
+  informacion_editar_perfil(tamaño, perfil, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    if(tamaño == true){
+        const html = `
+        <div class="d-flex flex-column dropdown"> <!-- Texto del dropdown e informacion dentro -->
+            <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="color_lateral" id="lateral_oscuro"></div>
+                ${perfil[0].nombre_usuario}
+            </button>
+            <ul class="dropdown-menu informacion_dropdown_contenido">
+                <!-- Lista de infomacion desplegable en el dropdown -->
+                <li class="d-flex align-items-center texto_dropdown">
+                    <p type="text" name="" class="elementos_listas">Nombre Usuario</p>
+                </li>
+                <li class="d-flex align-items-center texto_dropdown">
+                    <p type="text" name="" class="elementos_listas">Rol</p>
+                </li>
+                <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                    <a href="#" onclick="mostrar_editar_perfiles()">Editar Perfil</a>
+                </li>
+            </ul>
+            <form class="contenedor_campos_edicion" id="form_editar_perfil"> <!-- Contenedor de campos para editar perfil -->
+                <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Usuario" name="nombre_usuario">
+                <select type="text" class="select_edicion" name="id_rol"> <!-- Select para seleccionar el rol del usuario -->
+                    <!-- Opciones del select -->
+                    <option selected class="opciones">${perfil[0].nombre_rol}</option>
+                </select>
+            </form>
+        </div>
+        `
+        cont.innerHTML += html;
+    }else{
+        const html = `
+        <tr>
+            <th scope="row" class="td-body-tabla">
+                <input id="input_modificado" class="form-control form-select_modificado" type="text"
+                    class="form-control" aria-label="Text input with dropdown button"
+                    placeholder="${perfil[0].nombre_usuario}" name="nombre_usuario"/>
+            </th>
+            <td scope="row" class="td-body-tabla">
+                <select class="form-select form-select_modificado" aria-label="Default select example" name="id_rol">
+                    <option selected>${perfil[0].nombre_rol}</option>
+                </select>
+            </td> 
+            <td class="text-end align-middle">
+                <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_perfiles()">
+                    <img src="./Assets/img/guardar.svg" alt="" />
+                </button>
+            </td>
+        </tr>
+        `
+        cont.innerHTML += html;
+    }
   }
 }

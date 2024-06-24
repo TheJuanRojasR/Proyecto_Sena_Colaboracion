@@ -95,8 +95,8 @@ class Usuario extends Connect{
     }
 
     // Metodo para mostrar la informacion del usuario
-    getUsuario(getUsuarioCallback ){
-        const endpoint = 'usuarios/ajustes';
+    getUser(usuario, getUsuarioCallback ){
+        const endpoint = `usuarios/ajustes?id_usuario=${usuario}`;
         const method = 'GET';
         this.connect( {}, endpoint, method, getUsuarioCallback );
     }

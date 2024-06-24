@@ -314,7 +314,7 @@
                         <p class="text_nav_inf">Stock</p>
                     </li>
                     <li class="nav-item" id="perfiles">
-                        <button class="btn" type="button" onclick="mostrar_perfiles_vacia()">
+                        <button class="btn" type="button" onclick="mostrar_perfiles()">
                             <img src="./Assets/img/user.svg" alt="">
                         </button>
                         <p class="text_nav_inf">Perfiles</p>
@@ -1244,35 +1244,8 @@
                 <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                     <p class="title_small">Perfiles</p>
                 </div>
-                <div class="d-flex flex-column justify-content-center contenedor_dropdown">
+                <div class="d-flex flex-column justify-content-center contenedor_dropdown" id="fila_editar_perfil">
                     <!-- Contenido para menu dropdown -->
-                    <div class="d-flex flex-column dropdown"> <!-- Texto del dropdown e informacion dentro -->
-                        <button disabled class="d-flex justify-content-between align-items-center boton_informacion_dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="color_lateral" id="lateral_oscuro"></div>
-                            Perfil 1
-                        </button>
-                        <ul class="dropdown-menu informacion_dropdown_contenido">
-                            <!-- Lista de infomacion desplegable en el dropdown -->
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Nombre Usuario</p>
-                            </li>
-                            <li class="d-flex align-items-center texto_dropdown">
-                                <p type="text" name="" class="elementos_listas">Rol</p>
-                            </li>
-                            <li class="d-flex accion_dropdown align-items-center justify-content-center">
-                                <a href="#" onclick="mostrar_editar_perfiles()">Editar Perfil</a>
-                            </li>
-                        </ul>
-                        <form class="contenedor_campos_edicion" id="form_editar_perfil"> <!-- Contenedor de campos para editar perfil -->
-                            <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Usuario" name="nombre_usuario">
-                            <select type="text" class="select_edicion" name="nombre_rol"> <!-- Select para seleccionar el rol del usuario -->
-                                <!-- Opciones del select -->
-                                <option selected class="opciones">Rol</option>
-                                <option class="opciones">Rol 1</option>
-                                <option class="opciones">Rol 2</option>
-                            </select>
-                        </form>
-                    </div>
                 </div>
                 <div class="container d-flex justify-content-end contenedor_boton"> <!-- Boton para guardar los cambios -->
                     <button class="btn boton_oscuro_corto" type="button" onclick="mostrar_perfiles()">
@@ -3107,46 +3080,28 @@
         </div>
         <hr />
         <div class="container">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 ">Nombre Perfil</span>
-                        </th>
-                        <th scope="col" class="">
-                            <button class="btn btn-tabla-icono">
-                                <img src="./Assets/img/flechas_filtrar.svg" alt="" />
-                            </button>
-                            <span class="ml-2 ">Rol</span>
-                        </th>
-                        <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <form id="form_editar_perfiles_desktop">
-                            <th scope="row" class="td-body-tabla">
-                                <input id="input_modificado" class="form-control form-select_modificado" type="text"
-                                    class="form-control" aria-label="Text input with dropdown button"
-                                    placeholder="Nuevo nombre de Perfil" name="nombre_usuario"/>
+            <form id="form_editar_perfiles_desktop">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 ">Nombre Perfil</span>
                             </th>
-                            <th scope="row" class="td-body-tabla">
-                                <select class="form-select form-select_modificado" aria-label="Default select example" name="id_rol">
-                                    <option selected>Escoger Tipo de Rol</option>
-                                </select>
+                            <th scope="col" class="">
+                                <button class="btn btn-tabla-icono">
+                                    <img src="./Assets/img/flechas_filtrar.svg" alt="" />
+                                </button>
+                                <span class="ml-2 ">Rol</span>
                             </th>
-                        </form> 
-                        <td class="text-end align-middle">
-                            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_perfiles()">
-                                <img src="./Assets/img/guardar.svg" alt="" />
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="fila_editar_perfil"></tbody>
+                </table>
+            </form>
         </div>
     </template>
 
