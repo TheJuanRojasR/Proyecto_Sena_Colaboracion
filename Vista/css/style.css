@@ -529,19 +529,23 @@ a.page-link:hover {
 
 .form-select_modificado {
     width: 325px;
-    height: 48px;
-    color: #666;
+    height: 57px;
     font-family: Inter;
     font-size: 13px;
     font-weight: 300;
     line-height: 18px;
 }
 
+.form-select_modificado option {
+    color: #000000; /* Color de las opciones */
+    font-size: 0.95rem;
+}
+
 /* Estilos para vista de Perfiles/Crear Perfil */
 
 .registro-perfil {
     width: 374px;
-    height: 535px;
+    height: 100%;
     background-color: white;
     padding: 1rem 1.5rem;
     border-radius: 16px;

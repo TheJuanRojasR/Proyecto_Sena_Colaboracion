@@ -2390,9 +2390,11 @@
                     </tbody>
                 </table>
             </form>
-            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="asignar_producto()">
-                <img src="./Assets/img/guardar.svg" alt="" />
-            </button>
+            <div class="d-flex justify-content-end me-4">
+                <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="asignar_producto()">
+                    <img src="./Assets/img/guardar.svg" alt="" />
+                </button>
+            </div>
         </div>
     </template>
 
@@ -2489,9 +2491,11 @@
                         </tbody>
                 </table>
             </form>
-            <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="crear_producto()">
-                <img src="./Assets/img/guardar.svg" alt="" />
-            </button>
+            <div class="d-flex justify-content-end me-4">
+                <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="crear_producto()">
+                    <img src="./Assets/img/guardar.svg" alt="" />
+                </button>
+            </div>
         </div>
     </template>
 
@@ -2508,7 +2512,7 @@
                 </button>
             </div>
             <button class="btn btn-general ms-auto" onclick="mostrar_form_crear_nuevo_producto()">Crear Producto</button>
-            <button class="btn btn-general ms-auto" onclick="mostar_form_asignar_producto()">Asignar Producto a Almacen</button>
+            <button class="btn btn-general ms-1" onclick="mostar_form_asignar_producto()">Asignar Producto</button>
         </div>
         <hr />
         <div class="container">
@@ -2544,21 +2548,6 @@
                 </thead>
                 <tbody id="fila_productos"></tbody>
             </table>
-            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <img src="./Assets/img/logo_flecha_izq.svg" alt="" />
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <img src="./Assets/img/logo_flecha_der.svg" alt="" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </template>
 
@@ -2750,21 +2739,6 @@
                 </thead>
                 <tbody id="fila_abastecimientos"></tbody>
             </table>
-            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <img src="./Assets/img/logo_flecha_izq.svg" alt="" />
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <img src="./Assets/img/logo_flecha_der.svg" alt="" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </template>
 
@@ -2872,21 +2846,6 @@
                 </thead>
                 <tbody id="fila_movimientos_producto"></tbody>
             </table>
-            <div aria-label="Page navigation example" class="position-absolute bottom-0 start-50 translate-middle-x">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <img src="./Assets/img/logo_flecha_izq.svg" alt="" />
-                        </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item">
-                        <a class="page-link" href="#">
-                            <img src="./Assets/img/logo_flecha_der.svg" alt="" />
-                        </a>
-                    </li>
-                </ul>
-            </div>
         </div>
     </template>
 
@@ -3051,7 +3010,7 @@
         <hr />
         <div class="container container_min_height d-flex justify-content-center">
             <section class="d-flex flex-column registro-perfil">
-                <h1 class="text-center mb-2">Crear Perfil</h1>
+                <h1 class="text-center m-0 p-0">Crear Perfil</h1>
                 <form action="" id="form_crear_perfil">
                     <div class="form-floating mb-2">
                         <input type="text" class="form-control form-select_modificado"

@@ -402,7 +402,8 @@ class Vista {
           cont.innerHTML += html;
         }else{
           const html = `
-          <div class="container inventario flex-wrap col-lg-3">
+          <div class="container inventario flex-wrap col-lg-3 d-flex justify-content-between flex-column">
+           <div>
                   <div class="d-flex justify-content-between">
                       <h3 class="inventario__title" id="nombre_inventario">${almacen.nombre_almacen}</h3>
                       <div class="btn-group" role="group">
@@ -428,6 +429,7 @@ class Vista {
                   </div>
                   <p class="inventario__paragraph" id="direccion_inventario">${almacen.direccion_almacen}</p>
                   <p class="inventario__paragraph" id="descripcion_inventario">${almacen.descripcion_almacen}</p>
+                </div>
                   <div class="d-grid gap-2">
                       <button class="btn btn-general" type="button" onclick="ingresar_inventario(this)" data-ingresar="${almacen.id_almacen}">
                           Ver Inventario
