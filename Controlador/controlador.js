@@ -7,7 +7,9 @@ let lista_categorias = [] //Lista donde se guardan las categorias existentes
 let lista_productos = []; //Lista donde se guardan los productos existentes
 let lista_almacenes = []; //Lista donde se guardan los almacenes existentes
 let lista_movimientos = []; //Lista donde se guardan los movimientos de un producto/almacen
-let lista_productos_operaciones = []; //Lista donde se guardan los productos de entrada
+let lista_productos_operaciones = []; //Lista donde se guardan los productos de la operacion
+let infomacion_entrada = null; //Variable para guardar la informacion de una entrada
+let infomacion_salida = null; //Variable para guardar la informacion de una salida
 let idAlmacen = null; //Varialbe para guardar el id del almacen
 let idProducto = null; //Variable para guardar el id del producto
 let idCategoria = null; //Variable para guardar el id de la categoria
@@ -125,17 +127,17 @@ function mostrar_form_registro_usuario(){
     cambio_clases();
 
     //Consultar categorias de los productos 
-    usuario.getAllDocumentos(function (data) {
+    usuario.getAllDocuments(function (data) {
         if(data.success) {
             lista_opciones = []
             lista_opciones = data.data
             // Se convierte el objeto en un array con llave valor
-            const categoriasObj = Object.fromEntries(
+            const documentosObj = Object.fromEntries(
                 lista_opciones.map((obj) => [obj.id_tipo_documento.toString(), obj.tipo_documento])
                 );
-                console.log(categoriasObj)
-            // Se llama metodo de vista para poblar select id_categoria
-            vista.insertar_opciones_select(categoriasObj, "tipo_documento", "id_tipo_documento", "tipo_documento")
+                console.log(documentosObj)
+            // Se llama metodo de vista para poblar select tipo_documento
+            vista.insertar_opciones_select(documentosObj, "tipo_documento", "id_tipo_documento", "tipo_documento")
         }
     });
 }
@@ -218,7 +220,7 @@ function log_in(){
                     mostrar_inv(id_usuario);
                 }
             } else {
-                vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
+                vista.cambiar_clases("modal_error",lista_clases_modal_error_show)
             }
         });
     }else{
@@ -288,7 +290,7 @@ function mostrar_inv(id_usuario){
                 vista.informacion_tarjeta_inventario(pantalla, lista_almacenes, "contenedor_tarjetas");
             }
         }else{
-            vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
+            vista.cambiar_clases("modal_error",lista_clases_modal_error_show)
         }
     });
 }
@@ -310,7 +312,7 @@ function mostrar_form_crear_inv(){
  */
 function crear_inv(){
     //Verificacion del form
-    data = vista.getForm("form_crear_inventario_desktop")
+    data = vista.getForm("form_crear_inventario")
     //Consulta a la DB para insertar informacion en almacenes
     if(data.ok){
         almacen.create(data, function(data){
@@ -583,7 +585,7 @@ function mostar_form_asignar_producto(){
         if (productoSeleccionado > 0) {
             let inputsProducto = lista_productos.find(x => x.id_producto === productoSeleccionado);
     
-            vista.informacion_inputs_productos  (inputsProducto, lista_inputs);
+            vista.informacion_inputs  (inputsProducto, lista_inputs);
         }else{
             lista_inputs.forEach(input => {
                 vista.limpiar_inputs(input);
@@ -753,6 +755,31 @@ function guardar_editar_producto(){
     }
 }
 
+function mostrar_mov_del_producto(){
+
+    const movimientos_producto = {id_producto:idProducto, id_almacen:idAlmacen}
+
+    //Consulta a la DB para traer los movimientos de un producto
+    producto.getTransactions(movimientos_producto, function(data){
+        console.log(data)
+        if(data.success){
+            
+            if(tamañoPantalla.matches){
+                vista.mostrar_plantilla("movimientos_del_producto", "contenedor_principal", 1);
+            }
+            else{
+                vista.mostrar_plantilla("movimientos_del_producto_desktop", "contenedor_principal", 1);
+            }
+            cambio_clases();
+            pantalla = tamañoPantalla.matches;
+            lista_movimientos = data.data;
+            //Se llama el metodo de vista para mostrar la informacion de los movimientos
+            vista.informacion_tabla_movimientos_producto(pantalla, lista_movimientos, "fila_movimientos_producto");
+        }
+    })
+
+}
+
 /**
  * Funcion para mostrar la pagina de abastecimiento del almacen
  */
@@ -768,7 +795,7 @@ function mostrar_abastecimiento(){
                 vista.mostrar_plantilla("abastecimiento_desktop", "contenedor_principal", 1);
             }
         }else{
-            vista.mostrarMensaje(false, 'Error al realizar la consulta en la base de datos');
+            vista.cambiar_clases("modal_error",lista_clases_modal_error_show)
         }
         cambio_clases();
         pantalla = tamañoPantalla.matches
@@ -971,19 +998,20 @@ function mostrar_form_crear_entrada(){
     }
     cambio_clases();
 
-
+    //Se busca el nombre del almacen y se inserta en el input
     let informacionInputAlmacen = lista_almacenes.find(x => x.id_almacen === idAlmacen);
     let inputAlmacen = ['nombre_almacen']
-    vista.informacion_inputs_productos(informacionInputAlmacen, inputAlmacen);
+    vista.informacion_inputs(informacionInputAlmacen, inputAlmacen);
 
     // Se convierte el objeto en un array con llave valor
     const productosObj = Object.fromEntries(
         lista_productos.map((obj) => [obj.id_producto.toString(), obj.nombre_producto])
     );
-    // Se llama metodo de vista para poblar select id_categoria
-    console.log(productosObj)
+
+    // Se llama metodo de vista para poblar select select_nombre_producto
     vista.insertar_opciones_select(productosObj, "id_producto", "id_producto", "nombre_producto")
 
+    //Se escucha el cambio de opcion en el select y se agrega la referecia del producto segun lo seleccionado
     document.getElementById('select_nombre_producto').addEventListener('change', function() {
         const productoSeleccionado = parseInt(this.value);
         const lista_inputs = ['referencia_producto'];
@@ -991,7 +1019,7 @@ function mostrar_form_crear_entrada(){
         if (productoSeleccionado > 0) {
             let inputsProducto = lista_productos.find(x => x.id_producto === productoSeleccionado);
     
-            vista.informacion_inputs_productos  (inputsProducto, lista_inputs);
+            vista.informacion_inputs  (inputsProducto, lista_inputs);
         }else{
             lista_inputs.forEach(input => {
                 vista.limpiar_inputs(input);
@@ -1001,57 +1029,299 @@ function mostrar_form_crear_entrada(){
 }
 
 function agregar_producto_entrada(){
-    /*
-    Modificar el server para que haga mapeo de la lista de productos
-     */
 
+    //Se obtiene la informacion del formulario   
     producto_entrada = vista.getForm("form_crear_entrada");
 
+    //Se busca el nombre del producto y se inserta en el objeto
     let nombre_producto_entrada = lista_productos.find(x => x.id_producto == producto_entrada.id_producto);
 
-    let nombre_producto_valor = nombre_producto_entrada.nombre_producto
-    producto_entrada.nombre_producto = nombre_producto_valor;
+    //Se inserta el nombre del producto en el objeto
+    producto_entrada.nombre_producto = nombre_producto_entrada.nombre_producto;
 
+    //Si la informacion del form esta completa se muestra el modal de exito y se inserta la informacion en la tabla
     if(producto_entrada.ok){
         vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
 
         pantalla = tamañoPantalla.matches
         vista.informacion_tabla_entradas(pantalla, producto_entrada, "tbody_productos_entradas")
+        
+        //Se crea el objeto con la informacion de la entrada
+        let data = {
+            id_almacen: idAlmacen,
+            origen_entrada: producto_entrada.origen_entrada,
+            productos_entradas: lista_productos_operaciones
+        }
+    
+        //Se eliminan las propiedades del objeto que no se necesitan en la entrada
+        delete producto_entrada.ok;
+        delete producto_entrada.msj;
+        delete producto_entrada.nombre_producto;
+        delete producto_entrada.referencia_producto;
+        delete producto_entrada.id_rol;
+        delete producto_entrada.nombre_almacen
+        delete producto_entrada.origen_entrada;
+        delete producto_entrada[""]
+    
+        //se hace push a la lista de productos
+        lista_productos_operaciones.push(producto_entrada);
+        infomacion_entrada = data
+        console.log(infomacion_entrada)
+
     }else{
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
+}
+
+function crear_entrada(){
+    //Consulta a la DB para insertar una entrada
+    producto.createEntry(infomacion_entrada, function(data){
+        if(data.success){
+            vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+            mostrar_movimientos_vacia();
+        }else{
+            vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        }
+    });
+}
+
+function mostar_form_crear_salida(){
+    lista_productos_operaciones = [];
+
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("crear_salida", "contenedor_principal", 1);
+    }else{
+        vista.mostrar_plantilla("crear_salida_desktop", "contenedor_principal");
+    }
     cambio_clases();
 
-    let data = {
-        id_almacen: idAlmacen,
-        origen_entrada: producto_entrada.origen_entrada,
-        producto_entrada: lista_productos_operaciones
-    }
+    //Se busca el nombre del almacen y se inserta en el input
+    let informacionInputAlmacen = lista_almacenes.find(x => x.id_almacen === idAlmacen);
+    let inputAlmacen = ['nombre_almacen']
+    vista.informacion_inputs(informacionInputAlmacen, inputAlmacen);
 
-    delete producto_entrada.ok;
-    delete producto_entrada.msj;
-    delete producto_entrada.nombre_producto;
-    delete producto_entrada.referencia_producto;
-    delete producto_entrada.id_rol;
-    delete producto_entrada.nombre_almacen
-    delete producto_entrada.origen_entrada;
-    delete producto_entrada[""]
+    // Se convierte el objeto en un array con llave valor
+    const productosObj = Object.fromEntries(
+        lista_productos.map((obj) => [obj.id_producto.toString(), obj.nombre_producto])
+    );
 
-    //se hace push a la lista de productos
-    lista_productos_operaciones.push(producto_entrada);
+    // Se llama metodo de vista para poblar select select_nombre_producto
+    vista.insertar_opciones_select(productosObj, "id_producto", "id_producto", "nombre_producto")
 
-    console.log(data);
+    //Se escucha el cambio de opcion en el select y se agrega la referecia del producto segun lo seleccionado
+    document.getElementById('select_nombre_producto').addEventListener('change', function() {
+        const productoSeleccionado = parseInt(this.value);
+        const lista_inputs = ['referencia_producto'];
+
+        if (productoSeleccionado > 0) {
+            let inputsProducto = lista_productos.find(x => x.id_producto === productoSeleccionado);
+    
+            vista.informacion_inputs  (inputsProducto, lista_inputs);
+        }else{
+            lista_inputs.forEach(input => {
+                vista.limpiar_inputs(input);
+            });
+        }
+    });
+}
+
+function agregar_producto_salida(){
+
+    //Se obtiene la informacion del formulario   
+    producto_salida = vista.getForm("form_crear_salida");
+    console.log(producto_salida)
+
+    //Se busca el nombre del producto y se inserta en el objeto
+    let nombre_producto_salida = lista_productos.find(x => x.id_producto == producto_salida.id_producto);
+
+    //Se inserta el nombre del producto en el objeto
+    producto_salida.nombre_producto = nombre_producto_salida.nombre_producto;
+
+    //Si la informacion del form esta completa se muestra el modal de exito y se inserta la informacion en la tabla
+    if(producto_salida.ok){
+
+            let productoStock = lista_productos.find(x => x.id_producto == producto_salida.id_producto);
+            console.log(productoStock)
+            if (producto_salida.cantidad_salida > productoStock.cantidad_disponible) {
+                console.log('No hay suficiente stock')
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                return;
+            }else{
+                
+                vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                pantalla = tamañoPantalla.matches
+                vista.informacion_tabla_salidas(pantalla, producto_salida, "tbody_productos_salidas")
+                
+                //Se crea el objeto con la informacion de la entrada
+                let data = {
+                    id_almacen: idAlmacen,
+                    destino_salida: producto_salida.destino_salida,
+                    productos_salidas: lista_productos_operaciones
+                }
+            
+                //Se eliminan las propiedades del objeto que no se necesitan en la entrada
+                delete producto_salida.ok;
+                delete producto_salida.msj;
+                delete producto_salida.nombre_producto;
+                delete producto_salida.referencia_producto;
+                delete producto_salida.id_rol;
+                delete producto_salida.nombre_almacen
+                delete producto_salida.destino_salida;
+                delete producto_salida[""]
+            
+                //se hace push a la lista de productos
+                lista_productos_operaciones.push(producto_salida);
+                infomacion_salida = data
+                console.log(infomacion_salida)      
+
+                for (const producto of infomacion_salida.productos_salidas) {
+                let productoStock = lista_productos.find(x => x.id_producto == producto.id_producto);
+                console.log(productoStock)
+
+                    if (producto.cantidad_salida > productoStock.cantidad_disponible){
+                        console.log('No hay suficiente stock')
+                        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                        return;
+                    }
+                }
+                
+            }
+        
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    };
 
 }
 
-function mostrar_perfiles_vacia(){
+function crear_salida(){
+
+    //Consulta a la DB para insertar una salida
+    producto.createExit(infomacion_salida, function(data){
+        if(data.success){
+            vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+            mostrar_movimientos_vacia();
+        }else{
+            vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        }
+    });
+}
+
+//----------------- PAGINA DE PERFILES -----------------\\
+
+function mostrar_perfiles(){
+
+    usuario.getAllProfile(usuario.id_usuario, function(data){
+        if(data.success){
+            if(data.data.length == 0){
+                if(tamañoPantalla.matches){
+                    vista.mostrar_plantilla("perfiles_vacia", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+                    añadir_evento_click("boton_crear_inv", mostrar_form_crear_perfil);
+                }
+                else{
+                    vista.mostrar_plantilla("perfiles_vacia_desktop", "contenedor_principal", 1);
+                }
+                cambio_clases();
+            }else{
+                if(tamañoPantalla.matches){
+                    vista.mostrar_plantilla("perfiles_con_inf", "contenedor_principal", 1);
+                    vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+                    añadir_evento_click("boton_crear_inv", mostrar_form_crear_perfil);
+                }
+                else{
+                    vista.mostrar_plantilla("perfiles_con_inf_desktop", "contenedor_principal", 1);
+                }
+                cambio_clases();
+                    /* Se llama el metodo de vista para crear la cantidad y tipo de targetas 
+                    de acuerdo a la cantidad traida por la DB y tamaño de la pantalla.
+                */
+                pantalla = tamañoPantalla.matches
+                lista_perfiles = data.data
+                vista.informacion_tabla_perfiles(pantalla, lista_perfiles, "fila_perfiles");
+            }
+        }else{
+            vista.cambiar_clases("modal_error",lista_clases_modal_error_show)
+        }
+    });
+}
+
+function mostrar_form_crear_perfil(){
     if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("perfiles_vacia", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-        añadir_evento_click("boton_crear_inv", mostrar_form_crear_perfil);
+        vista.mostrar_plantilla("crear_perfil", "contenedor_principal", 1);
     }
     else{
-        vista.mostrar_plantilla("perfiles_vacia_desktop", "contenedor_principal", 1);
+        vista.mostrar_plantilla("crear_perfil_desktop", "contenedor_principal", 1);
+    }
+
+    //Consultar categorias de los productos 
+    usuario.getAllDocuments(function (data) {
+        if(data.success) {
+            lista_opciones = []
+            lista_opciones = data.data
+            // Se convierte el objeto en un array con llave valor
+            const documentosObj = Object.fromEntries(
+                lista_opciones.map((obj) => [obj.id_tipo_documento.toString(), obj.tipo_documento])
+                );
+                console.log(documentosObj)
+            // Se llama metodo de vista para poblar select id_categoria
+            vista.insertar_opciones_select(documentosObj, "tipo_documento", "id_tipo_documento", "tipo_documento")
+        }
+    });
+
+    usuario.getAllRoles(function (data) {
+        if(data.success){
+            lista_opciones = []
+            lista_opciones = data.data
+            const rolesObj = Object.fromEntries(
+                lista_opciones.map((obj) => [obj.id_rol.toString(), obj.nombre_rol])
+            );
+            console.log(rolesObj)
+            vista.insertar_opciones_select(rolesObj, "id_rol", "id_rol", "nombre_rol")
+        }
+    });
+
+    document.getElementById('select_roles').addEventListener('change', function() {
+        const rolSeleccionado = (this.value);
+
+        if(rolSeleccionado == 3){
+            const selectAlmacenes = document.getElementById('select_almacenes');
+            const almacenesObj = Object.fromEntries(
+                lista_almacenes.map((obj) => [obj.id_almacen.toString(), obj.nombre_almacen])
+            );
+            console.log(almacenesObj)
+            vista.insertar_opciones_select(almacenesObj, "id_almacen", "id_almacen", "nombre_almacen")
+
+            selectAlmacenes.removeAttribute('hidden');
+        }else if(rolSeleccionado != 3){
+            const selectAlmacenes = document.getElementById('select_almacenes');
+            selectAlmacenes.setAttribute('hidden', true);
+        }
+    });
+}
+
+function crear_perfil(){
+    
+    data = vista.getForm("form_crear_perfil")
+    data.id_jefe = usuario.id_usuario;
+    
+    if(data.ok){
+        usuario.registerProfile(data, function(dataRes){
+            if(dataRes.success){
+                const perfil = {id_usuario:dataRes.data, id_almacen:data.id_almacen}
+                almacen.asignAlmacen(perfil, function(data){
+                    if(data.success){
+                        vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                        mostrar_perfiles();
+                    }else{
+                        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                    }   
+                });
+            }else{
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            }
+        });
+    }else{
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
 }
 
@@ -1065,61 +1335,7 @@ function mostrar_seleccionar_informe(){
 }
 
 
-// Funciones acciones de la pantalla de Inventario
-
-
-
-// Funciones acciones de la pantalla de Stock
-
-
-
-// Funciones para cambiar plantillas desde la pantalla de Detalles Producto
-
-function mostrar_mov_del_producto(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("movimientos_del_producto", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("movimientos_del_producto_desktop", "contenedor_principal", 1);
-    }
-}
-
-// Funciones para cambiar plantillas desde la pantalla de Categorias
-
-// Funciones para cambiar plantillas desde la pantalla de Movimientos
-
-
-
-function mostrar_form_crear_salida(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("crear_salida", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("crear_salida_desktop", "contenedor_principal", 1);
-    }
-}
-
 // Funciones para cambiar plantillas desde la pantalla de Perfiles
-
-function mostrar_form_crear_perfil(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("crear_perfil", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("crear_perfil_desktop", "contenedor_principal", 1);
-    }    
-}
-
-function mostrar_perfiles(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("perfiles_con_inf", "contenedor_principal", 1);
-        vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-        añadir_evento_click("boton_crear_inv", mostrar_form_crear_perfil);
-    }
-    else{
-        vista.mostrar_plantilla("perfiles_con_inf_desktop", "contenedor_principal", 1);
-    }
-}
 
 function mostrar_editar_perfiles(){
     if(tamañoPantalla.matches){

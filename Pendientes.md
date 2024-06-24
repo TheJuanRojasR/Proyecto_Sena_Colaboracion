@@ -48,6 +48,7 @@
 44. JUAN: Arreglar distribucion de botones en la pantalla de stock
 45. Mirar como indicar que no hay productos por abastecer en abastecimientos
 46. JUAN: Arreglar posicionamiento tabla entradas productos
+47. JUAN: Cambiar color letra en selects para crear perfiles y boton para guardar
 
     Se guarda el producto, como registro en una tabla
     Verificar que la informacion este correcta en los inputs
@@ -60,4 +61,5 @@
 2. Pantalla recordar contraseña
 3. Check Terminos y condiciones
 4. Hacer todas las pantallas responsive, sin necesidad de tener multiples templates
+5. No permitir que el usuario pueda ingresar dos veces el mismo producto en una salida.
 

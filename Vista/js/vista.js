@@ -260,6 +260,7 @@ class Vista {
     data.ok = true; //Bandera para verificar si los campos estan llenos
     data.msj = ""; //Mensaje de error
     data.id_rol = 1;
+    data.id_jefe = null
   
     datos.forEach((element) => {
       data[element.name] = element.value;
@@ -584,11 +585,11 @@ class Vista {
   }
 
   /**
-   * Metodo para mostrar la informacion de un producto ya existente cuando se asigna un producto a un almacen
+   * Metodo para mostrar informacion dentro de un input especifico
    * @param {*} producto: informacion del producto a asignar
    * @param {*} lista_inputs: lista de inputs donde se mostrara la informacion del producto  
    */
-  informacion_inputs_productos(producto, lista_inputs){
+  informacion_inputs(producto, lista_inputs){
     lista_inputs.forEach((input) => {
       const input_id = document.getElementById(input) 
       if (input_id){
@@ -1073,6 +1074,12 @@ class Vista {
     });
   }
 
+  /**
+   * Metodo para insertar la informacion del producto en la tabla de creacion de una entradas
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} producto: informacion del producto a insertar
+   * @param {*} id_contenedor: contenedor donde se inserta la informacion
+   */
   informacion_tabla_entradas(tamaño, producto, id_contenedor){
     let cont = document.getElementById(id_contenedor);
     if(tamaño == "true"){
@@ -1080,30 +1087,187 @@ class Vista {
     }else{
         const html = `
         <tr>
-            <td scope="row"></td>
-            <td scope="row" class="td-body-tabla">
+            <th scope="row"></th>
+            <td class="td-body-tabla">
                 <p>${producto.origen_entrada}</p>
             </td>
-            <td scope="row" class="td-body-tabla">
+            <td class="td-body-tabla">
                 <p>${producto.nombre_almacen}</p>
             </td>
-            <td scope="row" class="td-body-tabla">
+            <td class="td-body-tabla">
                 <p>${producto.nombre_producto}</p>
             </td>
-            <td scope="row" class="td-body-tabla">
+            <td class="td-body-tabla">
                 <p>${producto.referencia_producto}</p>
             </td>
-            <td scope="row" class="td-body-tabla">
+            <td class="td-body-tabla">
                 <p>${producto.cantidad_entrada}</p>
             </td>
-            <td scope="row" class="td-body-tabla">
+            <td class="td-body-tabla">
                 <p>${producto.precio_compra}</p>
             </td>
-            <td scope="row"></td>
+            <td></td>
         </tr>
         `
         cont.innerHTML += html
     }
   }
 
+  /**
+   * Metodo para insertar la informacion de los productos en la tabla de creacion de salidas
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} producto: informacion del producto a insertar
+   * @param {*} id_contenedor: contenedor donde se inserta la informacion
+   */
+  informacion_tabla_salidas(tamaño, producto, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    if(tamaño == "true"){
+        console.log('falta arreglar la vista')
+    }else{
+        const html = `
+        <tr>
+            <th scope="row"></th>
+            <td class="td-body-tabla">
+                <p>${producto.nombre_almacen}</p>
+            </td>
+            <td class="td-body-tabla">
+                <p>${producto.destino_salida}</p>
+            </td>
+            <td class="td-body-tabla">
+                <p>${producto.nombre_producto}</p>
+            </td>
+            <td class="td-body-tabla">
+                <p>${producto.referencia_producto}</p>
+            </td>
+            <td class="td-body-tabla">
+                <p>${producto.cantidad_salida}</p>
+            </td>
+            <td></td>
+        </tr>
+        `
+        cont.innerHTML += html
+    }
+  }
+
+  /**
+   * Metodo para insertar la informacion de los movimientos de un producto en la vista
+   * @param {*} tamaño: tamaño de la pantalla para mostrar una diseño u otro
+   * @param {*} lista_movimientos: lista de movimientos a insertar 
+   * @param {*} id_contenedor: contenedor donde se inserta la informacion
+   */
+  informacion_tabla_movimientos_producto(tamaño, lista_movimientos, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    lista_movimientos.forEach(movimiento => {
+
+        if(tamaño == "true"){
+            const html = `
+            <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="color_lateral" id="lateral_oscuro"></div>
+                    ${movimiento.Referencia}
+                </button>
+                <ul class="dropdown-menu informacion_dropdown_contenido">
+                    <!-- Lista de infomacion desplegable en el dropdown -->
+                    <li class="d-flex align-items-center texto_dropdown">
+                        <p type="text" name="" class="elementos_listas">Fecha: ${movimiento.Fecha}</p>
+                    </li>
+                    <li class="d-flex align-items-center texto_dropdown">
+                        <p type="text" name="" class="elementos_listas">Origen/Destino: ${movimiento.Origen_Destino}</p>
+                    </li>
+                    <li class="d-flex align-items-center texto_dropdown">
+                        <p type="text" name="" class="elementos_listas">Cantidad: ${movimiento.Cantidad}</p>
+                    </li>
+                </ul>
+            </div>
+            `;
+            cont.innerHTML += html;
+        }else{
+            const html = `
+            <tr>
+                <th scope="row" class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.Referencia}</p>
+                </th>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.Fecha}</p>
+                </td>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.Origen_Destino}</p>
+                </td>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${movimiento.Cantidad}</p>
+                </td>
+            </tr>
+            `;
+            cont.innerHTML += html;
+        }
+    });
+  }
+
+  informacion_tabla_perfiles(tamaño, lista_perfiles, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    lista_perfiles.forEach((perfil) => {
+        if(tamaño == true){
+            const html = `
+            <div class="d-flex dropdown"> <!-- Texto del dropdown e informacion dentro -->
+                <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="color_lateral" id="lateral_oscuro"></div> <!-- Color lateral del boton -->
+                    ${perfil.nombre_usuario}
+                </button>
+                <ul class="dropdown-menu informacion_dropdown_contenido">
+                    <!-- Lista de infomacion desplegable en el dropdown -->
+                    <li class="d-flex align-items-center texto_dropdown">
+                        <p type="text" name="" class="elementos_listas">Correo: ${perfil.correo_electronico}</p>
+                    </li>
+                    <li class="d-flex align-items-center texto_dropdown">
+                        <p type="text" name="" class="elementos_listas">Rol: ${perfil.nombre_rol}</p>
+                    </li>
+                    <li class="d-flex accion_dropdown align-items-center justify-content-center">
+                    <a href="#" onclick="mostrar_editar_perfiles()">Editar  Perfil</a>
+                    </li>
+                </ul>
+            </div>
+            `;
+            cont.innerHTML += html;
+        }else{
+            const html = `
+            <tr>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${perfil.nombre_usuario}</p>
+                </td>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${perfil.correo_electronico}</p>
+                </td>
+                <td class="td-body-tabla">
+                    <p class="td-body-tabla_opciones">${perfil.nombre_rol}</p>
+                </td>
+                <td class="text-end">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="./Assets/img/menu_horizontal.svg" alt="" />
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="d-grid gap-2">
+                                <button class="btn d-flex align-items-center">
+                                    <img src="./Assets/img/lapiz_editar.svg" alt="" />
+                                    <p>Editar</p>
+                                </button>
+                            </li>
+                            <li class="d-grid gap-2">
+                                <button class="btn  d-flex align-items-center">
+                                    <img src="./Assets/img/eliminar.svg" alt="" />
+                                    <p>Eliminar</p>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+            `;
+            cont.innerHTML += html;
+        }
+    });
+  }
 }

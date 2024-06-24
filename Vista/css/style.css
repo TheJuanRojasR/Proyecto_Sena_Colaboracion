@@ -26,6 +26,22 @@ nav {
     background-color: #5D5DC5;
 }
 
+
+#btn_lateral{
+    max-width: 10%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+}
+
+#opt_nav_sup{
+    max-width: 87%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .color_blanco_nav{
     color: #fff;
 }
