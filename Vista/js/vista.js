@@ -1279,7 +1279,7 @@ class Vista {
                         </button>
                         <ul class="dropdown-menu">
                             <li class="d-grid gap-2">
-                                <button class="btn d-flex align-items-center">
+                                <button type="button" class="btn d-flex align-items-center" data-editar=${perfil.id_usuario} onclick=" editar_perfiles(this)">
                                     <img src="./Assets/img/lapiz_editar.svg" alt="" />
                                     <p>Editar</p>
                                 </button>
