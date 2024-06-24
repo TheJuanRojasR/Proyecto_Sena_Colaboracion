@@ -28,7 +28,7 @@
 24. LAURA y JUAN : Revisar color de texto en los inputs y los selects                                ✔ 
 25. LAURA JUAN: Revisar funcion para regresar entre pantallas                                        
 26. Descargar svg del logo de variety vault blanco.                                                  ✔
-27. Revisar name en pantallas informes.                                     
+27. Revisar name en pantallas informes.                                                              ✔
 28. JUAN: Revisar pantalla editar perfiles                                                           ✔
 29. SERVIDOR: Hacer la consulta de la barra de busqueda.  
 30. JUAN: Arreglar boton de detalles del producto y alinear datos en perfiles                        ✔ 
@@ -37,7 +37,7 @@
 33. Laura: colocar menu hamburgues desktop y añadirle funcion para eliminarlo en mobile              ✔
 34. Funcion para que la barra lateral se esconda al cambiar de pantalla                              ✔
 35. JUAN: Centrar formulario crear inventario.                                                       ✔
-36. JUAN: Mover el boton de 3 puntos de la tarjeta de inventarios. Tiene que queda mas pegado a la parte superior derecha. 
+36. JUAN: Mover el boton de 3 puntos de la tarjeta de inventarios. Tiene que queda mas pegado a la parte superior derecha. ✔
 37. LAURA: Mover funcion del evento click al controlador, y añadirle eliminar el evento anterior     ✔
 38. JUAN: Añadir flex al contendor de las tarjetas de inventarios                                    ✔
 39. JUAN Mover a la derecha los inputs de crear producto.                                            ✔
@@ -47,8 +47,8 @@
 43. Borrar Cambios de BD del viernes                                                                  ✔
 44. JUAN: Arreglar distribucion de botones en la pantalla de stock                                    ✔
 45. Mirar como indicar que no hay productos por abastecer en abastecimientos
-46. JUAN: Arreglar posicionamiento tabla entradas productos
-47. JUAN: Cambiar color letra en selects para crear perfiles y boton para guardar                     
+46. JUAN: Arreglar posicionamiento tabla entradas productos (Quitar botones y colocar ancho)
+47. JUAN: Cambiar color letra en selects para crear perfiles y boton para guardar                     ✔       
 
     Se guarda el producto, como registro en una tabla
     Verificar que la informacion este correcta en los inputs

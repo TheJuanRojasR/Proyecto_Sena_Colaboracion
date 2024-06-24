@@ -46,6 +46,13 @@ class Usuario extends Connect{
         this.connect({}, endpoint, method, getAllRolesCallback);
     }
 
+    //Metodo para obterner los permisos del usuario
+    getAllPermisions(permisos,getAllPermisionsCallback){
+        const endpoint = `usuarios/permisos?id_rol=${permisos.id_rol}&id_permiso=${permisos.id_permiso}`;
+        const method = 'GET';
+        this.connect({}, endpoint, method, getAllPermisionsCallback)
+    }
+
     // Metodo para registrar un usuario
     register( dataRequest, registerCallback ){
         const endpoint = 'usuarios/registro';

@@ -22,6 +22,7 @@ nav {
 }
 
 .nav_color_morado {
+    min-width: 100%;
     height: 100%;
     background-color: #5D5DC5;
 }
@@ -528,10 +529,11 @@ a.page-link:hover {
 /* Estilos para vista de Estadisticas*/
 
 .form-select_modificado {
+    color: #000000; /* Color de las opciones */
     width: 325px;
     height: 57px;
     font-family: Inter;
-    font-size: 13px;
+    font-size: 0.95rem;
     font-weight: 300;
     line-height: 18px;
 }
@@ -1852,8 +1854,12 @@ a.page-link:hover {
     /* NAVEGADOR INF */
 
     .nav_inf {
-        border-radius: 0px 0px 16px 16px;
+        padding: 0;
         border: 1px solid #D0D5DD;
+    }
+
+    #cont_nav_inf{
+        padding: 0.5rem 0 0.5rem 0;
     }
 
     #lista_nav_inf {
@@ -1872,6 +1878,7 @@ a.page-link:hover {
     }
 
     .text_nav_inf {
+        color: #FAFAFF;
         margin: 0px;
     }
 

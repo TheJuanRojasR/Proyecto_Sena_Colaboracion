@@ -375,31 +375,31 @@ class Vista {
     for (const almacen of lista_almacenes){
       if(almacen.estado_almacen == 1){
         if(tamaño_pantalla == true){
-          const html = `
-          <div class="d-flex dropdown"> <!-- Contenedor para el dropdown -->
-                    <button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
-                        type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <div class="color_lateral" id="lateral_oscuro"></div>
-                        ${almacen.nombre_almacen}
-                    </button>
-                    <ul class="dropdown-menu informacion_dropdown_contenido">
-                        <!-- Lista de infomacion desplegable en el dropdown -->
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Direccion: ${almacen.direccion_almacen}</p>
-                        </li>
-                        <li class="d-flex align-items-center texto_dropdown">
-                            <p type="text" name="" class="elementos_listas">Descripcion: ${almacen.descripcion_almacen}</p>
-                        </li>
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center">
-                            <a href="#" onclick="mostrar_editar_inv(this)" data-editar="${almacen.id_almacen}">Editar Inventario</a>
-                        </li>
-                        <li class="d-flex accion_dropdown align-items-center justify-content-center">
-                            <a href="#" onclick="ingresar_inventario(this)" data-ingresar="${almacen.id_almacen}">Ver Inventario</a>
-                        </li>
-                    </ul>
-                </div>
-          `
-          cont.innerHTML += html;
+        	const html = `
+          	<div class="d-flex dropdown"> <!-- Contenedor para el dropdown -->
+				<button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+					type="button" data-bs-toggle="dropdown" aria-expanded="false">
+					<div class="color_lateral" id="lateral_oscuro"></div>
+					${almacen.nombre_almacen}
+				</button>
+				<ul class="dropdown-menu informacion_dropdown_contenido">
+					<!-- Lista de infomacion desplegable en el dropdown -->
+					<li class="d-flex align-items-center texto_dropdown">
+						<p type="text" name="" class="elementos_listas">Direccion: ${almacen.direccion_almacen}</p>
+					</li>
+					<li class="d-flex align-items-center texto_dropdown">
+						<p type="text" name="" class="elementos_listas">Descripcion: ${almacen.descripcion_almacen}</p>
+					</li>
+					<li class="d-flex accion_dropdown align-items-center justify-content-center">
+						<a href="#" onclick="mostrar_editar_inv(this)" data-editar="${almacen.id_almacen}">Editar Inventario</a>
+					</li>
+					<li class="d-flex accion_dropdown align-items-center justify-content-center">
+						<a href="#" onclick="ingresar_inventario(this)" data-ingresar="${almacen.id_almacen}">Ver Inventario</a>
+					</li>
+				</ul>
+			</div>
+			`
+          	cont.innerHTML += html;
         }else{
           const html = `
           <div class="container inventario flex-wrap col-lg-3 d-flex justify-content-between flex-column">
@@ -1084,8 +1084,35 @@ class Vista {
    */
   informacion_tabla_entradas(tamaño, producto, id_contenedor){
     let cont = document.getElementById(id_contenedor);
-    if(tamaño == "true"){
-        console.log('falta arreglar la vista')
+    if(tamaño == true){
+		const html = `
+		<div class="d-flex dropdown"> <!-- Contenedor para el dropdown -->
+			<button class="d-flex justify-content-between align-items-center boton_informacion_dropdown"
+				type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				<div class="color_lateral" id="lateral_oscuro"></div>
+				${producto.nombre_producto}
+			</button>
+			<ul class="dropdown-menu informacion_dropdown_contenido">
+				<!-- Lista de infomacion desplegable en el dropdown -->
+				<li class="d-flex align-items-center texto_dropdown">
+					<p type="text" name="" class="elementos_listas">Origen: ${producto.origen_entrada}</p>
+				</li>
+				<li class="d-flex align-items-center texto_dropdown">
+					<p type="text" name="" class="elementos_listas">Nombre Almacen: ${producto.nombre_almacen}</p>
+				</li>
+				<li class="d-flex align-items-center texto_dropdown">
+					<p type="text" name="" class="elementos_listas">Referencia: ${producto.referencia_producto}</p>
+				</li>
+				<li class="d-flex align-items-center texto_dropdown">
+					<p type="text" name="" class="elementos_listas">Cantidad: ${producto.cantidad_entrada}</p>
+				</li>
+				<li class="d-flex align-items-center texto_dropdown">
+					<p type="text" name="" class="elementos_listas">Precio: ${producto.precio_compra}</p>
+				</li>
+			</ul>
+		</div>
+		`
+		cont.innerHTML += html
     }else{
         const html = `
         <tr>

@@ -245,66 +245,77 @@ function mostrar_inv_nav(){
  */
 function mostrar_inv(id_usuario){
     //Consulta a la Base de Datos, para traer todos los inventarios de ese usuario
-    almacen.getByUser(id_usuario, function(data){
-        if(data.success){
-            if(data.data.length == 0){
-                //Si no hay inventarios aisgnados a ese usuario, se muestra la pantalla inventarios_vacia
-                if(tamañoPantalla.matches){
-                    vista.añadir_padding("contenedor_principal", "72.31px");
-                    vista.mostrar_plantilla("nav_sup","navegador_sup");
-                    vista.limpiar_contenedor("navegador_inf",);
-                    vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
-                    vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-                    añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
-                }
-                else{
-                    vista.mostrar_plantilla("nav_sup_desktop_inv","navegador_sup");
-                    vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
-                    vista.remover_etiqueta("footer_inicio");
-                }
-                cambio_clases();
-            }
-            else{
-                //Si hay inventarios, se muestra la pantalla inventarios
-                if(tamañoPantalla.matches){
-                    vista.limpiar_contenedor("navegador_inf");
-                    vista.mostrar_plantilla("nav_sup","navegador_sup");
-                    vista.mostrar_plantilla("inventarios", "contenedor_principal", 1);
-                    vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
-                    añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
-                }
-                else{
-                    vista.mostrar_plantilla("nav_sup_desktop_inv","navegador_sup",0);
-                    vista.mostrar_plantilla("inventarios_desktop", "contenedor_principal", 1);
-                    const footer = document.getElementById("footer_inicio")
-                    if(footer){
-                        vista.remover_etiqueta("footer_inicio");
+    permiso ={id_rol: usuario.id_rol, id_permiso: 1}
+    usuario.getAllPermisions(permiso, function(data){
+        if(data.data.length > 0){
+            almacen.getByUser(id_usuario, function(data){
+                if(data.success){
+                    if(data.data.length == 0){
+                        //Si no hay inventarios aisgnados a ese usuario, se muestra la pantalla inventarios_vacia
+                        if(tamañoPantalla.matches){
+                            vista.añadir_padding("contenedor_principal", "72.31px");
+                            vista.mostrar_plantilla("nav_sup","navegador_sup");
+                            vista.limpiar_contenedor("navegador_inf",);
+                            vista.mostrar_plantilla("inventarios_vacia", "contenedor_principal", 1);
+                            vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+                            añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
+                        }
+                        else{
+                            vista.mostrar_plantilla("nav_sup_desktop_inv","navegador_sup");
+                            vista.mostrar_plantilla("inventarios_vacia_desktop", "contenedor_principal", 1);
+                            vista.remover_etiqueta("footer_inicio");
+                        }
+                        cambio_clases();
                     }
+                    else{
+                        //Si hay inventarios, se muestra la pantalla inventarios
+                        if(tamañoPantalla.matches){
+                            vista.limpiar_contenedor("navegador_inf");
+                            vista.mostrar_plantilla("nav_sup","navegador_sup");
+                            vista.mostrar_plantilla("inventarios", "contenedor_principal", 1);
+                            vista.mostrar_plantilla("btn_uno","contenedor_boton_circular");
+                            añadir_evento_click("boton_crear_inv", mostrar_form_crear_inv);
+                        }
+                        else{
+                            vista.mostrar_plantilla("nav_sup_desktop_inv","navegador_sup",0);
+                            vista.mostrar_plantilla("inventarios_desktop", "contenedor_principal", 1);
+                            const footer = document.getElementById("footer_inicio")
+                            if(footer){
+                                vista.remover_etiqueta("footer_inicio");
+                            }
+                        }
+                        cambio_clases();
+                        /* Se llama el metodo de vista para crear la cantidad y tipo de targetas 
+                            de acuerdo a la cantidad traida por la DB y tamaño de la pantalla.
+                        */
+                        pantalla = tamañoPantalla.matches
+                        lista_almacenes = data.data
+                        vista.informacion_tarjeta_inventario(pantalla, lista_almacenes, "contenedor_tarjetas");
+                    }
+                }else{
+                    vista.cambiar_clases("modal_error",lista_clases_modal_error_show)
                 }
-                cambio_clases();
-                /* Se llama el metodo de vista para crear la cantidad y tipo de targetas 
-                    de acuerdo a la cantidad traida por la DB y tamaño de la pantalla.
-                */
-                pantalla = tamañoPantalla.matches
-                lista_almacenes = data.data
-                vista.informacion_tarjeta_inventario(pantalla, lista_almacenes, "contenedor_tarjetas");
-            }
-        }else{
-            vista.cambiar_clases("modal_error",lista_clases_modal_error_show)
+            });
         }
     });
+
 }
 
 /**
  *Funcion para mostrar el formulario de creacion de un inventario
  */
 function mostrar_form_crear_inv(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("crear_inventario", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("crear_inventario_desktop", "contenedor_principal", 1);
-    }
+    permiso ={id_rol: usuario.id_rol, id_permiso: 2}
+    usuario.getAllPermisions(permiso, function(data){
+        if(data.data[0].Permisos > 0){
+            if(tamañoPantalla.matches){
+                vista.mostrar_plantilla("crear_inventario", "contenedor_principal", 1);
+            }
+            else{
+                vista.mostrar_plantilla("crear_inventario_desktop", "contenedor_principal", 1);
+            }
+        }
+    });
 }
 
 /**
@@ -973,6 +984,7 @@ function mostrar_movimientos_vacia(){
                 if(tamañoPantalla.matches){
                     vista.mostrar_plantilla("movimientos", "contenedor_principal", 1);
                     vista.mostrar_plantilla("btn_dos","contenedor_boton_circular");
+                    añadir_evento_click("btn_dos", mostrar_movimientos);
                 }
                 else{
                     vista.mostrar_plantilla("movimientos_desktop", "contenedor_principal", 1);
