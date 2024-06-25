@@ -1306,6 +1306,12 @@ class Vista {
     });
   }
 
+  /**
+   * Metodo para mostrar la informacion al editar el perfil
+   * @param {*} tamaño: tamaño de la pantalla para mostrar un diseño u otro
+   * @param {*} perfil: Informacion del perfil a editar
+   * @param {*} id_contenedor: contenedor donde se inserta
+   */
   informacion_editar_perfil(tamaño, perfil, id_contenedor){
     let cont = document.getElementById(id_contenedor);
     if(tamaño == true){
@@ -1359,5 +1365,10 @@ class Vista {
         `
         cont.innerHTML += html;
     }
+  }
+
+  informacion_modales(texto, id_contenedor){
+    let cont = document.getElementById(id_contenedor)
+    cont.textContent = texto
   }
 }

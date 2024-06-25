@@ -179,24 +179,27 @@ function registrar_usuario(){
         usuario.register(data, function(data){
             if(data.data.message == "El usuario ya existe"){
                 //Mensaje de error
-                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                vista.cambiar_clases('modal_error', lista_clases_modal_error_show);
+                vista.informacion_modales(data.data.message, "modal__mensaje")
             }
             else{
                 if(data.success){
                     //Mensaje de exito y cambio de template
-                    vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                    vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show);
                     mostrar_login();
                     vista.cambiar_clases('modal_registro', lista_clases_modal_registro);
                 }
                 else{
                     //Mensaje de error
-                    vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                    vista.cambiar_clases('modal_error', lista_clases_modal_error_show);
+                    vista.informacion_modales('', "modal__mensaje");
                 }
             }
         });
     } else {
         //Mensaje de error
-        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show);
+        vista.informacion_modales(data.msj, "modal__mensaje");
     }
 }
 
@@ -213,6 +216,8 @@ function log_in(){
                 if (data.data.length == 0) {
                     // Mensaje de error si no existe
                     vista.cambiar_clases('modal_error', lista_clases_modal_error_show);
+                    
+                    vista.informacion_modales("Usuario o Contraseña Incorrectos", "modal__mensaje")
                     return;
                 } else {
                     //Se llama el metodo setData de usuario, para guardar los datos del usuario
@@ -228,6 +233,7 @@ function log_in(){
         });
     }else{
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        vista.informacion_modales(data.msj, "modal__mensaje")
     }
 }
 
@@ -297,6 +303,7 @@ function mostrar_inv(id_usuario){
                     }
                 }else{
                     vista.cambiar_clases("modal_error",lista_clases_modal_error_show)
+                    vista.informacion_modales("No se pueden mostrar los inventario, intente otra vez", "modal__mensaje")
                 }
             });
         }
@@ -335,7 +342,8 @@ function crear_inv(){
         almacen.create(data, function(data){
             if(data.success){
                 //Se inserta el id_almacen e id_usuario al objeto almacenOjt
-                const almacenOjt = {id_almacen:data.data, id_usuario:usuario.id_usuario};
+                let lista_almacenesOjt =[{id_almacen:data.data, id_usuario:usuario.id_usuario}]
+                const almacenOjt = {almacenes_asignar:lista_almacenesOjt}
                 almacen.asignAlmacen(almacenOjt, function(dataAlmacen){
                     //Segunda consulta a la DB para asignar el almacen al usuario actual
                     if(dataAlmacen.success){
@@ -346,10 +354,12 @@ function crear_inv(){
                 });
             }else{
                 vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                vista.informacion_modales('Hubo un error al crear el Inventario, intentalo otra vez', "modal__mensaje")
             }
         });
     }else{
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        vista.informacion_modales(data.msj, "modal__mensaje")
     }
 }
 
@@ -388,6 +398,7 @@ function eliminar_inv_db(){
             vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion);
         }else{
             vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
+            vista.informacion_modales(data.message, "modal__mensaje")
         }
     })
 }
@@ -1396,6 +1407,8 @@ function mostrar_perfiles(){
                     vista.cambiar_clases("modal_error",lista_clases_modal_error_show)
                 }
             });
+        }else{
+            vista.cambiar_clases("modal_info",lista_clases_modal_informacion_show)
         }
     });
 }
@@ -1413,6 +1426,7 @@ function mostrar_form_crear_perfil(){
         if(data.success) {
             lista_opciones = []
             lista_opciones = data.data
+            console.log(lista_opciones)
             // Se convierte el objeto en un array con llave valor
             const documentosObj = Object.fromEntries(
                 lista_opciones.map((obj) => [obj.id_tipo_documento.toString(), obj.tipo_documento])
@@ -1459,30 +1473,48 @@ function crear_perfil(){
     data = vista.getForm("form_crear_perfil")
     data.id_jefe = usuario.id_usuario;
     
+    console.log(data)
+
     if(data.ok){
-        lista_almacenes_asignar = lista_almacenes
-        const prueba = {almacenes_asignar:lista_almacenes_asignar}
-        lista_almacenes.forEach(almacen => {
-                
-        });
-    }
-    //     usuario.registerProfile(data, function(dataRes){
-    //         if(dataRes.success){
-    //             almacen.asignAlmacen(perfil, function(data){
-    //                 if(data.success){
-    //                     vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-    //                     mostrar_perfiles();
-    //                 }else{
-    //                     vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
-    //                 }   
-    //             });
-    //         }else{
-    //             vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
-    //         }
-    //     });
-    // }else{
-    //     vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
-    // }
+        usuario.registerProfile(data, function(dataRes){
+            if(dataRes.success){
+                if(data.id_rol != 3){
+                    let lista_almacenes_asignar = {almacenes_asignar:lista_almacenes}
+                        lista_almacenes_asignar.almacenes_asignar.forEach((almacen) => {
+                            almacen.id_usuario = dataRes.data
+                            delete almacen.descripcion_almacen;
+                            delete almacen.direccion_almacen;
+                            delete almacen.estado_almacen;
+                            delete almacen.nombre_almacen;
+                        });
+                        console.log(lista_almacenes_asignar)
+                        almacen.asignAlmacen(lista_almacenes_asignar, function(data){
+                            if(data.success){
+                                vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                                mostrar_perfiles();
+                            }else{
+                                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                            }   
+                        });
+                }else{
+                        let lista_almacenes_asignar = [{id_usuario:dataRes.data, id_almacen:data.id_almacen}]
+                        almacen_asignar ={almacenes_asignar:lista_almacenes_asignar}
+                        almacen.asignAlmacen(almacen_asignar, function(data){
+                            if(data.success){
+                                vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                                mostrar_perfiles();
+                            }else{
+                                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                            }   
+                        });
+                    }
+                }else{
+                    vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                }
+            });
+        }else{
+            vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        }
 }
 
 function mostrar_editar_perfiles(){
@@ -1568,22 +1600,6 @@ function eliminar_perfil_db(){
     });
 }
 
-
-function mostrar_seleccionar_informe(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("seleccionar_informe", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("seleccionar_informe_desktop", "contenedor_principal", 1);
-    }
-}
-
-
-// Funciones para cambiar plantillas desde la pantalla de Perfiles
-
-
-
-// Funciones para cambiar plantillas desde el menu lateral
 
 function mostrar_busqueda(){
     if(tamañoPantalla.matches){
