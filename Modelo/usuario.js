@@ -81,14 +81,14 @@ class Usuario extends Connect{
     }
 
     // Metodo para actualizar el perfil
-    updatePerfil( dataRequest, updatePerfilCallback ){
+    updateProfile( dataRequest, updatePerfilCallback ){
         const endpoint = 'usuarios/perfiles';
         const method = 'PUT';
         this.connect( dataRequest, endpoint, method, updatePerfilCallback );
     }
 
     // Meotodo para eliminar un perfil
-    deletePerfil( dataRequest, deletePerfilCallback ){
+    deleteProfile( dataRequest, deletePerfilCallback ){
         const endpoint = 'usuarios/perfiles/eliminar';
         const method = 'PUT';
         this.connect( dataRequest, endpoint, method, deletePerfilCallback );

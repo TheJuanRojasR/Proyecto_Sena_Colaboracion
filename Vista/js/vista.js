@@ -1285,13 +1285,13 @@ class Vista {
                         </button>
                         <ul class="dropdown-menu">
                             <li class="d-grid gap-2">
-                                <button type="button" class="btn d-flex align-items-center" data-editar=${perfil.id_usuario} onclick=" editar_perfiles(this)">
+                                <button type="button" class="btn d-flex align-items-center" data-editar=${perfil.id_usuario} onclick="editar_perfiles(this)">
                                     <img src="./Assets/img/lapiz_editar.svg" alt="" />
                                     <p>Editar</p>
                                 </button>
                             </li>
                             <li class="d-grid gap-2">
-                                <button class="btn  d-flex align-items-center">
+                                <button type="button" class="btn d-flex align-items-center" data-eliminar="${perfil.id_usuario}" onclick="eliminar_perfil_vista(this)">
                                     <img src="./Assets/img/eliminar.svg" alt="" />
                                     <p>Eliminar</p>
                                 </button>
@@ -1327,11 +1327,11 @@ class Vista {
                     <a href="#" onclick="mostrar_editar_perfiles()">Editar Perfil</a>
                 </li>
             </ul>
-            <form class="contenedor_campos_edicion" id="form_editar_perfil"> <!-- Contenedor de campos para editar perfil -->
+            <form class="contenedor_campos_edicion" id="form_editar_perfiles"> <!-- Contenedor de campos para editar perfil -->
                 <input type="text" name="" class="input_claro" placeholder="Nuevo Nombre de Usuario" name="nombre_usuario">
                 <select type="text" class="select_edicion" name="id_rol"> <!-- Select para seleccionar el rol del usuario -->
                     <!-- Opciones del select -->
-                    <option selected class="opciones">${perfil[0].nombre_rol}</option>
+                    <option selected  value="${perfil[0].id_rol}" class="opciones">${perfil[0].nombre_rol}</option>
                 </select>
             </form>
         </div>
@@ -1343,15 +1343,15 @@ class Vista {
             <th scope="row" class="td-body-tabla">
                 <input id="input_modificado" class="form-control form-select_modificado" type="text"
                     class="form-control" aria-label="Text input with dropdown button"
-                    placeholder="${perfil[0].nombre_usuario}" name="nombre_usuario"/>
+                    value="${perfil[0].nombre_usuario}" name="nombre_usuario">
             </th>
             <td scope="row" class="td-body-tabla">
                 <select class="form-select form-select_modificado" aria-label="Default select example" name="id_rol">
-                    <option selected>${perfil[0].nombre_rol}</option>
+                    <option value="${perfil[0].id_rol}" selected>${perfil[0].nombre_rol}</option>
                 </select>
             </td> 
             <td class="text-end align-middle">
-                <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_perfiles()">
+                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="guardar_editar_perfil()">
                     <img src="./Assets/img/guardar.svg" alt="" />
                 </button>
             </td>

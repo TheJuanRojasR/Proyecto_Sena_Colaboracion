@@ -13,6 +13,7 @@ let infomacion_salida = null; //Variable para guardar la informacion de una sali
 let idAlmacen = null; //Varialbe para guardar el id del almacen
 let idProducto = null; //Variable para guardar el id del producto
 let idCategoria = null; //Variable para guardar el id de la categoria
+let idPerfil = null; //Variable para guardar el id del perfil
 
 //Listas para cambiar de clases a contenedores
 const lista_clases_main_desktop = ['container-fluid', 'container_main'];
@@ -1038,9 +1039,9 @@ function guardar_editar_categoria(){
 function elimiar_catg_vista(btnEliminar){
     //Se crea el Objeto permiso
     permiso = {id_rol: usuario.id_rol, id_permiso:18}
+    //Consulta a la DB para verificar si tiene permiso para acceder a la pantalla
     usuario.getAllPermisions(permiso, function(data){
         if(data.data[0] > 0){
-            //Consulta a la DB para verificar si tiene permiso para acceder a la pantalla
             idCategoria = parseInt(btnEliminar.getAttribute("data-eliminar"))
             añadir_evento_click("btn_aceptar", eliminar_catg_db);
             vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)
@@ -1459,24 +1460,39 @@ function crear_perfil(){
     data.id_jefe = usuario.id_usuario;
     
     if(data.ok){
-        usuario.registerProfile(data, function(dataRes){
-            if(dataRes.success){
-                const perfil = {id_usuario:dataRes.data, id_almacen:data.id_almacen}
-                almacen.asignAlmacen(perfil, function(data){
-                    if(data.success){
-                        vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-                        mostrar_perfiles();
-                    }else{
-                        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
-                    }   
-                });
-            }else{
-                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
-            }
+        lista_almacenes_asignar = lista_almacenes
+        const prueba = {almacenes_asignar:lista_almacenes_asignar}
+        lista_almacenes.forEach(almacen => {
+                
         });
-    }else{
-        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
     }
+    //     usuario.registerProfile(data, function(dataRes){
+    //         if(dataRes.success){
+    //             almacen.asignAlmacen(perfil, function(data){
+    //                 if(data.success){
+    //                     vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+    //                     mostrar_perfiles();
+    //                 }else{
+    //                     vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    //                 }   
+    //             });
+    //         }else{
+    //             vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    //         }
+    //     });
+    // }else{
+    //     vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+    // }
+}
+
+function mostrar_editar_perfiles(){
+    if(tamañoPantalla.matches){
+        vista.mostrar_plantilla("editar_perfiles", "contenedor_principal", 1);
+    }
+    else{
+        vista.mostrar_plantilla("editar_perfiles_desktop", "contenedor_principal", 1);
+    }
+    cambio_clases();
 }
 
 function editar_perfiles(btnEditar){
@@ -1511,20 +1527,47 @@ function editar_perfiles(btnEditar){
         }else{
             vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
         }
-
     });
 
 }
 
-function mostrar_editar_perfiles(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("editar_perfiles", "contenedor_principal", 1);
+function guardar_editar_perfil(){
+    //Verificacion del form
+    data = vista.getForm("form_editar_perfiles")
+    data.id_usuario = idPerfil; //Se le asigna el id del perfil al objeto data
+    if(data.ok){
+        //Consulta a la DB para actualizar la informacion de un perfil
+        usuario.updateProfile(data, function(data){
+            if(data.success){
+                vista.cambiar_clases("modal_exito", lista_clases_modal_exito_show)
+                mostrar_perfiles(); //Se vuelve a mostrar los perfiles actuales
+            }else{
+                vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
+            }
+        });
+    }else{
+        vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
     }
-    else{
-        vista.mostrar_plantilla("editar_perfiles_desktop", "contenedor_principal", 1);
-    }
-    cambio_clases();
 }
+
+function eliminar_perfil_vista (btnEliminar){
+    idPerfil = parseInt(btnEliminar.getAttribute("data-eliminar"));
+    añadir_evento_click("btn_aceptar", eliminar_perfil_db);
+    vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)
+}
+
+function eliminar_perfil_db(){
+    idPerfil = {id_usuario:idPerfil}
+    usuario.deleteProfile(idPerfil, function(data){
+        if(data.success){
+            mostrar_perfiles();
+            vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion);
+        }else{
+            vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
+        }
+    });
+}
+
 
 function mostrar_seleccionar_informe(){
     if(tamañoPantalla.matches){
