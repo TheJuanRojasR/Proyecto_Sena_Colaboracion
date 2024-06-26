@@ -569,13 +569,7 @@ class Vista {
                               <p>Detalles</p>
                           </button>
                       </li>
-                      <li class="d-grid gap-2">
-                          <button class="btn  d-flex align-items-center" onclick = "borrar_producto(this)" data-eliminar
-                          ="${producto.id_producto}">
-                              <img src="./Assets/img/eliminar.svg" alt="" />
-                              <p>Eliminar</p>
-                          </button>
-                      </li>
+                      <li class="d-grid gap-2"></li>
                   </ul>
               </div>
           </td>

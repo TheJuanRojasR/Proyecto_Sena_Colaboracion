@@ -1674,6 +1674,7 @@ function mostrar_terminos_condiciones(){
     }
     else{
         vista.mostrar_plantilla("terminos_condiciones_desktop", "contenedor_principal", 1);
+        vista.mostrar_plantilla("nav_sup_desktop", "navegador_sup");
     }
 }
 
