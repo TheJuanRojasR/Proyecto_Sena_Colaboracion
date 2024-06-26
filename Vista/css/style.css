@@ -817,9 +817,15 @@ a.page-link:hover {
     padding: 0 5rem;
 }
 
-
 .text-justify {
     text-align: justify;
+}
+
+.index_term_condi {
+    margin-bottom: 1rem;
+    font-family: Inter;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 /* ----------------------------------------------------------------------- */

@@ -5,7 +5,7 @@ class Usuario extends Connect{
         this.nombre_usuario = '';
         this.id_rol = '';
         this.numero_documento = '';
-        this.correo_eletronico = '';
+        this.correo_electronico = '';
         this.contraseña = '';
         this.estado_usuario = '';
     }
@@ -15,7 +15,7 @@ class Usuario extends Connect{
         this.nombre_usuario = data.nombre_usuario;
         this.id_rol = data.id_rol;
         this.numero_documento = data.numero_documento;
-        this.correo_eletronico = data.correo_eletronico;
+        this.correo_electronico = data.correo_electronico;
         this.contraseña = data.contraseña;
         this.id_jefe = data.id_jefe;
         this.estado_usuario = data.estado_usuario;
@@ -74,6 +74,7 @@ class Usuario extends Connect{
         this.connect( dataRequest, endpoint, method, registerPerfilCallback );
     }
 
+    // Metodo para obtener todos los perfiles
     getAllProfile(id_administrador,getAllPerfilCallback ){
         const endpoint = `usuarios/perfiles?id_jefe=${id_administrador}`;
         const method = 'GET';

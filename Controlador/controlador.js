@@ -462,6 +462,11 @@ function guardar_editar_inventario(){
         });
     }else{
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        if(data.msj == "Por favor llene nombre_almacen"){
+            vista.informacion_modales("Por favor llene el Nombre del Almacen", "modal__mensaje")
+        }else if(data.msj == "Por favor llene direccion_almacen"){
+            vista.informacion_modales("Por favor llene la Direccion del Almacen", "modal__mensaje")
+        }
     }
 }
 
@@ -573,17 +578,32 @@ function crear_producto(){
         producto.createProduct(data, function(data){
             if(data.data.message == "El producto ya existe"){
                 vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                vista.informacion_modales("El producto ya exite!. Revisa que el Nombre y Referencia del producto sean unicos.", "modal__mensaje")
             }else{
                 if(data.success){
                     vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
                     mostrar_stock_vacia(idAlmacen); //Llamado para mostrar nuevamente el stock del almacen
                 }else{
                     vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                    vista.informacion_modales("Hubo un error al crear el producto, intentalo otra vez.", "modal__mensaje")
                 }
             }
         });
     }else{
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        if(data.msj == "Por favor llene nombre_producto"){
+            vista.informacion_modales("Por favor llene el Nombre del Producto", "modal__mensaje")
+        }else if(data.msj == "Por favor llene referencia_producto"){
+            vista.informacion_modales("Por favor llene la Referencia del Producto", "modal__mensaje")
+        }else if(data.msj == "Por favor llene cantidad_producto_almacen"){
+            vista.informacion_modales("Por favor llene la Cantidad del Producto", "modal__mensaje")
+        }else if(data.msj == "Por favor llene stock_minimo"){
+            vista.informacion_modales("Por favor llene el Stock Minimo del Producto", "modal__mensaje")
+        }else if(data.msj == "Por favor llene promedio_costo"){
+            vista.informacion_modales("Por favor llene el Costo del Producto", "modal__mensaje")
+        }else if(data.msj == "Por favor llene precio_venta"){
+            vista.informacion_modales("Por favor llene el Precio de Venta del Producto", "modal__mensaje")
+        }
     }
 }
 
@@ -688,6 +708,11 @@ function asignar_producto(){
         });
     }else{
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        if(data.msj == "Por favor llene nombre_producto"){
+            vista.informacion_modales("Por favor llene el Nombre del Producto", "modal__mensaje")
+        }else if(data.msj == "Por favor llene cantidad_producto_almacen"){
+            vista.informacion_modales("Por favor llene la Cantidad del Producto", "modal__mensaje")
+        }
     }
 }
 
@@ -835,21 +860,37 @@ function guardar_editar_producto(){
     data = vista.getForm("form_editar_producto")
     data.id_producto = idProducto;
     if(data.ok){
-        //Consulta a la DB para actualizar la informacion de un producto
-        producto.updateDetailsProduct(data, function(data){
-            if(data.data.message == "El producto ya existe"){
-                vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
-            }else{
-                if(data.success){
-                    vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
-                    mostrar_detalles_producto(idProducto); //Se vuele a mostrar la informacion del producto
-                }else{
+        if(data.id_categoria == "Categoria"){
+            vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            vista.informacion_modales("Por favor seleccione una Categoria", "modal__mensaje")
+        }else{
+            //Consulta a la DB para actualizar la informacion de un producto
+            producto.updateDetailsProduct(data, function(data){
+                if(data.data.message == "El producto ya existe"){
                     vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                }else{
+                    if(data.success){
+                        vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
+                        mostrar_detalles_producto(idProducto); //Se vuele a mostrar la informacion del producto
+                    }else{
+                        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+                    }
                 }
-            }
-        });
+            });
+        }
     }else{
-        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show);
+        if(data.msj == "Por favor llene nombre_producto"){
+            vista.informacion_modales("Por favor llene el Nombre del Producto", "modal__mensaje")
+        }else if(data.msj == "Por favor llene referencia_producto"){
+            vista.informacion_modales("Por favor llene la Referencia del Producto", "modal__mensaje")
+        }else if(data.msj == "Por favor llene cantidad_producto_almacen"){
+            vista.informacion_modales("Por favor llene la Cantidad del Producto", "modal__mensaje")
+        }else if(data.msj == "Por favor llene stock_minimo"){
+            vista.informacion_modales("Por favor llene el Stock Minimo del Producto", "modal__mensaje")
+        }else if(data.msj == "Por favor llene precio_venta"){
+            vista.informacion_modales("Por favor llene el Precio de Venta del Producto", "modal__mensaje")
+        }
     }
 }
 
@@ -989,7 +1030,8 @@ function crear_categoria(){
             }
         });
     }else{
-        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show);
+        vista.informacion_modales("Por favor llene el Nombre de la Categoria", "modal__mensaje");
     }
 
 }
@@ -1004,7 +1046,7 @@ function mostrar_editar_categoria(btnEditar){
     permiso = {id_rol: usuario.id_rol, id_permiso:17}
     //Consulta a la DB para verificar si tiene permiso para acceder a la pantalla
     usuario.getAllPermisions(permiso, function(data){
-        if(data.data[0] > 0){
+        if(data.data[0].Permisos > 0){
             idCategoria = parseInt(btnEditar.getAttribute("data-editar"));
         
             if(tamañoPantalla.matches){
@@ -1039,7 +1081,8 @@ function guardar_editar_categoria(){
             }
         });
     }else{
-        vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        vista.cambiar_clases('modal_error', lista_clases_modal_error_show);
+        vista.informacion_modales("Por favor llene el Nombre de la Categoria", "modal__mensaje");
     }
 }
 
@@ -1052,7 +1095,7 @@ function elimiar_catg_vista(btnEliminar){
     permiso = {id_rol: usuario.id_rol, id_permiso:18}
     //Consulta a la DB para verificar si tiene permiso para acceder a la pantalla
     usuario.getAllPermisions(permiso, function(data){
-        if(data.data[0] > 0){
+        if(data.data[0].Permisos > 0){
             idCategoria = parseInt(btnEliminar.getAttribute("data-eliminar"))
             añadir_evento_click("btn_aceptar", eliminar_catg_db);
             vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion_show)
@@ -1070,11 +1113,14 @@ function eliminar_catg_db(){
     numero_categoria = {id_categoria:idCategoria}
     //Consulta a la DB para eliminar la categoria
     producto.deleteCategory(numero_categoria, function(data){
-        if(data.success){
-            mostrar_categorias()
+        if(data.data.message != "No se puede actualizar la categoria porque tiene productos asociados"){
             vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion);
+            vista.cambiar_clases("modal_exito", lista_clases_modal_exito_show);
+            mostrar_categorias()
         }else{
             vista.cambiar_clases("modal_error", lista_clases_modal_error_show)
+            vista.informacion_modales(data.data.message, "modal__mensaje")
+            vista.cambiar_clases("modal_confirmacion", lista_clases_modal_confirmacion);
         }
     })
 }
@@ -1184,11 +1230,12 @@ function agregar_producto_entrada(){
     //Se busca el nombre del producto y se inserta en el objeto
     let nombre_producto_entrada = lista_productos.find(x => x.id_producto == producto_entrada.id_producto);
 
-    //Se inserta el nombre del producto en el objeto
-    producto_entrada.nombre_producto = nombre_producto_entrada.nombre_producto;
-
+    
     //Si la informacion del form esta completa se muestra el modal de exito y se inserta la informacion en la tabla
-    if(producto_entrada.ok){
+    if(producto_entrada.id_producto != "Seleccionar Producto"){
+        //Se inserta el nombre del producto en el objeto
+        producto_entrada.nombre_producto = nombre_producto_entrada.nombre_producto;
+
         vista.cambiar_clases('modal_exito', lista_clases_modal_exito_show)
 
         pantalla = tamañoPantalla.matches
@@ -1218,6 +1265,15 @@ function agregar_producto_entrada(){
 
     }else{
         vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+        if(producto_entrada.msj == "Por favor llene origen_entrada"){
+            vista.informacion_modales("Por favor llene el Origen de la Entrada", "modal__mensaje")
+        }else if(producto_entrada.id_producto == "Seleccionar Producto"){
+            vista.informacion_modales("Por favor seleccione un Producto", "modal__mensaje")
+        }else if(producto_entrada.msj == "Por favor llene cantidad_entrada"){
+            vista.informacion_modales("Por favor llene la Cantidad del Producto", "modal__mensaje")
+        }else if(producto_entrada.msj == "Por favor llene precio_compra"){
+            vista.informacion_modales("Por favor llene el Precio de Compra del Producto", "modal__mensaje")
+        }   
     }
 }
 
@@ -1229,6 +1285,7 @@ function crear_entrada(){
             mostrar_movimientos_vacia();
         }else{
             vista.cambiar_clases('modal_error', lista_clases_modal_error_show)
+            vista.informacion_modales("Oops! Hubo un problema al crear la entrada, intentalo nuevamente", "modal__mensaje")
         }
     });
 }
@@ -1600,6 +1657,7 @@ function eliminar_perfil_db(){
     });
 }
 
+//----------------- MENU LATERAL -----------------\\
 
 function mostrar_busqueda(){
     if(tamañoPantalla.matches){
@@ -1629,22 +1687,43 @@ function mostrar_politicas_privacidad(){
 }
 
 function mostrar_ajustes_usuario(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("ajustes_usuario", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("ajustes_usuario_desktop", "contenedor_principal", 1);
-    }
+    //Consulta a la DB para traer la informacion del usuario
+    usuario.getUser(usuario.id_usuario, function(data){
+        if(data.success){
+            if(tamañoPantalla.matches){
+                vista.mostrar_plantilla("ajustes_usuario", "contenedor_principal", 1);
+            }
+            else{
+                vista.mostrar_plantilla("ajustes_usuario_desktop", "contenedor_principal", 1);
+            }
+            cambio_clases();
+            pantalla = tamañoPantalla.matches;
+            usuario_actual = data.data[0];
+            vista.informacion_ajustes_usuario(pantalla, usuario_actual, "fila_ajustes_usuario")
+        }
+    });
 }
 
 function mostrar_editar_usario(){
-    if(tamañoPantalla.matches){
-        vista.mostrar_plantilla("editar_usuario", "contenedor_principal", 1);
-    }
-    else{
-        vista.mostrar_plantilla("editar_usuario_desktop", "contenedor_principal", 1);
-    }
-
+    usuario.getUser(usuario.id_usuario, function(data){
+        if(tamañoPantalla.matches){
+            vista.mostrar_plantilla("editar_usuario", "contenedor_principal", 1);
+        }
+        else{
+            vista.mostrar_plantilla("editar_usuario_desktop", "contenedor_principal", 1);
+        }
+        cambio_clases();
+        pantalla = tamañoPantalla.matches;
+        usuario_actual = data.data[0];
+        vista.informacion_editar_ajustes_usuario(pantalla, usuario_actual, "fila_editar_ajustes")
+        usuario.getAllDocuments(function (data) {
+            if(data.success) {
+                lista_opciones = []
+                lista_opciones = data.data
+                console.log(lista_opciones)
+            } 
+        });
+    });  
 }
 
 function mostrar_ayuda(){

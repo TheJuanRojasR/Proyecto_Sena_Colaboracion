@@ -1366,9 +1366,155 @@ class Vista {
         cont.innerHTML += html;
     }
   }
-
+  
+  /**
+   * Metodo para insertar mensaje a modales
+   * @param {*} texto: texto a insertar en el modal
+   * @param {*} id_contenedor: id del contenedor donde se inserta el texto
+   */
   informacion_modales(texto, id_contenedor){
     let cont = document.getElementById(id_contenedor)
     cont.textContent = texto
+  }
+
+  /**
+   * Metodo para mostrar la informacion actual del usuario en ajustes.
+   * @param {*} tamaño: tamaño de la pantalla para mostrar un diseño u otro
+   * @param {*} usuario: informacion del usuario a mostrar
+   * @param {*} id_contenedor: contenedor donde se inserta la informacion
+   */
+  informacion_ajustes_usuario(tamaño, usuario, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    if(tamaño == true){
+        const html = `
+        <!-- Contendor de form para ajustes de usuario -->
+        <input disabled class="input_transparente" type="text" value="${usuario.nombre_usuario}" name="nombre_usuario">
+        <input disabled class="input_transparente" type="text" value="${usuario.tipo_documento}" name="tipo_documento">
+        <input disabled class="input_transparente" type="text" value="${usuario.numero_documento}" name="numero_documento">
+        <input disabled class="input_transparente" type="text" value="${usuario.correo_electronico}" name="correo_electronico">
+        <input disabled class="input_transparente" type="text" value="********" name="contraseña">
+        `;
+        cont.innerHTML += html;
+    }else{
+        const html = `
+        <tr>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">Nombre de Usuario</p>
+            </td>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">${usuario.nombre_usuario}</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">Tipo de Documento</p>
+            </td>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">${usuario.tipo_documento}</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">Numero de Documento</p>
+            </td>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">${usuario.numero_documento}</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">Correo Electronico</p>
+            </td>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">${usuario.correo_electronico}</p>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">Contraseña</p>
+            </td>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">********</p>
+            </td>
+        </tr>
+        `;
+        cont.innerHTML += html;
+    }
+  }
+
+  informacion_editar_ajustes_usuario(tamaño, usuario, id_contenedor){
+    let cont = document.getElementById(id_contenedor);
+    if(tamaño == true){
+
+    }else{
+        const html = `
+        <tr>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">Nombre de Usuario</p>
+            </td>
+            <td class="td-body-tabla">
+                <div class="form-floating">
+                    <input type="text" class="form-control form-select_modificado" value="${usuario.nombre_usuario}" name="nombre_usuario"/>
+                    <label for="floatingInputValue">Nuevo nombre de Usuario</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">Tipo de Documento</p>
+            </td>
+            <td class="td-body-tabla">
+                <select class="form-select form-select_modificado mb-2" aria-label="Default select example" name="tipo_documento">
+                    <option selected>${usuario.tipo_documento}</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">Numero de Documento</p>
+            </td>
+            <td class="td-body-tabla">
+                <div class="form-floating">
+                    <input type="number" class="form-control form-select_modificado" value="${usuario.numero_documento}" name="numero_documento"/>
+                    <label for="floatingInputValue">Numero de Documento</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">Correo Electronico</p>
+            </td>
+            <td class="td-body-tabla">
+                <div class="form-floating">
+                    <input type="email" class="form-control form-select_modificado" value="${usuario.correo_electronico}" name="correo_electronico"/>
+                    <label for="floatingInputValue">Correo Electronico</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">Contraseña</p>
+            </td>
+            <td class="td-body-tabla">
+                <div class="form-floating">
+                    <input type="password" class="form-control form-select_modificado" placeholder="" name="contraseña"/>
+                    <label for="floatingInputValue">Nueva Contraseña</label>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-body-tabla">
+                <p class="td-body-tabla_opciones">Repetir Contraseña</p>
+            </td>
+            <td class="td-body-tabla">
+                <div class="form-floating">
+                    <input type="password" class="form-control form-select_modificado" placeholder="" name="contraseña"/>
+                    <label for="floatingInputValue">Repetir Nueva Contraseña</label>
+                </div>
+            </td>
+        </tr>
+        `;
+        cont.innerHTML += html;
+    }
   }
 }

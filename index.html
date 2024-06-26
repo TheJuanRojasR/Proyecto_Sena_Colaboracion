@@ -1394,14 +1394,7 @@
                 <div class="contenedor_titulo_small"> <!-- Titulos pequeños -->
                     <p class="title_small">Ajustes del Usuario</p>
                 </div>
-                <form class="container d-flex flex-column align-items-center contenedor_form contenedor_form_ajustes" id="form_ajustes_usuario">
-                    <!-- Contendor de form para ajustes de usuario -->
-                    <input disabled class="input_transparente" type="text" placeholder="Nombre Completo" name="nombre_usuario">
-                    <input disabled class="input_transparente" type="text" placeholder="Tipo Documento" name="tipo_documento">
-                    <input disabled class="input_transparente" type="text" placeholder="Numero Documento" name="numero_documento">
-                    <input disabled class="input_transparente" type="text" placeholder="Correo Electronico" name="correo_electronico">
-                    <input disabled class="input_transparente" type="text" placeholder="Contraseña" name="contraseña">
-                </form>
+                <div class="container d-flex flex-column align-items-center contenedor_form contenedor_form_ajustes" id="fila_ajustes_usuario"></div>
                 <div
                     class="container d-flex flex-column align-items-center justify-content-between contenedor_botones_largos">
                     <!-- Contenedor de botones para ver movimientos y editar el producto -->
@@ -1684,13 +1677,13 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
-                  </div>
+                </div>
             </div>
         </div>
         <div class="cont_blanco" id="cont_funciones">
-                <div id="cont_titulo_funciones">
-                    <h2 class="titulo_oscuro">Gestiona las existencias de tu empresa, y conoce el exito.</h2>
-                </div>
+            <div id="cont_titulo_funciones">
+                <h2 class="titulo_oscuro">Gestiona las existencias de tu empresa, y conoce el exito.</h2>
+            </div>
             <div class="d-flex" id="cont_lista_inicio">
                 <ol id="lista_inicio">
                     <li class="items_lista">Personaliza todos tus Almaces</li>
@@ -2549,7 +2542,7 @@
         </div>
         <hr />
         <div class="container">
-            <form action="" id="form_crear_categoria"></form>
+            <form action="" id="form_crear_categoria">
                 <table class="table">
                     <thead>
                         <tr>
@@ -2570,7 +2563,7 @@
                                     placeholder="Ingreso nombre de Categoria" name="nombre_categoria"/>
                             </th>
                             <td class="text-end">
-                                <button class="btn btn-tabla-icono btnGuardar-tabla" onclick="mostrar_categorias()">
+                                <button type="button" class="btn btn-tabla-icono btnGuardar-tabla" onclick="crear_categoria()">
                                     <img src="./Assets/img/guardar.svg" alt="" />
                                 </button>
                             </td>
@@ -3110,74 +3103,48 @@
         </div>
         <hr />
         <div class="container">
-            <p class="element-with-padding text-justify menu__paragraph">Lorem ipsum dolor sit amet consectetur.
-                Viverra a
-                rhoncus consectetur quam eget praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit
-                sodales. Viverra vitae lectus neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet
-                quis
-                suspendisse. Consequat tellus vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla
-                tincidunt laoreet semper. Nec augue massa libero est.
-                At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi adipiscing
-                integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut tempus. Eget duis
-                lectus
-                ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit et egestas consectetur.
-                Blandit
-                ut risus blandit pharetra tortor sagittis interdum. Id phasellus urna arcu accumsan et faucibus.
-                Purus
-                arcu ultrices diam donec. Nunc tincidunt est volutpat egestas amet in. Pellentesque eleifend tellus
-                mi
-                ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.
-                Nulla nisl neque elit viverra mauris. Imperdiet neque magna id vestibulum eu id nisi. In vestibulum
-                pellentesque sed ultrices ultrices et. Donec imperdiet diam arcu vulputate nulla pellentesque
-                consectetur dignissim. Adipiscing diam lectus fermentum urna eu mi cras ornare. Justo ipsum bibendum
-                feugiat sagittis mollis dapibus id. Mattis vel ultricies augue orci. Est amet viverra hac ultrices
-                id
-                cursus semper amet tristique. Bibendum elit viverra ullamcorper sagittis nibh penatibus. Enim
-                vivamus
-                tincidunt in id mattis ornare est nunc. Enim eget viverra non aliquet nisl sem lectus nisl.
-                Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor suspendisse viverra
-                pellentesque. Urna interdum augue mi est commodo in est etiam nunc. Pulvinar scelerisque quis odio
-                lorem
-                blandit id id auctor mi. Nulla ullamcorper nisi ac amet. Consequat sed a dui mauris. Ut et convallis
-                tortor convallis blandit eget tempor eget. Tellus arcu odio id ut egestas sit sed non. Et varius
-                dictumst facilisi malesuada felis.
-                Pulvinar massa eu non mi blandit venenatis tellus ornare ligula. Tristique ultrices orci feugiat
-                platea
-                nibh turpis id turpis augue. Ut quisque ut placerat et. Sociis dolor semper ut maecenas. Dui
-                bibendum id
-                massa varius vitae at urna odio. Pulvinar interdum ipsum quisque morbi sodales nibh quam. Volutpat
-                ipsum
-                elementum volutpat hac cras et sit at sem. Mauris ultrices auctor ullamcorper lectus diam viverra
-                scelerisque. Quis felis id nulla id viverra sodales sem congue integer.
-                Sed molestie consequat elementum id tellus tortor condimentum imperdiet. Magna dictumst molestie at
-                gravida mauris. Blandit dui eget faucibus in augue. Eget in feugiat egestas orci. Ac porttitor
-                sapien
-                orci amet purus est sit. Molestie id aliquam odio elit feugiat amet. Commodo duis est mi faucibus
-                odio
-                euismod lectus maecenas vitae. Ac nisl nisl ultrices risus turpis fames lacinia massa consectetur.
-                Sed
-                tellus condimentum nunc ornare orci viverra interdum.
-                In ut dignissim pretium lacus senectus bibendum vestibulum ultrices. Pulvinar amet luctus cras in.
-                Lorem
-                eu arcu vitae a lectus sagittis. Scelerisque morbi diam pretium morbi consectetur posuere. Velit
-                turpis
-                pretium risus eu. Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam eget
-                praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit sodales. Viverra vitae lectus
-                neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis suspendisse. Consequat
-                tellus
-                vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla tincidunt laoreet semper. Nec
-                augue
-                massa libero est.
-                At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi adipiscing
-                integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut tempus. Eget duis
-                lectus
-                ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit et egestas consectetur.
-                Blandit
-                ut risus blandit pharetra tortor sagittis interdum. Id phasellus urna arcu accumsan et faucibus.
-                Purus
-                arcu ultrices diam donec. Nunc tincidunt est volutpat egestas amet in. Pellentesque eleifend tellus
-                mi
-                ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.</p>
+            <ol class="element-with-padding">
+                <li class="index_term_condi">Introducción</li>
+                <p class="menu__paragraph text-justify">
+                    Bienvenido a Variety Vault. Al acceder y usar nuestro Sitio, usted acepta cumplir y estar sujeto a los siguientes términos y condiciones. Si no está de acuerdo con estos Términos, le rogamos que no utilice nuestro Sitio.
+                </p>
+                <li class="index_term_condi">Uso del Sitio</li>
+                <p class="menu__paragraph text-justify">
+                    2.1. El contenido del Sitio es solo para su información general y uso personal. Está sujeto a cambios sin previo aviso. <br>
+                    2.2. No está permitido el uso del contenido del Sitio con fines comerciales sin nuestro consentimiento expreso por escrito. <br>
+                    2.3. Usted acepta no usar el Sitio de ninguna manera que pueda dañar, desactivar, sobrecargar o deteriorar el Sitio o interferir con el uso y disfrute del Sitio por parte de terceros. <br>
+                </p>
+                <li class="index_term_condi">Propiedad Intelectual</li>
+                <p class="menu__paragraph text-justify">
+                    3.1. Todos los derechos de propiedad intelectual en el contenido del Sitio, incluidos, entre otros, textos, gráficos, logotipos, íconos de botones, imágenes, clips de audio, descargas digitales, compilaciones de datos y software, son propiedad de Variety Vault o de sus proveedores de contenido y están protegidos por las leyes de derechos de autor. <br>
+                    3.2. Usted puede ver, descargar e imprimir páginas del Sitio para su uso personal, sujeto a las restricciones establecidas en estos Términos.
+                </p>
+                <li class="index_term_condi">Privacidad</li>
+                <p class="menu__paragraph text-justify">
+                    Nuestra Política de Privacidad explica cómo recopilamos, usamos y protegemos su información personal cuando usa nuestro Sitio. Al usar el Sitio, usted acepta la recopilación y el uso de la información de acuerdo con nuestra Política de Privacidad.
+                </p>
+                <li class="index_term_condi">Limitación de Responsabilidad</li>
+                <p class="menu__paragraph text-justify">
+                    5.1. El contenido del Sitio se proporciona "tal cual" y "según disponibilidad". No garantizamos que el contenido sea preciso, completo o actual. <br>
+                    5.2. En la medida máxima permitida por la ley, Variety Vault no será responsable de ningún daño directo, indirecto, incidental, especial o consecuente que resulte del uso o la imposibilidad de uso del Sitio.
+                </p>
+                <li class="index_term_condi">Enlaces a Otros Sitios Web</li>
+                <p class="menu__paragraph text-justify">
+                    El Sitio puede contener enlaces a otros sitios web que no están bajo el control de Variety Vault. No tenemos control sobre la naturaleza, el contenido y la disponibilidad de esos sitios. La inclusión de cualquier enlace no implica necesariamente una recomendación ni respalda las opiniones expresadas en ellos.
+                </p>
+                <li class="index_term_condi">Cambios en los Términos</li>
+                <p class="menu__paragraph text-justify">
+                    Nos reservamos el derecho de modificar estos Términos en cualquier momento. Le notificaremos cualquier cambio actualizando la fecha en la parte superior de estos Términos. Su uso continuado del Sitio después de dichos cambios constituye su aceptación de los nuevos Términos.
+                </p>
+                <li class="index_term_condi">Ley Aplicable</li>
+                <p class="menu__paragraph text-justify">
+                    Estos Términos se regirán e interpretarán de acuerdo con las leyes de Jurisdicción. Cualquier disputa relacionada con estos Términos estará sujeta a la jurisdicción exclusiva de los tribunales de Jurisdicción.
+                </p>
+                <li class="index_term_condi">Contacto</li>
+                <p class="menu__paragraph text-justify">
+                    Si tiene alguna pregunta sobre estos Términos, por favor contáctenos en support@varietyvault.com.
+                </p>
+            </ol>
         </div>
     </template>
 
@@ -3192,74 +3159,75 @@
         </div>
         <hr />
         <div class="container">
-            <p class="element-with-padding text-justify menu__paragraph">Lorem ipsum dolor sit amet consectetur.
-                Viverra a
-                rhoncus consectetur quam eget praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit
-                sodales. Viverra vitae lectus neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet
-                quis
-                suspendisse. Consequat tellus vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla
-                tincidunt laoreet semper. Nec augue massa libero est.
-                At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi adipiscing
-                integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut tempus. Eget duis
-                lectus
-                ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit et egestas consectetur.
-                Blandit
-                ut risus blandit pharetra tortor sagittis interdum. Id phasellus urna arcu accumsan et faucibus.
-                Purus
-                arcu ultrices diam donec. Nunc tincidunt est volutpat egestas amet in. Pellentesque eleifend tellus
-                mi
-                ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.
-                Nulla nisl neque elit viverra mauris. Imperdiet neque magna id vestibulum eu id nisi. In vestibulum
-                pellentesque sed ultrices ultrices et. Donec imperdiet diam arcu vulputate nulla pellentesque
-                consectetur dignissim. Adipiscing diam lectus fermentum urna eu mi cras ornare. Justo ipsum bibendum
-                feugiat sagittis mollis dapibus id. Mattis vel ultricies augue orci. Est amet viverra hac ultrices
-                id
-                cursus semper amet tristique. Bibendum elit viverra ullamcorper sagittis nibh penatibus. Enim
-                vivamus
-                tincidunt in id mattis ornare est nunc. Enim eget viverra non aliquet nisl sem lectus nisl.
-                Eu pretium et vestibulum hac commodo sit. Vel sit dui scelerisque tempor suspendisse viverra
-                pellentesque. Urna interdum augue mi est commodo in est etiam nunc. Pulvinar scelerisque quis odio
-                lorem
-                blandit id id auctor mi. Nulla ullamcorper nisi ac amet. Consequat sed a dui mauris. Ut et convallis
-                tortor convallis blandit eget tempor eget. Tellus arcu odio id ut egestas sit sed non. Et varius
-                dictumst facilisi malesuada felis.
-                Pulvinar massa eu non mi blandit venenatis tellus ornare ligula. Tristique ultrices orci feugiat
-                platea
-                nibh turpis id turpis augue. Ut quisque ut placerat et. Sociis dolor semper ut maecenas. Dui
-                bibendum id
-                massa varius vitae at urna odio. Pulvinar interdum ipsum quisque morbi sodales nibh quam. Volutpat
-                ipsum
-                elementum volutpat hac cras et sit at sem. Mauris ultrices auctor ullamcorper lectus diam viverra
-                scelerisque. Quis felis id nulla id viverra sodales sem congue integer.
-                Sed molestie consequat elementum id tellus tortor condimentum imperdiet. Magna dictumst molestie at
-                gravida mauris. Blandit dui eget faucibus in augue. Eget in feugiat egestas orci. Ac porttitor
-                sapien
-                orci amet purus est sit. Molestie id aliquam odio elit feugiat amet. Commodo duis est mi faucibus
-                odio
-                euismod lectus maecenas vitae. Ac nisl nisl ultrices risus turpis fames lacinia massa consectetur.
-                Sed
-                tellus condimentum nunc ornare orci viverra interdum.
-                In ut dignissim pretium lacus senectus bibendum vestibulum ultrices. Pulvinar amet luctus cras in.
-                Lorem
-                eu arcu vitae a lectus sagittis. Scelerisque morbi diam pretium morbi consectetur posuere. Velit
-                turpis
-                pretium risus eu. Lorem ipsum dolor sit amet consectetur. Viverra a rhoncus consectetur quam eget
-                praesent hac vel. Egestas neque vivamus nisi sit mauris massa suscipit sodales. Viverra vitae lectus
-                neque suscipit diam sed nunc. Eu malesuada in pretium congue aliquet quis suspendisse. Consequat
-                tellus
-                vivamus magna eu dui. In vel felis feugiat risus eu a. Egestas nulla tincidunt laoreet semper. Nec
-                augue
-                massa libero est.
-                At leo sem id neque nulla ultrices. Augue et cum sed porttitor nunc mauris nec. Facilisi adipiscing
-                integer sodales enim lorem. Ac neque sapien nisl ipsum nec. Pretium sed nam ut tempus. Eget duis
-                lectus
-                ultrices adipiscing. Purus nunc tellus sem habitasse purus. Ut nec sit et egestas consectetur.
-                Blandit
-                ut risus blandit pharetra tortor sagittis interdum. Id phasellus urna arcu accumsan et faucibus.
-                Purus
-                arcu ultrices diam donec. Nunc tincidunt est volutpat egestas amet in. Pellentesque eleifend tellus
-                mi
-                ornare nec interdum eu congue netus. Gravida vulputate aenean quam molestie urna viverra ipsum.</p>
+            <ol class="element-with-padding">
+                <li class="index_term_condi">Introducción</li>
+                <p class="menu__paragraph text-justify">
+                    En Variety Vault, valoramos su privacidad y estamos comprometidos a proteger su información personal. Esta Política de Privacidad describe cómo recopilamos, usamos y protegemos su información cuando utiliza nuestro sitio web http://www.varietyvault.com.
+                </p>
+                <li class="index_term_condi">Información que Recopilamos</li>
+                <p class="menu__paragraph text-justify">
+                    2.1. Información Personal: <br>
+                    Podemos recopilar información personal que usted nos proporciona directamente, como su nombre, dirección de correo electrónico, número de teléfono y otra información de contacto cuando se registra en nuestro sitio, suscribe a nuestros boletines, completa formularios o se comunica con nosotros.
+                    <br>
+                    2.2. Información de Uso: <br>
+                    Recopilamos automáticamente información sobre su interacción con nuestro Sitio, como su dirección IP, tipo de navegador, páginas visitadas, tiempo de permanencia en las páginas y otros datos de uso.
+                    <br>
+                    2.3. Cookies y Tecnologías Similares: <br>
+                    Utilizamos cookies y tecnologías similares para recopilar información sobre su uso del Sitio y mejorar su experiencia. Puede configurar su navegador para rechazar cookies, pero esto puede afectar la funcionalidad del Sitio.
+                </p>
+                <li class="index_term_condi">Uso de la Información</li>
+                <p class="menu__paragraph text-justify">
+                    3.1. Utilizamos la información que recopilamos para los siguientes fines:
+                    <br>
+                    <ul>
+                        <li class="menu__paragraph text-justify">Proveer, operar y mantener nuestro Sitio.</li>
+                        <li class="menu__paragraph text-justify">Mejorar, personalizar y expandir nuestro Sitio.</li>
+                        <li class="menu__paragraph text-justify">Comprender y analizar cómo utiliza nuestro Sitio.</li>
+                        <li class="menu__paragraph text-justify">Desarrollar nuevos productos, servicios, características y funcionalidades.</li>
+                        <li class="menu__paragraph text-justify">Comunicarnos con usted, ya sea directamente o a través de uno de nuestros socios, incluyendo para el servicio al cliente, proporcionarle actualizaciones y otra información relacionada con el Sitio, y con fines de marketing y promoción.</li>
+                        <li class="menu__paragraph text-justify">Procesar sus transacciones y enviarle información relacionada, incluyendo confirmaciones y facturas.</li>
+                        <li class="menu__paragraph text-justify">Encontrar y prevenir el fraude.</li>
+                    </ul>
+                </p>
+                <li class="index_term_condi">Compartir Información</li>
+                <p class="menu__paragraph text-justify">
+                    4.1. No vendemos, alquilamos ni intercambiamos su información personal con terceros sin su consentimiento, excepto en las siguientes circunstancias: <br>
+                    Con proveedores de servicios de confianza que trabajan en nuestro nombre, bajo acuerdos de confidencialidad. <br>
+                    Cuando sea necesario para cumplir con una obligación legal. <br>
+                    Para proteger y defender nuestros derechos y propiedad.
+                    Con su consentimiento expreso para compartir la información.
+                </p>
+                <li class="index_term_condi">Seguridad de la Información</li>
+                <p class="menu__paragraph text-justify">
+                    Implementamos medidas de seguridad técnicas, administrativas y físicas para proteger su información personal contra pérdida, robo y uso no autorizado, acceso o modificación.
+                </p>
+                <li class="index_term_condi">Sus Derechos</li>
+                <p class="menu__paragraph text-justify">
+                    Dependiendo de su jurisdicción, usted puede tener los siguientes derechos con respecto a su información personal: <br>
+                    Derecho a acceder a su información personal y a recibir una copia de la misma. <br>
+                    Derecho a rectificar cualquier información incorrecta o incompleta. <br>
+                    Derecho a eliminar su información personal. <br>
+                    Derecho a restringir el procesamiento de su información personal. <br>
+                    Derecho a la portabilidad de los datos. <br>
+                    Derecho a oponerse al procesamiento de su información personal. <br>
+                    Derecho a retirar su consentimiento en cualquier momento. <br>
+                    Para ejercer estos derechos, por favor contáctenos en support@varietyvault.com.
+                </p>
+                <li class="index_term_condi">Enlaces a Otros Sitios Web</li>
+                <p class="menu__paragraph text-justify">
+                    Nuestro Sitio puede contener enlaces a otros sitios web que no son operados por nosotros. No somos responsables de las prácticas de privacidad de esos sitios web y le recomendamos que revise las políticas de privacidad de cada sitio web que visite.
+                </p>
+                <li class="index_term_condi">Cambios a Esta Política de Privacidad</li>
+                <p class="menu__paragraph text-justify">
+                    Podemos actualizar nuestra Política de Privacidad de vez en cuando. Le notificaremos cualquier cambio publicando la nueva Política de Privacidad en esta página. Le recomendamos que revise esta Política de Privacidad periódicamente para estar informado de cómo protegemos su información.
+                </p>
+                <li class="index_term_condi">Contacto</li>
+                <p class="menu__paragraph text-justify">
+                    Si tiene alguna pregunta sobre esta Política de Privacidad, por favor contáctenos en: <br>
+                    Variety Vault <br>
+                    support@varietyvault.com 
+                </p>
+            </ol>
         </div>
     </template>
 
@@ -3283,50 +3251,9 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Nombre de Usuario</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ej: Administrador</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Tipo de Documento</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ej: Cedula de Ciudadania</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Numero de Documento</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Ej: 123456789</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Correo Electronico</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">administrador@gmail.com</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">Contraseña</p>
-                        </td>
-                        <td class="td-body-tabla">
-                            <p class="td-body-tabla_opciones">********</p>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="fila_ajustes_usuario"></tbody>
             </table>
-            <button class="btn btn-general position-absolute bottom-0 end-0">Editar</button>
+            <button type="button" class="btn btn-general position-absolute bottom-0 end-0" onclick="mostrar_editar_usario()">Editar</button>
         </div>
     </template>
 
@@ -3341,88 +3268,19 @@
         </div>
         <hr />
         <div class="container container_min_height position-relative">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col" class="">
-                        </th>
-                        <th scope="col" class="">
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <form id="form_editar_usuario_desktop">
+            <form id="form_editar_usuario_desktop">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td class="td-body-tabla">
-                                <p class="td-body-tabla_opciones">Nombre de Usuario</p>
-                            </td>
-                            <td class="td-body-tabla">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control form-select_modificado" placeholder="" name="nombre_usuario"/>
-                                    <label for="floatingInputValue">Nuevo nombre de Usuario</label>
-                                </div>
-                            </td>
+                            <th scope="col" class="">
+                            </th>
+                            <th scope="col" class="">
+                            </th>
                         </tr>
-                        <tr>
-                            <td class="td-body-tabla">
-                                <p class="td-body-tabla_opciones">Tipo de Documento</p>
-                            </td>
-                            <td class="td-body-tabla">
-                                <select class="form-select form-select_modificado mb-2" aria-label="Default select example" name="tipo_documento">
-                                    <option selected>Tipo de Documento</option>
-                                    <option value="1">Cedula de Ciudadania</option>
-                                    <option value="2">Cedula de Extranjeria</option>
-                                    <option value="3">Rut</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-body-tabla">
-                                <p class="td-body-tabla_opciones">Numero de Documento</p>
-                            </td>
-                            <td class="td-body-tabla">
-                                <div class="form-floating">
-                                    <input type="number" class="form-control form-select_modificado" placeholder="" name="numero_documento"/>
-                                    <label for="floatingInputValue">Numero de Documento</label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-body-tabla">
-                                <p class="td-body-tabla_opciones">Correo Electronico</p>
-                            </td>
-                            <td class="td-body-tabla">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control form-select_modificado" placeholder="" name="correo_electronico"/>
-                                    <label for="floatingInputValue">Correo Electronico</label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-body-tabla">
-                                <p class="td-body-tabla_opciones">Contraseña</p>
-                            </td>
-                            <td class="td-body-tabla">
-                                <div class="form-floating">
-                                    <input type="password" class="form-control form-select_modificado" placeholder="" name="contraseña"/>
-                                    <label for="floatingInputValue">Nueva Contraseña</label>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="td-body-tabla">
-                                <p class="td-body-tabla_opciones">Repetir Contraseña</p>
-                            </td>
-                            <td class="td-body-tabla">
-                                <div class="form-floating">
-                                    <input type="password" class="form-control form-select_modificado" placeholder="" name="contraseña"/>
-                                    <label for="floatingInputValue">Repetir Nueva Contraseña</label>
-                                </div>
-                            </td>
-                        </tr>
-                    </form>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody id="fila_editar_ajustes"></tbody>
+                </table>
+            </form>
             <button class="btn btn-general position-absolute bottom-0 end-0">Guardar</button>
         </div>
     </template>
